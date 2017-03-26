@@ -1,0 +1,71 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Members{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Message<span>Messages</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Messages</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <button class="btn btn-primary">Search</button>
+          <a class="btn btn-default" href="/member/messages?keyword={{ keyword }}&download=1">Export</a>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+
+                <th>Sender</th>
+                <th>Receiver</th>
+                <th>type</th>
+                <th>project</th>
+                <th>Content</th>
+                <th>Time</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate data %}
+            {% for m in data %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td><a href="{% url 'member.edit' m.sender.id %}">{{ m.sender|safe }}</a></td>
+                <td><a href="{% url 'member.edit' m.receiver.id %}">{{ m.receiver|safe }}</a></td>
+                <td>{{ m.get_type_relation_display|safe }}</td>
+                {% if m.type_relation == 0 %}
+                <td></td>
+                {% endif %}
+                {% if m.type_relation == 1 and m.project.id > 0 %}
+                <td><a href="{% url 'project.detail' m.project.id %}">{{ m.project.name_cn|safe }}</a></td>
+                {% endif %}
+                {% if m.type_relation == 2 %}
+                <td><a href="{% url 'demand.detail' m.demand.id %}">{{ m.demand.name_cn|safe }}</a></td>
+                {% endif %}
+
+                <td>{{ m.content|safe }}</td>
+                <td>{{ m.add_time|date:'Y-m-d H:i:s' }}</td>
+                <td>
+                    <a href="javascript:;" title="remove"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+{% paginate %}
+{% endblock %}

@@ -1,0 +1,267 @@
+{% extends "common/en-us/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+<div class="col-xs-12">
+<div class="col-xs-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="project_detail_block">
+                <h3>{{ d.name_en |truncatechars:64 }}&nbsp;<span class="pull-right"> <i class="glyphicon glyphicon-time"></i>
+
+                Validity Period：{{ d.expire_date|date:'Y-m-d' }}
+                
+                &nbsp;&nbsp; 
+                 
+                 
+                     {% if is_own != True %}
+                    <button class="btn-xs btn-primary send_message_btn" data-message-id="{{d.id}}" data-message-type="2"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Message</button> &nbsp;&nbsp;
+                        {% if is_added_favorite %}
+                              <button class="btn-xs btn-primary btn-cancelfavorite" data-id="{{ d.id }}" data-type="demand"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;WatchList</button> &nbsp;&nbsp;
+                        {% else %}
+                              <button class="btn-xs btn-primary btn-addfavorite" data-id="{{ d.id }}" data-type="demand"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</button> &nbsp;&nbsp;
+                        {% endif %}
+                     {% endif %}
+                    <button class="btn-xs btn-primary" data-id="{{ d.id }}" onclick="javascript:_hmt.push(['_trackEvent', '打印', 'print', '{{ d.name_en |truncatechars:32 }}']);window.open('{% url "purchase.pdf" d.id %}');"><i class="glyphicon glyphicon-print"></i>&nbsp;Print</button> &nbsp;&nbsp; </span></h3>
+                <div class="col-xs-6">
+                    <h5>Representative:</h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            {% if d.is_anonymous%}
+                                <td style="width: 90px">
+                                  <div class="thumbnail">
+                                    <img src="{% url 'account.avatar' 80 80 'default.jpg' %}" alt="anonymous" style="width: 90px;" />
+                                  </div>
+                                </td>
+                                <td>
+                                  <strong>Anonymous Post</strong> <br />{{ d.member.company.get_type_display }}
+                                </td>
+                                {% else %}
+                                <td class="col-xs-2"> <a href="{% url 'account.profile' d.member.id %}">
+                                    <img src="{% url 'account.avatar' 80 80 d.member.avatar %}" alt="{{ d.member }}" class="thumbnail" /></a> </td>
+                                <td> {{ d.member }}<br /> <a href="{% url 'account.company' d.member.company.id %}">{{ d.member.company.name_en }}</a><br />{{ d.member.company.get_type_display }}
+{#                                <br /> Phone: {{ d.member.mobile|default:'NA' }} <br /> Tel: {{ d.member.tel|default:'NA' }} #}</td>
+                              {% endif %}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-6">
+                    <h5>Summary:</h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td style="width:100px;"><strong>Demand Title:</strong></td>
+                            <td>{{ d.name_en|safe }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Transaction:</strong></td>
+                            <td>{{ d.get_service_type_display }}</td>
+                        </tr>
+                        {% if d.has_attach %}
+                        <tr>
+                            <td><strong>Attachments:</strong></td>
+                            <td> <button class="btn-xs btn-primary dropdown-toggle btn-attach" data-type="demand" data-id="{{ d.id }}" data-toggle="dropdown"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;Attachments&nbsp;</button>
+                            </td>
+                        </tr>
+                        {% endif %}
+
+                        <tr>
+                            <td><strong>Deal Size:</strong></td>
+                            <td>{% if d.deal_size == 0 %} All {% else %} {{ d.get_currency_type_financial_display }} {{ d.get_deal_size_display }} {% endif %}</td>
+                        </tr>
+{#                        <tr>#}
+{#                            <td>行业分类</td>#}
+{#                            <td>{{ d.company_industry.name_en }}</td>#}
+{#                        </tr>#}
+{#                        <tr>#}
+{#                            <td>项目资料</td>#}
+{#                            <td> <button class="btn-xs btn-primary dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;附件<span class="caret"></span></button>#}
+{#                                <ul class="dropdown-menu pull-right" role="menu">#}
+{#                                    <li><a href="javascript:;">简介</a></li>#}
+{#                                    <li><a href="javascript:;">保密协议</a></li>#}
+{#                                    <li><a href="javascript:;">商业计划书</a></li>#}
+{#                                    <li><a href="javascript:;">财务数据</a></li>#}
+{#                                    <li><a href="javascript:;">其他</a></li>#}
+{#                                </ul> </td>#}
+{#                        </tr>#}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-12">
+                    <h4 class="heading">Seller Description:</h4>
+                    <p>{{ d.business_en | default:'-' |safe}}</p>
+                    <br />
+                </div>
+                <div class="col-xs-12">
+                    <h4>Detail:</h4>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td><strong>Industry:</strong></td>
+                            <td>{% if d.company_industries.count > 0 %}
+                                    {% for industry in d.company_industries.all %} {{ industry.name_en }}&nbsp;&nbsp;{% endfor %}
+                                {% else %}
+                                    All
+                                {% endif %}
+                            </td>
+                            <td><strong>Location:</strong></td>
+                            <td>
+                                {% if d.company_countries.count > 0 %}
+                                {% for c in d.company_countries.all %} {{ c.name_en }}&nbsp;&nbsp;{% endfor %}
+                                {% endif %}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Employee Headcount:</strong></td>
+                            <td>{{ d.get_employees_count_type_display }}</td>
+                            <td><strong>Listed Company:</strong></td>
+                            <td>{% if d.company_stock_symbol == "" %}All{% else %}Y{% endif %}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="col-xs-12">
+                    <h4 class="heading">Company Profile:</h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-xs-3"></th>
+                            <th class="col-xs-3">Currency</th>
+                            <th class="price col-xs-3">FY{{ d.financial_year }}</th>
+                            <th class="price col-xs-3">FY{{ last_year }}</th>
+                        </tr>
+                        </thead>
+                         <tbody>
+                          <tr>
+                            <td><strong>Revenue:</strong></td>
+                            <td>{% if d.currency_type_financial == 0 %} All {% else %} {{ d.get_currency_type_financial_display }} {% endif %}</td>
+                            <td>{{ d.get_income_display }}</td>
+                            <td>{{ d.get_income_last_phase_display }}</td>
+                          </tr>
+                          <tr>
+                            <td><strong>Profit:</strong></td>
+                            <td>{% if d.currency_type_financial == 0 %} All {% else %} {{ d.get_currency_type_financial_display }} {% endif %}</td>
+                            <td>{{ d.get_profit_display }}</td>
+                            <td>{{ d.get_profit_last_phase_display }}</td>
+                          </tr>
+                          
+                          <tr>
+                            <td colspan="4">&nbsp;</td>
+                          </tr>
+                          <tr class="row-subtotal">
+                            <td><strong>Total Asset:</strong></td>
+                            <td >{{ d.get_total_assets_last_phase_display }}</td>
+                            <td><strong>Registered Capital:</strong></td>
+                            <td>{{ d.get_registered_capital_display }}</td>
+                          </tr>
+                          
+
+                          <tr class="row-subtotal">
+                            <td><strong>Estimated Valuation:</strong></td>
+                            <td >{% if d.expected_enterprice_value != 0 %}{{ d.get_expected_enterprice_value_display }} {% else %} All {% endif %} </td>
+                            <td><strong>Forecast growth for 3 years:</strong></td>
+                            <td>{% if d.growth_three_year != 0 %}{{ d.growth_three_year | formatPercent }}% {% else %} All {% endif %}</td>
+                          </tr>
+                          <tr>
+                             <td><strong>Financial Statements:</strong></td>
+                             <td>{% if d.financial_is_must_audit %} Y {% else %} N {% endif %}</td>
+                             {% if d.financial_is_must_audit %}
+                            <td><strong>Audited by Big Four:</strong></td>
+                            <td>{% if d.financial_audit_company_is_must_default %} Y {% else %} N {% endif %}</td>
+                             {% endif %}
+                          </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-12">
+                    <h4 class="heading">Notes:</h4>
+                    <p>{{ d.intro_en |safe | default:'' }}</p>
+                    <br />
+                </div>
+
+                <div class="col-xs-12">
+                    <h5>Equity Structure:</h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td><strong>Mangement Structure:</strong></td>
+                            <td>{{ d.get_stock_structure_percentage_type_management_displaye | default:'N/A' }}</td>
+                            <td><strong>Institutional Investor:</strong></td>
+                            <td>{{ d.get_stock_structure_percentage_type_institutional_displaye | default:'N/A' }}</td>
+                            <td><strong>Others:</strong></td>
+                            <td>{{ d.get_stock_structure_percentage_type_private_displaye | default:'N/A' }}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            {% if d.is_anonymous == False and demands_other%}
+                <div class="col-xs-12">
+                    <h4>Deal Histroy:</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover ">
+                            <tbody>
+                            {% for o in demands_other %}
+                              <tr>
+                                <td style="width: 125px;">{{ o.add_time|date:'Y-m-d' }}</td>
+                                <td>
+                                  <p><strong><a href="{% url 'purchase.detail' o.id%}">{{ o.name_en|safe }}</a></strong></p>
+
+                                  <p>{{ o.intro_en|safe }}</p>
+                                </td>
+                                <td>
+                                  <div class="thumbnail" style="width: 60px; margin-top:10px;">
+                                    {% if o.is_anonymous %}
+                                        <img src="{% url 'account.avatar' 60 60 'default.jpg' %}" alt="anonymous" />
+                                    {% else %}
+                                        <img src="{% url 'account.avatar' 60 60 o.member.avatar %}" alt="o.member" />
+                                    {% endif %}
+                                  </div>
+                                </td>
+                              </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.news -->
+<div class="col-xs-3">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Related Deal</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="news-list">
+                {% if demands_recommend%}
+                    {% for d in demands_recommend %}
+                      <li class="project-item3"> <strong class="col-xs-12"><a href="{%url 'purchase.detail' d.id %}">&middot; {{ d.name_en|safe }}</a></strong></li>
+                    {% endfor %}
+                {% else %}
+                     <div class="news-list-empty">
+                         <p class="news-list-empty-text">No record</p>
+                    </div>
+                {% endif %}
+               </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+  {% include "account/en-us/sendmessagemodal.html" %}
+{% endblock %}

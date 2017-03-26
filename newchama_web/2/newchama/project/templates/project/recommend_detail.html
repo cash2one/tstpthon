@@ -1,0 +1,151 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Projects{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Project<span>人工推荐管理</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">Project</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<!--
+<h4 class="mb30">项目名称:<a href="{% url 'project.detail' item.project.pk %}" target="_blank">{{item.project.name_cn}}</a>  {{item.project.name_en}} </h4>
+-->
+
+<h4 class="mb30">公司名称:<a href="{% url 'company.edit' item.company.pk %}" target="_blank">{{item.company.name_cn}}</a>  {{item.company.name_en}} </h4>
+
+
+<div class="table-responsive">
+        
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>类别</th>
+                <th>类别细分</th>
+                <th>公司得分</th>
+                <th>需求得分</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            
+              <tr>
+                <td rowspan="4">行业（50%）</td>
+                <td>投资方向</td>
+                <td>{{item.company_score_industry_keyword}}</td>
+                <td>{{item.project_score_industry_keyword}}</td>
+                
+              </tr>
+              <tr>
+                
+                <td>行业战略投资人</td>
+                <td>{{item.company_score_industry_in_industry}}</td>
+                <td>{{item.project_score_industry_in_industry}}</td>
+                
+              </tr>
+              <tr>
+                
+                <td>投资历史-投资过相同行业</td>
+                <td>{{item.company_score_industry_invest_industry_one}}</td>
+                <td>{{item.project_score_industry_invest_industry_one}}</td>
+                
+              </tr>
+              <tr>
+                
+                <td>投资历史-投资过类似行业</td>
+                <td>{{item.company_score_industry_invest_industry_two}}</td>
+                <td>{{item.project_score_industry_invest_industry_two}}</td>
+                
+              </tr>
+              <tr>
+                <td>交易类型（20%）</td>
+                <td>交易类型</td>
+                <td>{{item.company_score_deal_type}}</td>
+                <td>{{item.project_score_deal_type}}</td>
+                
+              </tr>
+              <tr>
+                <td>交易规模（10%）</td>
+                <td>交易规模</td>
+                <td>{{item.company_score_deal_size}}</td>
+                <td>{{item.project_score_deal_size}}</td>
+                
+              </tr>
+
+              <tr>
+                <td>交易币种（5%）</td>
+                <td>交易币种</td>
+                <td>{{item.company_score_currency}}</td>
+                <td>{{item.project_score_currency}}</td>
+                
+              </tr>
+
+              <tr>
+                <td rowspan="4">标的公司规模（10%）</td>
+                <td>收入</td>
+                <td>{{item.company_score_finance_revenue}}</td>
+                <td>{{item.project_score_finance_revenue}}</td>
+                
+              </tr>
+              <tr>
+                
+                <td>成长性</td>
+                <td>{{item.company_score_finance_growth}}</td>
+                <td>{{item.project_score_finance_growth}}</td>
+                
+              </tr>
+
+              <tr>
+                
+                <td>净收入</td>
+                <td>{{item.company_score_finance_net_income}}</td>
+                <td>{{item.project_score_finance_net_income}}</td>
+                
+              </tr>
+
+              <tr>
+                
+                <td>EBITDA</td>
+                <td>{{item.company_score_finance_ebitda}}</td>
+                <td>{{item.project_score_finance_ebitda}}</td>
+                
+              </tr>
+
+              <tr>
+                <td>地域（5%）</td>
+                <td>地域</td>
+                <td>{{item.company_score_local}}</td>
+                <td>{{item.project_score_local}}</td>
+                
+              </tr>
+
+              <tr>
+                <td>总得分</td>
+                <td>总得分</td>
+                <td>{{item.sum_company_score}}</td>
+                <td>{{item.sum_project_score}}</td>
+                
+              </tr>
+
+              
+           
+            </tbody>
+        </table>
+
+      
+
+    </div>
+
+   
+
+{% endblock %}
+
+{% block customjs %}
+ 
+{% endblock %}

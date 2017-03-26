@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="{{STATIC_URL}}backend/images/favicon.png" type="image/png">
+
+  <title>OliveCMS</title>
+
+  <link href="{{STATIC_URL}}backend/css/style.default.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="{{STATIC_URL}}backend/js/html5shiv.js"></script>
+  <script src="{{STATIC_URL}}backend/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body class="signin">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+  
+    <div class="signinpanel">
+        
+        <div class="row">
+            
+            <div class="col-md-7">
+                
+                <div class="signin-info">
+                    <div class="logopanel">
+                        <h1><span>[</span> OliveCMS <span>]</span></h1>
+                    </div><!-- logopanel -->
+                
+                    <div class="mb20"></div>
+                
+                    <h5><strong>关于喝酒</strong></h5>
+
+                    <ul>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 某次喝醉，老王搬出5个手指头问我，这是几，我数了数答说“4”。</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 他说你醉了，我嘴硬说没有，再丢出3个手指头问我是几，我说是2。</li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 他说你真醉了，你好好数数，于是我就指着第一根指头，0,1,2… </li>
+                        <li><i class="fa fa-arrow-circle-o-right mr5"></i> 老王突然老泪纵横,你果然是个杯具的程序员…</li>
+                        
+                    </ul>
+                    
+                </div><!-- signin0-info -->
+            
+            </div><!-- col-sm-7 -->
+            
+            <div class="col-md-5">
+                
+                <form method="post" action="">
+                {% csrf_token %}
+                    <h4 class="nomargin">用户登录</h4>
+
+                    {% if messages %}
+                      {% for message in messages %}
+                          <p class="mt5 mb10 text-{% if message.tags %}{{ message.tags }}{% endif %}" style="display:block;">{{ message }}</p>
+                      {% endfor %}
+                    {% endif %}
+
+                    <input type="text" class="form-control uname" name="username" id="username" placeholder="用户名" />
+                    <input type="password" class="form-control pword" name="password" id="password"  placeholder="密码" />
+                   
+                    <button class="btn btn-success btn-block">登录</button>
+                    
+                </form>
+            </div><!-- col-sm-5 -->
+            
+        </div><!-- row -->
+        
+        <div class="signup-footer">
+            <div class="pull-left">
+                &copy; 2015. 版权所有 奥立软件
+            </div>
+            <div class="pull-right">
+                Created By: <a href="http://olive.fm/" target="_blank">Olive.fm</a>
+            </div>
+        </div>
+        
+    </div><!-- signin -->
+  
+</section>
+
+
+<script src="{{STATIC_URL}}backend/js/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/modernizr.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/retina.min.js"></script>
+
+<script src="{{STATIC_URL}}backend/js/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Edit Member{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+        <h2><i class="fa fa-home"></i> Member<span>
+      Edit Matching</span></h2>
+        <div class="breadcrumb-wrapper">
+            <span class="label">You are here:</span>
+            <ol class="breadcrumb">
+                <li><a href="/">NewChama</a></li>
+                <li class="active">Company</li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title"> Matching</h4>
+
+        </div>
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+            <div class="panel-body">
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                <h4>Industry</h4>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Key Words</label>
+                    <div class="col-sm-6">
+                        <div id="kv_list_block">
+                            {% for kv in kv_list %}
+                                <span class="alert alert-info kv_block"><span>{{kv}}</span>&nbsp;<a href="javascript:;" class="glyphicon glyphicon-remove pull-right"></a></span>
+
+                            {% endfor %}
+                        </div>
+                        <input type="hidden" value="{{ u.tags|default:"" }}" id="all_tags" name="all_tags">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Industry</label>
+                    <div class="col-sm-3">
+                        <select id="industry_first"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                            <option value="0">Please Select</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3 hide_">
+                        <select id="industry_second"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                            <option value="0">Please Select</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3">
+                        <a class="btn btn-default industry_add_btn" href="javascript:;">Add</a>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Tag</label>
+                    <div class="col-sm-6">
+                        <input type="text"  name="tag" id="tag" value="" class="form-control" />
+                    </div>
+                    <div class="col-sm-3">
+                        <a class="btn btn-default tag_add_btn" href="javascript:;">Add</a>
+                    </div>
+                </div>
+
+
+                <h4>Finance</h4>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Revenue</label>
+                    <div class="col-sm-6">
+                        <select class="form-control chosen-select" data-placeholder="Choose Revenue..." name="revenue" id="revenue">
+                            <option value="0">Please Select</option>
+                            {% for id,value in revenue_types %}
+                                <option value="{{ id }}" {% if u.revenue == id %} selected {% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Growth Rate</label>
+                    <div class="col-sm-6">
+                        <select class="form-control chosen-select" data-placeholder="Choose Growth Rate..." name="growth" id="growth">
+                            <option value="0">Please Select</option>
+                            {% for id,value in growth_types %}
+                                <option value="{{ id }}" {% if u.growth == id %} selected {% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Net Income</label>
+                    <div class="col-sm-6">
+                        <select class="form-control chosen-select" data-placeholder="Choose Net Income..." name="net_income" id="net_income">
+                            <option value="0">Please Select</option>
+                            {% for id,value in net_types %}
+                                <option value="{{ id }}" {% if u.net_income == id %} selected {% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">EBITA</label>
+                    <div class="col-sm-6">
+                        <select class="form-control chosen-select" data-placeholder="Choose EBITA..." name="ebita" id="ebita">
+                            <option value="0">Please Select</option>
+                            {% for id,value in ebita_types %}
+                                <option value="{{ id }}" {% if u.ebita == id %} selected {% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+
+                <h4>Other</h4>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Deal Type</label>
+                    <div class="col-sm-6">
+                        {% for id, category in deal_categories %}
+                            <label><input type="checkbox" id="check_" name="categories" value="{{ id }}" {% if id in deal_categories_list %} checked="checked" {% endif %}>  {{ category }}</label> </br>
+                        {% endfor %}
+                        {% for deal_type in categories_others %}
+                            &nbsp;&nbsp;&nbsp;&nbsp;<label><input type="checkbox" id="check_" name="types" class="check_events" value="{{ deal_type.id}}" {% if deal_type.id in deal_types_list %} checked="checked" {% endif %}>   {{ deal_type.get_deal_type_display }}</label> </br>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <input type="hidden" name="deal_size_min" id="member_range_mins_0" value="{{ u.deal_size_min | default:"0"}}">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Deal Size Min</label>
+                    <div class="col-sm-6">
+                        <table>
+                            <thead>
+                            <td width="50px">
+                                <input  id="deal_size_min_digit" name="deal_size_min_digit" value="{{ deal_size_min_digit }}">
+                            </td>
+                            <td width="80px">
+                                <select class="form-control chosen-select" data-placeholder="Choose Deal Size Min..." name="deal_size_min_scale" id="deal_size_min_scale" >
+                                    <option value=0>请选择</option>
+
+                                    {% for val,txt in size_scale %}
+                                        <option value="{{ val }}" {% if deal_size_min_scale == val %} selected {% endif %}>{{ txt }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+
+                <input type="hidden" name="deal_size_max" id="member_range_maxs_0" value="{{ u.deal_size_max | default:"100000000000"}}">
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Deal Size Max</label>
+                    <div class="col-sm-6">
+                        <table>
+                            <thead>
+                            <td width="50px">
+                                <input  id="deal_size_max_digit" name="deal_size_max_digit" value="{{ deal_size_max_digit }}">
+                            </td>
+                            <td width="80px">
+                                <select class="form-control chosen-select" data-placeholder="Choose Deal Size Max..." name="deal_size_max_scale" id="deal_size_max_scale">
+                                    <option value=0>请选择</option>
+
+                                    {% for val,txt in size_scale %}
+                                        <option value="{{ val }}" {% if deal_size_max_scale == val %} selected {% endif %}>{{ txt }}</option>
+                                    {% endfor %}
+                                </select>
+                            </td>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+                {% comment %}
+            <input type="hidden" id="currCurrencyId" name="currCurrencyId" value="{{ u.deal_currency }}"/>
+            <input type="hidden" name="deal_size_min" id="member_range_mins_0" value="{{ u.deal_size_min | default:"0"}}">
+            <input type="hidden" name="deal_size_max" id="member_range_maxs_0" value="{{ u.deal_size_max | default:"100000000000"}}">
+
+            <div class="form-group">
+                <label class="col-xs-12" >
+                    <span>Deal Size Range:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                    <span id="amount0"></span>
+                </label>
+                <div class="col-xs-12">
+                    <div id="rangeSlider0" style="margin: 0 auto; width:455px;"></div>
+                </div>
+            </div>
+            {% endcomment %}
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Deal Currency</label>
+                    <div class="col-sm-6">
+                        <select class="form-control chosen-select" data-placeholder="Choose Deal Currency..." name="deal_currency" id="deal_currency">
+                            <option value="0">Please Select</option>
+                            {% for id,value in currency_types %}
+                                <option value="{{ id }}" {% if u.deal_currency == id %} selected {% endif %}>{{ value }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Geography</label>
+                    {% include "common/region_select.html" %}
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Hot</label>
+                    <div class="col-sm-3">
+                        <select id="hot" name="hot" class="form-control chosen-select" data-placeholder="Choose a Hot...">
+
+                            {% for hot_score in hot_score_list %}
+                                <option value="{{ hot_score }}" {% if u.hot == hot_score %} selected="selected" {% endif %}>{{ hot_score }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+
+                </div>
+                {% csrf_token %}
+
+
+
+
+
+            </div><!-- panel-body -->
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-6 col-sm-offset-3">
+                        <button class="btn btn-primary">Submit</button>&nbsp;
+                        <button class="btn btn-default">Cancel</button>
+                    </div>
+                </div>
+            </div><!-- panel-footer -->
+        </form>
+    </div><!-- panel -->
+{% endblock %}
+{% block customjs %}
+    {% comment %}
+    <script src="{{STATIC_PREFIX}}js/common/common.js"></script>
+    {% endcomment %}
+    <script>
+        jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+
+
+        jQuery("#industry_first").change(function(){
+            var industry_id=jQuery(this).val();
+            if(industry_id>0)
+            {
+
+                industrySelect("industry_second", industry_id);
+            }else
+            {
+
+                jQuery('#industry_second').parent().hide();
+            }
+        });
+
+        industrySelect("industry_first", 0);
+
+
+
+        jQuery(".kv_block a").live('click',function(){
+            jQuery(this).parent().remove();
+            change_kv();
+
+        });
+        jQuery('.tag_add_btn').click(function(){
+            if (jQuery('#tag').val()!=''){
+                jQuery('#kv_list_block').append('<span class="alert alert-info kv_block"><span>'+jQuery('#tag').val()+'</span>&nbsp;<a href="javascript:;" class="glyphicon glyphicon-remove pull-right"></a></span>');
+                change_kv();
+                jQuery('#tag').val('');
+            }
+
+        });
+
+
+
+        jQuery('.industry_add_btn').click(function(){
+            if (jQuery('#industry_second').val()!=0){
+                jQuery('#kv_list_block').append('<span class="alert alert-info kv_block"><span>'+jQuery('#industry_second').find("option:selected").text()+'</span>&nbsp;<a href="javascript:;" class="glyphicon glyphicon-remove pull-right"></a></span>');
+                change_kv();
+                jQuery('#industry_second').val(0);
+                jQuery('#industry_first').val(0);
+            }
+            else if(jQuery('#industry_first').val()!=0){
+                jQuery('#kv_list_block').append('<span class="alert alert-info kv_block"><span>'+jQuery('#industry_first').find("option:selected").text()+'</span>&nbsp;<a href="javascript:;" class="glyphicon glyphicon-remove pull-right"></a></span>');
+                change_kv();
+                jQuery('#industry_first').val(0);
+            }
+
+        });
+
+        function change_kv(){
+            jQuery('#all_tags').val(jQuery(".kv_block span").map(function(){
+                return jQuery(this).text();
+            }).get().join(','));
+
+
+        }
+
+        jQuery("#deal_size_min_scale").change(function() {
+            var val = jQuery(this).val();
+            var digit = jQuery("#deal_size_min_digit").val();
+            var amount = val * digit
+            jQuery("#member_range_mins_0").val(amount);
+        });
+
+        jQuery("#deal_size_min_digit").change(function() {
+            var val = jQuery(this).val();
+            var scale = jQuery("#deal_size_min_scale").val();
+            var amount = val * scale
+            jQuery("#member_range_mins_0").val(amount);
+        });
+
+        jQuery("#deal_size_max_scale").change(function() {
+            var val = jQuery(this).val();
+            var digit = jQuery("#deal_size_max_digit").val();
+            var amount = val * digit
+            var min_amount = jQuery("#member_range_mins_0").val()
+            if (min_amount >= amount) {
+                alert("最大值必须大于最小值，请重新输入")
+            } else {
+                jQuery("#member_range_maxs_0").val(amount);
+            }
+        });
+
+        jQuery("#deal_size_max_digit").change(function() {
+            var val = jQuery(this).val();
+            var scale = jQuery("#deal_size_max_scale").val();
+            var amount = val * scale
+            var min_amount = jQuery("#member_range_mins_0").val()
+            if (min_amount >= amount) {
+                alert("最大值必须大于最小值，请重新输入")
+            } else {
+                jQuery("#member_range_maxs_0").val(amount);
+            }
+        });
+
+        {% comment %}
+        function initRangeSlider() {
+            var deal_size_min = $("#member_range_mins_0").val();
+            var deal_size_max = $("#member_range_maxs_0").val();
+            if (deal_size_min == "") deal_size_min = 0;
+            if (deal_size_max == "") deal_size_max = 100000000000;
+            autoSlider(0, deal_size_min, deal_size_max);
+        }
+
+        initRangeSlider();
+
+        jQuery("#deal_currency").change(function() {
+            var val = jQuery(this).val();
+            var old_unit = jQuery("#currCurrencyId").val();
+            old_unit = handleCurrentCurrency(old_unit);
+            var unit = getCurrentCurrency();
+            var txt = jQuery("#amount0").text();
+            txt = txt.replace(old_unit, unit).replace(old_unit, unit);
+            jQuery("#amount0").text(txt);
+            jQuery("#currCurrencyId").val(val);
+        });
+        {% endcomment %}
+    </script>
+{% endblock %}

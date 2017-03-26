@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>显德牛熊宝</title>
+    <meta name="Keywords" content="显德牛熊宝 " /> 
+    <meta name="Description" content="上海显德投资管理有限公司（Vantage Capital）是一家国际化专业的资产管理公司，于2011年成立，注册资金2000万人民币，在国际金融中心香港、上海均设有机构，面向全球金融市场投资于证券、外汇、基金、债券、衍生品等投资工具，以量化对冲基金发展模式，并多年在海外市场持续稳健盈利。" />
+
+    <link href="{{STATIC_URL}}common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}common/css/xiande.css">
+    
+  </head>
+<body style="">
+<img style="text-align:center;margin-top:0px;" src="{{STATIC_URL}}common/images/b1.jpg" width="100%">
+<div class="container-fluid">
+ 
+
+    <div class="row content">
+        <div class="col-md-12">
+
+       
+       <p style="text-align:center;margin-top:20px;"> <img src="{{STATIC_URL}}common/images/b2.png" width="144"></p>
+        
+       <p>别人春节拜大年，显德“富筹者”新年摆擂台！</p>
+
+      <p>你觉得你懂股票？你觉得你会看K线图？有种的上来一较高下！</p>
+
+      <p>这次咱们不来技术型，玩就玩一个简单粗暴！富筹者摆下“牛熊宝”擂台，广撒英雄帖，请天下英雄上台较量！</p>
+
+      <p>富筹者钢铁侠说A股不会再涨了！不服的你上台来较量较量！
+      （具体条款）</p>
+
+      <p>富筹者雷神说A股不会再跌了！不服的你上台来较量较量！
+      （具体条款）</p>
+
+      <p>打赢了真金白银满载而归，打输了重在参与。如果最后富筹者侥幸获胜，请大家吃喝玩乐！</p>
+      <p>有敢来应战的戳下面：</p>
+      <p style="margin:30px 0px;"><a class="center-block btn btn-danger "  href="{% url 'event.bbb' %}?u={{introducer}}">签署升势状</a></p>
+      <p class="f12" >
+        *转发朋友圈有意外惊喜哦，不信你试试！<br>
+        *本活动纯属营销创意
+      </p>
+
+
+
+
+        </div>
+    </div>
+
+</div>
+
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery.cookies.js"></script>
+<script src="{{STATIC_URL}}common/js/plugins/bootbox/bootbox.min.js"></script>
+<link href="{{STATIC_URL}}common/css/parsley.css" rel="stylesheet">
+<script src="{{STATIC_URL}}common/js/plugins/parsley/parsley_zh.js"></script>
+<script type="text/javascript">
+    $('.bbb_block2').height($(document).height());
+    
+</script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+
+  wx.config({
+      debug: false,
+      appId: '{{appid}}',
+      timestamp: {{sign.timestamp}},
+      nonceStr: '{{sign.nonceStr}}',
+      signature: '{{sign.signature}}',
+      jsApiList: [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage'
+      ]
+  });
+
+
+wx.ready(function () {
+
+  var shareData = {
+    title: '别人春节拜大年，显德“富筹者”新年摆擂台！',
+    desc: '你觉得你懂股票？你觉得你会看K线图？有种的上来一较高下！',
+    link: 'http://xiande.olive-app.com/event/bbb_first/?u={{openid}}',
+    imgUrl: 'http://mmbiz.qpic.cn/mmbiz/7Oib8ZJM658ibHhibciaBEvPbCqiaeMM9YawgvyPibc3uKtnHhImIrGGQm0dITI3tiaEU48ZEm2fbFDmrUBiakfHetRjdg/0'
+  };
+  wx.onMenuShareTimeline(shareData);
+  wx.onMenuShareAppMessage(shareData);
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+
+</body>
+</html>

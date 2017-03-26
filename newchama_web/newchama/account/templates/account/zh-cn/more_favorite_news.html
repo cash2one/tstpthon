@@ -1,0 +1,7 @@
+{% for d in favorites %}
+    <tr>
+    <td><a href="{% url 'news.detail' d.news.id %}" target="_blank"> {{ d.news.title }}</a></td>
+    <td><i class="glyphicon glyphicon-time"></i> {{ d.news.add_time|date:'Y-m-d' }}</td>
+    <td><button class="btn-xs btn-primary"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消关注</button></td>
+    </tr>
+{% endfor %}

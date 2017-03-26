@@ -1,0 +1,205 @@
+{% load myTags %}
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">概要</h3>
+        </div>
+        <div class="panel-body" style="padding:10px 5px">
+            <div class="col-xs-6">
+                最近访问&nbsp;&nbsp;{{ count_all_relation_stuff.pvs }}
+            </div>
+            <div class="col-xs-6">
+                未读留言&nbsp;&nbsp;{{ count_all_relation_stuff.messages }}
+            </div>
+            <div class="col-xs-6">
+                推荐机构&nbsp;&nbsp;{{ count_all_relation_stuff.recommend_companies }}
+            </div>
+            <div class="col-xs-6">
+                被关注&nbsp;&nbsp;{{ count_all_relation_stuff.favorites }}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.news -->
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">我的关注</h3>
+        </div>
+        <div class="panel-body tab-content">
+            <ul class="nav nav-pills" role="tablist" style="padding-bottom:8px; border-bottom: 1px dotted #ccc;">
+                <li class="active"><a href="#home-1" data-toggle="tab">卖方发布</a></li>
+                <li><a href="#home-2" data-toggle="tab">买方发布</a></li>
+            </ul>
+            <ul class="news-list tab-pane fade active in" id="home-1"  >
+                {% if p_list %}
+                    {% for p in p_list %}
+                        <li>
+                                    <span class="news-list-item-title"><a href="{% url "sales.detail" p.project.id %}">{{p.project.name_cn|striptags |cut_str:11}}</a>
+                                        <a href="javascript:;" class="pull-right index_favorite_cancel" data-id="{{ p.project.id }}" data-type="project"><i class="glyphicon glyphicon-trash"></i>&nbsp;取消</a>
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> 最后更新 {{ p.project.update_time |date:'Y-m-d'}}
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> 项目截止 {{ p.project.expire_date |date:'Y-m-d'}}
+                                    </span> <br />
+                        </li>
+                    {% endfor %}
+                    <li class="news-list-view-all"> <a href="{% url 'account.myfavorite' %}">查看全部</a> </li>
+                {% else %}
+                    <li class="news-list-empty"> <h4 class="news-list-empty-title">暂时没有关注</h4> <p class="news-list-empty-text">请访问您感兴趣的内容并添加关注!</p> </li>
+                {% endif %}
+            </ul>
+            <ul class="news-list tab-pane fade"  id="home-2" >
+                {% if d_list %}
+                    {% for p in d_list %}
+                        <li>
+                                    <span class="news-list-item-title"><a href="{% url "purchase.detail" p.demand.id %}">{{p.demand.name_cn|striptags |cut_str:11}}</a>
+                                        <a href="javascript:;" class="pull-right index_favorite_cancel" data-id="{{ p.demand.id }}" data-type="demand"><i class="glyphicon glyphicon-trash"></i>&nbsp;取消</a>
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> 最后更新 {{ p.demand.update_time |date:'Y-m-d'}}
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> 项目截止 {{ p.demand.expire_date |date:'Y-m-d'}}
+                                    </span> <br />
+                        </li>
+                    {% endfor %}
+                    <li class="news-list-view-all"> <a href="{% url 'account.myfavorite_demand' %}">查看全部</a> </li>
+                {% else %}
+                    <li class="news-list-empty"> <h4 class="news-list-empty-title">暂时没有关注</h4> <p class="news-list-empty-text">请访问您感兴趣的内容并添加关注!</p> </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- /.news -->
+{% comment %}<div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">新闻</h3>
+            </div>
+            <div class="panel-body tab-content">
+                <ul class="nav nav-pills" role="tablist" style="padding-bottom:8px; border-bottom: 1px dotted #ccc;">
+                    <li class="active"><a href="#home-3" data-toggle="tab">全部</a></li>
+                    <li><a href="#home-4" data-toggle="tab">偏好</a></li>
+                </ul>
+                <ul class="news-list tab-pane fade active in" id="home-3"  >
+                    {% if news_list %}
+                        {% for n in news_list %}
+                            <li>
+                                <span class="news-list-item-title"><a href="{% url 'news.detail' n.id%}">{{n.title|striptags |cut_str:15}}</a></span>
+                            <span class="news-list-item-tags"> <i class="glyphicon glyphicon-tags"></i>
+                                <a class="tag preference_common_keyword" data-type="news" data-tag="{{ n.tag }}" href="javascript:;">{{ n.tag }}</a>
+                            </span> <br />
+                            </li>
+                        {% endfor %}
+                        <li class="news-list-view-all"> <a href="{% url 'news.index' %}">查看全部</a> </li>
+                    {% endif %}
+                </ul>
+                <ul class="news-list tab-pane fade"  id="home-4" >
+                    {% if news_list_preference %}
+                        {% for n in news_list_preference %}
+                            <li>
+                                <span class="news-list-item-title"><a href="{% url 'news.detail' n.id%}">{{n.title|striptags |cut_str:15}}</a></span>
+                            <span class="news-list-item-tags"> <i class="glyphicon glyphicon-tags"></i>
+                                <a class="tag" href="{% url 'news.tag' n.tag %}">{{ n.tag }}</a>
+                            </span> <br />
+                            </li>
+                        {% endfor %}
+                        <li class="news-list-view-all"> <a href="{% url 'news.index' %}">查看全部</a> </li>
+                    {% else %}
+                        <li class="news-list-empty"> <h4 class="news-list-empty-title">暂时没有偏好设置</h4> <p class="news-list-empty-text">请进入偏好管理，设定您喜欢的新闻关键字!</p> </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>{% endcomment %}
+<!-- /.news -->
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">排行榜</h3>
+        </div>
+        <div class="panel-body tab-content">
+            <ul class="nav nav-pills" role="tablist" style="padding-bottom:8px; border-bottom: 1px dotted #ccc;">
+                <li class="active"><a href="#home-7" data-toggle="tab">热门项目</a></li>
+                <li><a href="#home-8" data-toggle="tab">活跃机构</a></li>
+                <li><a href="#home-9" data-toggle="tab">I-BANK</a></li>
+            </ul>
+            <ul class="news-list tab-pane fade active in"  id="home-7" >
+                <table class="table table-striped rank-list table-condensed">
+                    <tbody>
+                    {% for p in hot_projects %}
+                        <tr>
+                            <td><a href="{% url 'sales.detail' p.id %}">{{ p.name_cn|striptags|cut_str:12 }}</a></td>
+                            {#                        <td><i class="glyphicon glyphicon-arrow-up color-up"></i></td>#}
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </ul>
+            <ul class="members-list tab-pane fade"  id="home-8" >
+                {% for c in companies_active %}
+                    <li class="members-item" style="margin:3px">
+                        <a href="{% url 'account.company' c.id %}">
+                            {% if c.logo == "" %}
+                                <img src="{{MEDIA_URL}}companylogo/default.png" title="{{ c.name_cn|safe }}" width="80" class="thumbnail" />
+                            {% else %}
+                                <img src="{{MEDIA_URL}}companylogo/{{c.logo}}" title="{{ c.name_cn|safe }}" width="80" class="thumbnail" />
+                            {% endif %}
+                            {{ c.name_cn|cut_str:6 }}
+                        </a>
+                    </li>
+                {% empty %}
+                    <li class="news-list-empty"> <h4 class="news-list-empty-title">暂无活跃机构</h4></li>
+                {% endfor %}
+            </ul>
+            <ul class="news-list tab-pane fade"  id="home-9" >
+                <li class="news-list-empty"> <h4 class="news-list-empty-title">敬请期待</h4> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">推荐关键字</h3>
+        </div>
+        <div id="tag_cloud_block" class="tag_cloud_block">
+            <a href="{% url 'sales.search_keyword' %}?keyword=TMT" id="index_tag_1">TMT</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=并购" id="index_tag_2">并购</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=融资" id="index_tag_3">融资</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=智能机器人" id="index_tag_4">智能机器人</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=物联网" id="index_tag_5">物联网</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=互联网金融" id="index_tag_6">互联网金融</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=数字营销" id="index_tag_7">数字营销</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=手机游戏" id="index_tag_8">手机游戏</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=电子商务" id="index_tag_9">电子商务</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=O2O" id="index_tag_10">O2O</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=医疗器械" id="index_tag_11">医疗器械</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=医疗药品" id="index_tag_12">医疗药品</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=新能源汽车" id="index_tag_13">新能源汽车</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=太阳能" id="index_tag_14">太阳能</a>
+        </div>
+    </div>
+</div>
+<!-- /.news -->
+<div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">邀请用户</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <label for="text-input">请填写您朋友的Email地址发出邀请信</label>
+                <input type="text" id="invite_email" class="form-control" /><br/>
+                <button type="button" class="btn btn-primary btn-xs" id="send_invite_email_btn">立即发送</button>
+                <label id="send_invite_email_ing" class="hide_">请稍候，邮件发送中...</label>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.news -->
+</div>

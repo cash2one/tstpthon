@@ -1,0 +1,71 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+       {% include "analysis/analysis_nav.html" %}
+    <div class="dataTables_filter" id="table2_filter">
+      <a class="btn btn-default" href="?download=1">Export</a>
+    </div>
+<h4>用户详细表</h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>名字</th>
+            <th>邮箱</th>
+            <th>公司</th>
+            <th>Owner</th>
+            <th>登录</th>
+            <th>浏览项目</th>
+            <th>浏览需求</th>
+            <th>发送消息</th>
+            <th>发布项目</th>
+            <th>发布需求</th>
+            <th>收藏项目</th>
+            <th>收藏需求</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% autopaginate result_list %}
+        {% for item in result_list %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td><a href="{% url 'member.edit' item.id %}">{{ item.first_name }}{{ item.last_name }}</a></td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.company.name_cn }}</td>
+            <td>{{ item.owner | default:''}}</td>
+            <td><a href="{% url 'analysis.user_detail_login' item.id%}">{{ item.login_num }}</a></td>
+            <td><a href="{% url 'analysis.user_detail_view_project' item.id%}">{{ item.view_project_num }}</a></td>
+            <td><a href="{% url 'analysis.user_detail_view_demand' item.id%}">{{ item.view_demand_num }}</a></td>
+            <td><a href="{% url 'analysis.user_detail_send_message' item.id%}">{{ item.send_message_num }}</a></td>
+            <td><a href="{% url 'analysis.user_detail_send_project' item.id%}">{{ item.send_project_num }}</a></td>
+            <td><a href="{% url 'analysis.user_detail_send_demand' item.id%}">{{ item.send_demand_num }}</a></td>
+            <td><a href="{% url 'analysis.user_detail_fav_project' item.id%}">{{ item.fav_project_num }}</a></td>
+            <td><a href="{% url 'analysis.user_detail_fav_demand' item.id%}">{{ item.fav_demand_num }}</a></td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

@@ -1,0 +1,9 @@
+*.pyc
+newchama/.idea
+*~
+newchama/upload/
+.DS_Store
+newchama/logs/
+newchama/logsfile/
+*.log
+.ropeproject

@@ -1,0 +1,157 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="shortcut icon" href="{% static "images/favicon.ico" %}">
+
+    <link href="{% static "css/style.default.css" %}" rel="stylesheet">
+    <link href="{% static "css/jquery.datatables.css" %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "js/jquery-ui-1.11.1.custom/jquery-ui.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap-fileupload.min.css" %}">
+    <link rel="stylesheet" href="{% static "css/custom.css" %}">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+  <script src="{% static "js/html5shiv.js" %}"></script>
+  <script src="{% static "js/respond.min.js" %}"></script>
+  <![endif]-->
+</head>
+
+<body  style="background:#E4E7EA">
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<script src="{% static "js/jquery-1.10.2.min.js" %}"></script>
+<script src="{% static "js/jquery-migrate-1.2.1.min.js" %}"></script>
+<script src="{% static "js/jquery-ui-1.10.3.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/modernizr.min.js" %}"></script>
+<script src="{% static "js/jquery.sparkline.min.js" %}"></script>
+<script src="{% static "js/toggles.min.js" %}"></script>
+<script src="{% static "js/retina.min.js" %}"></script>
+<script src="{% static "js/jquery.cookies.js" %}"></script>
+<script src="{% static "js/bootstrap-fileupload.min.js" %}"></script>
+{% comment %}<script src="{% static "js/flot/flot.min.js" %}"></script>
+<script src="{% static "js/flot/flot.resize.min.js" %}"></script>{% endcomment %}
+<script src="{% static "js/morris.min.js" %}"></script>
+<script src="{% static "js/raphael-2.1.0.min.js" %}"></script>
+
+<script src="{% static "js/jquery.datatables.min.js" %}"></script>
+<script src="{% static "js/chosen.jquery.min.js" %}"></script>
+
+<script src="{% static "js/custom.js" %}"></script>
+{#<script src="{% static "js/dashboard.js" %}"></script>#}
+<script src="{% static "js/jquery.validate.min.js" %}"></script>
+<script src="{% static "js/common.js" %}"></script>
+<script>
+    jQuery(document).ready(function(){
+        // Basic Form
+        jQuery("#basicForm").validate({
+            highlight: function(element) {
+                jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+            },
+            success: function(element) {
+                jQuery(element).closest('.form-group').removeClass('has-error');
+            }
+        });
+
+        //nav current add class
+        var url_location = location.href;
+        jQuery("#ul_nav li a").each(function(){
+            var nav_link = jQuery(this).attr("href");
+            //console.log(nav_link);
+            if(url_location.indexOf(nav_link)>=0)
+            {
+                //console.log(jQuery(this).parent());
+                jQuery(this).parent().addClass("active");
+            }
+        });
+    });
+
+</script>
+
+{% block customjs %} {% endblock %}
+</body>
+</html>
+
+<script>
+    $(function() {
+       $("#checkbox_deal_all").click(function() {
+            $('input[name="check_deal"]').attr("checked",this.checked);
+        });
+        var $check_deal = $("input[name='check_deal']");
+        $check_deal.click(function(){
+            $("#checkbox_deal_all").attr("checked",$check_deal.length == $("input[name='check_deal']:checked").length ? true : false);
+        });
+    });
+</script>
+
+{% load pagination_tags %}
+<div class="table-responsive">
+    <div id="table5_wrapper" class="dataTables_wrapper" role="grid">
+        <form action="export_to_xls" method="post">
+            {% csrf_token %}
+            <table class="table table-primary mb30">
+                <thead>
+                <tr>
+                    <th>
+                        <div class="ckbox ckbox-success">
+                            <input type="checkbox" id="checkbox_deal_all">
+                            <label for="checkbox_deal_all"></label>
+                        </div>
+                    </th>
+                    <th>公司简称</th>
+                    <th>股票代码</th>
+                    <th>一级行业</th>
+                    <th>二级行业</th>
+                    <th>公司全称</th>
+                    <th>标的公司</th>
+                    <th>交易类型</th>
+                    <th>交易币种</th>
+                    <th>交易金额</th>
+                    <th>交易比例</th>
+                    <th>交易详情</th>
+                    <th>添加日期</th>
+                    <th>披露日期</th>
+                </tr>
+                </thead>
+                <tbody>
+
+                {% autopaginate daily_deals 8 %}
+                {% for deal in daily_deals %}
+                    <tr>
+                        <td>
+                            <div class="ckbox ckbox-success">
+                                <input type="checkbox" id="check_{{ deal.id }}" name="check_deal" class="check_deal" value="{{ deal.id }}"  rel ="{{ deal.id }}">
+                                <label for="check_{{ deal.id }}"></label>
+                            </div>
+                        </td>
+                        <td>{{ deal.company_short_name }}</td>
+                        <td>{{ deal.stock_symbol }}</td>
+                        <td>{{ deal.cv1.name_cn }}</td>
+                        <td>{{ deal.cv2.name_cn }}</td>
+                        <td>{{ deal.company_full_name }}</td>
+                        <td>{{ deal.target_company }}</td>
+                        <td>{{ deal.get_deal_type_display }}</td>
+                        <td>{{ deal.get_deal_currency_display }}</td>
+                        <td>{{ deal.deal_amount }}</td>
+                        <td>{{ deal.deal_ratio }}</td>
+                        <td>{{ deal.deal_content }}</td>
+                        <td>{{ deal.date|date:'Y-m-d' }}</td>
+                        <td>{{ deal.published_date|date:'Y-m-d' }}</td>
+                    </tr>
+                {% endfor %}
+                {% paginate %}
+                </tbody>
+            </table>
+            <input type="submit" value="导出xls">
+        </form>
+    </div>
+</div>
+

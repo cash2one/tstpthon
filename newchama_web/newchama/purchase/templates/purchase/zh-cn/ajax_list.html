@@ -1,0 +1,88 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load humanize %}
+{% load myTags %}
+{% if demands %}
+{% if have_more_data%}
+    <li id="have_more_data"></li>
+{% endif %}
+{% for d in demands %}
+<li class="project-item">
+    <div class="col-xs-10">
+        <div>
+        {% comment %}<span class="pull-left">{% endcomment %}<strong class="news-list-item-title2"><a href="{% url 'purchase.detail' d.id%}">{{ d.name_cn|cut_str:32}}</a> </strong>{% comment %}</span>{% endcomment %}
+            <div class="news-list-tag-title">
+            {% for k in d.demand_recommond_reason_admin.all %}
+                <div>{{ k.reason }}</div>
+            {% endfor %}
+            </div>
+        {% comment %}<span class="pull-right">有效期至：{{ d.expire_date|date:'Y-m-d' }}</span>{% endcomment %}
+            </div>
+     <span class="news-list-item-text">
+      <table class="table index-table-1">
+          <tbody>
+          <tr class="project-th">
+              <td width="33%">目标地区</td>
+              <td width="33%">交易类型</td>
+              <td width="33%">行业</td>
+          </tr>
+          <tr>
+              <td>{% if d.company_countries.count > 0 %}
+                    {% for c in d.company_countries.all %} {{ c.name_cn }}&nbsp;&nbsp;{% endfor %}
+                 {% else %}
+                    不限
+                {% endif %}
+              </td>
+              <td>{{ d.get_service_type_display |default:"N/A" }}</td>
+              <td>{% if d.company_industries.all.count > 0 %}
+                    {% for industry in d.company_industries.all %}{{ industry.name_cn }}&nbsp;&nbsp;{% endfor %}
+                {% else %}
+                    不限
+                {% endif %}
+              </td>
+          </tr>
+          <tr class="project-th">
+              <td width="33%">交易规模</td>
+              <td width="33%">股权交易比例</td>
+              <td width="33%">关键字</td>
+              {% comment %}<td width="33%">净利润</td>{% endcomment %}
+          </tr>
+          <tr>
+              <td>{{ d.deal_size_enter|formatCurrency2:d.get_currency_type_financial_display }}</td>
+              <td>{{ d.stock_percent | showPercent2 }}</td>
+              <td>
+          {% if m.project_keyword.all %}
+                {% for k in m.project_keyword.all %}
+                    {{ k.keyword }}{% if not forloop.last %},{% endif %}
+                {% endfor %}
+          {% else %}
+            N/A
+          {% endif %}
+            </td>
+              {% comment %}<td>{{ d.profit_last_phase_enter |formatCurrency2:d.get_currency_type_financial_display}}</td>{% endcomment %}
+          </tr>
+          </tbody>
+      </table> </span>
+    </div>
+    <div class="col-xs-2">
+    <span class="pull-right">
+    <select name="newStatus" class="newStatus" id="newStatus_{{ d.id }}" ref="{{ d.id }}">
+        <!--<option value="保存到项目收件箱">保存到项目收件箱</option>-->
+        <option value="">请选择</option>
+        <option value="detail">查看详情</option>
+      {% if member.id != d.member.id  %}
+        {% comment %}<option value="message">发信</option>{% endcomment %}
+        {% if d.id in favorites_demand_ids %}
+            <option value="cancelFavorite">取消关注</option>
+        {% else %}
+            <option value="favorite">关注需求</option>
+        {% endif %}
+      {% endif %}
+    </select>
+    </span>
+    </div>
+</li>
+{% endfor %}
+{% else %}
+    <div id="no_more_div" class="hide_"></div>
+{% endif %}

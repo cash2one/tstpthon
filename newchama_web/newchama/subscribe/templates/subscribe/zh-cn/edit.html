@@ -1,0 +1,232 @@
+{% extends "common/zh-cn/base.html" %}
+{% load myTags %}
+{% block content %}
+<div class="container-fluid" id="newchama_main">
+<div class="col-xs-12">
+<form id="formData" name="formData" class="form-horizontal parsley-form" method="post" enctype="multipart/form-data" action="{% url 'subscribe.save' %}">
+{% csrf_token %}
+<input type="hidden" id="industry_id" name="industry_id" value="0">
+<input type="hidden" id="industry_name" name="industry_name" value="0">
+<input type="hidden" id="edit_id" name="id" value="{{ u.id |default:"" }}"/>
+<input type="hidden" id="currCurrencyId" name="currCurrencyId" value="{{ u.currency_type }}"/>
+<div class="panel panel-default">
+<div class="panel-heading">
+    <h3 class="panel-title">{% if u.id %}编辑订阅{% else %}新建订阅{% endif %}</h3>
+</div>
+<div class="panel-body">
+<span class="tip_span"></span>
+<div class="clear"></div>
+<div class="panel-body step_class ">
+    {% comment %}<div class="col-xs-12">
+        <div class="col-xs-12 ">
+            <div class="stage_title">
+                订阅说明
+            </div></div>
+    </div>{% endcomment %}
+    <div class="col-xs-6">
+        <label class="col-xs-12">订阅名称*</label>
+        <div class="col-xs-12">
+            <input type="text" name="name_cn" class="form-control custom-required" data-required="true" data-error-message="请输入需求名称" value="{{ u.name_cn |default:"" }}" data-maxlength="100" placeholder="例如:上市公司寻求并购电动车企业">
+        </div>
+        <label class="col-xs-12">交易类型*</label>
+        <div class="col-xs-6">
+            <select id="service_type" class="form-control custom-required" data-required="true" data-error-message="请选择交易类型" name="service_type">
+                <option value="">请选择</option>
+                {% for id,value in service_type %}
+                <option value="{{ id }}" {% if u.service_type == id %} selected {% endif %}>{{ value }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-xs-6 project_stage hide_">
+            <select name="project_stage" id="project_stage" class="form-control">
+                <option value="">请选择投资阶段</option>
+                {% for st in investment_stage %}
+                    <option value="{{ st.0 }}" {% if u.project_stage == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <label class="col-xs-12">交易币种</label>
+        <div class="col-xs-6">
+            <select id="currency_select" name="currency_type" class="form-control">
+                {% for id,value in currency_type %}
+                <option value="{{ id }}" {% if u.currency_type == id %} selected {% endif %}>{{ value }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <label class="col-xs-12">标的公司所在区域</label>
+        <div class="col-xs-6">
+            {% comment %}<select id="dest_country" name="dest_country" class="form-control">{% endcomment %}
+            <select id="country" name="country" class="form-control">
+                <option value="0">请选择</option>
+                {% for country in countries %}
+                <option value="{{ country.id }}" {% if u.company_countries.id == country.id %} selected {% endif %}>{{ country.name_cn }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-xs-6">
+            <select id="province" name="province" class="form-control chosen-select" data-placeholder="请选择">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <label class="col-xs-12">标的公司所在行业</label>
+        <div class="col-xs-6">
+            <select id="company_industry_0" name="company_industry_0" class="form-control" data-placeholder="请选择">
+                <option value="">请选择</option>
+                {% for d in industries %}
+                <option value="{{ d.id }}" {% if u.company_industries.id == d.id %} selected {% endif %}>{{ d.name_cn }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="col-xs-6">
+            <select id="company_industry_1" name="company_industry_1" class="form-control" data-placeholder="请选择">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <div class="col-xs-6 hide_" style="margin-top:8px;">
+            <select id="company_industry_2" name="company_industry_2" class="form-control" data-placeholder="请选择">
+                <option value="">请选择</option>
+            </select>
+        </div>
+        <label class="col-xs-12">关键字</label>
+        <div class="col-xs-12" >
+            <div class="col-xs-12" id="target_keywords">
+                {% for tc in mks %}
+                    <span id="target_keyword_{{ tc.keyword }}" class="alert alert-info preference_selected ">
+                        <a href="###">{{ tc.keyword }}</a>&nbsp;
+                        <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove project_key_remove"></a>
+                    </span>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <input type="text" id="key_keyword" name="key_keyword" class="form-control" placeholder="输入细分行业关键字">
+            <input type="hidden" id="project_keyword" name="project_keyword" value="{{ keywords }}"/>
+        </div>
+        <div class="col-xs-2">
+            <button type="button" class="btn btn-default btn-xs" onclick="addKeyword2()">添加</button>
+        </div>
+        <div class="col-xs-6">
+            {% for st in currencyTypes %}
+                <label class="radio-inline"> <input type="radio" name="industryCurrency" id="{{ st.1 }}" {% if forloop.last %}class="custom-required-industry" required data-error-message="请选择货币种类"{% endif %} value="{{ st.0 }}"/>{{ st.1 }}</label>
+            {% endfor %}
+            <input type="hidden" name="deal_size_min" id="member_range_mins_0" value="{{ u.deal_size_min | default:"0"}}">
+            <input type="hidden" name="deal_size_max" id="member_range_maxs_0" value="{{ u.deal_size_max | default:"100000000000"}}">
+        </div>
+        <label class="col-xs-12">
+            <span>交易金额:&nbsp;</span>
+            <span id="amount0"></span>
+        </label>
+        <div class="col-xs-12">&nbsp;</div>
+        <div class="col-xs-12">
+            <div id="rangeSlider0"></div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="col-xs-12 common_fill_right_tip" style="margin-top:286px">
+            关键词是对细分行业的补充，准确的关键词有助于提高项目匹配的精准度，例如：人工智能
+        </div>
+    </div>
+</div>
+</div>
+    </div>
+</div>
+<div class="form-group text-center">
+    <!--<button type="button" class="btn btn-primary btn-xs btn_step_3" name="btn_save" id="btn_save">发布</button>-->
+    <button type="button" class="btn btn-default btn-xs" name="btn_go_list" id="btn_go_list"> 保存 </button>
+    <button type="button" class="btn btn-default btn-xs" name="btn_back" id="btn_back" onclick="goback()"> 取消 </button>
+    <br />
+    <br />
+</div>
+</div>
+</form>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+<link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+<script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+<link href="{{STATIC_PREFIX}}css/jquery-ui.css" rel="stylesheet" />
+<script src="{{STATIC_PREFIX}}js/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+<script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+<script src="{{STATIC_PREFIX}}js/plugins/imask/jquery.imask.min.js"></script>
+<link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/datepicker/datepicker.css" />
+<script src="{{STATIC_PREFIX}}js/datepicker/bootstrap-datepicker.js"></script>
+<script src="{{STATIC_PREFIX}}js/common/common_fill.js"></script>
+<script src="{{STATIC_PREFIX}}js/plugins/jquery.form.js"></script>
+<script src="{{STATIC_PREFIX}}js/plugins/layer/layer.min.js"></script>
+<script>
+    function initSelected4Project() {
+        {% if u.company_countries.id > 0%}
+            company_country_id = {{ u.company_countries.id }};
+            company_province_id = 0;
+            {% if u.company_provinces.id > 0 %}
+                company_province_id = {{ u.company_provinces.id }};
+            {% endif %}
+            LoadProvinces('province', company_country_id, company_province_id);
+        {% endif %}
+        var company_industry_result_value = "{{ u.company_industries.id }}";
+        var company_industry_result_level = "{{ u.company_industries.level }}";
+        var company_industry_result_father_id = "{{ u.company_industries.father.id }}";
+        jQuery("#industry_id").val(company_industry_result_value);
+        if (company_industry_result_level == 1) {
+            $("#company_industry_0").val(company_industry_result_value);
+            industrySelect("company_industry_1", company_industry_result_value);
+        }
+        else {
+            if(company_industry_result_level == 2) {
+                $("#company_industry_0").val(company_industry_result_father_id);
+                industrySelect("company_industry_1", company_industry_result_father_id,company_industry_result_value);
+            }
+            else if(company_industry_result_level == 3) {
+                var company_industry_result_father_father_id = "{{ u.company_industries.father.father.id }}";
+                $("#company_industry_0").val(company_industry_result_father_father_id);
+                industrySelect("company_industry_1", company_industry_result_father_father_id, company_industry_result_father_id);
+                industrySelect("company_industry_2", company_industry_result_father_id,company_industry_result_value);
+            }
+            else {
+                $("#company_industry_0").val(company_industry_result_value);
+            }
+        }
+        var val = $("#service_type").val();
+        if (val == 2) $(".project_stage").removeClass("hide_");
+        else $(".project_stage").addClass("hide_");
+
+        var deal_size_min = $("#member_range_mins_0").val();
+        var deal_size_max = $("#member_range_maxs_0").val();
+        if (deal_size_min == "") deal_size_min = 0;
+        if (deal_size_max == "") deal_size_max = 100000000000;
+        autoSlider(0, deal_size_min, deal_size_max);
+    }
+
+    initSelected4Project();
+
+    $("#btn_go_list").click(function() {
+        if (!checkMustEnter(0)) {
+            return;
+        }
+        $(this).prop("disabled", true);
+        endSave(function(bool) {
+            if (bool) {
+                location.href="/subscribe/";
+            }
+            else {
+                $("#btn_go_list").prop("disabled", false);
+            }
+        });
+    });
+    
+    jQuery("#currency_select").change(function() {
+        var val = jQuery(this).val();
+        var unit = jQuery("#" + this.id + " option:selected").text();
+        jQuery(".currency_unit").html(unit);
+        var old_unit = jQuery("#currCurrencyId").val();
+        old_unit = handleCurrentCurrency(old_unit);
+        unit = getCurrentCurrency();
+        var txt = jQuery("#amount0").text();
+        txt = txt.replace(old_unit, unit).replace(old_unit, unit);
+        jQuery("#amount0").text(txt);
+        jQuery("#currCurrencyId").val(val);
+    });
+</script>
+{% endblock %}

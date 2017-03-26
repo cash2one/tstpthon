@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+  <title>Buyer Home - NewChama</title>
+
+  <meta charset="utf-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="./css/font-awesome.min.css">
+  <link rel="stylesheet" href="./js/libs/css/ui-lightness/jquery-ui-1.9.2.custom.min.css">
+  <link rel="stylesheet" href="./css/bootstrap.min.css">
+
+  <!-- Plugin CSS -->
+  <link rel="stylesheet" href="./js/plugins/fileupload/bootstrap-fileupload.css">
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="./css/target-admin.css">
+  <link rel="stylesheet" href="./css/custom.css">
+
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+
+  <div class="navbar">
+
+  <div class="container">
+
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <i class="fa fa-cogs"></i>
+      </button>
+
+      <a class="navbar-brand navbar-brand-image" href="./index.html">
+        <img src="./img/logo.png" alt="NewChama">
+      </a>
+
+    </div> <!-- /.navbar-header -->
+
+    <div class="navbar-collapse collapse">
+
+      
+    
+      
+
+      <ul class="nav navbar-nav navbar-right">   
+         
+
+
+        <li class="dropdown navbar-profile">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="javascript:;">
+            <img src="./img/avatars/avatar-1-xs.jpg" class="navbar-profile-avatar" alt="">
+            <span class="navbar-profile-label">rod@rod.me &nbsp;</span>
+            <i class="fa fa-caret-down"></i>
+          </a>
+
+          <ul class="dropdown-menu" role="menu">
+
+            <li>
+              <a href="./page-profile.html">
+                <i class="fa fa-user"></i> 
+                &nbsp;&nbsp;My Profile
+              </a>
+            </li>
+
+            <li>
+              <a href="./page-pricing.html">
+                <i class="fa fa-smile-o"></i> 
+                &nbsp;&nbsp;Invitation Code
+              </a>
+            </li>
+
+            <li>
+              <a href="./page-settings.html">
+                <i class="fa fa-cogs"></i> 
+                &nbsp;&nbsp;Settings
+              </a>
+            </li>
+
+            <li class="divider"></li>
+
+            <li>
+              <a href="./account-login.html">
+                <i class="fa fa-sign-out"></i> 
+                &nbsp;&nbsp;Logout
+              </a>
+            </li>
+
+          </ul>
+
+        </li>
+
+      </ul>
+
+      <ul class="nav nav-pills navbar-right" style="margin:1em 0;">
+         <li><a href="#tab1" data-toggle="tab">Buyer</a></li>
+         <li class="active"><a href="#tab2" data-toggle="tab">Seller</a></li>
+          
+     </ul>
+
+       
+
+
+
+       
+
+    </div> <!--/.navbar-collapse -->
+
+  </div> <!-- /.container -->
+
+</div> <!-- /.navbar -->
+
+  <div class="mainbar sellerbar">
+
+  <div class="container">
+
+    <button type="button" class="btn mainbar-toggle" data-toggle="collapse" data-target=".mainbar-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="mainbar-collapse collapse">
+
+      <ul class="nav navbar-nav mainbar-nav">
+
+        <li class="active" >
+          <a href="./index.html">
+            <i class="fa fa-home"></i>
+            Home
+          </a>
+        </li>
+
+        <li class=" ">
+          <a href="#about" >
+            <i class="fa fa-bolt"></i>
+            New Project
+          </a>
+        </li>
+
+        <li class=" ">
+          <a href="javascript:;">
+          <i class="fa fa-search"></i> 
+          Project Search
+          </a>
+        </li>
+
+        <li class="">
+          <a href="javascript:;">
+            <i class="fa fa-dollar"></i>
+            Sales Info
+          </a>
+        </li>  
+
+        <li class=" ">
+          <a href="#contact">
+            <i class="fa fa-folder-open"></i>
+            Sales Info Manage
+          </a>
+
+          
+        </li>
+
+      </ul>
+
+    </div> <!-- /.navbar-collapse -->   
+
+  </div> <!-- /.container --> 
+
+</div> <!-- /.mainbar -->
+
+
+<div class="container">
+
+  <div class="content">
+
+    <div class="content-container">
+
+      
+
+      
+
+      <div class="row">
+
+        <div class="col-md-12">
+          <div class="row-stat">
+            Only 30 seconds, to set up your customized news with favorite! <a  class="btn btn-success">Start Setup</a>
+          </div> <!-- /.row-stat -->
+        </div> <!-- /.col -->
+
+        
+      </div> <!-- /.row -->
+
+      <div class="row" style="margin-top:20px;">
+
+        <div class="col-md-9">
+
+
+        <h4 class="heading">New Project</h4>
+
+            <ul id="myTab1" class="nav nav-tabs">
+            <li class="active dropdown">
+               <a href="javascript:;" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown">Industry <b class="caret"></b>
+              </a>
+
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2">
+                <li><a href="#dropdown3" tabindex="-1" data-toggle="tab">Internate</a></li>
+                <li><a href="#dropdown4" tabindex="-1" data-toggle="tab">Others</a></li>
+              </ul>
+            </li>
+            
+            <li class="dropdown">
+               <a href="javascript:;" id="myTabDrop3" class="dropdown-toggle" data-toggle="dropdown">Region <b class="caret"></b>
+              </a>
+
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop3">
+                <li><a href="#dropdown3" tabindex="-1" data-toggle="tab">Internate</a></li>
+                <li><a href="#dropdown4" tabindex="-1" data-toggle="tab">Others</a></li>
+              </ul>
+            </li>
+            
+          </ul>
+
+
+          <div id="myTab1Content" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+              <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Project Name</th>
+                <th>Industry</th>
+                <th>Region</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Larry</td>
+                <td>Smith</td>
+                <td>@lsmith</td>
+                <td>
+                  <span class="label label-primary">Approved</span>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Mark</td>
+                <td>Williams</td>
+                <td>@mwills</td>
+                <td>
+                  <span class="label label-secondary">Pending</span>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Jeremy</td>
+                <td>Jones</td>
+                <td>@jj</td>
+                <td>
+                  <span class="label label-success">Success</span>
+                </td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Carlos</td>
+                <td>Martin</td>
+                <td>@cmar</td>
+                <td>
+                  <span class="label label-default">Suspended</span>
+                </td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>Larry</td>
+                <td>Smith</td>
+                <td>@lsmith</td>
+                <td>
+                  <span class="label label-primary">Approved</span>
+                </td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>Mark</td>
+                <td>Williams</td>
+                <td>@mwills</td>
+                <td>
+                  <span class="label label-secondary">Pending</span>
+                </td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>Jeremy</td>
+                <td>Jones</td>
+                <td>@jj</td>
+                <td>
+                  <span class="label label-success">Success</span>
+                </td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>Carlos</td>
+                <td>Martin</td>
+                <td>@cmar</td>
+                <td>
+                  <span class="label label-default">Suspended</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+            </div>
+
+            <div class="tab-pane fade" id="profile">
+              
+            </div>
+
+            
+          </div>
+          
+            <h4 class="heading">What's going on?</h4>
+
+            <ul id="myTab1" class="nav nav-tabs">
+            <li class="active">
+              <a href="#home" data-toggle="tab">Industry</a>
+            </li>
+            <li>
+              <a href="#profile" data-toggle="tab">Region</a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Others <b class="caret"></b>
+              </a>
+
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#dropdown1" tabindex="-1" data-toggle="tab">@fat</a></li>
+                <li><a href="#dropdown2" tabindex="-1" data-toggle="tab">@mdo</a></li>
+              </ul>
+            </li>
+          </ul>
+
+
+          <div id="myTab1Content" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+            <div class="portlet">
+
+            
+
+            <div class="portlet-content">
+
+              <div id="bar-chart" class="chart-holder"></div>             
+
+            </div> <!-- /.portlet-content -->
+
+          </div> <!-- /.portlet -->
+
+              
+            </div>
+
+            <div class="tab-pane fade" id="profile">
+              
+            </div>
+
+            <div class="tab-pane fade" id="dropdown1">
+              
+            </div>
+
+            <div class="tab-pane fade" id="dropdown2">
+              
+            </div>
+          </div>
+
+
+          
+
+
+
+
+        </div>
+
+        <div class="col-md-3">
+
+         <div class="portlet">
+
+            <div class="portlet-header">
+              <h3>
+                <i class="fa fa-bar-chart-o"></i>
+                Statistics
+              </h3>
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-content">
+
+              <div class="row row-marginless">
+
+                <div class="spark-stat col-md-6 col-sm-6 col-xs-6">
+
+                  <div id="total-visits">49, 53,32, 38, 46,  48, 47, 56</div>
+                  <span class="spark-stat-value">1,564</span>
+                  <h5 class="spark-stat-label">Total Visits</h5>
+
+                </div> <!-- /.col -->
+
+                <div class="spark-stat col-md-6 col-sm-6 col-xs-6">
+
+                  <div id="new-visits">32, 38, 46, 49, 53, 48, 47, 56</div>
+                  <span class="spark-stat-value">872</span>
+                  <h5 class="spark-stat-label">New Visits</h5>
+
+                </div> <!-- /.col -->
+
+              </div> <!-- /.row -->
+
+
+              <div class="row row-marginless">
+
+                <div class="spark-stat col-md-6 col-sm-6 col-xs-6">
+
+                  <div id="unique-visits">32, 38, 46, 49, 53, 48, 47, 56</div>
+                  <span class="spark-stat-value">845</span>
+                  <h5 class="spark-stat-label">Unique Visits</h5>
+
+                </div> <!-- /.col -->
+
+                <div class="spark-stat col-md-6 col-sm-6 col-xs-6">
+
+                  <div id="revenue-visits" data-bar-color="#c00">32, 38, 46, 49, 53, 48, 47, 56</div>
+                  <span class="spark-stat-value">$13,492</span>
+                  <h5 class="spark-stat-label">Revenue Visits</h5>
+
+                </div> <!-- /.col -->
+
+              </div> <!-- /.row -->
+
+            </div> <!-- /.portlet-content -->
+
+          </div> <!-- /.portlet -->
+
+          
+        <div class="portlet">
+      
+        <div class="portlet-header">
+      
+          <h3>
+            <i class="fa fa-tasks"></i>
+            Invitation
+          </h3>
+      
+        </div> <!-- /.portlet-header -->
+      
+        <div class="portlet-content">
+      
+          <form class="form-horizontal" role="form">
+            
+
+            <div class="form-group">
+              <label class="col-md-12">请您填写您朋友的Email地址，发出邀请信。</label>
+
+              <div class="col-md-12">
+                <input type="text" class="form-control" placeholder="Email">
+              </div>
+
+              <div class="col-md-12" style="margin-top:10px;">
+                <button type="button" class="btn btn-secondary">Send Now</button>
+              </div>
+            </div>
+
+          </form>
+      
+        </div> <!-- /.portlet-content -->
+      
+      </div> <!-- /.portlet -->
+
+       <div class="portlet">
+
+            <div class="portlet-header">
+
+              <h3>
+                <i class="fa fa-file-text-o"></i>
+                News
+              </h3>
+
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-content panel-thread">
+
+              <ul class="icons-list">        
+            <li>
+              <i class="icon-li fa fa-star"></i> 
+              <a href="javascript:;">
+                  How Secure Is My Password?      
+                </a>
+              </li>   
+
+            <li>
+              <i class="icon-li fa fa-star"></i> 
+              <a href="javascript:;">
+                  Can I Change My Username?   
+                </a>
+              </li>  
+
+            <li>
+              <i class="icon-li fa fa-star"></i> 
+              <a href="javascript:;">
+                  Where Can I Upload My Avatar?    
+                </a>
+              </li>  
+
+            <li>
+              <i class="icon-li fa fa-star"></i> 
+              <a href="javascript:;">
+                  How Do I Change My Timezone?     
+                </a>
+              </li>  
+
+            <li>
+              <i class="icon-li fa fa-star"></i> 
+              <a href="javascript:;">
+                  How Do I Change My Password?      
+                </a>
+              </li>  
+
+          </ul>
+
+
+            </div> <!-- /.portlet-content -->
+
+          </div> <!-- /.portlet -->
+
+     
+        </div>
+
+      </div> <!-- /.row -->
+
+
+      
+
+    </div> <!-- /.content-container -->
+      
+  </div> <!-- /.content -->
+
+</div> <!-- /.container -->
+
+
+<footer class="footer">
+
+  <div class="container">
+
+    <div class="row">
+
+      <div class="col-sm-12">
+
+
+        <hr>    
+
+        <p>&copy; 2014 NewChama.com</p>
+
+      </div> <!-- /.col -->
+
+     
+
+     
+
+      
+
+    </div> <!-- /.row -->
+
+  </div> <!-- /.container -->
+  
+</footer>
+
+  <script src="./js/libs/jquery-1.10.1.min.js"></script>
+  <script src="./js/libs/jquery-ui-1.9.2.custom.min.js"></script>
+  <script src="./js/libs/bootstrap.min.js"></script>
+
+  <!--[if lt IE 9]>
+  <script src="./js/libs/excanvas.compiled.js"></script>
+  <![endif]-->
+  
+  <!-- Plugin JS -->
+  <script src="./js/plugins/fileupload/bootstrap-fileupload.js"></script>
+
+  <!-- App JS -->
+  <script src="./js/target-admin.js"></script>
+
+  <!-- Plugin JS -->
+  <script src="./js/libs/raphael-2.1.2.min.js"></script>
+  <script src="./js/plugins/morris/morris.min.js"></script>
+
+  
+  <!-- Plugin JS -->
+  <script src="./js/demos/charts/morris/bar.js"></script>
+  <script src="./js/demos/charts/morris/line.js"></script>
+  <script src="./js/demos/charts/morris/donut.js"></script>
+  <script src="./js/demos/charts/morris/area.js"></script>
+  <script src="./js/plugins/sparkline/jquery.sparkline.min.js"></script>
+  <script src="./js/demos/dashboard.js"></script>
+  <script src="./js/demos/calendar.js"></script>
+  <script src="./js/demos/charts/morris/area.js"></script>
+
+  
+
+
+  
+</body>
+</html>

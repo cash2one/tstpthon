@@ -1,0 +1,87 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Admin User<span>Users</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Admin User</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div id="table2_filter" class="dataTables_filter">
+        <form action="" class="form-inline">
+            Search:<input type="text" name="keyword" class="form-control" id="keywordSearch" value="{{ keyword }}" placeholder="Enter KeyWord">
+            <button class="btn btn-primary">Search</button>
+            <a class="btn btn-default" href="{% url 'adminuser.add' %}">Add</a>
+        </form>
+    </div>
+
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>User Name</th>
+            <th>Real Name</th>
+            <th>Mobile</th>
+            <th>Email</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        {% autopaginate result_list %}
+        {% for adminuser in result_list %}
+          <tr>
+            <td>{{ adminuser.id }}</td>
+            <td>{{ adminuser.username }}</td>
+            <td>{{ adminuser.realname }}</td>
+            <td>{{ adminuser.mobile }}</td>
+            <td>{{ adminuser.email }}</td>
+            <td>
+                <a href="{% url 'adminuser.edit' adminuser.id %}" title="edit"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                <a href="{% url 'adminuser.reset_password' adminuser.id %}" title="reset password"><i class="fa fa-key"></i></a>&nbsp;&nbsp;
+                <a href="javascript:;" onclick="DoDelete('{% url 'adminuser.remove' %}', {{ adminuser.id }})" class="delete-row" title="remove"><i class="fa fa-trash-o"></i></a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% paginate %}
+{#    <div class="dataTables_length" id="table2_length">#}
+{#        <select class="chosen-select">#}
+{#        {% for i in result_list.paginator.page_range %}#}
+{#            <option value="{{ i }}"  {% if i == result_list.number %}selected{% endif %}>{{ i }}</option>#}
+{#        {% endfor %}#}
+{#        </select>#}
+{#    </div>#}
+{#    <div class="dataTables_paginate paging_full_numbers" id="table2_paginate">#}
+{#       <a tabindex="0" class="first paginate_button  {% if result_list.number > 1 %}" href="?keyword={{ keyword }}&page=1"{% else %}paginate_button_disabled"{% endif %} id="table2_first">First</a>#}
+{#       <a tabindex="0" class="previous paginate_button  {% if result_list.has_previous %}" href="?keyword={{ keyword }}&page={{ result_list.previous_page_number }}"{% else %}paginate_button_disabled"{% endif %} id="table2_previous">Previous</a>#}
+{#       <a tabindex="0" class="next paginate_button {% if result_list.has_next %}" href="?keyword={{ keyword }}&page={{ result_list.next_page_number }}"{% else %}paginate_button_disabled"{% endif %} id="table2_next">Next</a>#}
+{#       <a tabindex="0" class="last paginate_button {% if result_list.number < result_list.paginator.num_pages %}" href="?keyword={{ keyword }}&page={{ result_list.paginator.num_pages }}"{% else %}paginate_button_disabled"{% endif %} id="table2_last">Last</a>#}
+{#    </div>#}
+</div>
+{% endblock %}
+{% block customjs %}
+<script>
+    jQuery(document).ready(function(){
+        jQuery(".chosen-select").chosen({
+            'width':'50px',
+            'white-space':'nowrap',
+            ddisable_search_threshold: 10
+        });
+        jQuery(".chosen-select").chosen().change(function() {
+            var val = $(this).children("option:selected").val();
+            location.href="?keyword={{ keyword }}&page=" + val;
+        });
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Set Admin User Profile{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Admin User<span>Profile</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Admin User</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Admin User Profile</h4>
+          <p>Set admin user profile</p>
+        </div>
+        <form class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+           <div class="form-group">
+              <label class="col-sm-3 control-label">UserName</label>
+              <div class="col-sm-6">
+                  <input type="text" placeholder="UserName" name="username" value="{{ u.username }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">RealName</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="RealName" name="realname" value="{{ u.realname }}" class="form-control" />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Email" name="email" value="{{ u.email }}" class="form-control" />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Mobile</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Mobile" name="mobile" value="{{ u.mobile }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Role</label>
+              <div class="col-sm-6">
+                  {% for r in roles %}
+                <div class="checkbox block"><label><input {% for sel in role_selected %}{% ifequal sel r %}checked{% endifequal %}{% endfor %} type="checkbox" name="roleIds" value="{{ r.id }}"> {{ r.name }}</label></div>
+                  {% endfor %}
+              </div>
+            </div>
+               {% csrf_token %}
+        <input type="hidden" name="id" value="{{ u.id }}">
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary">Submit</button>&nbsp;
+				  <button class="btn btn-default" onclick="goback()">Cancel</button>
+				</div>
+			 </div>
+		  </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+{% endblock %}

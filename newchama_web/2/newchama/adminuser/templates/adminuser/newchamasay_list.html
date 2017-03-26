@@ -1,0 +1,68 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Newchama Say{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Admin<span>Newchama Say</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Newchama Say</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <button class="btn btn-primary">Search</button>
+        <a class="btn btn-default" href="{% url 'newchamasay.add' %}">添加</a>
+      </form>
+    </div>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>中文内容</th>
+            <th>英文内容</th>
+            <th>管理</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% autopaginate result_list %}
+        {% for d in result_list %}
+          <tr>
+            <td>{{ d.id }}</td>
+            <td><textarea cols="30" rows="5" readonly>{{ d.content_cn }}</textarea></td>
+            <td><textarea cols="30" rows="5" readonly>{{ d.content_en }}</textarea></td>
+            <td>
+                <a href="{% url 'newchamasay.edit' d.id  %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                <a href="javascript:;" onclick="DoDelete('{% url 'newchamasay.remove'  %}', {{ d.id }})" class="delete-row"><i class="fa fa-trash-o"></i></a>
+            </td>
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+<script>
+    jQuery(document).ready(function(){
+        jQuery(".chosen-select").chosen({
+            'width':'50px',
+            'white-space':'nowrap',
+            ddisable_search_threshold: 10
+        });
+        jQuery(".chosen-select").chosen().change(function() {
+            var val = $(this).children("option:selected").val();
+            location.href="?keyword={{ keyword }}&page=" + val;
+        });
+    });
+
+</script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "common/zh-cn/base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">我的关注</h3>
+                </div>
+                <div class="panel-body">
+                    <ul class="news-list">
+                        {% include "account/zh-cn/myFavorite_nav.html" %}
+                        {% if favorites %}
+                            {% for d in favorites %}
+                            <div class="col-sm-3" style="margin-top: 10px; ">
+                                <a href="{% url 'account.profile' d.receiver.id %}"><img src="{% url 'account.avatar' 80 80 d.receiver.avatar%}" class="thumbnail" width="80" style="margin-bottom: 3px"/></a>
+                                <a href="{% url 'account.profile' d.receiver.id %}">{{ d.receiver }}</a> <br />
+                                <button class="btn-xs btn-primary send_message_btn" style="margin-top: 3px" data-message-type="0" data-message-id="{{ d.receiver.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;发信</button> &nbsp;&nbsp;
+                                <button class="btn-xs btn-primary btn-remove-favorite" data-id="{{ d.receiver.id }}" data-type="member"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消关注</button>
+                            </div>
+                            {% endfor %}
+                             <li >&nbsp;</li>
+                            {% if total_member > 12   %}
+                                <li class="members-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                                <li class="members-list-view-all" id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </li>
+                            {% endif %}
+                        {% else %}
+                            <div class="members-list-empty">
+                                <p class="members-list-empty-text">暂无关注</p>
+                            </div>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    {% include "account/zh-cn/sendmessagemodal.html" %}
+    <script>
+        page=1;
+        pagesize=12;
+        function LoadData()
+        {
+            page++;
+            LoadMoreFavorite('member',page,pagesize);
+        }
+        function LoadMoreFavorite(type,page,pagesize)
+        {
+            $("#loader").show();
+            var url = "/account/ajax_more_favorite?type="+type+"&page="+page+"&pagesize="+pagesize;
+            $.get(url,function(data){
+                var newData = data.replace(/\s/g,'');
+                if(newData)
+                {
+                    $("#loader").before(data);
+                }else
+                {
+                    $("#load_btn").remove();
+                }
+                $("#loader").hide();
+            });
+        }
+    </script>
+{% endblock %}

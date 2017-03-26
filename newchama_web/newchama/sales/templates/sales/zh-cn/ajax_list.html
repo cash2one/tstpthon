@@ -1,0 +1,77 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load humanize %}
+{% load myTags %}
+{% if data %}
+{% if have_more_data%}
+    <li id="have_more_data"></li>
+{% endif %}
+{% for m in data %}
+<li class="project-item">
+    <div class="col-xs-10">
+        <div>
+            <strong class="news-list-item-title2"><a href="{% url 'sales.detail' m.id%}">{{ m.name_cn|cut_str:32}}</a> </strong>
+            <div class="news-list-tag-title">
+            {% for k in m.project_recommond_reason_admin.all %}
+                <div>{{ k.reason }}</div>
+            {% endfor %}
+            </div>
+            {% comment %}<span class="pull-right">有效期至：{{ m.expire_date|date:'Y-m-d' }}</span>{% endcomment %}
+        </div>
+<span class="news-list-item-text">
+<table class="table index-table-1">
+    <tbody>
+    <tr class="project-th">
+        <td width="33%">目标地区</td>
+        <td width="33%">交易类型</td>
+        <td width="33%">行业</td>
+    </tr>
+    <tr>
+        <td>{{ m.company_country | merge_location:m.company_province }}</td>
+        <td>{{ m.get_service_type_display |default:"N/A" }}</td>
+        <td>{{ m.company_industry.name_cn |default:"N/A" }}</td>
+    </tr>
+    <tr class="project-th">
+        <td width="33%">交易规模</td>
+        <td width="33%">股权交易比例</td>
+        <td width="33%">关键字</td>
+        {% comment %}<td width="33%">净利润</td>{% endcomment %}
+    </tr>
+    <tr>
+        <td>{{ m.deal_size|formatCurrency2:m.get_currency_type_financial_display }}</td>
+        <td>{{ m.stock_percent | showPercent2 }}</td>
+        <td>
+        {% if m.project_keyword.all %}
+            {% for k in m.project_keyword.all %}
+                {{ k.keyword }}{% if not forloop.last %},{% endif %}
+            {% endfor %}
+        {% else %}
+            N/A
+        {% endif %}
+        </td>
+        {% comment %}<td>{{ m.profit_last_phase |formatCurrency2:m.get_currency_type_financial_display}}</td>{% endcomment %}
+    </tr>
+    </tbody>
+</table> </span>
+    </div>
+    <div class="col-xs-2">
+<span class="pull-right">
+<select name="newStatus" class="newStatus" id="newStatus_{{ m.id }}" ref="{{ m.id }}">
+    <!--<option value="保存到项目收件箱">保存到项目收件箱</option>-->
+    <option value="">请选择</option>
+    <option value="detail">查看详情</option>
+  {% if member.id != m.member.id  %}
+    <option value="message">发信</option>
+    {% if m.id in favorites_project_ids %}
+        <option value="cancelFavorite">取消关注</option>
+    {% else %}
+        <option value="favorite">关注项目</option>
+    {% endif %}
+  {% endif %}
+</select>
+</span>
+    </div> </li>
+{% endfor %}
+{% else %}
+    <div id="no_more_div" class="hide_"></div>
+{% endif %}

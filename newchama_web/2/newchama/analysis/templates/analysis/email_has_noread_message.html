@@ -1,0 +1,82 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NewChama 让交易更简单</title></head>
+
+<body style="margin: 0; padding: 0; font-family:Arial, Helvetica, sans-serif; ">
+    <style>
+        @media only screen and (max-width: 600px){
+            .emailImage{
+                height:auto !important;
+                max-width:600px !important;
+                width: 100% !important;
+            }            
+            .emailImageSmall{
+                height:auto !important;
+                max-width:600px !important;
+                width: 70% !important;
+            }
+        }
+    </style>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:100% !important;">
+ 
+  </table>
+
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; max-width: 600px;">
+    <tr>
+      <td  colspan="1" class="Second_headline"  style="padding-top:36px; font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #86C5C8"><a href="http://www.newchama.com/" target="_blank"><img src="http://www.newchama.com/static/img/email/logonew.png" width="180" height="39" border="0"></a><strong> 
+      为投资人士量身打造的专业交易工具</strong></td>
+    </tr>
+    <tr>
+      <td height="40"  colspan="1" class="Second_headline"  style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332">&nbsp;</td>
+    </tr>
+    <tr>
+      <td colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332"><p>尊敬的{{name}}，
+              <br>
+        您好！
+        您在NewChama平台有<strong><font color="1292ad" size="6">{{message_num}}</font></strong>条未读留言： <br>
+
+        {% for item in plist%}
+        <span style="font-size:20px;"><strong>项目：{{item.name_cn}}<br>
+        
+        {% endfor %}
+
+      
+        </strong></span>
+        <br>
+      </p>
+      </td>
+    <tr>
+      <td align="center" colspan="2" style="padding-top:20px; padding-bottom: 20px;">
+        <div align="left"><a href="http://www.newchama.com/account/notifications" target="_blank" style="font-size: 16px; font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; background-color: #dd4b39; border-top: 7px solid #dd4b39; border-bottom: 7px solid #dd4b39; border-right:30px solid #dd4b39; border-left: 30px solid #dd4b39; display:
+            inline-block; font-weight: 600">
+        <!--[if mso]>&nbsp;<![endif]-->
+        查看更多留言
+        <!--[if mso]>&nbsp;<![endif]-->
+        </a> </div></td>    </tr>
+    <tr>
+      <td height="150" colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332"><p><strong>        如有任何问题，请洽您的交易助手：</strong><br/>
+        李正 客户服务部<br/>
+        Tel: +86 21 61911021 <br>
+        E-mail: <a href="mailto:paul@newchama.com" style="color:#333332;">paul@newchama.com</a>　      </p>        </td>
+    </tr>
+     <tr>
+       <td height="150" colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332"><p><br>　　
+         欢迎关注微信公众号：NewChama<br>
+       <img src="http://www.newchama.com/static/img/email/qrcode_for_gh_160648cafa4c_258.jpg" width="258" height="258"></p>       　
+       </td>
+     </tr>
+
+    <tr>
+      <td colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:10px; line-height:1.6; color: #999; border-top:1px solid #e3e3e3; padding:10px 0px;">
+       
+          <p>电子邮件发件人：NewChama.com 为投资人士量身打造的专业交易工具 <br/>(C) Copyright 2014-2015. All rights are reserved by NewChama.</p>      </td>
+    </tr><tr>
+      <td colspan="2" bgcolor="#f9f9f9" align="center" style="padding:9px 0;font-family: 'Open Sans', Helvetica, sans-serif;font-weight:300;font-size: 10px; color: #aaaaaa; line-height: 1;"> <!--  邮件显示不正确? <a href="https://newchama.com/d48b5c2fad6f796bebb4a63bfc5404dd.html" style="color:#aaa">点击在您的浏览器查看</a>--> 如邮件无法正常打开，请直接访问 <a href="http://www.newchama.com" style="color:#aaa" target="_blank">NewChama.com</a> 网站      </td>
+    </tr>
+  </table>
+
+
+</body>
+</html>

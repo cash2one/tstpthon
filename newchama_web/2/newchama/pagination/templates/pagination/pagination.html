@@ -1,0 +1,28 @@
+{% if is_paginated %}
+{% load i18n %}
+<div class="dataTables_info" id="table2_info">Showing {{ records.first }} to {{ records.last }} of entries</div>
+<div class="dataTables_paginate paging_full_numbers" id="table2_paginate">
+       <a tabindex="0" class="first paginate_button" id="table2_first" href="?page=1{{ getvars }}{{ hashtag }}">First</a>
+     {% if page_obj.has_previous %}
+       <a tabindex="0" class="previous paginate_button" id="table2_previous" href="?page={{ page_obj.previous_page_number }}{{ getvars }}{{ hashtag }}">Previous</a>
+     {% endif %}
+       <span>
+           {% for page in pages %}
+                {% if page %}
+                    {% ifequal page page_obj.number %}
+                        <a tabindex="0" class="paginate_active">{{ page }}</a>
+                    {% else %}
+                        <a href="?page={{ page }}{{ getvars }}{{ hashtag }}" class="paginate_button">{{ page }}</a>
+                    {% endifequal %}
+                {% else %}
+                    <a class="paginate_button">...</a>
+                {% endif %}
+           {% endfor %}
+
+       </span>
+    {% if page_obj.has_next %}
+       <a tabindex="0" class="next paginate_button" id="table2_next" href="?page={{ page_obj.next_page_number }}{{ getvars }}{{ hashtag }}">Next</a>
+    {% endif %}
+       <a tabindex="0" class="last paginate_button" id="table2_last" href="?page={{ page_obj.paginator.num_pages }}{{ getvars }}{{ hashtag }}">Last</a>
+</div>
+{% endif %}

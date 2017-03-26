@@ -1,0 +1,56 @@
+{% extends "adminuser/base.html" %}
+{% block title %}News{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> News<span>News</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">News</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <button class="btn btn-primary">Search</button>
+        <a class="btn btn-default" href="{% url 'news.add' %}">Add</a>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>title</th>
+                <th>source</th>
+                <th></th>
+                <th></th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for m in data %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.member }}</td>
+                <td>{{ m.name }}</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <a href="{% url 'news.edit' m.id %}" title="edit" target="_blank"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                    <a href="javascript:;" title="remove"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+{% endblock %}

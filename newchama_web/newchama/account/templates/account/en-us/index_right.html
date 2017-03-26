@@ -1,0 +1,190 @@
+{% comment %}
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">News</h3>
+            </div>
+            <div class="panel-body tab-content">
+                <ul class="nav nav-pills" role="tablist" style="padding-bottom:8px; border-bottom: 1px dotted #ccc;">
+                    <li class="active"><a href="#home-3" data-toggle="tab">All</a></li>
+                    <li><a href="#home-4" data-toggle="tab">Favourites</a></li>
+                </ul>
+                <ul class="news-list tab-pane fade active in" id="home-3"  >
+                    {% if news_list %}
+                        {% for n in news_list %}
+                            <li>
+                                <span class="news-list-item-title"><a href="{% url 'news.detail' n.id%}">{{n.title|striptags |truncatechars:22}}</a></span>
+                            <span class="news-list-item-tags"> <i class="glyphicon glyphicon-tags"></i>
+                                <a class="tag preference_common_keyword" data-type="news" data-tag="{{ n.tag }}" href="javascript:;">{{ n.tag }}</a>
+                            </span> <br />
+                            </li>
+                        {% endfor %}
+                        <li class="news-list-view-all"> <a href="{% url 'news.index' %}">View All</a> </li>
+                    {% endif %}
+                </ul>
+                <ul class="news-list tab-pane fade"  id="home-4" >
+                    {% if news_list_preference %}
+                        {% for n in news_list_preference %}
+                            <li>
+                                <span class="news-list-item-title"><a href="{% url 'news.detail' n.id%}">{{n.title|striptags |truncatechars:22}}</a></span>
+                            <span class="news-list-item-tags"> <i class="glyphicon glyphicon-tags"></i>
+                                <a class="tag" href="{% url 'news.tag' n.tag %}">{{ n.tag }}</a>
+                            </span> <br />
+                            </li>
+                        {% endfor %}
+                        <li class="news-list-view-all"> <a href="{% url 'news.index' %}">View All</a> </li>
+                    {% else %}
+                        <li class="news-list-empty"> <h4 class="news-list-empty-title">No Preference</h4> <p class="news-list-empty-text">Setting My Preference!</p> </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.news -->
+{% endcomment %}
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Newchama Hot Keywords</h3>
+            </div>
+            <div id="tag_cloud_block" class="tag_cloud_block_en">
+
+            <a href="{% url 'sales.search_keyword' %}?keyword=TMT" id="index_tag_4">TMT</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=M&A" id="index_tag_6">M&A</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Financing" id="index_tag_3">Financing</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Intelligent Robot" id="index_tag_1">Intelligent Robot</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Mobile" id="index_tag_5">Mobile</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Digital Marketing" id="index_tag_2">Digital Marketing</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=O2O" id="index_tag_7">O2O</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Pharmaceutical" id="index_tag_8">Pharmaceutical</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Electrical Car" id="index_tag_9">Electrical Car</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Health Care" id="index_tag_10">Health Care</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Online Education" id="index_tag_11">Online Education</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Online Payment" id="index_tag_12">Online Payment</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Culture" id="index_tag_13">Culture</a>
+            <a href="{% url 'sales.search_keyword' %}?keyword=Transportation" id="index_tag_14">Transportation</a>
+            </div>
+
+        </div>
+    </div>
+
+
+
+    <!-- /.news -->
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">My WatchList</h3>
+            </div>
+            <div class="panel-body tab-content">
+                <ul class="nav nav-pills" role="tablist" style="padding-bottom:8px; border-bottom: 1px dotted #ccc;">
+                    <li class="active"><a href="#home-1" data-toggle="tab">Seller's Deal</a></li>
+                    <li><a href="#home-2" data-toggle="tab">Buy-Side Mandates</a></li>
+                </ul>
+                <ul class="news-list tab-pane fade active in" id="home-1"  >
+                    {% if p_list %}
+                        {% for p in p_list %}
+                            <li>
+                                    <span class="news-list-item-title"><a href="{% url "sales.detail" p.project.id %}">{{p.project.name_en|striptags |truncatechars:16}}</a>
+                                        <a href="javascript:;" class="pull-right index_favorite_cancel" data-id="{{ p.project.id }}" data-type="project"><i class="glyphicon glyphicon-trash"></i>&nbsp;Cancel</a>
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> Last Updated {{ p.project.update_time |date:'Y-m-d'}}
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> Listing period {{ p.project.expire_date |date:'Y-m-d'}}
+                                    </span> <br />
+                            </li>
+                        {% endfor %}
+                        <li class="news-list-view-all"> <a href="{% url 'account.myfavorite' %}">View All</a> </li>
+                    {% else %}
+                        <li class="news-list-empty"> <h4 class="news-list-empty-title">No WatchList(Creat a new one?)</h4> <p class="news-list-empty-text">Add what you like and add it into your watch list!</p> </li>
+                    {% endif %}
+                </ul>
+                <ul class="news-list tab-pane fade"  id="home-2" >
+                    {% if d_list %}
+                        {% for p in d_list %}
+                            <li>
+                                    <span class="news-list-item-title"><a href="{% url "purchase.detail" p.demand.id %}">{{p.demand.name_en|striptags |truncatechars:16}}</a>
+                                        <a href="javascript:;" class="pull-right index_favorite_cancel" data-id="{{ p.demand.id }}" data-type="demand"><i class="glyphicon glyphicon-trash"></i>&nbsp;取消</a>
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> Last Updated {{ p.demand.update_time |date:'Y-m-d'}}
+                                    </span>
+                                    <span class="news-list-item-time">
+                                        <i class="glyphicon glyphicon-time"></i> Listing period {{ p.demand.expire_date |date:'Y-m-d'}}
+                                    </span> <br />
+                            </li>
+                        {% endfor %}
+                        <li class="news-list-view-all"> <a href="{% url 'account.myfavorite_demand' %}">View All</a> </li>
+                    {% else %}
+                        <li class="news-list-empty"> <h4 class="news-list-empty-title">No WatchList(Creat a new one?)</h4> <p class="news-list-empty-text">Add what you like and add it into your watch list!</p> </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.news -->
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Ranking List</h3>
+            </div>
+            <div class="panel-body tab-content">
+                <ul class="nav nav-pills" role="tablist" style="padding-bottom:8px; border-bottom: 1px dotted #ccc;">
+                    <li class="active"><a href="#home-7" data-toggle="tab">Most Viewed Deals</a></li>
+                    <li><a href="#home-8" data-toggle="tab">Hot Agency</a></li>
+                    <li><a href="#home-9" data-toggle="tab">I-BANK</a></li>
+                </ul>
+            <ul class="news-list tab-pane fade active in"  id="home-7" >
+                <table class="table table-striped rank-list table-condensed">
+                    <tbody>
+                    {% for p in hot_projects %}
+                    <tr>
+                        <td><a href="{% url 'sales.detail' p.id %}">{{ p.name_en|striptags|truncatechars:20 }}</a></td>
+{#                        <td><i class="glyphicon glyphicon-arrow-up color-up"></i></td>#}
+                    </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </ul>
+                <ul class="members-list tab-pane fade"  id="home-8" >
+                {% for c in companies_active %}
+                      <li class="members-item">
+                        <a href="{% url 'account.company' c.id %}">
+                            {% if c.logo == "" %}
+                                 <img src="{{MEDIA_URL}}companylogo/default.png" alt="{{ c.short_name_en|safe }}" width="80" class="thumbnail" />
+                              {% else %}
+                                <img src="{{MEDIA_URL}}companylogo/{{c.logo}}" alt="{{ c.short_name_en|safe }}" width="80" class="thumbnail" />
+                              {% endif %}
+                        {{ c.short_name_en }}
+                        </a>
+                    </li>
+                 {% empty %}
+                        <li class="news-list-empty"> <h4 class="news-list-empty-title">No Hot Agency</h4></li>
+                {% endfor %}
+                </ul>
+                <ul class="news-list tab-pane fade"  id="home-9" >
+                      <li class="news-list-empty"> <h4 class="news-list-empty-title">Waiting</h4> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.news -->
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Refer Your Friend</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label for="text-input">Refer a friend by email</label>
+                    <input type="text" id="invite_email" class="form-control" /><br/>
+                    <button type="button" class="btn btn-primary btn-xs" id="send_invite_email_btn">Send Now</button>
+                    <label id="send_invite_email_ing" class="hide_">Mailing now...</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /.news -->
+    </div>

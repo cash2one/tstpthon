@@ -1,0 +1,67 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-30 15:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: views.py:34
+msgid "Buyer Recommended"
+msgstr "买家推荐"
+
+#: views.py:48
+msgid "Purchase Search"
+msgstr "需求搜索"
+
+#: views.py:129
+msgid "Search"
+msgstr ""
+
+#: views.py:146
+msgid "New Purchase"
+msgstr "最新需求"
+
+#: views.py:556
+msgid "Add Purchase"
+msgstr "发布需求"
+
+#: views.py:595
+msgid "Edit Purchase"
+msgstr "编辑需求"
+
+#: views.py:661 views.py:700
+msgid "Purchase Detail"
+msgstr "需求详情"
+
+#: views.py:666
+msgid "You have no permission to visit this page"
+msgstr "您没有权限访问这个页面"
+
+#: views.py:673 views.py:709 views.py:1196
+msgid "not target"
+msgstr "该项目是定向发送的项目，我们可以协助您跟用户取得联系。联系方式：8621-61911021，邮箱：support@newchama.com"
+#msgstr "此项目为发布者定向推送，您暂时无法查看详细信息。若您对此标的有进一步兴趣，可委托NewChama联络发布者,或直接联系support@newchama.com"
+
+#: views.py:739
+msgid "please input demand name"
+msgstr "请输入需求名称"
+
+#: views.py:1193
+msgid "no attach"
+msgstr "没有附件"
+
+#~ msgid "My Purchases"
+#~ msgstr "我的需求"

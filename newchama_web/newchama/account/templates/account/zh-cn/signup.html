@@ -1,0 +1,156 @@
+{% extends "common/zh-cn/nologin_base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main" style="width:100%;margin:0 auto;">
+    <div class="col-xs-10 col-xs-offset-1">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">申请加入</h3>
+    </div>
+    <div class="panel-body">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                    {{ message }}
+                </div> <!-- /.alert -->
+            {% endfor %}
+        {% endif %}
+        <div class="col-xs-12">
+            <br>
+             <form class="form-horizontal account-form" method="POST" data-validate="parsley">
+
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="col-xs-2">企业邮箱*</label>
+                    <div class="col-xs-4">
+                        <input type="email" data-type="email" value="{{ f.email }}" class="form-control" name="email" id="signup-email" placeholder="" tabindex="1"  data-required="true">
+
+                    </div>
+                    <div class="col-xs-6 unit_position">
+                        <span class="text-muted">为了提高交流和信任度，我们会对注册用户进行审核</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">密码*</label>
+                    <div class="col-xs-4">
+                        <input type="password" class="form-control" name="password" id="signup-password" placeholder="" tabindex="2"  data-required="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">确认密码*</label>
+                    <div class="col-xs-4">
+                        <input type="password" class="form-control" name="confirm_password" id="signup-confirm-password" placeholder="" tabindex="3"  data-required="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">手机号码*</label>
+                    <div class="col-xs-2">
+                        <select class="form-control" name="mobile_intel" tabindex="4" data-required="true">
+                            {% for c in countries %}
+                                <option value="{{ c.intel_code }}" {% ifequal mobile_intel c.intel_code %} selected {% endifequal %}>({{ c.intel_code }}){{ c.name_cn }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" value="{{ f.mobile }}" class="form-control" name="mobile" id="signup-mobile" placeholder="" tabindex="5" data-required="true" data-type="mobile">
+                    </div>
+                    <div class="col-xs-4 unit_position">
+                        <span class="text-muted">接收项目通知，不会对外公布</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">姓名*</label>
+                    <div class="col-xs-4">
+                        <input type="text" value="{{ f.fullname }}"  class="form-control" id="signup-fullname" name="fullname" placeholder="" tabindex="6" data-required="true">
+
+                    </div>
+                     <div class="col-xs-6 unit_position">
+                        <span class="text-muted">真实的信息会让您在平台上取得更多信任，获取更多项目信息</span>
+                    </div>
+
+
+                </div>
+
+                 <div class="form-group">
+                    <label class="col-xs-2">公司名称*</label>
+                    <div class="col-xs-4">
+                        <input type="text" id="company" value="{{ f.company }}" class="form-control" placeholder="" name="company" tabindex="7"  data-required="true">
+
+
+                    </div>
+                </div>
+
+
+
+                {% comment %}<div class="form-group">
+                    <label class="col-xs-2">公司类型*</label>
+                    <div class="col-xs-4">
+                    <select name="company_type"  class="form-control" tabindex="8" data-required="true">
+
+                        <option value="">请选择</option>
+                        <option value="1" {% if f.company_type == '1' %} selected="selected" {% endif %}>上市公司</option>
+                        <option value="2" {% if f.company_type == '2' %} selected="selected" {% endif %}>非上市公司</option>
+                        <option value="3" {% if f.company_type == '3' %} selected="selected" {% endif %}>投资机构</option>
+                        <option value="3" {% if f.company_type == '6' %} selected="selected" {% endif %}>PE私募基金</option>
+                        <option value="3" {% if f.company_type == '7' %} selected="selected" {% endif %}>VC 风险投资基金</option>
+                        <option value="4" {% if f.company_type == '4' %} selected="selected" {% endif %}>第三方服务机构</option>
+                        <option value="5" {% if f.company_type == '5' %} selected="selected" {% endif %}>其他</option>
+                    </select>
+
+
+                    </div>
+                </div>{% endcomment %}
+
+                <div class="form-group">
+                  <label class="col-xs-2">验证码*</label>
+                  <div class="col-xs-2">
+                    <input type="text" value="" class="form-control" name="checkcode" id="signup-checkcode" placeholder="验证码" tabindex="9" data-required="true">
+                  </div>
+
+                  <div class="col-xs-8">
+                    <img onclick="this.setAttribute('src','/account/get_check_code_image/?nocache='+Math.random());" src="/account/get_check_code_image/" alt="CheckCode"/>
+                  </div>
+
+
+
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2"></label>
+                    <div class="col-xs-10">
+
+                    点击提交即代表您同意NewChama平台<a href="{% url 'account.user' %}" target="_blank">用户协议</a>和<a href="{% url 'account.privacy' %}" target="_blank">隐私政策</a>
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-9">
+
+                        <button type="button" class="btn btn-primary btn-sm" tabindex="10" id="btn_">提交</button>&nbsp;&nbsp;
+                        <a href="{% url 'account.login' %}">已有账号？</a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/imask/jquery.imask.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/common.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/signup.js"></script>
+{% endblock %}
+

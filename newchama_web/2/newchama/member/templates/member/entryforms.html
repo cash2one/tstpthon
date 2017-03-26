@@ -1,0 +1,72 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}EntryForms{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Member<span>EntryForms</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Member</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <button class="btn btn-primary">Search</button>
+         <a class="btn btn-default" href="/member/entryforms?keyword={{ keyword }}&download=1">Export</a>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Country</th>
+                <th>Company</th>
+                <th>Position</th>
+                <th>Status</th>
+                <th>AddTime</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate data %}
+            {% for m in data %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.email }}</td>
+                <td>{{ m.fullname}}</td>
+                <td>{{ m.mobile }}</td>
+                <td>{{ m.country }}</td>
+                <td>{{ m.company }}</td>
+                <td>{{ m.position }}</td>
+
+                <td>{{ m.get_status_display }}</td>
+                <td>{{ m.add_time }}</td>
+                <td>
+{#                    <a href="{% url 'member.edit' m.id %}" title="edit"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;#}
+{#                    <a href="{% url 'member.reset_password' m.id %}" title="reset password"><i class="fa fa-key"></i></a>&nbsp;&nbsp;#}
+                    <a href="{% url 'entryform.detail' m.id %}" title="view"><i class="fa fa-eye"></i></a>&nbsp;&nbsp;
+                    {% if m.status != StatusEntryForm.approved %}
+                    <a href="{% url 'entryform.check' m.id %}" title="check"><i class="fa fa-check"></i></a>
+                    {% endif %}
+                    &nbsp;&nbsp;
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+   {% paginate %}
+{% endblock %}

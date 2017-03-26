@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newchama</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/newchama.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav noticebar navbar-left">
+
+
+        <li class="dropdown">
+          <a href="./page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-envelope"></i>
+            <span class="navbar-visible-collapsed">&nbsp;Messages&nbsp;</span>
+            <span class="badge">3</span>
+          </a>
+
+          <ul class="dropdown-menu noticebar-menu" role="menu">                
+            <li class="nav-header">
+              <div class="pull-left">
+                消息
+              </div>
+
+              <div class="pull-right">
+                <a href="javascript:;">新消息</a>
+              </div>
+            </li>
+
+            <li>
+              <a href="###" class="noticebar-item">
+                <span class="noticebar-item-image">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 50px" alt="">
+                </span>
+
+                <span class="noticebar-item-body">
+                  <strong class="noticebar-item-title">新消息</strong>
+                  <span class="noticebar-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
+                  <span class="noticebar-item-time"><i class="fa fa-clock-o"></i> 20 minutes ago</span>
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a href="###" class="noticebar-item">
+                <span class="noticebar-item-image">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 50px" alt="">
+                </span>
+
+                <span class="noticebar-item-body">
+                  <strong class="noticebar-item-title">新消息</strong>
+                  <span class="noticebar-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
+                  <span class="noticebar-item-time"><i class="fa fa-clock-o"></i> 20 minutes ago</span>
+                </span>
+              </a>
+            </li>
+
+            <li class="noticebar-empty">                  
+              <h4 class="noticebar-empty-title">No alerts here.</h4>
+              <p class="noticebar-empty-text">Check out what other makers are doing on Explore!</p>                
+            </li>
+
+            <li class="noticebar-menu-view-all">
+              <a href="./page-notifications.html">查看全部</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown" id="avatar-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="###" class="thumbnail"></a>
+
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">个人首页</a></li>
+                <li><a href="#">我的公司</a></li>
+                <li><a href="#">偏好设置</a></li>
+                <li><a href="#">资料设置</a></li>
+                <li class="divider"></li>
+                <li><a href="#">退出</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="glyphicon glyphicon-globe"></i>&nbsp;EN</a></li>
+          </ul>
+          <form class="navbar-search-form navbar-right" role="search">
+            
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+            </div><!-- /input-group -->
+
+          </form>
+          
+          <div class="container-fluid" id="newchama_nav">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">首页</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-plus"></i>发布<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="project.html">项目</a></li>
+                <li><a href="requirement.html">需求</a></li>
+                <li><a href="follow.html">跟投</a></li>
+              </ul>
+            </li>
+            <li><a href="project_manage.html">项目管理</a></li>
+            <li><a href="search.html">筛选</a></li>
+            <li><a href="data.html">行业数据</a></li>
+            <li class="active"><a href="news.html">行业动态</a></li>
+            <li><a href="project_list.html">最新项目</a></li>
+            <li><a href="demand_list.html">最新需求</a></li>
+            <li><a href="favorites.html">我的收藏</a></li>
+            <li><a href="preference.html">偏好管理</a></li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">模版下载 <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">简介</a></li>
+                <li><a href="#">保密协议</a></li>
+                <li><a href="#">商业计划书</a></li>
+                <li><a href="#">财务数据</a></li>
+                <li><a href="#">投资意向书模版</a></li>
+                <li><a href="#">估值模型模版</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+           </div><!-- /.container-fluid -->
+         
+        </div><!-- /.navbar-collapse -->
+     
+    </nav>
+
+    <div class="container-fluid" id="newchama_main">
+
+       
+
+        <div class="col-md-12">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">新闻</h3>
+              </div>
+              <div class="panel-body">
+
+
+            <ul class="news-list">                
+            <li class="nav-header">
+            <span class="news-list-item-tags">
+                  我的标签：<i class="glyphicon glyphicon-tags"></i>
+                  <a class="tag" href="###"><span class="label label-secondary">白酒</span></a>
+                  <a class="tag" href="###"><span class="label label-secondary">白酒</span></a>
+                  <a class="tag" href="###"><span class="label label-secondary">白酒</span></a>
+                  <a class="tag" href="###"><span class="label label-secondary">白酒</span></a>
+                  <a class="tag" href="###"><span class="label label-secondary">白酒</span></a>
+              </span>
+
+            </li>
+
+            <li>
+                <div class="newlist_item_block">
+                <h3>互联网<a href="###" class="pull-right"><i class="glyphicon glyphicon-plus"></i>&nbsp;添加收藏</a></h3>
+                
+
+                <span class="news-list-item-image-big">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 250px" alt="">
+                </span>
+
+                <span class="news-list-item-body">
+                  <strong class="news-list-item-title3"><a href="###">金正恩若不露面负面猜想会越来越多</a></strong>
+                  <span class="news-list-item-text">报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。 <a href="###">[查看详细]</a></span>
+                  <span class="news-list-item-time"><i class="glyphicon glyphicon-time"></i> 20 minutes ago 新浪财经 </span>
+                
+
+
+                <ul class="others-news-list">
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                </ul>
+
+                </span>
+
+
+                </div>
+
+                 
+
+              <br/>
+            </li>
+            <li>
+                <div class="newlist_item_block">
+                <h3>互联网<a href="###" class="pull-right"><i class="glyphicon glyphicon-plus"></i>&nbsp;添加收藏</a></h3>
+                
+
+                <span class="news-list-item-image-big">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 250px" alt="">
+                </span>
+
+                <span class="news-list-item-body">
+                  <strong class="news-list-item-title3"><a href="###">金正恩若不露面负面猜想会越来越多</a></strong>
+                  <span class="news-list-item-text">报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。 <a href="###">[查看详细]</a></span>
+                  <span class="news-list-item-time"><i class="glyphicon glyphicon-time"></i> 20 minutes ago 新浪财经 </span>
+                
+
+
+                <ul class="others-news-list">
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                </ul>
+
+                </span>
+
+
+                </div>
+
+                 
+
+              <br/>
+            </li>
+            <li>
+                <div class="newlist_item_block">
+                <h3>互联网<a href="###" class="pull-right"><i class="glyphicon glyphicon-plus"></i>&nbsp;添加收藏</a></h3>
+                
+
+                <span class="news-list-item-image-big">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 250px" alt="">
+                </span>
+
+                <span class="news-list-item-body">
+                  <strong class="news-list-item-title3"><a href="###">金正恩若不露面负面猜想会越来越多</a></strong>
+                  <span class="news-list-item-text">报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。 <a href="###">[查看详细]</a></span>
+                  <span class="news-list-item-time"><i class="glyphicon glyphicon-time"></i> 20 minutes ago 新浪财经 </span>
+                
+
+
+                <ul class="others-news-list">
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                </ul>
+
+                </span>
+
+
+                </div>
+
+                 
+
+              <br/>
+            </li>
+
+             <li>
+                <div class="newlist_item_block">
+                <h3>互联网<a href="###" class="pull-right"><i class="glyphicon glyphicon-plus"></i>&nbsp;添加收藏</a></h3>
+                
+
+                <span class="news-list-item-image-big">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 250px" alt="">
+                </span>
+
+                <span class="news-list-item-body">
+                  <strong class="news-list-item-title3"><a href="###">金正恩若不露面负面猜想会越来越多</a></strong>
+                  <span class="news-list-item-text">报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。</span>
+                  <span class="news-list-item-time"><i class="glyphicon glyphicon-time"></i> 20 minutes ago 新浪财经 </span>
+                
+
+
+                <ul class="others-news-list">
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                </ul>
+
+                </span>
+
+
+                </div>
+
+                 
+
+              <br/>
+            </li>
+
+             <li>
+                <div class="newlist_item_block">
+                <h3>互联网<a href="###" class="pull-right"><i class="glyphicon glyphicon-plus"></i>&nbsp;添加收藏</a></h3>
+                
+
+                <span class="news-list-item-image-big">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 250px" alt="">
+                </span>
+
+                <span class="news-list-item-body">
+                  <strong class="news-list-item-title3"><a href="###">金正恩若不露面负面猜想会越来越多</a></strong>
+                  <span class="news-list-item-text">报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。报道称，2012年和2013年，金正恩都于10月10日零时到太阳宫拜谒，朝鲜中央通讯社也于同一日凌晨4时进行了报道。但今年截至上午8时，没有一家朝鲜媒体报道金正恩到太阳宫拜谒的消息。</span>
+                  <span class="news-list-item-time"><i class="glyphicon glyphicon-time"></i> 20 minutes ago 新浪财经 </span>
+                
+
+
+                <ul class="others-news-list">
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                  <li><a href="####">·朝鲜官媒未中断关于金正恩报道 每天约5篇</a></li>
+                  <li><a href="####">·欧盟因多国反对 删人权草案“起诉金正恩”内容</a></li>
+                </ul>
+
+                </span>
+
+
+                </div>
+
+                 
+
+              <br/>
+            </li>
+            
+
+            <li class="news-list-view-all">
+              <a href="###">查看更多</a>
+            </li>
+          </ul>
+               
+              </div>
+
+              
+
+            </div>
+            
+        </div><!-- /.news -->
+
+
+
+
+        
+
+        
+
+        </div>
+    </div>
+
+    <div class="footer">
+      <div class="container-fluid">
+        <p><a href="###">关于我们</a>   ｜    <a href="###">团队</a>     ｜    <a href="###">工作机会</a>    ｜    <a href="###">联系我们</a>     ｜      <a href="###">服务协议条款</a>       ｜     <a href="###">FAQ</a></p>
+        <p>版权所有 @2014  NewChama.com</p>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/target-admin.js"></script>
+
+    <!-- Plugin JS -->
+    <script src="js/raphael-2.1.2.min.js"></script>
+    <script src="js/morris/morris.min.js"></script>
+
+    
+    <!-- Plugin JS -->
+    <script src="js/charts/morris/bar.js"></script>
+    <script src="js/charts/morris/line.js"></script>
+    <script src="js/charts/morris/donut.js"></script>
+    <script src="js/charts/morris/area.js"></script>
+
+  </body>
+</html>

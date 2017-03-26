@@ -1,0 +1,72 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Projects{% endblock %}
+{% block pageheader %}
+    <div class="pageheader" xmlns="http://www.w3.org/1999/html">
+        <h2><i class="fa fa-home"></i> Project<span>人工推荐管理</span></h2>
+        <div class="breadcrumb-wrapper">
+            <span class="label">You are here:</span>
+            <ol class="breadcrumb">
+                <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+                <li class="active">Project</li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+    <h4 class="mb30">项目名称:<a href="{% url 'project.detail' item.project.pk %}" target="_blank">{{item.project.name_cn}}</a>  {{item.project.name_en}} </h4>
+
+    <form class="form-inline", method="post">
+        <input type="hidden" value="{{ item.member.id }}" name="member_id" id="member_id">
+        <input type="hidden" value="{{item.project.id}}" name="project_id" id="project_id">
+        {% csrf_token %}
+        <button class="btn btn-default">Refresh</button>
+    </form>
+
+        <h4 class="mb30">买家用户名称:  <a href="{% url 'member.edit' item.member.pk %}" target="_blank">{{item.member.first_name}}</a>,  {{item.member.company.short_name_cn}} </h4>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+            <tr>
+                <th>类别</th>
+                <th>需求得分</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>关键字Tag（50%）</td>
+                <td>{{item.member_score_industry_keyword}}</td>
+            </tr>
+            <tr>
+                <td>交易类型（20%）</td>
+                <td>{{item.member_score_deal_type}}</td>
+            </tr>
+            <tr>
+                <td>交易规模（10%）</td>
+                <td>{{item.member_score_deal_size}}</td>
+            </tr>
+            <tr>
+                <td>交易币种（10%）</td>
+                <td>{{item.member_score_currency}}</td>
+            </tr>
+            <tr>
+                <td>地域（10%）</td>
+                <td>{{item.member_score_local}}</td>
+            </tr>
+            <tr>
+                <td>总得分</td>
+                <td>{{item.sum_member_score}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+{% endblock %}
+
+{% block customjs %}
+
+{% endblock %}

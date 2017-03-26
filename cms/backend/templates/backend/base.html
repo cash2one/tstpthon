@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="{{STATIC_URL}}backend/images/favicon.png" type="image/png">
+
+  <title>OliveCMS</title>
+
+  <link href="{{STATIC_URL}}backend/css/style.default.css" rel="stylesheet">
+  <link href="{{STATIC_URL}}backend/css/jquery.datatables.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="{{STATIC_URL}}backend/js/html5shiv.js"></script>
+  <script src="{{STATIC_URL}}backend/js/respond.min.js"></script>
+  <![endif]-->
+  {% block tophead %} {% endblock %}
+</head>
+
+<body>
+    
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+  <div class="leftpanel">
+    {% include "backend/leftpanel.html" %}
+  </div><!-- leftpanel -->
+  
+  
+  <div class="mainpanel">
+    {% block headerbar %} {% endblock %}
+    {% block pageheader %} {% endblock %}
+    {% block contentpanel %} {% endblock %}
+    
+  </div><!-- mainpanel -->
+  
+  <div class="rightpanel">
+    {% include "backend/rightpanel.html" %}
+  </div><!-- rightpanel -->
+  
+  
+</section>
+
+<script src="{{STATIC_URL}}backend/js/jquery-1.10.2.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/jquery-migrate-1.2.1.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/jquery-ui-1.10.3.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/bootstrap.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/modernizr.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/jquery.sparkline.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/toggles.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/retina.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/jquery.cookies.js"></script>
+
+<script src="{{STATIC_URL}}backend/js/custom.js"></script>
+{% block customjs %} {% endblock %}
+</body>
+</html>

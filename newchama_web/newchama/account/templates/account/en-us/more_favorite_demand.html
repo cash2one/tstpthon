@@ -1,0 +1,48 @@
+{% for d in favorites %}
+    <li class="project-item2">
+        <div class="col-xs-10">
+            <strong class="news-list-item-title2"><a href="{% url 'purchase.detail' d.demand.id%}">{{ d.demand.name_en|safe|truncatechars:150 }}</a></strong>
+         <span class="news-list-item-text">
+          <table class="table index-table-1">
+              <tbody>
+              <tr class="project-th">
+                  <td width="28%">Industry</td>
+                  <td width="25%">Location</td>
+                  <td width="25%">Deal Type</td>
+                  <td width="11%">Listing Period</td>
+                  <td width="11%">Updates</td>
+              </tr>
+              <tr>
+                  <td>{% if d.demand.company_industries.all.count > 0 %}
+                            {% for industry in d.demand.company_industries.all %}<i class="glyphicon glyphicon-tags"></i> <a class="tag preference_common_keyword" data-type="demand" data-tag="{{ industry.name_en }}" href="javascript:;"> {{ industry.name_en }}</a>&nbsp;&nbsp;{% endfor %}
+                        {% else %}
+                            All
+                        {% endif %}
+                  </td>
+                  <td>{% if d.demand.company_countries.count == 0 %}
+                      不限
+                      {% else %}
+                            {% if d.demand.company_countries.count > 0 %}
+                                {% for c in d.demand.company_countries.all %} {{ c.name_en }}&nbsp;&nbsp;{% endfor %}
+                            {% endif %}
+                      {% endif %}
+                  </td>
+                  <td>{{ d.demand.get_service_type_display }}</td>
+                  <td>{{ d.demand.expire_date|date:'Y-m-d' }}</td>
+                  <td>{{ d.demand.update_time|date:'Y-m-d' }}</td>
+              </tr>
+              <tr>
+                  <td colspan="6"><small>{{ d.demand.features_en|safe }}</small></td>
+              </tr>
+              </tbody>
+          </table> </span>
+        </div>
+        <div class="col-xs-2">
+         <span class="pull-right"> <button class="btn-xs btn-primary send_message_btn" data-message-type="2" data-message-id="{{ d.demand.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Messange</button> &nbsp;&nbsp;
+             <button class="btn-xs btn-primary btn-remove-favorite" data-id="{{ d.demand.id }}" data-type="demand"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;Delete</button> &nbsp;&nbsp;
+             {% if d.has_attach %}
+             <button class="btn-xs btn-primary btn-attach" data-type="demand" data-id="{{ d.demand.id }}"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;附件</button>
+             {% endif %}
+         </span>
+        </div> </li>
+    {% endfor %}

@@ -1,0 +1,21 @@
+{% load humanize %}
+{% load myTags %}
+{% if recommendList%}
+    {% for rl in recommendList %}
+<tr id="recommendItemId_{{ rl.id }}">
+    <td><a target="_blank" href="{% url 'sales.detail' rl.project.id %}">{{ rl.project.name_cn | cut_str:40 }}</a><br/>{{ rl.project.company.address_cn | default:"" }}<br/>{{ rl.project.company.website | default:"" }}</td>
+    <td>
+        <div id="operate_status_{{ rl.id }}"></div>
+        <select name="newStatus" class="newStatus" id="newStatus_{{ rl.project.id }}" ref="{{ rl.project.id }}">
+            <option value="">请选择</option>
+            <option value="detail">查看详情</option>
+        {% if rl.project.id in favorites_project_ids %}
+            <option value="cancelFavorite">取消关注</option>
+        {% else %}
+            <option value="favorite">关注</option>
+        {% endif %}
+        </select>
+    </td>
+</tr>
+    {% endfor %}
+{% endif %}

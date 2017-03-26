@@ -1,0 +1,3 @@
+"ID","项目名称","用户","用户手机","公司名称","公司类型","过期日期","项目进度","交易类型","交易阶段","项目进度","推送至机构","最近访问","被收藏","私信","人工推荐","人工推荐点击数","机器推荐","机器推荐点击数"
+{% for item in result_list %}{{ item.id }},{{ item.name_cn }},{{ item.member }}, {{ item.member.mobile }},{{ item.member.company.name_cn }},{{ item.member.company.get_type_display }},"{{ item.expire_date}}","{{ item.get_status_display}}","{{ item.get_service_type_display|addslashes }}", "{{ item.get_project_stage_display|default:''}}","{{ item.get_status_display}}",{{ item.send_num }},{{ item.view_num }},{{ item.fav_num }},{{ item.message_num }},{{ item.man_recommond_num }},{{ item.man_recommond_click_num }},{{ item.machine_recommond_num }},{{ item.machine_recommond_click_num }}
+{% endfor %}

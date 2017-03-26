@@ -1,0 +1,233 @@
+{% extends "common/en-us/base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Personal Profile</h3>
+                </div>
+                <div class="panel-body">
+                    <br/>
+                    <div class="col-xs-2">
+                        <ul class="nav nav-pills nav-stacked">
+                            <li class="active"><a href="###"><i class="glyphicon glyphicon-user"></i> &nbsp;&nbsp;My Profile</a></li>
+                            <li><a href="{% url 'account.changepassword' %}"><i class="glyphicon glyphicon-eye-open"></i> &nbsp;&nbsp;Change Password</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-xs-10">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                                    {{ message }}
+                                </div> <!-- /.alert -->
+                            {% endfor %}
+                        {% endif %}
+                        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data">
+                            <input type="hidden" name="x1" id="x1">
+                            <input type="hidden" name="y1" id="y1">
+                            <input type="hidden" name="x2" id="x2">
+                            <input type="hidden" name="y2" id="y2">
+                            <input type="hidden" name="w" id="w">
+                            <input type="hidden" name="h" id="h">
+                            <input type="hidden" name="imgName" id="imgName">
+                            <input type="hidden" name="imgWidth" id="imgWidth">
+                            <input type="hidden" name="imgHeight" id="imgHeight">
+                            <div class="form-group">
+                                <label class="col-xs-2">Image</label>
+                                <div class="col-xs-10">
+                                    <div class="fileupload" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 238px; height: 238px;">
+                                            <img src="{% url 'account.avatar' 238 238 u.avatar %}" alt="avatar" id="img_thumbnail"/>
+                                        </div>
+                                        <div id="selectFileButton"><span class='btn_uploadfile btn-success fileinput-button'>Choose<input type='file' name='uploadFile' id='uploadFile'/></span></div>
+                                        <div id="selectFileUploading" class="hide_">uploading images…</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">Real name</label>
+                                <div class="col-xs-4">
+                                    <input type="text"  class="form-control" name="name" placeholder="" value="{{ u.first_name }}{{ u.last_name }}" disabled>
+                                </div>
+                                  
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">Company Name</label>
+                                <div class="col-xs-6">
+                                    <input type="text"   name="company" value="{{ u.company.name_en }}" class="form-control" disabled>
+                                </div>
+                            </div>
+{#                            <div class="form-group">#}
+{#                                <label class="col-xs-2"></label>#}
+{#                                <div class="col-xs-10">#}
+{#                                    <label class="radio-inline">#}
+{#                                        <input type="radio"  name="gender" value="1" {% if u.gender == 1 %} checked {% endif %}disabled> 男#}
+{#                                    </label>#}
+{#                                    <label class="radio-inline">#}
+{#                                        <input type="radio"  name="gender" value="2" {% if u.gender == 2 %} checked {% endif %}disabled> 女#}
+{#                                    </label>#}
+{#                                </div>#}
+{#                            </div>#}
+
+                            <div class="form-group">
+                                <label class="col-xs-2">Title</label>
+                                <div class="col-xs-4">
+                                    <input type="text"  class="form-control" name="position_en" value="{{ u.position_en }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">Mobile Number</label>
+                                <div class="col-xs-2" style="width:150px;">
+                                    <select class="form-control" name="mobile_intel" tabindex="2" data-required="true">
+                                        {% for c in countries %}
+                                            <option value="{{ c.intel_code }}" {% ifequal u.mobile_intel c.intel_code %} selected {% endifequal %}>{{ c.name_en }}({{ c.intel_code }})</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="text"  class="form-control" name="mobile" value="{{ u.mobile }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">Company Tel</label>
+                                <div class="col-xs-2" style="width:150px;">
+                                    <select id="tel_intel" class="form-control" name="tel_intel" data-required="true" tabindex="16">
+                                        {% for c in countries %}
+                                            <option value="{{ c.intel_code }}" {% ifequal u.tel_intel c.intel_code %} selected {% endifequal %}>{{ c.name_en }}({{ c.intel_code }})</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="text"  class="form-control" name="tel" value="{{ u.tel }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">Investment Criteria</label>
+                                <div class="col-xs-10">
+                                    {% for i in industrys %}
+                                        <div class="col-xs-4">
+                                            {% if forloop.counter|divisibleby:2 %}</div><div class="col-xs-6">{% endif %}
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="industrys" value="{{ i.id }}" {% if i in u.focus_aspect.all %}checked{% endif %}>{{ i.name_en }}
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">Personal Introduction</label>
+                                <div class="col-xs-6">
+                                    <textarea id="intro_en" name="intro_en" rows="6" class="form-control">{{ u.intro_en }}</textarea>
+                                </div>
+                            </div>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="col-xs-10 col-xs-offset-2">
+
+                                    <div class="col-xs-4">
+                                        <button type="submit" class="btn btn-primary btn-xs" id="btn_search">Save</button>
+                                        <button type="reset" class="btn btn-default btn-xs" id="btn_search_in_results">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <link rel='stylesheet' type='text/css' href='{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.fileupload.css' />
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.jcrop/jquery.Jcrop.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/libs/jquery.jcrop/jquery.Jcrop.min.css">
+    <script>
+        $(function() {
+            $("#uploadFile").fileupload({
+                url:"/services/upload_file",//文件上传地址，当然也可以直接写在input的data-url属性内
+                dataType: 'text',
+                acceptFileTypes:  /(\.|\/)(gif|jpe?g|png)$/i,
+                done: function (e, data) {
+                    result = jQuery.parseJSON(data.result);
+                    if (result.status == "success") {
+                        $("#img_thumbnail").attr("src", result.path);
+                        $("#imgName").val(result.imgName);
+                        $("#img_thumbnail").width("");
+                        $("#img_thumbnail").height("");
+                        width = result.imgWidth;
+                        height = result.imgHeight;
+                        if (width > height)
+                            $("#img_thumbnail").width(228);
+                        else
+                            $("#img_thumbnail").height(228);
+                        initJcrop();
+                    }
+                    else {
+                        alert(result.message);
+                    }
+                    $("#selectFileButton").show();
+                    $("#selectFileUploading").hide();
+                },
+                progressall: function (e, data) {
+                    $("#selectFileButton").hide();
+                    $("#selectFileUploading").show();
+                    {#            var progress = parseInt(data.loaded / data.total * 100, 10);#}
+                    {#            $('#progress .progress-bar').css(#}
+                    {#                'width', progress + '%'#}
+                    {#            );#}
+                }
+            });
+
+            var jcrop_api;
+            xsize = 180;//$pcnt.width(),
+            ysize = 180;//$pcnt.height();
+
+            function updateImgParam(c) {
+                if (parseInt(c.w) > 0) {
+                    $('#x1').val(c.x);
+                    $('#y1').val(c.y);
+                    $('#x2').val(c.x2);
+                    $('#y2').val(c.y2);
+                    $('#w').val(c.w);
+                    $('#h').val(c.h);
+                }
+            }
+
+            function initJcrop() {
+                try {jcrop_api.destroy();}catch(e){}
+                $('#img_thumbnail').Jcrop({
+                    onRelease: releaseCheck,
+                    onChange: updateImgParam,
+                    onSelect: updateImgParam,
+                    aspectRatio: xsize / ysize
+                },function(){
+                    jcrop_api = this;
+                    var w = $("#img_thumbnail").width();
+                    var h = $("#img_thumbnail").height();
+                    $("#imgWidth").val(w);
+                    $("#imgHeight").val(h);
+                    var init_w = 0;
+                    var init_h = 0;
+                    if (w > h) {
+                        init_w = (300 - h) / 2;
+                        xsize = h;
+                        ysize = h;
+                    }
+                    else {
+                        init_h = (300 - w) / 2;
+                        xsize = w;
+                        ysize = w;
+                    }
+                    jcrop_api.animateTo([init_w, init_h, w, h]);
+                });
+            };
+            function releaseCheck() {
+                jcrop_api.setOptions({ allowSelect: true });
+            };
+        });
+    </script>
+{% endblock %}

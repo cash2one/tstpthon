@@ -1,0 +1,102 @@
+{% extends "common/zh-cn/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+        <div class="col-xs-9">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+
+                    <div class="panel-body company_block">
+
+                        <div class="col-xs-7">
+
+                            <div class="pull-left company_logo">
+                                <img src="{% url 'account.avatar' 200 200 user.avatar %}" class="thumbnail" alt="{{ user }}" />
+                            </div>
+                            <div class="pull-left">
+                                <h1>{{ user }}</h1>
+                                <p>{{ user.position_cn|safe }} <br/>
+                                    {{user.company.name_cn|safe}}<br/>
+                                    {% comment %}{{ user.company.get_type_display }}<br/>
+                                    <a href="{% url 'account.company' user.company.id %}">
+                                        {% if user.company.logo == "" %}
+                                            <img src="{{MEDIA_URL}}companylogo/default.png" alt="{{ user.company.short_name_cn|safe }}" width="60" class="thumbnail" />
+                                        {% else %}
+                                            <img src="{{ MEDIA_URL }}companylogo/{{user.company.logo}}" alt="{{ user.company.short_name_cn|safe }}" width="60" class="thumbnail" />
+                                        {% endif %}
+                                    </a>{% endcomment %}
+                                    {#                <p>{{ user.tel|default:'N/A' }}</p>#}
+                                    {#                <p><a href="mailto:{{ user.email|default:'N/A' }}">{{ user.email|default:'N/A' }}</a></p>#}
+                                    {% if member.id != user.id %}
+                                        <p>{% comment %}<button class="btn-xs btn-primary send_message_btn" data-message-id="{{user.id}}" data-message-type="0"><i class="glyphicon glyphicon-envelope"></i>&nbsp;发信</button>{% endcomment %}
+                                            {% if is_added_to_favorite %}
+                                                <button class="btn-xs btn-primary btn-cancelfavorite" data-id="{{ user.id }}" data-type="member"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消关注</button>
+                                            {% else %}
+                                                <button class="btn-xs btn-primary btn-addfavorite" data-id="{{ user.id }}" data-type="member"><i class="glyphicon glyphicon-heart"></i>&nbsp;关注</button>
+                                            {% endif %}
+                                        </p>
+                                    {% endif %}
+                            </div>
+                        </div>
+
+
+                        <div class="col-xs-5">
+
+                            <h3>用户简介</h3>
+                            <p>{{ user.intro_cn | default:'N/A' | safe}}</p>
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最近发布</h3>
+                    </div>
+                    <div class="panel-body">
+                        <input type="hidden" id="recipientType" value="1"/>
+                        <ul class="news-list">
+                            {% include "sales/zh-cn/ajax_list.html" %}
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">同事</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="members-list" >
+                            {% for u in users_other %}
+                                <li class="members-item" style="margin:6px">
+                                    <a href="{% url 'account.profile' u.id %}">
+                                        <img src="{% url 'account.avatar' 80 80 u.avatar %}" alt="{{ u }}" width="80" class="thumbnail" />{{ u }}
+                                    </a>
+                                </li>
+                            {% empty %}
+                                <li class="news-list-empty"> <h4 class="news-list-empty-title">暂无同事</h4> </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    {% include "account/zh-cn/sendmessagemodal.html" %}
+<script src="{{STATIC_PREFIX}}js/common/project_new.js?aa=3"></script>
+{% endblock %}

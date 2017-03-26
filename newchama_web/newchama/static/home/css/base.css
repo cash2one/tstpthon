@@ -1,0 +1,195 @@
+html, body, div, p, ul, ol, li, dl, dt, dd, h1, h2, h3, h4, h5, h6, form, input, textarea, select, th, td { padding: 0; margin: 0; }
+body { font: 12px/1.5 tahoma,microsoft yahei; color: #333; min-width: 1024px; }
+h1, h2, h3, h4, h5, h6 { font-size: 1em; }
+ol, ul { list-style: none; }
+b, i, cite { font-weight: normal; font-style: normal; }
+img, iframe, embed { border: none; vertical-align: top; }
+table { border-collapse: collapse; border-spacing: 0; }
+a { text-decoration: none; color: #505050; }
+a:hover { text-decoration: underline; color: #1b58be !important; }
+.clearfix { zoom: 1; }
+.clearfix:after { display: block; overflow: hidden; clear: both; height: 0; visibility: hidden; content: "."; }
+
+/*style*/
+.container {
+  width: 100%;
+  padding: 0px; margin:0px;
+}
+.my_nav{background: #fff; overflow: hidden; width: 100%; height: 60px; min-width: 900px;}
+.logo{display: block; width: 120px; margin: 25px 0 0 20px; height: 40px; float: left;}
+.top-nav-right{ margin: 20px; float: right;list-style: none;}
+.top-nav-right li{list-style: none; float: left; margin-left: 10px;}
+.bigtop{background: url(/static/home/images/shanghai3.jpg) center center no-repeat; height: 500px; background-size:cover; position: relative;}
+.loginbox{ background:url(../images/cover2.png); position: absolute; width: 308px; height: 294px; top: 84px; left: 50%; margin: 0 0 0 120px; color: #fff;}
+.loginbox dl{
+    padding: 32px 0 0 30px;
+}
+.loginbox dt{
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 50px;
+}
+.loginbox dt strong{
+    font-weight: normal;
+    color: #75c1c4;
+}
+.loginbox dd{
+    font-size: 14px;
+    line-height: 36px;
+    padding: 20px 0 0;
+}
+.loginbox dd b{
+    display: inline-block;
+    vertical-align: top;
+    border-top: #fff 1px solid;
+}
+.loginbox .loginbtn{
+    padding: 36px 0 0 90px;
+}
+.loginbox .loginbtn a{
+    display: inline-block;
+    vertical-align: top;
+    width: 106px;
+    text-align: center;
+    line-height: 32px;
+    color: #fff;
+    border: #fff 1px solid;
+}
+.loginbox .loginbtn a:hover{
+    background-color: #428bca;    border-color: #357ebd;
+    color: #fff !important;
+    text-decoration: none;
+}.data{}
+.data .count{
+    border-bottom: #988F8C 2px solid;
+    width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 16px;
+    line-height: 46px;
+    padding: 6px 0 0;
+}
+.data .count strong{
+    color: #48b2a4;
+    font-weight: normal;
+    font-size: 18px;
+}
+.data .des{
+    text-align: center;
+    padding: 32px 0 0;
+}
+.data .des dt{
+    font-size: 25px;
+    font-weight: normal;
+}
+.data .des dd{
+    font-size: 13px;
+    line-height: 17px;
+    padding: 16px 0 0;
+}
+.datalist{
+    margin: 20px auto 0;
+    width: 684px;
+}
+.datalist li{
+    float: left;
+    width: 224px;
+    text-align: center;
+    padding: 20px 0 0;
+}
+.datalist .icon{}
+.datalist .icon img{}
+.datalist h3{
+    font-size: 14px;
+    padding: 10px 0 0;
+}
+.datalist p{
+    font-size: 12px;
+    line-height: 16px;
+    padding: 10px 0 0;
+}
+.pro{
+    margin: 60px auto 0;
+    background: url(../images/bg_box_2.jpg) center center no-repeat;
+    background-size:cover;
+    height: 500px;
+}
+.pro h2{
+    font-size: 25px;
+    text-align: center;
+    color: #fff;
+    padding: 60px 0 0;
+}
+.pro ul{
+    width: 960px;
+    margin: 80px auto 0;
+}
+.pro li{
+    float: left;
+    width: 160px;
+    background: url(../images/cover2.png);
+    height: 204px;
+    margin: 0 40px;
+    color: #fff;
+}
+.pro h4{
+    color: #fff;
+    font-size: 21px;
+    text-align: center;
+    margin: 0 32px;
+    border-bottom: #fff 1px solid;
+    line-height: 54px;
+    padding: 10px 0 0;
+}
+.pro h4 b{}
+.pro p{
+    padding: 10px 10px 0;
+    text-align: center;
+}
+.partner{}
+.partner h2{
+    font-size: 25px;
+    text-align: center;
+    color: #333;
+    padding: 45px 0 20px;
+}
+.partner .items{
+    text-align: center;
+    padding: 10px 0 0;
+}
+.partner .items img{}
+.join{
+    margin:  20px 0 0;
+    background: #676766;
+    text-align: center;
+}
+.join span{
+    display: inline-block;
+    vertical-align: top;
+    line-height: 64px;
+    font-size: 17px;
+    color: #fff;
+}
+.join a{
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    width: 114px;
+    text-align: center;
+    background: #fff;
+    border-radius: 3px;
+    margin: 16px 0 0 80px;
+}
+.join a:hover{}
+.footer{
+    background: #f4f3f3;
+    color: #625b5a;
+    text-align: center;
+    line-height: 2;
+    padding: 25px 0 35px 0;
+    color: #333;
+}
+.footer .container-fluid{}
+.footer .container-fluid p{}
+.footer .container-fluid a{}
+.footer .container-fluid a:hover{}

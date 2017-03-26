@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上海显德投资管理有限公司</title>
+    <meta name="Keywords" content="上海显德投资管理有限公司 " /> 
+    <meta name="Description" content="上海显德投资管理有限公司（Vantage Capital）是一家国际化专业的资产管理公司，于2011年成立，注册资金2000万人民币，在国际金融中心香港、上海均设有机构，面向全球金融市场投资于证券、外汇、基金、债券、衍生品等投资工具，以量化对冲基金发展模式，并多年在海外市场持续稳健盈利。" />
+
+    <link href="{{STATIC_URL}}common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}common/css/xiande.css">
+    
+  </head>
+<body>
+<div class="container-fluid">
+    <div class="row heading">
+        <div class="col-md-12">
+        <h1>我要报名</h1>
+
+        </div>
+    </div>
+
+     <div class="row content">
+        <div class="col-md-12">
+        {% if messages %}
+        <div class="message_block">
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            {{ message }}
+                        </div> <!-- /.alert -->
+                    {% endfor %}
+        </div>
+        {% endif %}
+               
+        <form class="form-horizontal" method="POST" data-validate="parsley">
+       
+       
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="text" class="form-control" name="username" id="username" placeholder="姓名" tabindex="4"  data-required="true" value="{{ f.username | default:'' }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="手机号码" tabindex="4"  data-required="true" value="{{ f.mobile | default:'' }}">
+                <small>显德不会在任何地方泄露您的号码</small>
+            </div>
+        </div>
+
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <input type="text" class="form-control" name="address" id="address" placeholder="联系地址" tabindex="4"  data-required="true" value="{{ f.address | default:'' }}">#}
+{#            </div>#}
+{#        </div>#}
+
+
+        <div class="form-group">
+            <div class="col-md-12">
+                 <select class="form-control" name="event" tabindex="2" data-required="true"  placeholder="选择活动" data-required="true" disabled="disabled">
+                        <option value="">请选择活动</option>
+                        <option value="3"{% if f.event == 3 %} selected="selected" {% endif %}>私人游艇黄浦江年会</option>
+                        <option value="2"{% if f.event == 2 %} selected="selected" {% endif %}>新年全家总动员</option>
+                        <option value="1"{% if f.event == 1 %} selected="selected" {% endif %}>2月14情人节活动</option>
+                    </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-12">
+             {% csrf_token %}       
+                <input type="submit" class="center-block btn btn-danger" style="width:100%" value="暂无活动，敬请期待" disabled="disabled">
+            </div>
+        </div>
+
+
+    </form>
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery.cookies.js"></script>
+<script src="{{STATIC_URL}}common/js/plugins/bootbox/bootbox.min.js"></script>
+<link href="{{STATIC_URL}}common/css/parsley.css" rel="stylesheet">
+<script src="{{STATIC_URL}}common/js/plugins/parsley/parsley_zh.js"></script>
+
+</body>
+</html>

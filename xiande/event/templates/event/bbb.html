@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>显德牛熊宝</title>
+    <meta name="Keywords" content="显德牛熊宝 " /> 
+    <meta name="Description" content="上海显德投资管理有限公司（Vantage Capital）是一家国际化专业的资产管理公司，于2011年成立，注册资金2000万人民币，在国际金融中心香港、上海均设有机构，面向全球金融市场投资于证券、外汇、基金、债券、衍生品等投资工具，以量化对冲基金发展模式，并多年在海外市场持续稳健盈利。" />
+
+    <link href="{{STATIC_URL}}common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}common/css/xiande.css">
+    
+  </head>
+<body style="background:none; padding:0px; background:#000; ">
+<div class="container-fluid bbb_block">
+  <a href="{% url 'event.bbb_join' %}{% if introducer %}?u={{introducer}}{% endif %}"></a>
+</div>
+
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery.cookies.js"></script>
+<script type="text/javascript">
+    $('.bbb_block').height($(document).height());
+    
+    
+</script>
+</body>
+</html>

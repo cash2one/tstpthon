@@ -1,0 +1,95 @@
+{% extends "monitor/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Daily Monitoring<span>公告查询</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Daily Monitoring</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+{% load staticfiles %}
+
+
+<script src="{% static "js/jquery-ui.js" %}"></script>
+<script src="{% static "js/jquery-1.10.2.min.js" %}"></script>
+
+<script src="{% static "js/insert.js" %}"></script>
+
+<h4>公告查询</h4>
+<form id="formData" target="iframe" action="notices_query" method="get">
+    开始时间:<input type="text" name="start_time" id="start_time" value="{{ start_time|date:'m/d/Y' }}">&nbsp;&nbsp;&nbsp;&nbsp;结束时间<input type="text" name="end_time" id="end_time" value="{{ end_time|date:'m/d/Y' }}">
+    <input type="submit" name="btn" value="查询">
+</form>
+
+<iframe src="notices_query" id="iframe" name="iframe" width="100%" marginwidth="0" marginheight="0" height="100%" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+<script type="text/javascript">
+    //注意：下面的代码是放在和iframe同一个页面调用,放在iframe下面
+    $("#iframe").load(function () {
+        var mainheight = $(this).contents().find("body").height() + 30;
+        $(this).height(mainheight);
+    });
+</script>
+
+<div class="table-responsive">
+<div id="table3_wrapper" class="dataTables_wrapper" role="grid">
+<div id="industry" style="display: none">
+    <select name="industry_demo" class="industry_father" data-placeholder="Please Choose...">
+        <option value="">请选择</option>
+        {% for i in industries %}
+            <option value="{{ i.id }}">{{ i.name_cn }}</option>
+        {% endfor %}
+    </select>
+</div>
+<h4>公告筛选</h4>
+    <form action="submit_deals_to_database" method="post">
+        {% csrf_token %}
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>公司代码</th>
+                <th>公司简称</th>
+                <th>公告时间</th>
+                <th>公告类型</th>
+                <th>源链接(pdf)</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+                <tbody class="todo">
+                </tbody>
+        </table>
+        <input type="submit" value="保存到数据库">
+    </form>
+</div>
+</div>
+
+<br/>
+<br/>
+<h4>交易历史</h4>
+<form id="formData" target="iframe1" action="deals_query" method="get">
+    开始时间:<input type="text" name="deal_start_time" id="deal_start_time" value="{{ start_time|date:'m/d/Y' }}">&nbsp;&nbsp;&nbsp;&nbsp;结束时间<input type="text" name="deal_end_time" id="deal_end_time" value="{{ end_time|date:'m/d/Y' }}">
+    <input type="submit" name="btn" value="查询">
+</form>
+
+<iframe src="deals_query" id="iframe1" name="iframe1" width="100%" marginwidth="0" marginheight="0" height="100%" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+
+<script type="text/javascript">
+    //注意：下面的代码是放在和iframe同一个页面调用,放在iframe下面
+    $("#iframe1").load(function () {
+        var mainheight = $(this).contents().find("body").height() + 30;
+        $(this).height(mainheight);
+    });
+</script>
+
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

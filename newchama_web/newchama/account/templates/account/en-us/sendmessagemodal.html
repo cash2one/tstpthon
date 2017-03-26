@@ -1,0 +1,30 @@
+<div id="sendMessageModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Send a Message</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+              <div class="col-xs-12">
+                
+                <div class="alert alert-danger"  id="error_tip" style="display:none;">
+                
+                </div> <!-- /.alert -->
+
+                <input type="hidden" id="recipient_type_id" name="recipient_type_id" value="0">
+                <input type="hidden" id="recipient_id" name="recipient_id" value="0">
+                <input type="hidden" id="reply_id" name="reply_id" value="0">
+                <input type="hidden" id="message_id" name="message_id" value="0">
+                <textarea name="textarea-message" id="textarea-message" cols="10" rows="5" class="form-control"></textarea>
+              </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="submit_message_btn">Send now</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

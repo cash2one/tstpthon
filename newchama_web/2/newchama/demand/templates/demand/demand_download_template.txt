@@ -1,0 +1,3 @@
+"用户","公司介绍","交易类型","项目名称","业务介绍","收入","利润","三年成长性","备注"
+{% for u in data %}"{{ u.member|addslashes }} @ {{ u.member.company }}", "{{ u.intro_cn|addslashes }}", "{{ u.get_service_type_display|addslashes }}", "{{ u.name_cn|addslashes }}", "{{ u.business_cn|addslashes }}",  "{{ u.income|addslashes }}", "{{ u.profit|addslashes }}", "{{ u.growth_three_year|addslashes }}%","{{ u.remark_cn|default:''|addslashes }}"
+{% endfor %}

@@ -1,0 +1,111 @@
+{% extends "backend/base.html" %}
+
+
+{% block headerbar %} 
+    <div class="headerbar">
+      {% include "backend/headerbar.html" %}  
+    </div><!-- headerbar -->
+{% endblock %}
+
+{% block pageheader %}
+    <div class="pageheader">      
+      <h2><i class="fa fa-home"></i> 基金收益管理</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'backend.index' %}">OliveCMS</a></li>
+          <li class="active">基金收益管理</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block contentpanel %} 
+ <div class="contentpanel">
+      
+     <div class="row">
+        
+        <div class="col-md-12">
+          <div class="panel panel-default">
+        <div class="panel-heading">
+          
+          <h3 class="panel-title">基金收益管理</h3>
+          
+        </div>
+        <div class="panel-body">
+
+        {% if messages %}
+        <div class="message_block">
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            {{ message }}
+                        </div> <!-- /.alert -->
+                    {% endfor %}
+        </div>
+        {% endif %}
+       
+          <form class="form-horizontal" method="POST" data-validate="parsley">
+            
+            <div class="form-group">
+              <label class="col-sm-3 control-label">总本金</label>
+              <div class="col-sm-3">
+                <input type="number" name="amount" id="amount" placeholder=""  class="form-control"  data-required="true" data-type="number" value="{{f.amount}}" />
+              </div>
+              <label class="col-sm-3 control-label">总收益</label>
+              <div class="col-sm-3">
+                <input type="number" name="income" id="income" placeholder=""  class="form-control"  data-required="true" data-type="number" value="{{f.income}}" />
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <label class="col-sm-3 control-label">结算日期</label>
+              <div class="col-sm-3">
+              
+             <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="assign_time"  name="assign_time"   data-required="true"  value="{{f.assign_time | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+
+              </div>
+              
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+            {% csrf_token %}   
+          <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+          
+        </div>
+          </form>
+            
+          
+        </div><!-- panel-body -->
+        <div class="panel-footer">
+       <div class="row">
+        
+       </div>
+      </div><!-- panel-footer -->
+
+      </div><!-- panel -->
+        </div><!-- col-md-6 -->
+        
+       
+      </div>
+     
+      
+    </div><!-- contentpanel -->
+{% endblock %}
+
+
+
+{% block customjs %} 
+
+<script type="text/javascript">
+  
+  jQuery(document).ready(function(){
+    jQuery('#assign_time').datepicker();
+    //jQuery("#assign_time").mask("9999-99");
+  });
+</script>
+
+{% endblock %}

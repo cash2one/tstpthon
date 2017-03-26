@@ -1,0 +1,184 @@
+{% extends "common/zh-cn/nologin_base.html" %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main"  style="width:70%;">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">资料设置</h3>
+                </div>
+                <div class="panel-body">
+                    <br/>
+                    <div class="col-xs-10">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                                    {{ message }}
+                                </div> <!-- /.alert -->
+                            {% endfor %}
+                        {% endif %}
+                        <form class="form-horizontal" role="form" method="post" enctype="multipart/form-data" id="myform" name="myform">
+                            <input type="hidden" name="x1" id="x1">
+                            <input type="hidden" name="y1" id="y1">
+                            <input type="hidden" name="x2" id="x2">
+                            <input type="hidden" name="y2" id="y2">
+                            <input type="hidden" name="w" id="w">
+                            <input type="hidden" name="h" id="h">
+                            <input type="hidden" name="imgName" id="imgName">
+                            <input type="hidden" name="imgWidth" id="imgWidth">
+                            <input type="hidden" name="imgHeight" id="imgHeight">
+                            <div class="form-group">
+                                <label class="col-xs-2">头像</label>
+                                <div class="col-xs-10">
+                                    <div class="fileupload" data-provides="fileupload">
+                                        <div class="fileupload-new thumbnail" style="width: 238px; height: 238px;">
+                                            <img src="{% url 'account.avatar' 238 238 u.avatar %}" alt="avatar" id="img_thumbnail"/>
+                                        </div>
+                                        <div id="selectFileButton"><span class='btn_uploadfile btn-success fileinput-button'>选择图片<input type='file' name='uploadFile' id='uploadFile'/></span></div>
+                                        <div id="selectFileUploading" class="hide_">图片提交中...</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2">企业邮箱</label>
+                                <div class="col-xs-4">
+                                    <input type="text"  class="form-control" name="name" placeholder="" value="{{ u.email }}" disabled>
+                                </div>
+                                
+                            </div>
+
+                            <div class="form-group">
+                                <label class="col-xs-2">手机号码</label>
+                                <div class="col-xs-2" style="width:150px;">
+                                    <select class="form-control" name="mobile_intel" tabindex="2" data-required="true">
+                                        {% for c in countries %}
+                                            <option value="{{ c.intel_code }}" {% ifequal u.mobile_intel c.intel_code %} selected {% endifequal %}>{{ c.name_cn }}({{ c.intel_code }})</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                <div class="col-xs-3">
+                                    <input type="text"  class="form-control" name="mobile" value="{{ u.mobile }}">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">姓名</label>
+                                <div class="col-xs-4">
+                                    <input type="text"  class="form-control" name="name" placeholder="" value="{{ u.first_name }}{{ u.last_name }}" disabled>
+                                </div>
+                                
+                            </div>
+                            <div class="form-group">
+                                <label class="col-xs-2">公司名称</label>
+                                <div class="col-xs-6">
+                                    <input type="text" name="company" value="{{ u.company.name_cn }}" class="form-control" disabled>
+                                </div>
+                            </div>
+{% comment %}
+
+                            <div class="form-group">
+                                <label class="col-xs-2">公司类型</label>
+                                <div class="col-xs-6">
+                                    <input type="text"   name="company_type" value="{{ u.company.get_type_display }}" class="form-control" disabled>
+                                </div>
+                            </div>
+{% endcomment %}
+                        <div class="form-group">
+                            <label class="col-xs-2">关注行业</label>
+                            <div class="col-xs-10">
+                                <div class="col-xs-10"><a href="javascript:;" class="add_industry">+展开选择/更改行业</a></div>
+                                <div class="col-md-8 setting_industry" id="target_industry"></div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2">关键词</label>
+                            <div class="col-xs-10">
+                                <div class="col-xs-8 setting_industry" id="target_keywords">
+                                    {% for tc in focus_keywords %}
+                                        <span id="target_keyword_{{ tc.keyword }}" class="alert alert-info preference_selected ">
+                                            <a href="###">{{ tc.keyword }}</a>&nbsp;
+                                            <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove project_key_remove"></a>
+                                        </span>
+                                    {% endfor %}
+                                </div>
+                                <div class="col-xs-6" style="padding-left:0px;">
+                                    <input type="text" id="key_keyword" name="key_keyword" class="form-control" placeholder="细分行业关键字，例如人工智能">
+                                    <input type="hidden" id="project_keyword" name="project_keyword" value="{{ keywords }}"/>
+                                </div>
+                                <div class="col-xs-1">
+                                    <button type="button" class="btn btn-default btn-xs" onclick="addKeyword2()">添加</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2">个人介绍</label>
+                            <div class="col-xs-8">
+                                <textarea id="intro_cn_" class="form-control" rows="6" placeholder="请填写您与投资相关的个人简介，例如对相关行业的理解，过去投资经历的感受思考等，这有助于他人快速了解您，达成合作意向，简介将公开显示在你的NewChama个人主页上。">{{ u.intro_cn |default:"" | replaceLine }}</textarea>
+                                <input type="hidden" name="intro_cn" id="intro_cn" value="{{ u.intro_cn |default:"" }}"/>
+                            </div>
+                        </div>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="col-xs-10 col-xs-offset-2">
+
+                                    <div class="col-xs-4">
+                                       
+                                        <button type="button"class="btn btn-primary btn-xs" onclick="checkform();">确认</button>
+                                        
+                                    </div>
+                                    <br/><br/>
+                                </div>
+                            </div>
+
+
+
+
+    <div class="panel-body setting_area">
+        <div class="setting_content">
+            {% for i in industries %}
+                <div>
+                    <a href="javascript:;" class="setting_plus"> + </a>
+                    <label class="checkbox-inline" style="position:relative;vertical-align:bottom">
+                        <input style=" margin-top:3px;" type="checkbox" id="industry1-{{ i.id }}" name="industrys" class="industry1" value="{{ i.id }}" data-name="{{ i.name_cn }}" {% if i in u.focus_aspect.all %}checked{% endif %}><b>{{ i.name_cn }}</b>
+                    </label>
+                    <div id="parent-{{ i.id }}" class="hide_ setting_industry_show" style="margin-left:20px;">
+                    {% for j in industries2 %}
+                        {% if j.father_id == i.id %}
+                                <label class="checkbox-inline" style="position:relative;vertical-align:bottom;">
+                                    <input style="margin-top:3px;" type="checkbox" name="industrys" class="industry2" data-parent-id="{{ i.id }}" data-name="{{ j.name_cn }}" value="{{ j.id }}" {% if j in u.focus_aspect.all %}checked{% endif %}>{{ j.name_cn }}
+                                </label>
+                        {% endif %}
+                    {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    </div>
+{% endblock %}
+{% block footer %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <link rel='stylesheet' type='text/css' href='{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.fileupload.css' />
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.ui.widget.js"></script>
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.iframe-transport.js"></script>
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.fileupload/jquery.fileupload.js"></script>
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/libs/jquery.jcrop/jquery.Jcrop.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/libs/jquery.jcrop/jquery.Jcrop.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/layer/layer.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/common.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/setting.js"></script>
+{% endblock %}

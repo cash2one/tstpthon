@@ -1,0 +1,301 @@
+{% extends "adminuser/base.html" %}
+{% load myTags %}
+{% block title %}Detail Project{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Project<span>Detail Project</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">Project</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        {% comment %}<div class="panel-heading">
+          <h4 class="panel-title">Add Project</h4>
+          <p>Add a new project</p>
+        </div>{% endcomment %}
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+        <div class="form-group">
+          <b>项目概要</b>
+        </div>
+          <div class="form-group">
+              <label class="col-sm-3 control-label">发布用户</label>
+              <div class="col-sm-6">
+                  {{ u.member.email }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">项目名称</label>
+              <div class="col-sm-6">
+                    {{ u.name_cn |default:"" }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">项目名称(English)</label>
+              <div class="col-sm-6">
+                    {{ u.name_en |default:"" }}
+              </div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">交易类型</label>
+              <div class="col-sm-3">
+                  {{ u.get_service_type_display }}
+              </div>
+              <div class="col-sm-3">
+                  {% if u.service_type == 2 and project_stage %}投资阶段：{{ u.get_project_stage_display }}{% endif %}
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">新交易类型</label>
+                <div class="col-sm-4">
+                    {% for deal_type in project_category_lst %}
+                        {{ deal_type }}<br/>
+                    {% endfor %}
+                </div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">支付币种</label>
+              <div class="col-sm-3">
+                {{ u.get_pay_currency_display }}
+              </div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">与项目的关系</label>
+              <div class="col-sm-9">
+                {{ u.get_project_relation_display }}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">投资亮点</label>
+              <div class="col-sm-6">{{ u.features_cn |default:"" | replaceLine }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">投资亮点(English)</label>
+              <div class="col-sm-6">{{ u.features_en |default:"" | replaceLine }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">有效期</label>
+              <div class="col-sm-3">
+                    {{ u.get_valid_day_display }}
+              </div>
+            </div>
+          <!--  <div class="form-group">
+                <label class="col-sm-3 control-label">推荐理由</label>
+                <div class="col-sm-6">
+                    {{ admin_recommmond_reason}}
+                </div>
+            </div>-->
+
+        <div class="form-group">
+          <b>公司信息</b>
+        </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">公司名称</label>
+              <div class="col-sm-6">{{ u.company_name_cn |default:"" }}
+              </div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">公司名称(English)</label>
+              <div class="col-sm-6">
+                  {{ u.company_name_en |default:"" }}
+              </div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">所在区域</label>
+              <div class="col-sm-6">
+                {% if u.regionlevelone %}{{ u.regionlevelone }} {{ u.regionleveltwo }} {{ u.regionlevelthree }}{% else %}未公布{% endif %}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">标的公司所在行业</label>
+                <div class="col-sm-3">
+                    {{ u.company_industry.name_cn }}
+                </div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">关键字</label>
+              <div class="col-sm-6">{{ u.keywords }}</div>
+           </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">关键字(English)</label>
+              <div class="col-sm-6">{{ keywordsEn }}</div>
+           </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">关键字(Admin)</label>
+              <div class="col-sm-6">{{ keywordsAdmin }}</div>
+           </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">公司性质</label>
+              <div class="col-sm-2">
+                {% if u.is_list_company%}上市公司{% else %}非上市公司{% endif %}
+              </div>
+                <div class="col-md-3">
+                    {% if u.is_list_company%}{{ u.company_stock_symbol |default:""}}{% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">公司人员规模</label>
+              <div class="col-sm-3">
+                {{ u.get_employees_count_type_display | checkNone }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">公司股权结构</label>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        公司管理层&nbsp;{{ stockST.0.rate | formatPercent }} %
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        机构投资者&nbsp;{{ stockST.01.rate | formatPercent }} %
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="input-group">
+                        其他&nbsp;{{ stockST.2.rate | formatPercent }} %
+                    </div>
+                </div>
+            </div>
+        <div class="form-group">
+          <b>财务信息</b>
+        </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">财务数据货币单位</label>
+              <div class="col-sm-3">
+                {{ u.get_currency_type_financial_display }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">公司整体估值</label>
+              <div class="col-sm-3">
+                  {{ u.expected_enterprice_value |formatCurrency4Preference }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">交易股权比例</label>
+                <div class="col-md-3">
+                  <div class="input-group mb15">
+                    {{ u.stock_percent |formatPercent }} %
+                </div>
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">交易规模</label>
+                <div class="col-md-3">
+                    {{ u.deal_size |formatCurrency4Preference }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">历史数据</label>
+                <div class="col-md-3">
+                    {{ curr_year }}
+                </div>
+                <div class="col-md-3">
+                    {{ last_year }}
+                </div>
+                <div class="col-md-3">
+                    {{ last_year_before }}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">营业收入</label>
+                <div class="col-md-3">{{ u.income_last_phase |formatCurrency4Preference}}</div>
+                <div class="col-md-3">{{ u.income_last_phase_2 |formatCurrency4Preference}}</div>
+                <div class="col-md-3">{{ u.income_last_phase_3 |formatCurrency4Preference}}</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">净利润</label>
+                <div class="col-md-3">{{ u.profit_last_phase |formatCurrency4Preference}}</div>
+                <div class="col-md-3">{{ u.profit_last_phase_2 |formatCurrency4Preference}}</div>
+                <div class="col-md-3">{{ u.profit_last_phase_3 |formatCurrency4Preference}}</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">EBITDA</label>
+                <div class="col-md-3">{{ u.ebitda |formatCurrency4Preference}}</div>
+                <div class="col-md-3">{{ u.ebitda_2 |formatCurrency4Preference}}</div>
+                <div class="col-md-3">{{ u.ebitda_3 |formatCurrency4Preference}}</div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">审计情况</label>
+                <div class="col-md-3">{{u.get_audit_status_display}}</div>
+                <div class="col-md-3">{{ u.get_audit_status_2_display }}</div>
+                <div class="col-md-3">{{ u.get_audit_status_3_display }}</div>
+            </div>
+        <div class="form-group">
+          <b>项目发布</b>
+        </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">匿名发布</label>
+                <div class="col-md-3">
+                {% if u.is_anonymous == False%}否{% else %}是{% endif %}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">发布类型</label>
+                <div class="col-md-3">
+                {% if u.is_suitor == False%}公开发布{% else %}定向推送{% endif %}
+                </div>
+            </div>
+            <div class="form-group suitor target_company_div {% if target_companies_count == 0%}hide_{% endif %}">
+                <label class="col-md-3 control-label">指定机构</label>
+                {% for tc in u.target_companies.all %}
+                <div class="col-md-3" id="target_compaies">
+                    {{ tc.name_cn }}
+                </div>
+                {% endfor %}
+            </div>
+            {% for am in attachments %}
+                <div class="form-group attach_sub {{ am.file_type }}" ref='{{ am.file_type_name }}'>
+                    <label class="col-md-3 control-label">{{ am.file_type_name }}</label>
+                    <div class="col-md-2">
+                        <a href="{{ MEDIA_URL }}project/{{ am.new_name }}">{{ am.file_name }}</a>
+                        <input type="hidden" name="exist_upload_names" value="{{ am.file_name }}"/>
+                        <input type='hidden' name='upload_type_names' value='{{ am.file_type_name }}'>
+                        <input type="hidden" name="exist_upload_newNames" value="{{ am.new_name }}"/>
+                    </div>
+                </div>
+            {% endfor %}
+        {% if ischeck %}
+        <form id="formData" class="form-horizontal form-bordered" method="post">
+        <input type="hidden" name="id" value="{{ u.id }}"/>
+        {% csrf_token %}
+        <div class="form-group">
+              <label class="col-sm-3 control-label">原因</label>
+              <div class="col-sm-6">
+                  <textarea placeholder="Reason" name="reason" class="form-control" rows="5"></textarea>
+                  <span class="help-block">must input if disapprove </span>
+              </div>
+            </div>
+               {% csrf_token %}
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary" name="btn_approve">Approve</button>&nbsp;
+				  <button class="btn btn-default" name="btn_disapprove">Disapprove</button>&nbsp;
+				  <button class="btn btn-default" name="btn_offline">Offline</button>
+				</div>
+			 </div>
+		  </div>
+        </form>
+       {% endif %}
+      </div><!-- panel -->
+{% endblock %}

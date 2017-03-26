@@ -1,0 +1,61 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Subscribe{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Subscribe<span>match project</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Subscribe</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Project Name</th>
+                <th>Member</th>
+                <th>Create Date</th>
+                <th>Expire Date</th>
+                <th>Status</th>
+                <th>定向推送</th>
+                <th>是否已发送</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for m in result_list %}
+              <tr>
+                <td>{{ m.pk }}</td>
+                <td>{{ m.name_cn|default:m.name_en|safe|slice:'30'}}</td>
+                <td>{{ m.member }}</td>
+                <td>{{ m.add_time|date:'Y-m-d' }}</td>
+                <td>{{ m.expire_date|date:'Y-m-d' }}</td>
+                <td>{{ m.get_status_display }}</td>
+                <td>{{ m.is_suitor }}</td>
+                <td>
+                {% if m.id in srs %}
+                    已发送
+                {% else %}
+                    未发送
+                {% endif %}
+                </td>
+                <td>
+                    <a href="{% url 'project.detail' m.pk %}" title="detail" target="_blank"><i class="fa fa-eye"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    </div>
+</div>
+{% endblock %}

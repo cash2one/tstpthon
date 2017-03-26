@@ -1,0 +1,24 @@
+{% load myTags %}
+{% if recommendList%}
+{% if have_more_data%}
+<tr id="have_more_data"><td colspan="4"></td></tr>
+{% endif %}
+    {% for rl in recommendList %}
+<tr>
+    <td><a target="_blank" href="{% url 'account.company' rl.company.id %}">{{ rl.company.name_cn | cut_str:28 }}</a></td>
+    <td id="recommendItemControlId_{{ rl.id }}">{{ rl.get_status_display }}</td>
+    <td>
+        <select id="recommendItemControlSelectId_{{ rl.id }}" class="form-control" onchange="bankingGenuisExcute_view_email(this.value, {{ rl.id }})">
+            <option value="">请选择</option>
+            <option value="1" ref="已发送">发送项目</option>
+            <option value="2" ref="移除">移除</option>
+            <option value="3" ref="签订NDA状态">移至签订NDA状态</option>
+            <option value="4" ref="签订TS状态">移至签订TS状态</option>
+            <option value="5" ref="交割">交割</option>
+        </select>
+    </td>
+</tr>
+    {% endfor %}
+{% else %}
+    <div id="no_more_div" class="hide_"></div>
+{% endif %}

@@ -1,0 +1,207 @@
+{% extends "common/zh-cn/base.html" %}
+{% load pagination_tags %}
+{% load myTags %}
+{% load tz %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">消息中心</h3>
+                </div>
+                <div class="panel-body">
+                <div class="col-xs-3">
+                    <div class="assist_border">
+                                       
+                    <div class="col-xs-12">
+                        <input type="text" name="keyword_message" id="keyword_message" >
+                        <button type="button" class="btn btn-primary btn-xs" name="btn_keyword_message" id="btn_keyword_message">搜索</button>
+                    </div>
+
+                    <div class="col-xs-12" style="margin-top:20px;">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li class="active"><a href="{% url 'account.messages' %}"><i class="glyphicon glyphicon-inbox"></i>&nbsp;&nbsp;消息中心</a></li>
+                       
+                    </ul>
+                       
+                    </div>
+
+
+                </div>
+
+                </div>
+                <div class="col-xs-9" style="padding-bottom:40px;">
+                     <div style="float:left; ">消息</div>
+                <div style="float:right; margin-bottom:5px;"><button type="button" class="btn btn-primary btn-xs btn_deleter_person_message_all_btn" name="btn_deleter_person_message_all_btn" id="btn_deleter_person_message_all_btn">删除</button></div>
+                <div class="col-xs-12 assist_button_background message_sort_btn_block">
+                    <a href="{% url 'account.messages_project' %}" >按照项目展示消息列表</a>&nbsp;&nbsp;
+                    <a class="on" class="" href="{% url 'account.messages_person' %}" >按照用户展示排列消息</a>&nbsp;&nbsp;
+                    
+                </div>
+
+                {% if message_list %}
+                <table class="col-xs-12 table_recommend table_recommend_1" >
+                    
+
+                {% for message in message_list %}
+
+                    {% if message.sender.id == member.id%}
+                        <tr id="message_{{message.id}}">
+                               <td style="vertical-align:top;width:20px;">
+                               <input class="check_message" type="checkbox" name='check_message' value="{{message.id}}"></td>
+                               <td style="vertical-align:top;width:80px;">
+                                            <span class="message-item-pic">
+                                                <a href="{% url 'account.profile' message.receiver.id %}">
+                                                    <img src="{% url 'account.avatar' 60 60 message.receiver.avatar %}" class="thumbnail">
+                                                </a>
+                                            </span>
+                               </td>
+
+                               <td>
+                                    <div class="pull-left col-xs-10">
+
+                                            <a href="{% url 'account.profile' message.receiver.id %}">{{message.receiver}} {{message.receiver.company.name_cn}}{% if message.receiver.position_cn %} | {{ message.receiver.position_cn }}{% endif %}</a>&nbsp;
+
+                                <p>
+                                                            {% if message.message.is_read == False and message.receiver.id == member.id  %}
+                                                                <span id="new_badge_num" ref="{{ message.receiver.id }}"></span>
+                                                            {% endif %}{{message.message.content|safe}}</p>
+                                <p>
+
+
+                              <button class="btn-xs btn-primary show_message_model_btn" data-receiver-type="{{ message.item_type }}"  data-item-id="{{ message.receiver.id }}"  data-message-id="{{message.id}}" data-receiver-id="{{ message.receiver.id }}"  data-receiver-name="{{ message.receiver }}"  data-receiver-pic="{% url 'account.avatar' 28 28 message.receiver.avatar %}" data-sender-id="{{ message.sender.id }}"  data-sender-name="{{ message.sender }}" data-sender-pic="{% url 'account.avatar' 28 28 message.sender.avatar %}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;回复</button>
+
+                          <button class="btn-xs btn-primary remove_message_with_person_btn" rel="{{message.id}}"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</button>
+                          </p>
+
+                                    </div>
+
+                               </td>
+                               <td style="vertical-align:top;width:100px;">
+
+                          <p class="message-time">{% comment %}<i class="glyphicon glyphicon-time"></i>{% endcomment %}&nbsp;{{message.update_time | caculate }}</p>
+                               </td>
+
+                               </tr>
+
+                    {% else %}
+
+                    <tr id="message_{{message.id}}">
+                               <td style="vertical-align:top;width:20px;">
+                               <input class="check_message" type="checkbox" name='check_message' value="{{message.id}}"></td>
+                               <td style="vertical-align:top;width:80px;">
+                                            <span class="message-item-pic">
+                                                <a href="{% url 'account.profile' message.sender.id %}">
+                                                    <img src="{% url 'account.avatar' 60 60 message.sender.avatar %}" class="thumbnail">
+                                                </a>
+                                            </span>
+                               </td>
+
+                               <td>
+                                    <div class="pull-left col-xs-10">
+
+                                            <a href="{% url 'account.profile' message.sender.id %}">{{message.sender}} {{message.sender.company.name_cn}}{% if message.sender.position_cn %} | {{ message.sender.position_cn }}{% endif %}</a>&nbsp;
+
+                                <p>
+                                                            {% if message.message.is_read == False and message.receiver.id == member.id %}
+                                                                <span id="new_badge_num" ref="{{ message.sender.id }}"></span>
+                                                            {% endif %}{{message.message.content|safe}}</p>
+                                <p>
+
+
+                              <button class="btn-xs btn-primary show_message_model_btn" data-receiver-type="{{ message.item_type }}"  data-item-id="{{ message.sender.id }}" data-message-id="{{ message.id }}" data-receiver-id="{{ message.sender.id }}"  data-receiver-name="{{ message.sender }}"  data-receiver-pic="{% url 'account.avatar' 28 28 message.sender.avatar %}" data-sender-id="{{ message.receiver.id }}"  data-sender-name="{{ message.receiver }}" data-sender-pic="{% url 'account.avatar' 28 28 message.receiver.avatar %}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;回复</button>
+
+                          <button class="btn-xs btn-primary remove_message_with_person_btn" rel="{{message.id}}"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</button>
+                          </p>
+
+                                    </div>
+
+                               </td>
+                               <td style="vertical-align:top;width:100px;">
+
+                          <p class="message-time">{% comment %}<i class="glyphicon glyphicon-time"></i>{% endcomment %}&nbsp;{{message.update_time | caculate }}</p>
+                               </td>
+
+                               </tr>
+
+                    {% endif %}
+
+                            {% endfor %}
+
+                </table>
+
+
+                <div class="news-list-view-all view-more-recommond_1"  id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </div>
+                <div class="col-xs-12 hide_ assist_loading" style="text-align: center; "  id="loader">
+                    <img src='/static/img/loaders/ajax-loader.gif'>
+                </div>
+
+                  {% else %}
+                        <div class="message-list-empty">
+                            <p class="message-list-empty-text">暂时没有留言</p>
+                        </div>
+
+                    {% endif %}
+
+                </div>
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+
+
+
+<link rel='stylesheet' type='text/css' href='/static/js/libs/jquery.fileupload/jquery.fileupload.css' />
+<script type="text/javascript" src="/static/js/libs/jquery.fileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/static/js/libs/jquery.fileupload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/static/js/libs/jquery.fileupload/jquery.fileupload.js"></script>
+
+    {% include "account/zh-cn/messagemodal.html" %}
+
+
+    <script type="text/javascript">
+        var page = 1;
+        var pagesize=10;
+        var is_has_data = true;
+        /*
+        $(window).bind("scroll", function () {
+            var screenHeight = $(window).height();
+            var top = $(document.body).height();
+            //console.log(top);
+            var scrollTop = $(document).scrollTop();
+            if (top - scrollTop < screenHeight + 20) {
+                LoadData();
+            }
+        });*/
+        function LoadData()
+        {
+            if(is_has_data)
+            {
+                page++;
+                GetData(page,pagesize);
+            }
+        }
+        function GetData(page,pagesize) {
+            $("#loader").show();
+            var url = "/account/ajax_message_center_person_more/"+page+"/"+pagesize;
+            jQuery.get(url,function (data) {
+                var newData = data.replace(/\s/g,'');
+                if(newData)
+                {
+                    $(".table_recommend_1").append(data);
+                }else
+                {
+                    is_has_data = false;
+                    $("#load_btn").remove();
+                }
+                $("#loader").hide();
+            });
+        }
+
+    </script>
+    
+{% endblock %}

@@ -1,0 +1,99 @@
+{% extends "common/en-us/base.html" %}
+{% load humanize %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">My Watchlist</h3>
+    </div>
+    <div class="panel-body">
+    <ul class="news-list">
+    {% include "account/en-us/myFavorite_nav.html" %}
+    {% if favorites %}
+    {% for m in favorites %}
+    <li class="project-item2">
+        <div class="col-xs-10">
+            <strong class="news-list-item-title2"><a href="{% url 'sales.detail' m.project.id%}">{{ m.project.name_en|safe|truncatechars:150 }}</a></strong>
+         <span class="news-list-item-text">
+          <table class="table index-table-1">
+              <tbody>
+              <tr class="project-th">
+                  <td width="22%">Industry</td>
+                  <td width="19%">Location</td>
+                  <td width="19%">Deal Type</td>
+                  <td width="18%">Deal Size</td>
+                  <td width="11%">Listing Period</td>
+                  <td width="11%">Last Updated</td>
+              </tr>
+
+              <tr>
+                  <td><i class="glyphicon glyphicon-tags"></i> <a class="tag preference_common_keyword" data-type="project" data-tag="{{ m.project.company_industry.name_en }}" href="javascript:;">{{ m.project.company_industry.name_en }}</a> </td>
+                  <td>{{ m.project.company_country.name_en }}</td>
+                  <td>{{ m.project.get_service_type_display }}</td>
+                  <td>{{ m.project.deal_size|formatCurrency2:m.project.get_currency_type_financial_display }}</td>
+                  <td>{{ m.project.expire_date|date:'Y-m-d' }}</td>
+                  <td>{{ m.project.update_time|date:'Y-m-d' }}</td>
+              </tr>
+              <tr>
+                  <td colspan="6"><small>{{ m.project.features_en|safe }}</small></td>
+              </tr>
+              </tbody>
+          </table> </span>
+        </div>
+        <div class="col-xs-2">
+         <span class="pull-right"> <button class="btn-xs btn-primary send_message_btn" data-message-type="1" data-message-id="{{ m.project.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Message</button> &nbsp;&nbsp;
+             <button class="btn-xs btn-primary btn-remove-favorite" data-id="{{ m.project.id }}" data-type="project"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;Delete</button> &nbsp;&nbsp;
+             {% if m.has_attach %}
+             <button class="btn-xs btn-primary btn-attach" data-type="project" data-id="{{ m.project.id }}"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;Attachment</button>
+             {% endif %}
+        </span>
+        </div> </li>
+    {% endfor %}
+    {% if total_project > 10 %}
+        <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+        <li class="news-list-view-all" id="load_btn"> <a href="javascript:LoadData();">View More</a> </li>
+    {% endif %}
+    {% else %}
+         <div class="news-list-empty">
+
+            <p class="news-list-empty-text">No Collcetion</p>
+
+        </div>
+    {% endif %}
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    {% include "account/en-us/sendmessagemodal.html" %}
+    <script>
+    page=1;
+    pagesize=10;
+    function LoadData()
+    {
+        page++;
+        LoadMoreFavorite('project',page,pagesize);
+    }
+    function LoadMoreFavorite(type,page,pagesize)
+    {
+        $("#loader").show();
+        var url = "/account/ajax_more_favorite?type="+type+"&page="+page+"&pagesize="+pagesize;
+        $.get(url,function(data){
+            var newData = data.replace(/\s/g,'');
+            if(newData)
+            {
+                $("#loader").before(data);
+            }else
+            {
+                $("#load_btn").remove();
+            }
+            $("#loader").hide();
+        });
+    }
+    </script>
+{% endblock %}

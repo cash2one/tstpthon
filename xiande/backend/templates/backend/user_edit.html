@@ -1,0 +1,337 @@
+{% extends "backend/base.html" %}
+
+
+{% block headerbar %} 
+    <div class="headerbar">
+      {% include "backend/headerbar.html" %}  
+    </div><!-- headerbar -->
+{% endblock %}
+
+{% block pageheader %}
+    <div class="pageheader">      
+      <h2><i class="fa fa-home"></i> 用户管理</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'backend.index' %}">OliveCMS</a></li>
+          <li class="active">用户管理</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block contentpanel %} 
+ <div class="contentpanel">
+      
+     <div class="row">
+        
+        <div class="col-md-12">
+          <div class="panel panel-default">
+        <div class="panel-heading">
+          
+          <h3 class="panel-title">用户管理</h3>
+          
+        </div>
+        <div class="panel-body">
+
+        {% if messages %}
+        <div class="message_block">
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            {{ message }}
+                        </div> <!-- /.alert -->
+                    {% endfor %}
+        </div>
+        {% endif %}
+       
+          <form class="form-horizontal" method="POST" data-validate="parsley">
+            
+            <div class="form-group">
+              <label class="col-sm-1 control-label">用户姓名</label>
+              <div class="col-sm-3">
+                <input type="text" name="username" id="username" placeholder=""  class="form-control"  data-required="true"  value="{{f.user.first_name | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">性别</label>
+              <div class="col-sm-3">
+                <select class="form-control input-sm " name="gender" id="gender">
+                  <option value="">未选择</option>
+                  <option value="1"  {% if f.gender == 1%} selected="select" {% endif %}>男</option>
+                  <option value="2"  {% if f.gender == 2%} selected="select" {% endif %}>女</option>
+                  
+                </select>`
+              </div>
+              <label class="col-sm-1 control-label">客户类型</label>
+              <div class="col-sm-3">
+                <select class="form-control input-sm" name="is_investment" id="is_investment">
+                  
+                  <option value="1"  {% if  f.is_investment%} selected="select" {% endif %}>基金客户</option>
+                  <option value="0"  {% if not f.is_investment%} selected="select" {% endif %}>非基金客户</option>
+                  
+                </select>
+            </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-1 control-label">合同号</label>
+              <div class="col-sm-3">
+               <input type="text" name="contract_no" id="contract_no" placeholder=""  class="form-control"  value="{{f.contract_no | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">基金客户编号</label>
+              <div class="col-sm-3">
+                <input type="text" name="fund_customer_number" id="fund_customer_number" placeholder=""  class="form-control"  value="{{f.fund_customer_number | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">基金项目编号</label>
+              <div class="col-sm-3">
+                <input type="text" name="fund_item_number" id="fund_item_number" placeholder=""  class="form-control"  value="{{f.fund_item_number | default:''}}" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-1 control-label">本金</label>
+              <div class="col-sm-3">
+                <input type="number" name="amount" id="amount" placeholder=""  class="form-control"  data-type="number" value="{{f.amount | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">币种</label>
+              <div class="col-sm-3">
+                <select class="form-control input-sm" name="currency" id="currency">
+                  <option value="">未选择</option>
+                  <option value="1"  {% if f.currency == 1%} selected="select" {% endif %}>人民币</option>
+                  <option value="2"  {% if f.currency == 2%} selected="select" {% endif %}>美元</option>
+                  <option value="3"  {% if f.currency == 3%} selected="select" {% endif %}>港币</option>
+                  <option value="4"  {% if f.currency == 4%} selected="select" {% endif %}>日元</option>
+                  <option value="5"  {% if f.currency == 5%} selected="select" {% endif %}>欧元</option>
+                  <option value="6"  {% if f.currency == 6%} selected="select" {% endif %}>英镑</option>
+                  <option value="7"  {% if f.currency == 7%} selected="select" {% endif %}>新加坡元</option>
+                  <option value="8"  {% if f.currency == 8%} selected="select" {% endif %}>澳元</option>
+                  <option value="9"  {% if f.currency == 9%} selected="select" {% endif %}>新西兰元</option>
+                  <option value="10"  {% if f.currency == 10%} selected="select" {% endif %}>加元</option>
+                  <option value="11"  {% if f.currency == 11%} selected="select" {% endif %}>其他</option>
+                </select>
+              </div>
+              <label class="col-sm-1 control-label">收益/分配类型</label>
+              <div class="col-sm-3">
+                <select class="form-control input-sm" name="assign_type" id="assign_type">
+                  <option value="">未选择</option>
+                  <option value="1"  {% if f.borrowed_type == 1%} selected="select" {% endif %}>16%+超额红利</option>
+                 
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-1 control-label">证件类型</label>
+              <div class="col-sm-3">
+                <select class="form-control input-sm" name="id_type" id="id_type">
+                  <option value="">未选择</option>
+                  <option value="1"  {% if f.id_type == 1%} selected="select" {% endif %}>居民身份证</option>
+                  <option value="2"  {% if f.id_type == 2%} selected="select" {% endif %}>护照</option>
+                  <option value="3"  {% if f.id_type == 3%} selected="select" {% endif %}>外国人居留证</option>
+                  <option value="4"  {% if f.id_type == 4%} selected="select" {% endif %}>港澳同胞回乡证</option>
+                  <option value="5"  {% if f.id_type == 5%} selected="select" {% endif %}>港澳居民来往内地通行证</option>
+                  <option value="6"  {% if f.id_type == 6%} selected="select" {% endif %}>台湾居民来往大陆通行证</option>
+                  <option value="7"  {% if f.id_type == 7%} selected="select" {% endif %}>大陆居民往来台湾通行证</option>
+                  <option value="8"  {% if f.id_type == 8%} selected="select" {% endif %}>外国人出入境证</option>
+                  <option value="9"  {% if f.id_type == 9%} selected="select" {% endif %}>外交官证</option>
+                  <option value="10"  {% if f.id_type == 10%} selected="select" {% endif %}>领事馆证</option>
+                  <option value="11"  {% if f.id_type == 11%} selected="select" {% endif %}>临时身份证</option>
+                  <option value="12"  {% if f.id_type == 12%} selected="select" {% endif %}>外国人居留证</option>
+                  <option value="13"  {% if f.id_type == 13%} selected="select" {% endif %}>军官证</option>
+                  <option value="14"  {% if f.id_type == 14%} selected="select" {% endif %}>武警警官证</option>
+                  <option value="15"  {% if f.id_type == 15%} selected="select" {% endif %}>士兵证</option>
+                  <option value="16"  {% if f.id_type == 16%} selected="select" {% endif %}>军队学员证</option>
+                  <option value="17"  {% if f.id_type == 17%} selected="select" {% endif %}>军队文职干部证</option>
+                  <option value="18"  {% if f.id_type == 18%} selected="select" {% endif %}>军队离退休干部证和军队职工证</option>
+                  <option value="19"  {% if f.id_type == 19%} selected="select" {% endif %}>海员证</option>
+                  <option value="20"  {% if f.id_type == 20%} selected="select" {% endif %}>其他</option>
+                </select>
+              </div>
+              <label class="col-sm-1 control-label">证件号码</label>
+              <div class="col-sm-3">
+                <input type="text" name="id_no" id="id_no" placeholder=""  class="form-control"  value="{{f.id_no | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">生日</label>
+              <div class="col-sm-3">
+                <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="birthday"  name="birthday"    value="{{f.birthday | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              </div>
+              
+            </div>
+
+           
+            <div class="form-group">
+              <label class="col-sm-1 control-label">Email地址</label>
+              <div class="col-sm-3">
+                <input type="text" name="email" id="email" placeholder=""  class="form-control"  value="{{f.user.email | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">地址</label>
+              <div class="col-sm-3">
+                <input type="text" name="address" id="address" placeholder=""  class="form-control"  value="{{f.address | default:''}}" />
+              </div>
+
+              <label class="col-sm-1 control-label">邮编</label>
+              <div class="col-sm-3">
+                <input type="text" name="postcode" id="postcode" placeholder=""  class="form-control"  value="{{f.postcode | default:''}}" />
+              </div>
+              
+            </div>
+
+             <div class="form-group">
+              <label class="col-sm-1 control-label">联系人</label>
+              <div class="col-sm-3">
+                <input type="text" name="contact" id="contact" placeholder=""  class="form-control"  value="{{f.contact | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">手机</label>
+              <div class="col-sm-3">
+                <input type="text" name="mobile" id="mobile" placeholder=""  class="form-control"  value="{{f.mobile | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">电话</label>
+              <div class="col-sm-3">
+                <input type="text" name="tel" id="tel" placeholder=""  class="form-control"  value="{{f.tel | default:''}}" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-1 control-label">开户银行</label>
+              <div class="col-sm-3">
+                <input type="text" name="bank_name" id="bank_name" placeholder=""  class="form-control"  value="{{f.bank_name | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">银行账号</label>
+              <div class="col-sm-3">
+                <input type="text" name="bank_account" id="bank_account" placeholder=""  class="form-control"  value="{{f.bank_account | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">入款时间</label>
+              <div class="col-sm-3">
+                <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="borrowed_time"  name="borrowed_time"    value="{{f.borrowed_time | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              
+            </div>
+            </div>
+
+
+            <div class="form-group">
+            <label class="col-sm-1 control-label">入款类型</label>
+              <div class="col-sm-3">
+                <select class="form-control input-sm" name="borrowed_type" id="borrowed_type">
+                  <option value="">未选择</option>
+                  <option value="1"  {% if f.borrowed_type == 1%} selected="select" {% endif %}>银行转账</option>
+                  <option value="2"  {% if f.borrowed_type == 2%} selected="select" {% endif %}>电汇</option>
+                  <option value="3"  {% if f.borrowed_type == 3%} selected="select" {% endif %}>现金</option>
+                  <option value="4"  {% if f.borrowed_type == 4%} selected="select" {% endif %}>其他</option>
+                </select>
+              </div>
+              
+              <label class="col-sm-1 control-label">公司</label>
+              <div class="col-sm-3">
+                <input type="text" name="company" id="company" placeholder=""  class="form-control"  value="{{f.company | default:''}}" />
+              </div>
+              <label class="col-sm-1 control-label">职位</label>
+              <div class="col-sm-3">
+                <input type="text" name="job_title" id="job_title" placeholder=""  class="form-control"  value="{{f.job_title | default:''}}" />
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-1 control-label">签约时间</label>
+              <div class="col-sm-3">
+                <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="signed_time"  name="signed_time"    value="{{f.signed_time | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              </div>
+              <label class="col-sm-1 control-label">合约开始时间</label>
+              <div class="col-sm-3">
+                <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="contract_start_time"  name="contract_start_time"    value="{{f.contract_start_time | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              </div>
+              <label class="col-sm-1 control-label">合约结束时间</label>
+              <div class="col-sm-3">
+                 <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="contract_end_time"  name="contract_end_time"    value="{{f.contract_end_time | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              </div>
+              
+            </div>
+
+
+
+            <div class="form-group">
+
+              <label class="col-sm-1 control-label">家庭及子女情况</label>
+              <div class="col-sm-7">
+                <textarea name="family" id="family" class="form-control" rows="5">{{f.family | default:''}}</textarea>
+                
+              </div>
+             
+              
+            </div>
+
+            <div class="form-group">
+
+              <label class="col-sm-1 control-label">爱好</label>
+              <div class="col-sm-7">
+                <textarea name="hobby" id="hobby" class="form-control" rows="5">{{f.hobby | default:''}}</textarea>
+                
+              </div>
+             
+              
+            </div>
+
+             <div class="form-group">
+
+              <label class="col-sm-1 control-label">备注</label>
+              <div class="col-sm-7">
+                <textarea name="memo" id="memo" class="form-control" rows="5">{{f.memo | default:''}}</textarea>
+                
+              </div>
+             
+              
+            </div>
+
+            <div class="col-sm-6 col-sm-offset-1">
+            {% csrf_token %}   
+          <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+          
+        </div>
+          </form>
+            
+          
+        </div><!-- panel-body -->
+        <div class="panel-footer">
+       <div class="row">
+        
+       </div>
+      </div><!-- panel-footer -->
+
+      </div><!-- panel -->
+        </div><!-- col-md-6 -->
+        
+       
+      </div>
+     
+      
+    </div><!-- contentpanel -->
+{% endblock %}
+
+
+
+{% block customjs %} 
+
+<script type="text/javascript">
+  
+  jQuery(document).ready(function(){
+    jQuery('#birthday').datepicker();
+    jQuery('#borrowed_time').datepicker();
+    jQuery('#signed_time').datepicker();
+    jQuery('#contract_start_time').datepicker();
+    jQuery('#contract_end_time').datepicker();
+  });
+</script>
+
+{% endblock %}

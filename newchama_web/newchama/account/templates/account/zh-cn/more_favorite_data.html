@@ -1,0 +1,7 @@
+        {% for d in favorites %}
+            <tr>
+            <td>{{ d.data.title }}</td>
+            <td><i class="glyphicon glyphicon-time"></i> {{ d.add_time|date:'Y-m-d' }}</td>
+            <td><button class="btn-xs btn-primary"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消关注</button></td>
+            </tr>
+        {% endfor %}

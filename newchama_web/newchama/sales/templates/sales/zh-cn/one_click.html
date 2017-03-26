@@ -1,0 +1,62 @@
+<html>
+<head>
+<meta charset="utf-8" />
+<link href="/static/css/bootstrap.min.css" rel="stylesheet" />
+<link href="/static/css/custom.css" rel="stylesheet" />
+<title>NewChama 让交易更简单</title>
+</head>
+<body>
+<div style="margin:20px">
+    <div style="margin:auto;">
+        <div id="selectFileButton"><span class='btn_uploadfile btn-success fileinput-button'>选择Teaser文件<input type='file' name='uploadFile' id='uploadFile'/></span></div>
+        <div id="selectFileUploading" class="hide_">上传中...</div>
+    </div>
+    <div>
+        支持 Word,Pdf,PPT 格式文件<br/><br/>
+        文件大小需小于10M<br/><br/>
+        您上传项目Teaser之后，我们会安排客户经理协助您完成项目的发布。<br/>
+        有任何问题，可以直接发邮件至support@newchama.com。
+    </div>
+</div>
+</body>
+<script src="/static/js/libs/jquery-1.10.1.min.js"></script>
+<link rel='stylesheet' type='text/css' href='/static/js/libs/jquery.fileupload/jquery.fileupload.css' />
+<script type="text/javascript" src="/static/js/libs/jquery.fileupload/jquery.ui.widget.js"></script>
+<script type="text/javascript" src="/static/js/libs/jquery.fileupload/jquery.iframe-transport.js"></script>
+<script type="text/javascript" src="/static/js/libs/jquery.fileupload/jquery.fileupload.js"></script>
+<script>
+$(function() {
+var index = parent.layer.getFrameIndex(window.name); //获取当前窗体索引
+$("#uploadFile").fileupload({
+    url:"/sales/upload_file",//文件上传地址，当然也可以直接写在input的data-url属性内
+    dataType: 'text',
+    acceptFileTypes:  /(\.|\/)(doc|docx|pdf|ppt)$/i,
+    done: function (e, data) {
+        result = jQuery.parseJSON(data.result);
+        if (result.status == "success") {
+            parent.$(".uploadSuccess").removeClass("hide_");
+            parent.layer.close(index);
+        }
+        else {
+            if (result.message == "typeError")
+                alert("只允许提交后缀为doc、docx和pdf文件的附件");
+            else if (result.message == "tooBig")
+                alert("文件大小不能大于20兆");
+            else
+                alert(result.message);
+        }
+        $("#selectFileButton").show();
+        $("#selectFileUploading").hide();
+    },
+    progressall: function (e, data) {
+        $("#selectFileButton").hide();
+        $("#selectFileUploading").show();
+        {#            var progress = parseInt(data.loaded / data.total * 100, 10);#}
+        {#            $('#progress .progress-bar').css(#}
+        {#                'width', progress + '%'#}
+        {#            );#}
+    }
+});
+
+});
+</script>

@@ -1,0 +1,19 @@
+{% load static %}
+{% get_media_prefix as MEDIA_PREFIX %}
+
+{% for message in new_message_list %}
+<li>
+  <a href="{% url 'account.notifications' %}" class="noticebar-item">
+    <span class="noticebar-item-image">
+      <img src="{% url 'account.avatar' 48 48 message.sender.avatar %}" style="width: 50px" alt="{{message.sender}}">
+    </span>
+
+    <span class="noticebar-item-body">
+      <strong class="noticebar-item-title">New Message</strong>
+      <span class="noticebar-item-text">{{message.content|safe|slice:":30"}}...</span>
+      <span class="noticebar-item-time"><i class="fa fa-clock-o"></i> {{message.add_time|timesince}}</span>
+    </span>
+  </a>
+</li>
+{% endfor %}
+

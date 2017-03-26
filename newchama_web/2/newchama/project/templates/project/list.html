@@ -1,0 +1,99 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Projects{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Project<span>Projects</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">Project</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+      <label>Total:<span class="badge badge-success">{{ total }}</span></label>&nbsp;&nbsp;
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        expire date:<input type="text" class="form-control" id="expire_date_start" name="start_date" value="{{ start_date }}" placeholder="yyyy-mm-dd">
+      <input type="text" class="form-control" id="expire_date_end" name="end_date" value="{{ end_date }}" placeholder="yyyy-mm-dd">
+          <select name="status" class="form-control" >
+            <option value="">status</option>
+            {% for id,value in StatusType %}
+                <option value="{{ id }}" {% if status == id %} selected {% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary">Search</button>
+        <a class="btn btn-default" href="{% url 'project.add' %}">Add</a>
+        <a class="btn btn-default" href="/project/?keyword={{ keyword }}&status={{ status }}&download=1">Export</a>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Project Name</th>
+                <th>Member</th>
+                <th>Create Date</th>
+                <th>Expire Date</th>
+                <th>Status</th>
+                <th>定向推送</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate result_list %}
+            {% for m in result_list %}
+              <tr>
+                <td>{{ m.pk }}</td>
+                <td>{{ m.name_cn|default:m.name_en|safe|slice:'30'}}</td>
+                <td>{{ m.member }}</td>
+                <td>{{ m.add_time|date:'Y-m-d' }}</td>
+                <td>{{ m.expire_date|date:'Y-m-d' }}</td>
+                <td>{{ m.get_status_display }}</td>
+                <td>{{ m.is_suitor }}</td>
+                <td>
+                    <a href="{% url 'project.detail' m.pk %}" title="detail" target="_blank"><i class="fa fa-eye"></i></a>
+                    <a href="{% url 'project.edit' m.pk %}" title="edit"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                    {% if m.status != Status.approved and m.status != Status.draft and m.status != Status.deleted %}
+                    <a href="{% url 'project.check' m.id %}" title="check"><i class="fa fa-check"></i></a>
+{#                    <a href="javascript:ApproveProject({{ m.id }});" title="check"><i class="fa fa-check"></i></a>#}
+                    {% endif %}
+                    {% if m.status == Status.approved %}
+                    <a href="javascript:BanProject({{ m.id }});" title="ban"><i class="fa fa-ban"></i></a>
+                    {% endif %}
+                    <a href="{% url 'project.recommend' m.pk %}" target="_blank" title="recommend"><i class="fa fa-expand"></i></a>
+                    <a href="{% url 'project.recommend_members' m.pk %}" target="_blank" title="recommend"><i class="fa fa-paw"></i></a>
+                    {% if m.is_recommend == 1 %}
+                        <a href="javascript:CancelRecommendProject({{ m.id }});" title="cancel recommed status"><i class="fa fa-star-o"></i></a>
+                    {% else %}
+                        <a href="javascript:SetRecommendProject({{ m.id }});" title="set recommend status"><i class="fa fa-star"></i></a>
+                    {% endif %}
+                    {% if m.is_top == 1 %}
+                        <a href="javascript:CancelTopProject({{ m.id }});" title="cancel top status"><i class="fa fa-arrow-down"></i></a>
+                    {% else %}
+                        <a href="javascript:SetTopProject({{ m.id }});" title="set top status"><i class="fa fa-arrow-up"></i></a>
+                    {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% paginate %}
+    </div>
+    </div>
+</div>
+{% endblock %}
+{% block customjs %}
+<script>
+jQuery('#expire_date_start').datepicker({dateFormat: "yy-mm-dd"});
+jQuery('#expire_date_end').datepicker({dateFormat: "yy-mm-dd"});
+</script>
+{% endblock %}

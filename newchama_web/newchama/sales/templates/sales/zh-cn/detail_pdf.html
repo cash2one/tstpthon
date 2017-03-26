@@ -1,0 +1,200 @@
+{% load humanize %}
+{% load myTags %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>{{title}} - NewChama</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<style>
+    @font-face {
+        font-family: msyh;
+        src: url({{static_root}}fonts/msyh.ttf);
+    }
+    body{
+        font-family: msyh;
+
+    }
+    td{vertical-align: top; padding:2px 4px;}
+    h3{background: #009dad; padding: 4px;font-size: 12px;border-bottom:1px solid #999; color: #fff;}
+    .top_logo{ border-bottom:5px solid #009dad; text-align: right;}
+</style>
+<div class="container">
+    <p class="top_logo">&copy; 2014 NewChama.com</p>
+    <h1>有效期：{{ u.expire_date|date:'Y-m-d' }}<br/>{{ u.name_cn }}</h1>
+    <p>
+        发布人:{% if u.is_anonymous%}匿名发布{% else %}{{ u.member.company }}{% endif %} &nbsp;&nbsp; <br/>{{ u.member.company.get_type_display }}
+    </p>
+    <br>
+    <h3>摘要</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td width="2cm">
+                <strong>项目名称:</strong>
+            </td>
+            <td>
+                <strong>{{ u.name_cn }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>交易类型:</strong>
+            </td>
+            <td>
+                <strong>{{ u.get_service_type_display }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>行业分类:</strong>
+            </td>
+            <td>
+                <strong>{{ u.company_industry.name_cn }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>股权交易比例:</strong></td>
+            <td>{{ u.stock_percent | showPercent2 }}</td>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>交易规模:</strong></td>
+            <td>{{ u.deal_size | formatCurrency2:u.get_currency_type_financial_display }}</td>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>项目关键字:</strong></td>
+            <td>{{ u.keywords|default:'N/A' }}</td>
+            </td>
+        </tr>
+
+       
+        </tbody>
+    </table>
+    {% if u.company_intro_cn %}
+    <br>
+        <h3 class="heading">公司简介:</h3>
+        <p>{{ u.company_intro_cn | default:'N/A' | safe}}</p>
+    <br />
+    {% endif %}
+    {% if u.features_cn %}
+    <br>
+
+        <h3 class="heading">投资亮点:</h3>
+        <p>{{ u.features_cn | default:'N/A' | safe}}</p>
+    <br />
+    {% endif %}
+    {% if u.company_industry_intro_cn %}
+    <br>
+        <h3 class="heading">公司行业简介:</h3>
+        <p>{{ u.company_industry_intro_cn | default:'N/A' | safe}}</p>
+    <br />
+    {% endif %}
+
+    <h3>公司信息:</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td width="2cm">公司行业:</td>
+            <td>{{ u.company_industry.name_cn }}</td>
+            <td width="2.5cm">公司地点:</td>
+            <td>
+                {{ u.company_country.name_cn }}
+            </td>
+        </tr>
+        <tr>
+            <td>公司人数:</td>
+            <td>{{ u.get_employees_count_type_display| default:'暂未提供' }}</td>
+            <td>是否为上市公司:</td>
+            <td>{% if u.is_list_company%}是{% else %}否{% endif %}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <br />
+    <h3>财务信息:</h3>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th width="6cm">&nbsp;</th>
+                <th align="left">&nbsp;&nbsp;&nbsp;单位</th>
+                <th align="left">FY{{ curr_year }}</th>
+                <th align="left">FY{{ last_year }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>收入:</td>
+                <td>{{ u.get_currency_type_financial_display }} </td>
+                <td>{{ u.income|floatformat:2|intcomma | default:'-' }}</td>
+                <td>{{ u.income_last_phase|floatformat:2|intcomma | default:'-' }}</td>
+            </tr>
+            <tr>
+                <td>净利润:</td>
+                <td>{{ u.get_currency_type_financial_display }}</td>
+                <td>{{ u.profit|floatformat:2|intcomma }}</td>
+                <td>{{ u.profit_last_phase|floatformat:2|intcomma | default:'-' }}</td>
+            </tr>
+           
+            <tr >
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                            <td><strong>总资产:</strong></td>
+                            <td>{{ u.total_assets_last_phase|formatCurrency2:u.get_currency_type_financial_display }}</td>
+                            <td><strong>注册资本:</strong></td>
+                            <td >{{ u.registered_capital|formatCurrency2:u.get_currency_type_financial_display }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EBITDA:</strong></td>
+                            <td>{{ u.ebitda |formatCurrency2:u.get_currency_type_financial_display}}</td>
+                            <td></td>
+                            <td ></td>
+                        </tr>
+
+            <tr >
+                <td><strong>预期整体估值:</strong></td>
+                <td>{{ u.expected_enterprice_value|formatCurrency }}</td>
+                <td><strong>未来预期三年成长率:</strong></td>
+                <td >{{ u.growth_three_year |showPercent2}}</td>
+            </tr>
+            <tr>
+                <td><strong>标的公司财务报表是否经过审计:</strong></td>
+                <td colspan="3">{% if u.financial_is_audit %} 是 {% else %} 否 {% endif %}</td>
+            </tr>
+            {% if u.financial_is_audit %}
+                <tr>
+                    <td><strong>审计公司:</strong></td>
+                    <td>{{ u.financial_audit_company_name  | default:'N/A' }}</td>
+                    <td><strong>是否为四大:</strong></td>
+                    <td>{% if u.financial_audit_company_is_default %} 是 {% else %} 否 {% endif %}</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+        <br />
+    <h3>股权比例:</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            {% for ss in stockST%}
+                <td><strong>{% if forloop.counter == 1 %}管理层{% elif forloop.counter == 2 %}机构投资者{% else %}其他{% endif %}:</strong></td>
+                <td>{{ ss.rate | showPercent2 }}</td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+        
+    </div> <!-- /.container -->
+</body>
+</html>
+

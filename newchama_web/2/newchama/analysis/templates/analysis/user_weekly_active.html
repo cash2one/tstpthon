@@ -1,0 +1,51 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">多维度复合统计</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+       {% include "analysis/analysis_nav.html" %}
+    <form id="formData" class="form-horizontal form-bordered" method="get">
+<h4>用户活跃度复合统计</h4>查询开始时间：<input name="starttime" value="{{ starttime }}">&nbsp;&nbsp;&nbsp;&nbsp;结束时间<input name="endtime" value="{{ endtime }}">
+<input type="submit" name="btn" value="查询">
+    </form>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th width="25%">第几周</th>
+            {% for m in months %}
+            <th>{{ forloop.counter }}月</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+        {% for s in result %}
+          <tr>
+            <td>第{{ forloop.counter }}周</td>
+            <td>{{ s.0 }}{% if s.0 > 0 %}%{% endif %}</td>
+            <td>{{ s.1 }}{% if s.1 > 0 %}%{% endif %}</td>
+            <td>{{ s.2 }}{% if s.2 > 0 %}%{% endif %}</td>
+            <td>{{ s.3 }}{% if s.3 > 0 %}%{% endif %}</td>
+            <td>{{ s.4 }}{% if s.4 > 0 %}%{% endif %}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

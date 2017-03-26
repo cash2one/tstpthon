@@ -1,0 +1,487 @@
+{% load myTags %}
+<div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><span title="click 'BankIng Genius' to manage your projects">BankIng Genius</span><span class="pull-right"><a href="###"><i class="glyphicon glyphicon-chevron-down slider-tag-custom"></i></a></span></h3>
+            </div>
+            <div class="slider-custom-title slider-tag-custom-2">
+                <div class="panel-body" id="index_count_1" style="text-align:left; padding:10px 0px;">
+                    <span class="index_top_num">
+                    Recent Visit(<span class="big_num blue">{{ count_all_relation_stuff.pvs }}</span>)
+                    </span>
+                    <span class="index_top_num">
+                    Unread Message(<span class="big_num red">{{ count_all_relation_stuff.messages }}</span>)
+                    </span>
+                    <span class="index_top_num">
+                    New Matchmaking (<span class="big_num red">{{ count_all_relation_stuff.recommend_companies }}</span>)
+                    </span>
+                    <span class="index_top_num">
+                    WatchList(<span class="big_num red">{{ count_all_relation_stuff.favorites }}</span>)
+                    </span>
+                    <span class="index_top_num">
+                    Recent Deals in this Industy(<span class="big_num green">{{ count_all_relation_stuff.recommend_industries }}</span>)
+                    </span>
+                </div>
+            </div>
+            <div class="panel-body slider-custom-hide hide_">
+                <ul class="nav nav-tabs index_list" role="tablist">
+                    <li class="active"><a href="javascript:;" rel="1">Sell-side Deal</a></li>
+                    <li><a href="javascript:;" rel="2">Buy-Side Mandates</a></li>
+                </ul>
+                <br />
+                <table class="table table-striped" id="index_list_1">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Deal Title</th>
+                        <th>Recent Visit</th>
+                        <th>Unread Message</th>
+                        <th>New Matchmaking </th>
+                        <th>WatchList</th>
+                        <th>Recent Deals in this industy</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for p in list_project_own %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><a href="{% url 'sales.mydetail' p.project.id %}">{{p.project.name_en|striptags |truncatechars:20}}</a></td>
+                            <td>{{ p.project.pv }}</td>
+                            <td>{{ p.count_message }}</td>
+                            <td>{{ p.count_company }}</td>
+                            <td>{{ p.count_favor }}</td>
+                            <td>{{ p.count_industry }}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr><td class="news-list-view-all" colspan="8"> <a href="{% url "sales.mylist" %}">All</a> </td></tr>
+                    </tbody>
+                </table>
+                <table class="table table-striped hide_ " id="index_list_2">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Demand Title</th>
+                        <th>Recent Visit</th>
+                        <th>Unread Message</th>
+                        <th>New Matchmaking </th>
+                        <th>WatchList</th>
+                        <th>Recent Deals in this industy</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    {% for p in list_demand_own %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><a href="{% url 'purchase.mydetail' p.demand.id %}">{{p.demand.name_en|striptags |truncatechars:20}}</a></td>
+                            <td>{{ p.demand.pv }}</td>
+                            <td>{{ p.count_message }}</td>
+                            <td>{{ p.count_company }}</td>
+                            <td>{{ p.count_favor }}</td>
+                            <td>{{ p.count_industry }}</td>
+                        </tr>
+                    {% endfor %}
+                    <tr><td class="news-list-view-all" colspan="8"> <a href="{% url "purchase.mylist" %}">All</a> </td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="panel panel-default">
+            <div class="col-xs-12 glyphicon-cog-hide index_option_block hide_">
+                <span class="pull-right"><a href="javascript:;"><i class="glyphicon glyphicon-cog glyphicon-cog-tag-hide"></i></a></span>
+                <h6>Preference</h6>
+                <hr />
+                <div class="form-group glyphicon-plus-hide">
+
+                    <label for="select-input">Select Industry</label>
+                    <select id="industryCountry" class="form-control chosen-select custom-required-sale-industry" required data-error-message="Please Select Country" data-placeholder="Please Select Country">
+                        <option value="">Please Select Country</option>
+
+                        {% for country in countries %}
+                            <option value="{{ country.id }}" {% if country_id == country.id %} selected="selected" {% endif %}>{{ country.name_en }}</option>
+                        {% endfor %}
+                    </select>
+                    <br />
+                    <span><select id="company_industry_0" name="company_industry_0" class="form-control chosen-select custom-required-sale-industry" required data-error-message="Please Select Industry" data-placeholder="Please Select Industry">
+
+                        <option value="">Please Select Industry</option>
+
+                        {% for i in industries %}
+                            <option value="{{ i.id }}" >{{ i.name_en }}</option>
+                        {% endfor %}</select></span>
+                    <span class="hide_"><br />
+                    <select id="company_industry_1" name="company_industry_1" class="form-control chosen-select" data-placeholder="Please Select"></select></span>
+                    <span class="hide_"><br />
+                    <select id="company_industry_2" name="company_industry_2" class="form-control chosen-select" required data-placeholder="Please Select"></select></span>
+                    <br />
+                    {% for st in currencyTypes %}
+                        <label class="radio-inline"> <input type="radio" name="industryCurrency" id="{{ st.1 }}" value="{{ st.0 }}" {% if forloop.last %}class="custom-required-sale-industry" required data-error-message="Please Select Currency"{% endif %}/>{{ st.1 }}</label>
+                    {% endfor %}
+                    &nbsp;&nbsp;<span><strong>Project Amount:&nbsp;</strong></span>
+
+                    <span id="amount0">1000M - 3000M</span>
+                    <input type="hidden" id="member_range_mins_0" value="1000">
+                    <input type="hidden" id="member_range_maxs_0" value="3000">
+                    <input type="hidden" id="industry_id" value="0">
+                    <input type="hidden" id="industry_name" value="0">
+                    <input type="hidden" id="preference_project_id" value="{{ preference_project_id }}"/>
+                    <br /><br />
+                    <div id="rangeSlider0"></div><br/>
+                    <button type="button" class="btn btn-primary btn-xs" id="preference_project_industry_submit">Confirm</button>
+                    <button type="button" class="btn btn-default btn-xs" id="preference_project_industry_cancel">Cancel</button>
+                </div>
+                {% comment %}<label>地域</label>
+                <div class="form-group index_preference_project_locatoin">
+                    {% for p in pre_project_locations %}
+                        <label class="checkbox-inline"> <input type="checkbox" name="project_location_id" id="project_location_id" value="{{ p.country.id }}" checked/> {{ p.country.name_en }} </label>
+                    {% endfor %}
+                    <a class="pull-right" href="###"><i class="glyphicon glyphicon-plus glyphicon-plus-tag"></i></a>
+                </div>{% endcomment %}
+                <div class="form-group glyphicon-plus-hide">
+                    <label for="select-input">Select Location</label>
+                    <select id="locationCountry" class="form-control chosen-select custom-required-sale-location" required  data-error-message="Please Select Country" data-placeholder="Please Select Country">
+                        <option value="">Please Select Country</option>
+                        {% for country in countries %}
+                            <option value="{{ country.id }}">{{ country.name_en }}</option>
+                        {% endfor %}
+                    </select><br/>
+                    <button type="button" class="btn btn-primary btn-xs" id="preference_project_location_submit">Confirm</button>
+                    <button type="button" class="btn btn-default btn-xs" id="preference_project_location_cancel">Cancel</button>
+                </div>
+                {% comment %}<div class="col-xs-12" style="text-align: center">
+                    <button type="button" class="btn btn-primary btn-xs" id="project_search_btn" ref="{% url "sales.json_index" %}">立即搜索</button>
+                    <button type="reset" class="btn btn-default btn-xs">取消</button>
+                </div>{% endcomment %}
+            </div>
+            <div class="panel-heading">
+                <h3 class="panel-title">Sell-Side Deals<span class="pull-right"><a href="javascript:;"><i class="glyphicon glyphicon-cog glyphicon-cog-tag"></i></a></span></h3>
+            </div>
+            <div class="panel-body">
+                <div class="nav-header">
+                    <div class="nav-header nav_header_custom" >
+                        <ul class="nav nav-pills nav_header_custom_list nav_project_list">
+                            <li class="active"><a href="javascript:;" {% if pre_project_indusrtis.all.count > 0 or pre_project_locations.all.count > 0 %}class="project_index_tab" ref="{% url "sales.json_index" %}"{% endif %}>All</a></li>
+                            {% for p in pre_project_indusrtis %}
+                                <li><a href="javascript:;" class="project_index_tab" ref="{% url "sales.json_index" %}?industryId={{ p.industry.id }}">{{ p.industry.name_en }}</a></li>
+                            {% endfor %}
+                            {% for p in pre_project_locations %}
+                                <li><a href="javascript:;" class="project_index_tab" ref="{% url "sales.json_index" %}?locationId={{ p.country.id }}">{{ p.country.name_en }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% if pre_project_indusrtis.all.count > 0 or pre_project_locations.all.count > 0 %}
+                    <div class="pull-right nav_header_custom_arrow"><a href="javascript:;" class="project_arrow_right"><i class="glyphicon glyphicon-chevron-right"></i></a></div>
+                    <div class="pull-right nav_header_custom_arrow"><a href="javascript:;" class="project_arrow_left"><i class="glyphicon glyphicon-chevron-left"></i></a></div>
+                    {% endif %}
+                </div>
+                <ul class="news-list" style="clear:both;">
+                    <span id="project_index">
+                    {% for p in list_project_preference %}
+                        <li class="project-item">
+                            <strong class="news-list-item-title2">
+                                <a href="{%  url "sales.detail" p.id %}">{{p.name_en|striptags |truncatechars:43 }}</a>
+                                {% if not p.is_suitor%}
+                                {% if p.id in favorites_project_ids %}
+                                    <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="project"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;WatchList</a>
+                                {% else %}
+                                    <a href="###" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="project"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</a>
+                                {% endif %}{% endif %}
+                            </strong>
+                            <span class="news-list-item-text">
+                              <table class="table index-table-1">
+                                  <tbody>
+                                  <tr class="project-th">
+                                      <td class="col-xs-4">Location</td>
+                                      <td class="col-xs-4">Deal Type</td>
+                                      <td class="col-xs-4">Industry</td>
+                                  </tr>
+                                  <tr>
+                                      <td>{{ p.company_country.name_en |striptags |truncatechars:16 }}</td>
+                                      <td>{{ p.get_service_type_display |striptags |truncatechars:16}}</td>
+                                      <td><i class="glyphicon glyphicon-tags"></i> <a class="tag preference_common_keyword" data-type="project" data-tag="{{ p.company_industry.name_en }}" href="javascript:;">{{ p.company_industry.name_en |striptags |truncatechars:14 |default:"N/A" }}</a></td>
+                                  </tr>
+                                  <tr class="project-th">
+                                      <td>Deal Size</td>
+                                      <td>EBITDA</td>
+                                      <td>Net Profit</td>
+                                  </tr>
+                                  <tr>
+                                      <td>{{ p.deal_size |formatCurrency}}</td>
+                                      <td>{{ p.ebitda |formatCurrency}}</td>
+                                      <td>{{ p.profit |formatCurrency}}</td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                            </span>
+                        </li>
+                    {% endfor %}
+                        {% for p in recent_project %}
+                            <li class="project-item">
+                                <strong class="news-list-item-title2">
+
+                                    {% comment %}<font color="blue">(System Recommend)</font>&nbsp;{% endcomment %}<a href="{%  url "sales.detail" p.id %}">{{p.name_en|striptags |truncatechars:43 }}</a>
+
+                                    {% if not p.is_suitor%}
+                                    {% if p.id in favorites_project_ids %}
+                                        <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="project"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;WatchList</a>
+                                    {% else %}
+                                        <a href="###" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="project"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</a>
+                                    {% endif %} {% endif %}
+                                </strong>
+                                <span class="news-list-item-text">
+                                  <table class="table index-table-1">
+                                      <tbody>
+                                      <tr class="project-th">
+                                          <td class="col-xs-4">Location</td>
+                                          <td class="col-xs-4">Deal Type</td>
+                                          <td class="col-xs-4">Industry</td>
+                                      </tr>
+                                      <tr>
+                                          <td>{{ p.company_country.name_en |striptags |truncatechars:16 }}</td>
+                                          <td>{{ p.get_service_type_display |striptags |truncatechars:16}}</td>
+                                          <td><i class="glyphicon glyphicon-tags"></i> <a class="tag preference_common_keyword" data-type="project" data-tag="{{ p.company_industry.name_en }}" href="javascript:;">{{ p.company_industry.name_en |striptags |truncatechars:14 |default:"N/A" }}</a></td>
+                                      </tr>
+                                      <tr class="project-th">
+                                          <td>Deal Size</td>
+                                          <td>EBITDA</td>
+                                          <td>Net Profit</td>
+                                      </tr>
+                                      <tr>
+                                          <td>{{ p.deal_size |formatCurrency}}</td>
+                                          <td>{{ p.ebitda |formatCurrency}}</td>
+                                          <td>{{ p.profit |formatCurrency}}</td>
+                                      </tr>
+                                      </tbody>
+                                  </table>
+                                </span>
+                            </li>
+                        {% endfor %}
+                    </span>
+                    <li class="news-list-view-all hide_" style="display: none;" ><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                    <li class="news-list-view-all"> <a href="{% url "sales.new" %}">View All</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6">
+        <div class="panel panel-default">
+            <div class="col-xs-12 glyphicon-cog-hide index_option_block hide_">
+                <span class="pull-right"><a href="javascript:;"><i class="glyphicon glyphicon-cog glyphicon-cog-tag-hide"></i></a></span>
+                <h6>Preference</h6>
+                <hr />
+                {% comment %}<label>行业</label>
+                <div class="form-group index_preference_demand_industry">
+                    {% for p in pre_demand_indusrtis %}
+                        <label class="checkbox-inline"> <input type="checkbox" id="demand_industry_id" name="demand_industry_id" value="{{ p.industry.id }}" checked/> {{ p.industry.name_en }} </label>
+                    {% endfor %}
+                    <a class="pull-right" href="###"><i class="glyphicon glyphicon-plus glyphicon-plus-tag"></i></a>
+                </div>{% endcomment %}
+                <div class="form-group glyphicon-plus-hide">
+                    <label for="select-input">Select Industry</label>
+                    <select id="industryCountry1" class="form-control chosen-select custom-required-demand-industry" required data-error-message="Please Select Country" data-placeholder="Please Select Country">
+                        <option value="">Please Select Country</option>
+                        {% for country in countries %}
+                            <option value="{{ country.id }}" {% if country_id == country.id %} selected="selected" {% endif %}>{{ country.name_en }}</option>
+                        {% endfor %}
+                    </select>
+                    <br />
+                    <span><select id="company_industry_3" name="company_industry_3" class="form-control chosen-select custom-required-demand-industry" required data-error-message="Please Select Industry" data-placeholder="Please Select Industry">
+                        <option value="">Please Select Industry</option>
+
+                        {% for i in industries %}
+                            <option value="{{ i.id }}" >{{ i.name_en }}</option>
+                        {% endfor %}</select></span>
+                        <span class="hide_"><br />
+
+                        <select id="company_industry_4" name="company_industry_4" class="form-control chosen-select" data-placeholder="Please Select"></select></span>
+                        <span class="hide_"><br />
+                        <select id="company_industry_5" name="company_industry_5" class="form-control chosen-select" data-placeholder="Please Select"></select></span>
+
+                    <br/>
+                    {% for st in currencyTypes %}
+                        <label class="radio-inline"> <input type="radio" name="industryCurrency2" id="{{ st.1 }}" value="{{ st.0 }}" {% if forloop.last %}class="custom-required-demand-industry" required data-error-message="Please select currency type" {% endif %}/>{{ st.1 }}</label>
+                    {% endfor %}
+
+                    &nbsp;&nbsp;<span><strong>Demand Amount:&nbsp;</strong></span>
+                    
+                    <span id="amount1">1000M - 3000M</span>
+                    <input type="hidden" id="member_range_mins_1" value="1000">
+                    <input type="hidden" id="member_range_maxs_1" value="3000">
+                    <input type="hidden" id="industry_id1" value="1">
+                    <input type="hidden" id="industry_name1" value="1">
+                    <input type="hidden" id="preference_demand_id" value="{{ preference_demand_id }}"/>
+                    <br /><br />
+                    <div id="rangeSlider1"></div><br />
+                    <button type="button" class="btn btn-primary btn-xs" id="preference_demand_industry_submit">Confirm</button>
+                    <button type="button" class="btn btn-default btn-xs" id="preference_demand_industry_cancel">Cancel</button>
+                </div>
+                {% comment %}<label>地域</label>
+                <div class="form-group index_preference_demand_location">
+                    {% for p in pre_demand_locations %}
+                        <label class="checkbox-inline"> <input type="checkbox" name="demand_location_id" id="demand_location_id" value="{{ p.country.id }}" checked/> {{ p.country.name_en }} </label>
+                    {% endfor %}
+                    <a class="pull-right" href="###"><i class="glyphicon glyphicon-plus glyphicon-plus-tag"></i></a>
+                </div>{% endcomment %}
+                <div class="form-group glyphicon-plus-hide">
+
+                    <label for="select-input">Please select georgaraphy</label>
+                    <select id="locationCountry1" class="form-control chosen-select custom-required-demand-location" required  data-error-message="Please select country" data-placeholder="Please select country">
+                        <option value="">Please select country</option>
+
+                        {% for country in countries %}
+                            <option value="{{ country.id }}">{{ country.name_en }}</option>
+                        {% endfor %}
+                    </select><br />
+                    <button type="button" class="btn btn-primary btn-xs" id="preference_demand_location_submit">Confirm</button>
+                    <button type="button" class="btn btn-default btn-xs" id="preference_demand_location_cancel">Cancel</button>
+                </div>
+                {% comment %}<div class="col-xs-12" style="text-align: center">
+                    <button type="button" class="btn btn-primary btn-xs" id="demand_search_btn" ref="{% url "purchase.json_index" %}">立即搜索</button>
+                    <button type="reset" class="btn btn-default btn-xs">取消</button>
+                </div>{% endcomment %}
+            </div>
+            <div class="panel-heading">
+                <h3 class="panel-title">Buy-Side Mandates<span class="pull-right"><a href="###"><i class="glyphicon glyphicon-cog glyphicon-cog-tag"></i></a></span></h3>
+            </div>
+            <div class="panel-body">
+                <div class="nav-header">
+                    <div class="nav-header nav_header_custom" >
+                        <ul class="nav nav-pills nav_header_custom_list nav_demand_list">
+                            <li class="active"><a href="javascript:;" {% if pre_demand_indusrtis.all.count > 0 or pre_demand_locations.all.count > 0 %}class="demand_index_tab" ref="{% url "purchase.json_index" %}"{% endif %}>All</a></li>
+                            {% for p in pre_demand_indusrtis %}
+                                <li><a href="javascript:;" class="demand_index_tab" ref="{% url "purchase.json_index" %}?industryId={{ p.industry.id }}">{{ p.industry.name_en }}</a></li>
+                            {% endfor %}
+                            {% for p in pre_demand_locations %}
+                                <li><a href="javascript:;" class="demand_index_tab" ref="{% url "purchase.json_index" %}?locationId={{ p.country.id }}">{{ p.country.name_en }}</a></li>
+                            {% endfor %}
+                    </div>
+                    {% if pre_demand_indusrtis.all.count > 0 or pre_demand_locations.all.count > 0 %}
+                    <div class="pull-right nav_header_custom_arrow"><a href="javascript:;" class="demand_arrow_right"><i class="glyphicon glyphicon-chevron-right"></i></a></div>
+                    <div class="pull-right nav_header_custom_arrow"><a href="javascript:;" class="demand_arrow_left"><i class="glyphicon glyphicon-chevron-left"></i></a></div>
+                    {% endif %}
+                </div>
+                <ul class="news-list" style="clear:both;">
+                    <span id="demand_index">
+                    {% for p in list_demand_preference %}
+                        <li class="project-item">
+                            <strong class="news-list-item-title2"><a href="{%  url 'purchase.detail' p.id %}">{{p.name_en|striptags |truncatechars:46 }}</a>
+                             {% if not p.is_suitor%}
+                                {% if p.id in favorites_demand_ids %}
+                                    <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="demand"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;WatchList</a>
+                                {% else %}
+                                    <a href="###" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="demand"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</a>
+                                {% endif %}{% endif %}
+                            </strong>
+                            <span class="news-list-item-text">
+                              <table class="table index-table-1">
+                                  <tbody>
+                                  <tr class="project-th">
+                                      <td class="col-xs-4">Location</td>
+                                      <td class="col-xs-4">Deal Type</td>
+                                      <td class="col-xs-4">Industry</td>
+                                  </tr>
+                                  <tr>
+                                      <td>{% if p.company_countries.count == 0 %}All{% else %}
+                                          {% if p.company_countries.count > 0 %}
+                                              {% for c in p.company_countries.all %}
+  {% if         forloop.counter == 1 %}
+                                                  {{ c.name_en |striptags |truncatechars:16  }}&nbsp;
+                                                  {% endif %}
+                                              {% endfor %}
+                                          {% comment %}{% if p.company_countries.all.count > 0 %}...{% endif %}{% endcomment %}
+                                          {% endif %}
+                                      {% endif %}
+                                      </td>
+                                      <td>{{ p.get_service_type_display |striptags |truncatechars:8}}</td>
+                                      <td><i class="glyphicon glyphicon-tags"></i>{% if p.company_industries.all.count > 0 %}
+                                          {% for industry in p.company_industries.all %}
+                                              {% if forloop.counter == 1 %}
+                                              <a class="tag preference_common_keyword" data-type="demand"  data-tag="{{ industry.name_en }}" href="###"> {{ industry.name_en |striptags |truncatechars:14 }}</a>&nbsp;
+                                              {% endif %}{% endfor %}
+                                          {% comment %}{% if p.company_industries.all.count > 0 %}...{% endif %}{% endcomment %}
+                                      {% else %}<span style="padding-left:5px;">All</span>{% endif %}
+                                      </td>
+                                  </tr>
+                                  <tr class="project-th">
+                                      <td>Deal Size</td>
+                                      <td>Growth</td>
+                                      <td>Net Profit</td>
+                                  </tr>
+                                  <tr>
+                                      <td>{{ p.get_deal_size_display }}</td>
+                                      <td>{% if p.growth_three_year != 0 %}{{ p.growth_three_year | formatPercent }}% {% else %} All {% endif %}</td>
+                                      <td>{% if p.profit == 0 %} All {% else %} {{ p.get_profit_display }} {% endif %}</td>
+                                  </tr>
+                                  </tbody>
+                              </table>
+                            </span>
+                        </li>
+                    {% endfor %}
+                        {% for p in recent_demand %}
+                            <li class="project-item">
+                                <strong class="news-list-item-title2">
+
+                                    {% comment %}<font color="blue">(System Recommend)</font>&nbsp;{% endcomment %}<a href="{%  url 'purchase.detail' p.id %}">{{p.name_en|striptags |truncatechars:46 }}</a>
+                                    {% if not p.is_suitor%}
+                                    {% if p.id in favorites_demand_ids %}
+                                        <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="demand"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;Delete</a>
+
+                                    {% else %}
+                                        <a href="###" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="demand"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</a>
+                                    {% endif %} {% endif %}
+                                </strong>
+                            <span class="news-list-item-text">
+                              <table class="table index-table-1">
+                                  <tbody>
+                                  <tr class="project-th">
+                                      <td class="col-xs-4">Location</td>
+                                      <td class="col-xs-4">Deal Type</td>
+                                      <td class="col-xs-4">Industry</td>
+                                  </tr>
+                                  <tr>
+                                      <td>{% if p.company_countries.count == 0 %}All{% else %}
+                                          {% if p.company_countries.count > 0 %}
+                                              {% for c in p.company_countries.all %}
+                                                  {% if forloop.counter == 1 %}
+                                                  {{ c.name_en |striptags |truncatechars:16 }}&nbsp;
+                                                  {% endif %}
+                                              {% endfor %}
+                                          {% comment %}{% if p.company_countries.all.count > 0 %}...{% endif %}{% endcomment %}
+                                          {% endif %}
+                                      {% endif %}
+                                      </td>
+                                      <td>{{ p.get_service_type_display |striptags |truncatechars:16}}</td>
+                                      <td><i class="glyphicon glyphicon-tags"></i>{% if p.company_industries.all.count > 0 %}
+                                          {% for industry in p.company_industries.all %}
+                                              {% if forloop.counter == 1 %}
+                                              <a class="tag preference_common_keyword" data-type="demand"  data-tag="{{ industry.name_en }}" href="###"> {{ industry.name_en |striptags |truncatechars:14  }}</a>&nbsp;
+                                              {% endif %}{% endfor %}
+                                          {% comment %}{% if p.company_industries.all.count > 0 %}...{% endif %}{% endcomment %}
+                                      {% else %}<span style="padding-left:5px;">All</span>{% endif %}
+                                      </td>
+                                  </tr>
+                                  <tr class="project-th">
+                                      <td>Deal Size</td>
+                                      <td>Growth</td>
+                                      <td>Net Profit</td>
+                                  </tr>
+                                  <tr>
+
+                                      <td>{{ p.get_deal_size_display | checkNone  }}</td>
+                                      <td>{% if p.growth_three_year != 0 %}{{ p.growth_three_year | showPercent2 }} {% else %} All {% endif %}</td>
+                                      <td>{% if p.profit == 0 %} All {% else %} {{ p.get_profit_display | checkNone }} {% endif %}</td>
+
+                                  </tr>
+                                  </tbody>
+                              </table>
+                            </span>
+                            </li>
+                        {% endfor %}
+                    </span>
+                    <li class="news-list-view-all hide_" style="display: none;" ><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                    <li class="news-list-view-all"> <a href="{% url "purchase.new" %}">View All</a> </li>
+                </ul>
+            </div>
+        </div>
+    </div>

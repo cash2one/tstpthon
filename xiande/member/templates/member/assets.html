@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上海显德投资管理有限公司</title>
+    <meta name="Keywords" content="上海显德投资管理有限公司 " /> 
+    <meta name="Description" content="上海显德投资管理有限公司（Vantage Capital）是一家国际化专业的资产管理公司，于2011年成立，注册资金2000万人民币，在国际金融中心香港、上海均设有机构，面向全球金融市场投资于证券、外汇、基金、债券、衍生品等投资工具，以量化对冲基金发展模式，并多年在海外市场持续稳健盈利。" />
+
+    <link href="{{STATIC_URL}}common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}common/css/xiande.css">
+    
+  </head>
+<body>
+<div class="container-fluid">
+    <div class="row heading">
+        <div class="col-md-12">
+        <h1>个人中心</h1>
+        </div>
+    </div>
+
+     <div class="row content">
+        <div class="col-md-12">
+        <div>当期收益： <span class="big">{{income|default:'0'}}%</span><span></span></div>
+        <br/>
+        <p class="bb">我的资产</p>
+        
+        </div>
+
+
+        <div class="col-md-12">
+       
+            <table class="tb1">
+               
+                
+                <tr>
+                    <td class="tb1_label">资金：</td>
+                    <td>{{u.amount | default:'N/A'}}</td>
+                </tr>
+                <tr>
+                    <td>收益/分配：</td>
+                    <td>{{u.get_assign_type_display | default:'N/A'}}</td>
+                </tr>
+                <tr>
+                    <td>签约时间：</td>
+                    <td>{{u.signed_time | default:'N/A'}}</td>
+                </tr>
+                <tr>
+                    <td>合约期限：</td>
+                    <td>{{u.contract_start_time | default:'N/A'}}-{{u.contract_end_time | default:'N/A'}}</td>
+                </tr>
+                
+            </table>
+        </div>
+       
+
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery.cookies.js"></script>
+
+
+</body>
+</html>

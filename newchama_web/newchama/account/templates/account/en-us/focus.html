@@ -1,0 +1,77 @@
+{% extends "common/en-us/nologin_base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main"  style="width:70%;">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Investment Criteria</h3>
+                </div>
+                <div class="panel-body">
+                    <br/>
+                    <div class="col-xs-10">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                                    {{ message }}
+                                </div> <!-- /.alert -->
+                            {% endfor %}
+                        {% endif %}
+                        <form class="form-horizontal" role="form" name="formData" method="post">
+                            <div class="form-group">
+                                <label class="col-xs-2">Investment Criteria</label>
+                                <div class="col-xs-10">
+                                    {% for i in industrys %}
+                                        <div class="col-xs-4">
+                                            {% if forloop.counter|divisibleby:3 %}</div><div class="col-xs-4">{% endif %}
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox" name="industrys" value="{{ i.id }}">{{ i.name_cn }}
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <div class="col-xs-10 col-xs-offset-2">
+                                    <div class="col-xs-4">
+                                        {% comment %}<button type="button" class="btn btn-default btn-xs" onclick="selectAll()">Slect All</button>
+                                        <button type="button" class="btn btn-default btn-xs" onclick="removeSelectAll()">Cancel Selcet</button>{% endcomment %}
+                                        <button type="button" class="btn btn-primary btn-xs" onclick="goNext()">Next</button>
+                                        <button type="button" class="btn btn-default btn-xs" onclick="goback()">Back</button>
+                                    </div>
+                                    <br/><br/>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <script src="{{STATIC_PREFIX}}js/common/common.js"></script>
+    <script>
+        function selectAll() {
+            $("input[name='industrys']").attr("checked", "true");
+        }
+
+        function removeSelectAll() {
+            $("input[name='industrys']").removeAttr("checked");
+        }
+
+        function goNext() {
+            var bool = false;
+            $("input[name='industrys']:checkbox:checked").each(function() {
+                bool = true;
+                return false;
+            });
+            if (!bool) {
+                custom_alert("Set your industry preference!");
+                return;
+            }
+            formData.submit();
+        }
+    </script>
+{% endblock %}

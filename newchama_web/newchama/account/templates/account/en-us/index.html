@@ -1,0 +1,25 @@
+{% extends "common/en-us/base.html" %}
+{% load myTags %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-9">
+    {% include "account/en-us/index_project.html" %}
+    {% include "account/en-us/index_deal.html" %}
+    <div class="col-xs-3">
+    {% include "account/en-us/index_right.html" %}
+    </div>
+{% endblock %}
+{% block footer %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}css/demos/sliders.css" />
+    <link href="{{STATIC_PREFIX}}css/jquery-ui.css" rel="stylesheet" />
+    <script src="{{STATIC_PREFIX}}js/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/parsley/parsley_zh.js"></script>
+    <script src="{{STATIC_PREFIX}}js/raphael-2.1.2.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/morris/morris.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/sparkline/jquery.sparkline.min.js"></script>
+
+    <script src="{{STATIC_PREFIX}}js/common/index_en.js"></script>
+    <script src="{{STATIC_PREFIX}}js/index_map.js"></script>
+    <script src="{{STATIC_PREFIX}}js/index_chart.js"></script>
+{% endblock %}

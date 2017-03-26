@@ -1,0 +1,106 @@
+{% extends "common/zh-cn/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load humanize %}
+{% load myTags %}
+{% block content %}
+<div class="container-fluid" id="newchama_main">
+    <input type="hidden" id="recipientType" value="2"/>
+    <input type="hidden" id="location_type" value="country"/>
+    <input type="hidden" id="location_id" value="0"/>
+    <input type="hidden" id="industry_id" value="0"/>
+    <input type="hidden" id="industry_name" value="0"/>
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">找需求</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-3">
+
+
+                    <div class="assist_border">
+                        {% comment %}<div class="col-xs-12" style="margin-bottom:10px;">
+                         <select name="searchType" class="form-control searchType">
+                             <option value="">请选择</option>
+                              {% endcomment %}{% comment %}<option value="1">项目</option>{% endcomment %}{% comment %}
+                              <option value="2" selected>需求</option>
+                         </select>
+                        </div>{% endcomment %}
+                        <label class="col-xs-12">关键词</label>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <input type="text" id="keywords" name="keywords" class="form-control" placeholder="请填写关键字" value="{{ keyword }}" />
+                        </div>
+                        <label class="col-xs-12">行业</label>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="company_industry_0" name="company_industry_0" class="form-control " data-required="true" data-error-message="请选择标的公司所在行业" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                                {% for i in industries %}
+                                <option value="{{ i.id }}" {% if u.d.id == i.id %} selected="selected" {% endif %}>{{ i.name_cn }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="company_industry_1" name="company_industry_1" class="form-control" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 hide_" >
+                            <select id="company_industry_2" name="company_industry_2" class="form-control" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <label class="col-xs-12">地域</label>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="country" name="target_country" class="form-control chosen-select" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                                {% for country in countries %}
+                                <option value="{{ country.id }}" {% if u.company_country.id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="province" name="target_province" class="form-control chosen-select" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12" style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-xs" name="btn_search" id="btn_search">搜索</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <div class="col-xs-12 assist_button_background">
+                        <div class="pull-right">
+                            排序 <select name="newSort" id="newSort">
+                            <option value="time_desc">从新到旧</option>
+                            <option value="time_asc">从旧到新</option>
+                            <option value="size_desc">交易规模从大到小</option>
+                            <option value="size_asc">交易规模从小到大</option>
+                            <option value="hot_desc">按热度排序</option>
+                        </select>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <ul class="news-list">
+                            {% include "purchase/zh-cn/ajax_list.html" %}
+                            {% comment %}{% if need_preference == False %}{% endcomment %}
+                            <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                            <li class="news-list-view-all" id="load_btn"{% if have_more_data == False %} style="display: none;"{% endif %}> <a href="javascript:loadData();">查看更多</a> </li>
+                            {% if total == 0 %}<li class="news-list-view-all no_record" style="line-height:30px;">暂无推荐项目</li>{% endif %}
+                            {% comment %}{% endif %}{% endcomment %}
+                        </ul>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block footer %}
+{% include "account/zh-cn/sendmessagemodal.html" %}
+<script src="{{STATIC_PREFIX}}js/common/purchase_new.js?aa=3"></script>
+{% endblock %}

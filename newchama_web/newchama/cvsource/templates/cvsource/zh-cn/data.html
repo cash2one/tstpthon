@@ -1,0 +1,120 @@
+{% extends "common/zh-cn/base.html" %}
+{% load pagination_tags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+        <div class="col-xs-9">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最新行业数据</h3>
+                    </div>
+                    <div class="panel-body">
+                        <br />
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="active"><a href="#">全部</a></li>
+                            <li><a href="#">IT</a></li>
+                            <li><a href="#">制造业</a></li>
+                            <li><a href="#">金融</a></li>
+                            <li class="pull-right"><a href="#"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                            <li class="pull-right"><a href="#"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                        </ul>
+                        <hr />
+                        <div class="col-xs-12">
+                            <div class="form-group">
+                                <label class="radio-inline"> <input type="radio" name="inline_optionsRadios" id="inline_optionsRadios1" value="option1" /> 交易笔数 </label>
+                                <label class="radio-inline"> <input type="radio" name="inline_optionsRadios" id="inline_optionsRadios2" value="option2" checked="" /> 交易金额 </label>
+                            </div>
+                            <div id="bar-chart" class="chart-holder" style="height:280px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">交易详情</h3>
+                    </div>
+                    <div class="panel-body">
+                        <br />
+                        <table class="table table-striped">
+                            <tbody>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            <tr>
+                                <td class="col-xs-10"><a href="###">互联网互联网互联网互联网互联网互联网互联网</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> 2014-10-02</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">推荐</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="news-list">
+                            <li class="nav-header">
+                                <ul class="nav nav-pills" role="tablist">
+                                    <li class="active"><a href="#">项目</a></li>
+                                    <li><a href="#">需求</a></li>
+                                </ul> </li>
+                            <li class="project-item3"> <strong class="col-xs-12"><a href="###">&middot; 某上市公司收购邀约某项目具体情况</a></strong> <span class="col-xs-6"> 收入：$3,000,000 </span> <span class="col-xs-6"> 行业：互联网 </span> <span class="col-xs-6"> 净利润：$300,000 </span> <span class="col-xs-6"> 地域：中国 </span> </li>
+                            <li class="project-item3"> <strong class="col-xs-12"><a href="###">&middot; 某上市公司收购邀约某项目具体情况</a></strong> <span class="col-xs-6"> 收入：$3,000,000 </span> <span class="col-xs-6"> 行业：互联网 </span> <span class="col-xs-6"> 净利润：$300,000 </span> <span class="col-xs-6"> 地域：中国 </span> </li>
+                            <li class="project-item3"> <strong class="col-xs-12"><a href="###">&middot; 某上市公司收购邀约某项目具体情况</a></strong> <span class="col-xs-6"> 收入：$3,000,000 </span> <span class="col-xs-6"> 行业：互联网 </span> <span class="col-xs-6"> 净利润：$300,000 </span> <span class="col-xs-6"> 地域：中国 </span> </li>
+                            <li class="project-item3"> <strong class="col-xs-12"><a href="###">&middot; 某上市公司收购邀约某项目具体情况</a></strong> <span class="col-xs-6"> 收入：$3,000,000 </span> <span class="col-xs-6"> 行业：互联网 </span> <span class="col-xs-6"> 净利润：$300,000 </span> <span class="col-xs-6"> 地域：中国 </span> </li>
+                            <li class="project-item3"> <strong class="col-xs-12"><a href="###">&middot; 某上市公司收购邀约某项目具体情况</a></strong> <span class="col-xs-6"> 收入：$3,000,000 </span> <span class="col-xs-6"> 行业：互联网 </span> <span class="col-xs-6"> 净利润：$300,000 </span> <span class="col-xs-6"> 地域：中国 </span> </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    <script src="{{STATIC_PREFIX}}js/raphael-2.1.2.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/morris/morris.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/charts/morris/bar.js"></script>
+    <script src="{{STATIC_PREFIX}}js/charts/morris/line.js"></script>
+    <script src="{{STATIC_PREFIX}}js/charts/morris/donut.js"></script>
+    <script src="{{STATIC_PREFIX}}js/charts/morris/area.js"></script>
+{% endblock %}

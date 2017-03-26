@@ -1,0 +1,119 @@
+{% load static %}
+{% load myTags %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% for p in result_list %}
+    <li class="project-item">
+        <strong class="news-list-item-title2"><a href="{%  url "purchase.detail" p.id %}">{{p.name_cn|striptags |truncatechars:23 }}</a>
+
+        {% if not p.is_suitor%}
+            {% if p.id in favorites_demand_ids %}
+                <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="demand"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;取消关注</a>
+            {% else %}
+                <a href="###" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="demand"><i class="glyphicon glyphicon-heart"></i>&nbsp;关注</a>
+            {% endif %}{% endif %}
+        </strong>
+    <span class="news-list-item-text">
+      <table class="table index-table-1">
+          <tbody>
+          <tr class="project-th">
+              <td class="col-xs-4">目标地区</td>
+              <td class="col-xs-4">交易类型</td>
+              <td class="col-xs-4">行业</td>
+          </tr>
+          <tr>
+              <td>{% if p.company_countries.count == 0 %}不限{% else %}
+                  {% if p.company_countries.count > 0 %}
+                      {% for c in p.company_countries.all %}
+                          {% if forloop.counter == 1 %}
+                          {{ c.name_cn |striptags |truncatechars:8  }}&nbsp;&nbsp;
+                          {% endif %}
+                      {% endfor %}
+                  {% comment %}{% if p.company_countries.all.count > 0 %}...{% endif %}{% endcomment %}
+                  {% endif %}
+              {% endif %}
+              </td>
+              <td>{{ p.get_service_type_display |striptags |truncatechars:8}}</td>
+              <td><i class="glyphicon glyphicon-tags"></i>
+                  {% if p.company_industries.all.count > 0 %}
+                      {% for industry in p.company_industries.all %}
+                          {% if forloop.counter == 1 %}
+                          <a class="tag preference_common_keyword" data-type="demand"  data-tag="{{ industry.name_cn }}" href="###"> {{ industry.name_cn |striptags |truncatechars:8 }}</a>&nbsp;&nbsp;
+                          {% endif %}{% endfor %}
+                      {% if p.company_industries.all.count > 0 %}...{% endif %}
+                  {% else %}<span style="padding-left:5px;">不限</span>{% endif %}
+              </td>
+          </tr>
+          <tr class="project-th">
+              <td>交易规模</td>
+              <td>成长性</td>
+              <td>净利润</td>
+          </tr>
+          <tr>
+              <td>{{ p.get_deal_size_display }}</td>
+              <td>{% if p.growth_three_year != 0 %}{{ p.growth_three_year | formatPercent }}% {% else %} 不限 {% endif %}</td>
+              <td>{% if p.currency_type_financial == 0 %} 不限 {% else %} {{ p.get_currency_type_financial_display }} {% endif %}</td>
+          </tr>
+          </tbody>
+      </table>
+    </span>
+    </li>
+{% endfor %}
+{% for p in recent_demand %}
+    <li class="project-item">
+        <strong class="news-list-item-title2">
+        {% comment %}<font color="blue">(系统推荐)</font>&nbsp;{% endcomment %}<a href="{%  url 'purchase.detail' p.id %}">{{p.name_cn|striptags |truncatechars:23 }}</a>
+        {% if not p.is_suitor%}
+            {% if p.id in favorites_demand_ids %}
+                <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="demand"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;取消关注</a>
+            {% else %}
+                <a href="###" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="demand"><i class="glyphicon glyphicon-heart"></i>&nbsp;关注</a>
+            {% endif %}{% endif %}
+        </strong>
+    <span class="news-list-item-text">
+      <table class="table index-table-1">
+          <tbody>
+          <tr class="project-th">
+              <td class="col-xs-4">目标地区</td>
+              <td class="col-xs-4">交易类型</td>
+              <td class="col-xs-4">行业</td>
+
+          </tr>
+          <tr>
+              <td>{% if p.company_countries.count == 0 %}不限{% else %}
+                  {% if p.company_countries.count > 0 %}
+                      {% for c in p.company_countries.all %}
+                          {% if forloop.counter == 1 %}
+                          {{ c.name_cn |striptags |truncatechars:8  }}&nbsp;&nbsp;
+                          {% endif %}
+                      {% endfor %}
+                  {% comment %}{% if p.company_countries.all.count > 0 %}...{% endif %}{% endcomment %}
+                  {% endif %}
+              {% endif %}
+              </td>
+              <td>{{ p.get_service_type_display |striptags |truncatechars:8}}</td>
+              <td><i class="glyphicon glyphicon-tags"></i>
+                  {% if p.company_industries.all.count > 0 %}
+                      {% for industry in p.company_industries.all %}
+                          {% if forloop.counter == 1 %}
+                          <a class="tag preference_common_keyword" data-type="demand"  data-tag="{{ industry.name_cn }}" href="###"> {{ industry.name_cn |striptags |truncatechars:8 }}</a>&nbsp;&nbsp;
+                          {% endif %}{% endfor %}
+                      {% if p.company_industries.all.count > 0 %}...{% endif %}
+                  {% else %}不限{% endif %}
+              </td>
+          </tr>
+          <tr class="project-th">
+              <td>交易规模</td>
+              <td>成长性</td>
+              <td>净利润</td>
+          </tr>
+          <tr>
+              <td>{{ p.get_deal_size_display }}</td>
+              <td>{% if p.growth_three_year != 0 %}{{ p.growth_three_year | formatPercent }}% {% else %} 不限 {% endif %}</td>
+              <td>{% if p.currency_type_financial == 0 %} 不限 {% else %} {{ p.get_currency_type_financial_display }} {% endif %}</td>
+          </tr>
+          </tbody>
+      </table>
+    </span>
+    </li>
+{% endfor %}

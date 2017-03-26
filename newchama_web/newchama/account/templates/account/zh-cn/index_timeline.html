@@ -1,0 +1,25 @@
+{% load humanize %}
+{% load myTags %}
+{% for item in timelines %}
+<div class="col-xs-12" xmlns="http://www.w3.org/1999/html">
+    <div class="col-xs-1 index_avatar thumbnail">
+        <a href="{{ item.member_link }}">
+            <img src="{{ item.member_avatar }}">
+        </a>
+    </div>
+    <div class="col-xs-11 index_title">
+        <p>{{ item.content_cn_start_pre }}</p>
+        <p>
+            {{ item.content_cn_start }}{% if item.content_link %}
+
+            <a href="{{ item.content_link }}" target="_blank" alt="{{ item.content_cn }}">
+                {% endif %}
+                {{ item.content_cn | cut_str:27  }}
+                {% if item.content_link %}
+            </a>
+            {% endif %}{{ item.content_cn_end }}
+        </p>
+
+    </div>
+</div>
+{% endfor %}

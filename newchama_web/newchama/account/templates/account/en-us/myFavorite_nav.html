@@ -1,0 +1,11 @@
+
+    <li class="nav-header">
+        <ul class="nav nav-pills top_nav_pills" role="tablist">
+            <li {% if type == "project" %}class="active"{% endif %}><a href="{% url 'account.myfavorite' %}">Sell-Side Deals({{ total_project }})</a></li>
+            <li {% if type == "demand" %}class="active"{% endif %}><a href="{% url 'account.myfavorite_demand' %}">My Buy-Side Mandates({{ total_demand }})</a></li>
+            {% comment %}<li><a href="{% url 'account.myfavorite_data' %}">Market News({{ total_data }})</a></li>
+            <li {% if type == "news" %}class="active"{% endif %}><a href="{% url 'account.myfavorite_news' %}">Industry News({{ total_news }})</a></li>{% endcomment %}
+            <li {% if type == "company" %}class="active"{% endif %}><a href="{% url 'account.myfavorite_company' %}">Insitution({{ total_company }})</a></li>
+            <li {% if type == "member" %}class="active"{% endif %}><a href="{% url 'account.myfavorite_member' %}">User({{ total_member }})</a></li>
+        </ul>
+    </li>

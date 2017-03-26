@@ -1,0 +1,207 @@
+   <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">最新行业数据
+                    <a href="###" class="pull-right" id="chart_btn_left"><i class="glyphicon glyphicon-chevron-right"></i></a>
+                    <a href="###" class="pull-right" id="chart_btn_right"><i class="glyphicon glyphicon-chevron-left"></i></a>
+                </h3>
+
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-12" id="index_chart_1" class="index_chart_block">
+                    <br />
+                    <input type="hidden" value="{{hidden_is_cv1}}" id="is_cv1">
+                    <p class="chart-title">中国最近一年交易金额统计</p>
+                    <p class="chart-title" style="display:none;">中国最近一年交易类型统计</p>
+                    <p class="chart-title" style="display:none;">美国国最近一年交易金额统计</p>
+                    <p class="chart-title" style="display:none;">美国最近一年交易类型统计</p>
+
+                    <div id="chart1" class="chart-holder" style="height:320px;"></div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="chart_nav">
+                        <a href="###" class="on"></a>
+                        <a href="###"></a>
+                        <a href="###"></a>
+                        <a href="###"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">最新地域数据</h3>
+            </div>
+            <div class="panel-body">
+                <div class="col-xs-7">
+                    <div class="map1">
+                    <span id="map_dot_1">  
+                    <embed src="{{STATIC_PREFIX}}img/dot.swf" quality="high" width="80" height="80" wmode="transparent" type='application/x-shockwave-flash'>
+                    </span>  
+                    <span href="###" id="map_dot_2">  
+                    <embed src="{{STATIC_PREFIX}}img/dot2.swf" quality="high" width="80" height="80" wmode="transparent" type='application/x-shockwave-flash'>
+                    </span>
+
+                        <div class="float_usa">
+                            <div class="float_block_title">美国</div>
+                            <div class="float_block_content">
+                                <p><span class="col-xs-5"><strong>最近交易:</strong></span><span class="md-col-7">{{deal_count_usa}}笔</span></p>
+                                <p><span class="col-xs-5"><strong>交易额:</strong></span><span class="md-col-7">{{deal_sum_usa}}百万美元</span></p>
+                                <p><span class="col-xs-5"><strong>最热行业:</strong></span><span class="md-col-7">{{deal_hot_usa}}</span></p>
+                            </div>
+                        </div>
+
+                        <div class="float_cn">
+                            <div class="float_block_title">中国</div>
+                            <div class="float_block_content">
+                                <p><span class="col-xs-5"><strong>最近交易:</strong></span><span class="md-col-7">{{deal_count_cn}}笔</span></p>
+                                <p><span class="col-xs-5"><strong>交易额:</strong></span><span class="md-col-7">{{deal_sum_cn}}百万美元</span></p>
+                                <p><span class="col-xs-5"><strong>最热行业:</strong></span><span class="md-col-7">{{deal_hot_cn}}</span></p>
+                            </div>
+                        </div>
+                        <a href="###" id="map_btn_1"></a>
+                        <a href="###" id="map_btn_2"></a>
+                    </div>
+                </div>
+                <div class="col-xs-5">
+                    <ul class="news-list" id="deal_usa">
+                        <li class="nav-header"> 美国最新重大交易 </li>
+
+                        {% for item in deal_list_usa %}
+                            <li class="news-list-item"><span class="news-list-item-text">{{item.title|truncatechars:40}}</span> </li>
+
+                        {% endfor %}
+
+                        <li class="news-list-view-all"> <a href="{% url 'deal.index' 1%}">查看全部</a> </li>
+                    </ul>
+
+                    <ul class="news-list" style="display:none;" id="deal_cn">
+                        <li class="nav-header"> 中国最新重大交易 </li>
+
+                        {% for item in deal_list_cn %}
+                            <li class="news-list-item"><span class="news-list-item-text">{{item.title|truncatechars:40}}</span> </li>
+
+                        {% endfor %}
+
+                        <li class="news-list-view-all"> <a href="{% url 'deal.index' 2%}">查看全部</a> </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">行业数据信息</h3>
+            </div>
+            <div class="panel-body">
+                <br />
+                <div class="col-xs-6">
+                    <table class="table">
+                        <caption>
+                            美国
+                        </caption>
+                        <thead>
+                        <tr>
+                            <th width="40%">行业</th>
+                            <th width="20%">P/E</th>
+                            <th width="20%">P/B</th>
+                            <th width="20%">P/S</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in pe_list_usa %}
+                            <tr>
+                                <td>{{item.industry.name_cn}}</td>
+                                <td>{{item.pe|floatformat:"0"}}</td>
+                                <td>{{item.pb|floatformat:"0"}}</td>
+                                <td>{{item.ps|floatformat:"0"}}</td>
+                            </tr>
+                        {% endfor %}
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-6">
+                    <table class="table">
+                        <caption>
+                            中国
+                        </caption>
+                        <thead>
+                        <tr>
+                            <th width="40%">行业</th>
+                            <th width="20%">P/E</th>
+                            <th width="20%">P/B</th>
+                            <th width="20%">P/S</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in pe_list_cn %}
+                            <tr>
+                                <td>{{item.industry.name_cn}}</td>
+                                <td>{{item.pe|floatformat:"0"}}</td>
+                                <td>{{item.pb|floatformat:"0"}}</td>
+                                <td>{{item.ps|floatformat:"0"}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-6">
+                    <table class="table">
+                        <caption>
+                            香港
+                        </caption>
+                        <thead>
+                        <tr>
+                            <th width="40%">行业</th>
+                            <th width="20%">P/E</th>
+                            <th width="20%">P/B</th>
+                            <th width="20%">P/S</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in pe_list_hk %}
+                            <tr>
+                                <td>{{item.industry.name_cn}}</td>
+                                <td>{{item.pe|floatformat:"0"}}</td>
+                                <td>{{item.pb|floatformat:"0"}}</td>
+                                <td>{{item.ps|floatformat:"0"}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-6">
+                    <table class="table">
+                        <caption>
+                            英国
+                        </caption>
+                        <thead>
+                        <tr>
+                            <th width="40%">行业</th>
+                            <th width="20%">P/E</th>
+                            <th width="20%">P/B</th>
+                            <th width="20%">P/S</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in pe_list_uk %}
+                            <tr>
+                                <td>{{item.industry.name_cn}}</td>
+                                <td>{{item.pe|floatformat:"0"}}</td>
+                                <td>{{item.pb|floatformat:"0"}}</td>
+                                <td>{{item.ps|floatformat:"0"}}</td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

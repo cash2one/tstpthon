@@ -1,0 +1,25 @@
+{% extends "common/zh-cn/nologin_base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main" style="width:50%;">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">系统提示</h3>
+          </div>
+          <div class="panel-body" style="margin:0 auto;width:94%">
+              <br/>
+              <h5 style="text-align: center">您的帐号尚未激活！</h5>
+              <p>如果您尚未收到激活邮件或者其他问题，请您尝试通过以下方法解决：</p>
+              <p>（1）检查您电子邮箱中的垃圾箱或广告箱，邮件有可能被误认为垃圾或广告邮件。</p>
+              <p>（2）如果您确认未收到激活邮件，请点击<a href="{% url 'account.send_active' %}">重新发送激活邮件</a>。</p>
+              <br/>
+              <br/>
+          </div>
+        </div>
+        </div>
+    </div>
+<div style="clear:both;"></div>
+{% endblock %}
+{% block footer %}
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/fix_height.js"></script>
+{% endblock %}

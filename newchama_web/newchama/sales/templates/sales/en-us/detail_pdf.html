@@ -1,0 +1,200 @@
+{% load humanize %}
+{% load myTags %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <title>{{title}} - NewChama</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+</head>
+<body>
+<style>
+    @font-face {
+        font-family: msyh;
+        src: url({{static_root}}fonts/msyh.ttf);
+    }
+    body{
+        font-family: msyh;
+
+    }
+    td{vertical-align: top; padding:2px 4px;}
+    h3{background: #009dad; padding: 4px;font-size: 12px;border-bottom:1px solid #999; color: #fff;}
+    .top_logo{ border-bottom:5px solid #009dad; text-align: right;}
+</style>
+<div class="container">
+    <p class="top_logo">&copy; 2014 NewChama.com</p>
+    <h1>Validity Period：{{ u.expire_date|date:'Y-m-d' }}<br/>{{ u.name_en }}</h1>
+    <p>
+        Representative:{% if u.is_anonymous%}Anonymous Post{% else %}{{ u.member.company }}{% endif %} &nbsp;&nbsp; <br/>{{ u.member.company.get_type_display }}
+    </p>
+    <br>
+    <h3>Summary</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td width="2cm">
+                <strong>Deal Title:</strong>
+            </td>
+            <td>
+                <strong>{{ u.name_en }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Exclusive Agent:</strong>
+            </td>
+            <td>
+                <strong>{{ u.get_service_type_display }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <strong>Industry:</strong>
+            </td>
+            <td>
+                <strong>{{ u.company_industry.name_en }}</strong>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Asking Price:</strong></td>
+            <td>{{ u.stock_percent | showPercent2 }}</td>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Deal Size:</strong></td>
+            <td>{{ u.deal_size | formatCurrency2:u.get_currency_type_financial_display }}</td>
+            </td>
+        </tr>
+        <tr>
+            <td><strong>Key Words:</strong></td>
+            <td>{{ u.keywords|default:'N/A' }}</td>
+            </td>
+        </tr>
+
+       
+        </tbody>
+    </table>
+    {% if u.company_intro_en %}
+    <br>
+        <h3 class="heading">Business Description:</h3>
+        <p>{{ u.company_intro_en | default:'N/A' | safe}}</p>
+    <br />
+    {% endif %}
+    {% if u.features_en %}
+    <br>
+
+        <h3 class="heading">Highlights:</h3>
+        <p>{{ u.features_en | default:'N/A' | safe}}</p>
+    <br />
+    {% endif %}
+    {% if u.company_industry_intro_en %}
+    <br>
+        <h3 class="heading">Industry Description:</h3>
+        <p>{{ u.company_industry_intro_en | default:'N/A' | safe}}</p>
+    <br />
+    {% endif %}
+
+    <h3>Deal Summary:</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            <td width="2cm">Industry:</td>
+            <td>{{ u.company_industry.name_en }}</td>
+            <td width="2.5cm">Location:</td>
+            <td>
+                {{ u.company_country.name_en }}
+            </td>
+        </tr>
+        <tr>
+            <td>Employee Headcount:</td>
+            <td>{{ u.get_employees_count_type_display| default:'N/A' }}</td>
+            <td>Listed Company:</td>
+            <td>{% if u.is_list_company%}Y{% else %}N{% endif %}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <br />
+    <h3>Financial Summary:</h3>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+            <tr>
+                <th width="6cm">&nbsp;</th>
+                <th align="left">&nbsp;&nbsp;&nbsp;Currency</th>
+                <th align="left">FY{{ curr_year }}</th>
+                <th align="left">FY{{ last_year }}</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Revenue:</td>
+                <td>{{ u.get_currency_type_financial_display }} </td>
+                <td>{{ u.income|floatformat:2|intcomma | default:'-' }}</td>
+                <td>{{ u.income_last_phase|floatformat:2|intcomma | default:'-' }}</td>
+            </tr>
+            <tr>
+                <td>Profit:</td>
+                <td>{{ u.get_currency_type_financial_display }}</td>
+                <td>{{ u.profit|floatformat:2|intcomma }}</td>
+                <td>{{ u.profit_last_phase|floatformat:2|intcomma | default:'-' }}</td>
+            </tr>
+           
+            <tr >
+                <td colspan="4">&nbsp;</td>
+            </tr>
+            <tr>
+                            <td><strong>Total Asset:</strong></td>
+                            <td>{{ u.total_assets_last_phase|formatCurrency2:u.get_currency_type_financial_display }}</td>
+                            <td><strong>注册资本:</strong></td>
+                            <td >{{ u.registered_capital|formatCurrency2:u.get_currency_type_financial_display }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>EBITDA:</strong></td>
+                            <td>{{ u.ebitda |formatCurrency2:u.get_currency_type_financial_display}}</td>
+                            <td></td>
+                            <td ></td>
+                        </tr>
+
+            <tr >
+                <td><strong>Expected Valuation:</strong></td>
+                <td>{{ u.expected_enterprice_value|formatCurrency }}</td>
+                <td><strong>Growth forecast for the next three years:</strong></td>
+                <td >{{ u.growth_three_year |showPercent2}}</td>
+            </tr>
+            <tr>
+                <td><strong>Financial Statements:</strong></td>
+                <td colspan="3">{% if u.financial_is_audit %} Y {% else %} N {% endif %}</td>
+            </tr>
+            {% if u.financial_is_audit %}
+                <tr>
+                    <td><strong>审计公司:</strong></td>
+                    <td>{{ u.financial_audit_company_name  | default:'N/A' }}</td>
+                    <td><strong>Audited by Big Four:</strong></td>
+                    <td>{% if u.financial_audit_company_is_default %} Y {% else %} N {% endif %}</td>
+                </tr>
+            {% endif %}
+            </tbody>
+        </table>
+
+        <br />
+    <h3>Equity Structure:</h3>
+    <table class="table">
+        <tbody>
+        <tr>
+            {% for ss in stockST%}
+                <td><strong>{% if forloop.counter == 1 %}Mangement Structure{% elif forloop.counter == 2 %}Institutional Investor{% else %}Others{% endif %}:</strong></td>
+                <td>{{ ss.rate | showPercent2 }}</td>
+            {% endfor %}
+        </tr>
+        </tbody>
+    </table>
+        
+    </div> <!-- /.container -->
+</body>
+</html>
+

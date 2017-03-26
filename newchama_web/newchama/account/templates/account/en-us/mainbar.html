@@ -1,0 +1,95 @@
+  <div class="mainbar {% if member.role == 'seller' %}sellerbar{% endif %}">
+
+  <div class="container">
+
+    <button type="button" class="btn mainbar-toggle" data-toggle="collapse" data-target=".mainbar-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="mainbar-collapse collapse">
+
+      <ul class="nav navbar-nav mainbar-nav">
+        {% if member.role == 'seller' %}
+        <li {% if title == 'Seller’s Home Page' %} class="active"{% endif %}>
+          <a href="{% url 'account.seller' %}">
+            <i class="fa fa-home"></i>
+            Seller’s Home Page
+          </a>
+        </li>
+
+        <li {% if title == 'Newest Demand' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.new' %}" >
+            <i class="fa fa-bolt"></i>
+            Newest Demand
+          </a>
+        </li>
+
+        <li {% if title == 'Search Demand' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.search' %}">
+          <i class="fa fa-search"></i>
+          Search Demand
+          </a>
+        </li>
+
+        <li {% if title == 'Sell-Side Deals' %} class="active"{% endif %}>
+          <a href="{% url 'sales.add' %}">
+            <i class="fa fa-dollar"></i>
+            Sell-Side Deals
+          </a>
+        </li>
+
+        <li {% if title == 'Project Manage' %} class="active"{% endif %}>
+          <a href="{% url 'sales.mylist' %}">
+            <i class="fa fa-folder-open"></i>
+            Project Manage
+          </a>
+        </li>
+        {% else %}
+
+        <li {% if title == 'Buyer’s Home Page' %} class="active"{% endif %}  >
+          <a href="{% url 'account.buyer' %}">
+            <i class="fa fa-home"></i>
+            Buyer’s Home Page
+          </a>
+        </li>
+
+        <li {% if title == 'Newest Deal' %} class="active"{% endif %}>
+          <a href="{% url 'sales.new' %}" >
+            <i class="fa fa-bolt"></i>
+            Newest Deal
+          </a>
+        </li>
+
+        <li {% if title == 'Search Deal' %} class="active"{% endif %}>
+          <a href="{% url 'sales.search' %}">
+          <i class="fa fa-search"></i> 
+          Search Deal
+          </a>
+        </li>
+
+        <li {% if title == 'Buy-Side Mandates' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.add' %}">
+            <i class="fa fa-dollar"></i>
+            Buy-Side Mandates
+          </a>
+        </li>  
+
+        <li {% if title == 'Demand Manage' or title == 'Edit Deman' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.mylist' %}">
+            <i class="fa fa-folder-open"></i>
+            Demand Manage
+          </a>
+        </li>
+
+
+        {% endif %}
+
+
+      </ul>
+
+    </div> <!-- /.navbar-collapse -->   
+
+
+  </div> <!-- /.container --> 
+
+</div> <!-- /.mainbar --> 

@@ -1,0 +1,2234 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>LA MER中国十周年</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<script type="text/javascript">
+  var imgUrl = "http://wechat.chantrans.com/LAMER/images/logo.jpg";
+  var lineLink = "http://wechat.chantrans.com/LAMER/";
+  var descContent = 'LA MER中国十周年';
+  var shareTitle = 'LA MER中国十周年';
+  var appid = '';       
+
+        function shareFriend() {
+            WeixinJSBridge.invoke('sendAppMessage',{
+                "appid": appid,
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+                //_report('send_msg', res.err_msg);
+            })
+        }
+        function shareTimeline() {
+            WeixinJSBridge.invoke('shareTimeline',{
+                "img_url": imgUrl,
+                "img_width": "200",
+                "img_height": "200",
+                "link": lineLink,
+                "desc": descContent,
+                "title": shareTitle
+            }, function(res) {
+                   //_report('timeline', res.err_msg);
+            });
+        }
+        function shareWeibo() {
+            WeixinJSBridge.invoke('shareWeibo',{
+                "content": descContent,
+                "url": lineLink,
+            }, function(res) {
+                //_report('weibo', res.err_msg);
+            });
+        }
+        // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+        document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+            // 发送给好友
+            WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                shareFriend();
+            });
+            // 分享到朋友圈
+            WeixinJSBridge.on('menu:share:timeline', function(argv){
+                shareTimeline();
+            });
+            // 分享到微博
+            WeixinJSBridge.on('menu:share:weibo', function(argv){
+
+                shareWeibo();
+
+            });
+
+        }, false);
+</script>
+<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<script type="text/javascript" src="./js/jquery-1.10.1.min.js"></script>
+<script type="text/javascript" src="./js/touch-0.2.14.min.js"></script>
+<script type="text/javascript" src="./js/shake.js"></script>
+<SCRIPT type="text/javascript" src="./js/LoadingFile.min.js"></SCRIPT>
+<!-- <script type="text/javascript" src="./jQuery.jPlayer.2.7.0/jQuery.jPlayer.2.7.0/jquery.jplayer.min.js"></script> -->
+<script type="text/javascript"  src="./Swiper/dist/idangerous.swiper.min.js"></script>
+<script type="text/javascript"  src="./Swiper/dist/idangerous.swiper.progress.js"></script>
+<link rel="stylesheet" href="./Swiper/dist/idangerous.swiper.css" />
+<style type="text/css">
+@keyframes fadeIn{
+  0%{opacity: 0;}20%{opacity: .2;}40%{opacity: .4;}60%{opacity: .6;}80%{opacity: .8;}100%{opacity: 1;}
+}
+@-webkit-keyframes fadeIn{
+  0%{opacity: 0;}20%{opacity: .2;}40%{opacity: .4;}60%{opacity: .6;}80%{opacity: .8;}100%{opacity: 1;}
+}
+@keyframes fadeOut{
+  0%{opacity: 1;}20%{opacity: .8;}40%{opacity: .6;}60%{opacity: .4;}80%{opacity: .2;}100%{opacity: 0;}
+}
+@-webkit-keyframes fadeOut{
+  0%{opacity: 1;}20%{opacity: .8;}40%{opacity: .6;}60%{opacity: .4;}80%{opacity: .2;}100%{opacity: 0;}
+}
+@keyframes jiantou{
+  0%{transform:translateY(-35px);opacity: 1;}
+  100%{transform:translateY(-50px);opacity: 1;}
+} 
+@-webkit-keyframes jiantou{
+  0%{-webkit-transform:translateY(-35px);opacity: 1;}
+  100%{-webkit-transform:translateY(-50px);opacity: 1;}
+}
+@keyframes bianxiao{
+  0%{height:90%;width:90%;}
+  20%{height:80%;width:80%;}
+  40%{height:70%;width:70%;}
+  60%{height:60%;width:60%;}
+  80%{height:50%;width:50%;}
+  100%{height:40%;width:40%;}
+}
+@-webkit-keyframes bianxiao{
+  0%{height:90%;width:90%;}
+  20%{height:80%;width:80%;}
+  40%{height:70%;width:70%;}
+  60%{height:60%;width:60%;}
+  80%{height:50%;width:50%;}
+  100%{height:40%;width:40%;}
+}
+.bianxiao{
+  animation:bianxiao 0.5s ease forwards;
+  -webkit-animation:bianxiao 0.5s ease forwards; 
+}
+html,body{
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+body {
+  margin: 0;padding: 0;font: 100% STXihei;text-align: center;color: #FFF;height: 100%;background:#000;overflow:hidden;
+  font-weight: 100;
+}
+.page{
+  position: relative;
+}
+.stars{
+  position:relative;z-index: 0;
+}
+.star1{
+  animation:fadeIn 1.5s ease infinite;-webkit-animation:fadeIn 1.5s ease infinite;position: absolute;top: 0%;left: 55%; 
+}
+.star2{
+  animation:fadeIn 1.8s 0.3s ease infinite;-webkit-animation:fadeIn 1.8s 0.3s ease infinite;position: absolute;top: 5%;left: 22%; 
+}
+.star3{
+  animation:fadeIn 2s 0.5s ease infinite;-webkit-animation:fadeIn 2s 0.5s ease infinite;position: absolute;top: 12%;left: -7%;  
+}
+.star4{
+  animation:fadeIn 1.8s .9s ease infinite;-webkit-animation:fadeIn 1.8s .9s ease infinite;position: absolute;top: 25%;left: 2%; 
+}
+.star5{
+  animation:fadeIn 2.3s 0.8s ease infinite;-webkit-animation:fadeIn 2.3s 0.8s ease infinite;position: absolute;top: 23%;right: 0%;  
+}
+          .star6{
+  animation:fadeIn 1.8s 0.8s ease infinite;-webkit-animation:fadeIn 1.8s 0.8s ease infinite;position: absolute;top: 30%;right: 10%;  
+}
+.star7{
+  animation:fadeIn 1.5s 0.7s ease infinite;-webkit-animation:fadeIn 1.5s 0.7s ease infinite;position: absolute;top: 35%;right: 80%;  
+}
+.star8{
+  animation:fadeIn 0.7s 0.6s ease infinite;-webkit-animation:fadeIn 0.7s 0.6s ease infinite;position: absolute;top: 38%;right: 55%;  
+}
+.star9{
+  animation:fadeIn 1.3s 0.5s ease infinite;-webkit-animation:fadeIn 1.3s 0.5s ease infinite;position: absolute;top: 50%;right: 12%;  
+}
+.star10{
+  animation:fadeIn 0.8s 0.4s ease infinite;-webkit-animation:fadeIn 0.8s 0.4s ease infinite;position: absolute;top: 60%;right: 18%;  
+}
+.star11{
+  animation:fadeIn 1s 0.3s ease infinite;-webkit-animation:fadeIn 1s 0.3s ease infinite;position: absolute;top: 80%;right: 30%;  
+}
+.star12{
+  animation:fadeIn 1.2s 0.2s ease infinite;-webkit-animation:fadeIn 1.2s 0.2s ease infinite;position: absolute;top: 65%;right: 80%;  
+}
+/*page1 */
+.page1-stars{
+  position:relative;z-index: 0;
+}
+@keyframes logoFadeIn{
+  0%{transform:translateY(3%);opacity: 0;}
+  100%{transform:translateY(35%);opacity: 1;}
+}
+@-webkit-keyframes logoFadeIn{
+  0%{-webkit-transform:translateY(3%);opacity: 0;}
+  100%{-webkit-transform:translateY(35%);opacity: 1;}
+}
+#page1{
+  background:url(./images/page1_bg.jpg) top center no-repeat; background-size:cover;overflow: hidden;
+}
+#page1 p{
+  padding: 0px;margin: 0px;font-size: 1.4em;color: #E2EEE6;
+}
+.page1-logo{
+  width: 100%;opacity: 0;text-align: center;position: absolute;top: 3%;
+}
+.page1-logo-animate{
+  animation:logoFadeIn 1.5s ease forwards;-webkit-animation:logoFadeIn 1.5s ease forwards;
+}
+.page1-jiantou{
+  width: 100%;opacity: 0;text-align: center;position: absolute;z-index: 999;  top: 100%;
+}
+.page1-jiantou-animate{
+  animation:jiantou 1s 1.5s ease infinite;-webkit-animation:jiantou 1s 1.5s ease infinite;
+}
+
+/*page2 */
+@keyframes page2bg{
+  0%{opacity: 0;}20%{opacity: .2;}40%{opacity: .4;}60%{opacity: .5;}80%{opacity: .6;}100%{opacity: .7;}
+}
+@-webkit-keyframes page2bg{
+  0%{opacity: 0;}20%{opacity: .2;}40%{opacity: .4;} 60%{opacity: .5;}80%{opacity: .6;}100%{opacity: .7;}
+}
+@keyframes page2background{
+  0%{opacity: 1;background-size: 150% 150%}
+  100%{opacity: 1;background-size: 100% 100%}
+}
+@-webkit-keyframes page2background{
+  0%{opacity: 1;background-size: 150% 150%}
+  100%{opacity: 1;background-size: 100% 100%}
+}
+#page2{
+  background:url(./images/page2_bg.jpg) top center no-repeat;overflow: hidden;color:#000;background-size: 100% 100%;opacity: 1;
+}
+.page2background{
+  animation:page2background 2s ease forwards;-webkit-animation:page2background 2s ease forwards;
+}
+.page2-cnt{
+  background-color: #FFF;width: 100%;z-index: 888;opacity: .0;position: absolute;top:65%;height: 25%;overflow: hidden;
+} 
+.page2-cnt p{
+  padding: 0px;
+  margin: 5px;
+}
+.page2-cnt h1{
+  font-size:1.5em;text-align: center;color: #000;font-weight: bold;
+}
+.page2-cnt-animate{
+  animation:page2bg 1s 2s ease forwards;-webkit-animation:page2bg 1s 2s ease forwards;
+}
+@keyframes page2p1animate{
+  0%{transform:translateY(100%);opacity: 0;}
+  100%{transform:translateY(0%);opacity: 1;}
+
+}
+@-webkit-keyframes page2p1animate{
+  0%{-webkit-transform:translateY(100%);opacity: 0;}
+  100%{-webkit-transform:translateY(0%);opacity: 1;}
+}
+.page2-p1{
+  z-index: 888;width: 100%;position: absolute;font-size: 0.9em;opacity: 0;
+}
+.page2-p1-animate{
+  animation:page2p1animate 2s 2s ease forwards;-webkit-animation:page2p1animate 2s 2s ease forwards;
+
+}
+.page2-p1-fadeout-animate{
+    animation:fadeOut .5s 7s ease forwards;-webkit-animation:fadeOut .5s 7s ease forwards;
+}
+.page2-p2{
+  opacity: 1;z-index: 888;width: 100%;position: absolute;font-size: 0.9em;top: 100%;
+}
+@keyframes page2p2animate{
+  0%{transform:translateY(0%);opacity: 0;}
+  100%{transform:translateY(-160%);opacity: 1;}
+}
+@-webkit-keyframes page2p2animate{
+  0%{-webkit-transform:translateY(0%);opacity: 0;}
+  100%{-webkit-transform:translateY(-160%);opacity: 1;}
+}
+.page2-stars-animation{
+  animation:fadeIn 1s 2s ease forwards;
+  -webkit-animation:fadeIn 1s 2s ease forwards;
+}
+.page2-p2-animate{
+  animation:page2p2animate 1s 8s ease forwards;
+  -webkit-animation:page2p2animate 1s 8s ease forwards;
+}
+.page2-jiantou{
+  width: 100%;opacity: 0;text-align: center;position: absolute;z-index: 999; top: 100%;
+}
+.page2-jiantou-animate{
+  animation:jiantou 1s 12s ease infinite;-webkit-animation:jiantou 1s 12s ease infinite;
+}
+/* page3 slide content  */
+#page3{
+  background:url(./images/page3_bg.jpg) top center no-repeat; background-size:cover;overflow: hidden; 
+}
+#page3 .page3-swiper-container {
+  width: 100%;text-align: center;overflow: hidden;
+}
+#page3 .swiper-slide {
+  height: 100%;
+  opacity: 0.8;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+#page3 .swiper-slide-visible {
+  opacity: 0.8;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.8);
+}
+#page3 .swiper-slide-active {
+  top: 0;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  z-index: 999;
+}
+#page3 .page3-pagination {
+  z-index: 999;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  top: 89%;
+  color: #EEE;
+}
+.page3-pagination-animate{
+  animation:fadeIn 1s 1.5s ease forwards;
+  -webkit-animation:fadeIn 1s 1.5s ease forwards;
+}
+#page3 .swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 8px;
+  background: #aaa;
+  margin-right: 8px;
+  cursor: pointer;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  opacity: 0;
+  position: relative;
+  top: -50px;
+}
+#page3 .swiper-visible-switch {
+  opacity: 1;top: 0;background: #aaa;
+}
+#page3 .swiper-active-switch {
+    background: #fff;
+}
+.page3-stars{
+    position: absolute;top: 0px;
+}
+.page3-logo{
+    z-index: 999;color: #fff;opacity: 0;
+}
+.page3-logo-animate{
+    animation:fadeIn 1s ease forwards;-webkit-animation:fadeIn 1s ease forwards;
+}
+.page3-logo p{
+    padding: 0px;margin:0px;text-align: center;
+}
+.page3-logo .p1{
+    font-size: 1.65em;
+}
+.page3-logo .p2{
+    font-size: 0.95em;
+    color:#A4BDA7;
+    margin-top: 2px;
+} 
+.page3-cnt{
+    overflow: hidden;position: absolute;opacity: 0;float: left;
+}
+.page3-cnt-animate{
+    animation:fadeIn 1s 1s ease forwards;-webkit-animation:fadeIn 1s 1s ease forwards;
+}
+.page3-images{
+    background-color: #B3C3B9;text-align: center;position: relative;margin: 0 auto;opacity:0.9;color: #000;
+}
+.page3-images p{
+    padding: 0px;margin: 4px;font-size: 0.88em;
+
+}
+.page3-douhao1{
+  position:absolute;
+  left: 15px;
+  top: 60%;
+}
+.page3-douhao2{
+  position:absolute;
+  right: 15px;
+  top: 83%;
+}
+.page3-images-title{
+    font-size: 0.9em;
+    margin-top: 4px;
+}
+.page3-images-name{
+    margin-top:5px;margin-bottom: 5px; font-size: 1.5em;text-align: center;font-weight: bolder;
+}
+.page3-images-size{
+    margin-top: 10px;
+}
+.page3-jiantou{
+    width: 100%;opacity: 0;text-align: center;position: absolute;z-index: 999;  top: 100%;
+}
+.page3-jiantou-animate{
+    animation:jiantou 1s 5s ease infinite;-webkit-animation:jiantou 1s 5s ease infinite;
+}
+/*page4 */
+#page4{
+    overflow: hidden;
+    color: #E8D8C8;
+}
+#page4 p{
+  padding: 0px;
+  margin:4px;
+  opacity: 0.8;
+}
+.page4{
+  position: relative;
+  background:url(./images/page4_bg.jpg) top center no-repeat; background-size:cover;overflow: hidden;
+}
+.page4-fadeout-animate{
+  animation:fadeout 1s ease forwards;-webkit-animation:fadeOut 1s ease forwards;
+}
+@keyframes page4cntanimate{
+0%{ opacity: 0;transform:translateY(100%);}
+100%{ opacity: 1;transform:translateY(0%);}
+}
+@-webkit-keyframes page4cntanimate{
+0%{ opacity: 0;-webkit-transform:translateY(100%);}
+  100%{ opacity: 1;-webkit-transform:translateY(0%);}
+}
+.page4-main-cnt{
+  width: 100%;height: 40%;z-index: 999;position: absolute;top: 10%;opacity: 1;overflow: hidden;
+}
+.page4-cnt{
+    width: 100%;height: 100%;z-index:999;position: absolute;color: #fff;opacity: 0;
+} 
+.page4-cnt .h1{
+    font-size:1.8em; text-align: center;padding-bottom: 25px;
+}
+
+.page4-cnt-animate{
+    animation:page4cntanimate 2s ease forwards;-webkit-animation:page4cntanimate 2s ease forwards;
+}
+.page4-p1{
+    z-index: 999;width: 100%;position: absolute;font-size: 1em;
+}
+.page4-p1-animate{
+    animation:fadeOut .5s 5.5s ease forwards;-webkit-animation:fadeOut .5s 5.5s ease forwards;
+}
+@keyframes page4p2animate{
+0%{opacity: 0;transform:translateY(100%);}
+100%{opacity: 1;transform:translateY(5%);}
+}
+@-webkit-keyframes page4p2animate{
+  0%{opacity: 0;-webkit-transform:translateY(100%);}
+  100%{opacity: 1;-webkit-transform:translateY(5%);}
+}
+.page4-p2{
+    z-index: 999;width: 100%;position: absolute;font-size: 1em;opacity: 0;
+}
+.page4-p2-animate{
+    animation:page4p2animate 1s 6.5s ease forwards;-webkit-animation:page4p2animate 1s 6.5s ease forwards;
+}
+.page4-star{
+  position: absolute;
+  left: 46%;
+  opacity: 0;
+  z-index: 999;
+  -webkit-transform: scale(0.5);
+  -moz-transform: scale(0.5);
+  -ms-transform: scale(0.5);
+  -o-transform: scale(0.5);
+  transform: scale(0.5);
+}
+.page4-pointer-star{
+  -webkit-transform: scale(2);
+  -moz-transform: scale(2);
+  -ms-transform: scale(2);
+  -o-transform: scale(2);
+  transform: scale(2);
+}
+.page4-star-animate{
+  animation:fadeIn .5s 7.5s ease infinite;-webkit-animation:fadeIn .5s 7.5s ease infinite;
+}
+.page4-pointer{
+  position: absolute;top: 52%;left: 60%;opacity: 0;width:50px;
+}
+.page4-pointer-animate{
+  animation:fadeIn 2s 7.5s ease infinite;-webkit-animation:fadeIn 2s 7.5s ease infinite;
+}
+/*page5  */
+#page5{
+
+    overflow: hidden;
+    position: relative;
+    background-color: #fff;
+}
+.page5{
+    background:url(./images/page5_bg.jpg) top center no-repeat; background-size:cover;opacity: 0;
+}
+.page5-bg-animate{
+  animation:fadeIn 1s ease forwards;-webkit-animation:fadeIn 1s ease forwards;
+}
+#page5 .arrow-left {
+  background: url(./images/arrows.png) no-repeat left top;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px;
+  z-index: 777;
+  opacity: 0;
+}
+#page5 .arrow-right {
+  background: url(./images/arrows.png) no-repeat left bottom;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  margin-top: -15px;
+  width: 17px;
+  height: 30px;
+    z-index: 777;
+    opacity: 0;
+}
+.page5-arrows-animation{
+    animation:fadeIn 1s 3s ease forwards;
+    -webkit-animation:fadeIn 1s 3s ease forwards;
+}
+.page5-swiper-container{
+  overflow: hidden;
+  position: relative;
+}
+.page5-main-swiper{
+  position: relative;
+}
+.page5-main-swiper p{
+opacity: 0.7;
+}
+#page5 .swiper-slide{
+  overflow: hidden;
+}
+.page5-h1{
+  font-size:1.7em;
+  margin-top:20px;
+  text-align: center;  
+  opacity: 0;
+}
+.page5-h1-animate{
+  animation:fadeIn 3s ease forwards;
+    -webkit-animation:fadeIn 3s ease forwards;
+}
+@keyframes slidetoright{
+  0%{opacity:1;transform:translateX(-80%);}
+  100%{opacity:1;transform:translateX(10%);}
+}
+@-webkit-keyframes slidetoright{
+  0%{opacity:1;-webkit-transform:translateX(-80%);}
+  100%{opacity:1;-webkit-transform:translateX(10%);}
+}
+@keyframes slidetoleft{
+ 0%{opacity:1;transform:translateX(150%);}
+  100%{opacity:1;transform:translateX(68%);}
+}
+@-webkit-keyframes slidetoleft{
+ 0%{opacity:1;-webkit-transform:translateX(150%);}
+  100%{opacity:1;-webkit-transform:translateX(68%);}
+}
+.page5-p1{
+  position: absolute;
+  font-size: 0.88em;
+  opacity: 0;
+  z-index: 999;
+}
+.page5-p1-animate{
+  animation:slidetoleft 2.5s ease forwards;
+  -webkit-animation:slidetoleft 2.5s ease forwards;
+}
+
+.page5-p1 p{
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+.page5-p1-2{
+  position:absolute;
+  opacity: 0;
+  z-index: 0;
+}
+.page5-p1-2-animate{
+  animation:slidetoright 2.5s ease forwards;
+  -webkit-animation:slidetoright 2.5s ease forwards;
+}
+.page5-p2{
+  position: absolute;
+  top: 0px;
+  left: 0px;  
+  font-size: 0.88em;
+}
+.page5-p2 p{
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+  text-align: center;
+}
+.page5-p2-1{
+   position:relative;
+   z-index:999;
+}
+.page5-hr{
+  width: 100%;
+  border-top:1px solid #fff;
+  display: block;
+  margin: 0px auto;
+  opacity: 0.6;
+}
+.page5-baoshilong{
+  font-size: 1.6em;
+}
+.page5-baoshilong p{
+  padding: 0px;
+  margin-top: 2px;
+  margin-bottom: 2px;
+}
+.page5-movie{
+  margin-top: 10px;
+}
+.page5-chan2{
+  position: absolute;
+  top: 50%;
+  left: 0px;
+  z-index: 0;
+}
+.page5-movie-hidden{
+  display: none;
+  background-color: #000;
+  z-index: 900;
+  position: absolute;
+  top: 30%;
+}
+.page5-close{
+  position:absolute;
+  width: 100%;
+  top:23%;
+  text-align: right;
+  z-index: 999;
+  display: none;
+}
+.page5-movie-shade{
+  opacity: 0.8;
+  background-color: #000;
+  z-index: 888;
+  display: none;
+}
+.page5-jiantou{
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  z-index: 777;
+  top: 100%;
+}
+.page5-jiantou-animate{
+  animation:jiantou 1s 2s ease infinite;
+  -webkit-animation:jiantou 1s 2s ease infinite;
+}
+/*page6 */
+#page6{
+  background:url(./images/page6_bg.jpg) top center no-repeat; background-size:cover;
+  overflow: hidden;
+}
+#page6 p{
+  margin: 4px;
+}
+.page6-main-cnt{
+  width: 100%;
+  height: 40%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 999;
+  top: 10%;
+  text-align: center;
+}
+@keyframes page6cntanimate{
+  0%{ opacity: 0;transform:translateY(100%);}
+  100%{ opacity: 1;transform:translateY(0%);}
+}
+@-webkit-keyframes page6cntanimate{
+  0%{ opacity: 0;-webkit-transform:translateY(100%);}
+  100%{ opacity: 1;-webkit-transform:translateY(0%);}
+}
+.page6-cnt{
+  z-index: 888;
+  width: 100%;
+  position: absolute;
+  color: #fff;
+  font-size:1em; 
+  text-align: center;
+  opacity: 0;
+} 
+.page6-cnt .h1{
+  font-size:1.8em; 
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.page6-cnt-animate{
+  animation:page6cntanimate 1s 2s ease forwards;
+  -webkit-animation:page6cntanimate 1s 2s ease forwards;
+}
+@keyframes handslidetoright{
+   0%{transform:translateX(0%);}
+
+  100%{transform:translateX(68%);}
+}
+@-webkit-keyframes handslidetoright{
+    0%{-webkit-transform:translateX(0%);}
+
+   100%{-webkit-transform:translateX(68%);}
+}
+@keyframes handslidetotop{
+  0%{transform:translateY(0%);}
+  100%{transform:translateY(-95%);}
+}
+@-webkit-keyframes handslidetotop{
+  0%{-webkit-transform:translateY(0%);}
+  100%{-webkit-transform:translateY(-95%);}
+}
+.page6-hand1{
+  z-index: 888;
+  width: 100%;
+  position: absolute;
+  top: 38%;
+  left: -80%;
+  text-align: left;
+}
+.page6-hand1-animate{
+  animation:handslidetoright 2s 1s ease forwards;
+  -webkit-animation:handslidetoright 2s 1s ease forwards;
+}
+.page6-hand2{
+  z-index: 888;
+  width: 100%;
+  position: absolute;
+  bottom: -30%;
+  text-align: right;
+}
+.page6-hand2-animate{
+  animation:handslidetotop 2s ease forwards;
+  -webkit-animation:handslidetotop 2s ease forwards;
+}
+.page6-jiantou{
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  z-index: 999;
+top: 100%;
+}
+.page6-jiantou-animate{
+
+  animation:jiantou 1s 6s ease infinite;
+  -webkit-animation:jiantou 1s 6s ease infinite;
+}
+#page7{
+  background:url(./images/page7_bg.jpg) top center no-repeat; background-size:cover;overflow: hidden; 
+}
+#page7 .swiper-slide {
+  height: 100%;
+  opacity: 0.8;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+#page7 .swiper-slide-visible {
+  opacity: 0.8;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.9);
+}
+#page7 .swiper-slide-active {
+  top: 0;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  z-index: 999;
+}
+#page7 .page7-pagination {
+  z-index: 800;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  top: 89%;
+  color: #EEE;
+}
+.page7-pagination-animate{
+  animation:fadeIn 2s 1.5s ease forwards;
+  -webkit-animation:fadeIn 2s 1.5s ease forwards;
+}
+#page7 .swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 8px;
+  background: #aaa;
+  margin-right: 8px;
+  cursor: pointer;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  opacity: 0;
+  position: relative;
+  top: -50px;
+}
+#page7 .swiper-visible-switch {
+  opacity: 1;
+  top: 0;
+  background: #aaa;
+}
+#page7 .swiper-active-switch {
+    background: #fff;
+}
+.page7-logo{
+  z-index: 999;color: #fff;opacity: 0;
+}
+.page7-logo-animate{
+  animation:fadeIn 1s ease forwards;-webkit-animation:fadeIn 1s ease forwards;
+}
+.page7-logo p{
+  padding: 0px;margin:0px;text-align: center;
+}
+.page7-logo .p1{
+  font-size: 1.65em;
+}
+.page7-cnt{
+  overflow: hidden;position: absolute;opacity: 0;float: left;
+}
+.page7-cnt-animate{
+  animation:fadeIn 1s 1s ease forwards;-webkit-animation:fadeIn 1s 1s ease forwards;
+}
+.page7-images{
+  background-color: #E5D9C9;text-align: center;position: relative;margin: 0 auto;opacity: 0.85;color: #000;
+}
+.page7-images p{
+  padding: 0px;margin: 0px;font-size: 0.78em;color: #333;
+}
+.page7-images-title{
+  font-size: 1.1em;
+  margin-top: 3px;
+}
+.page7-images-name{
+  margin-top:10px;margin-bottom: 10px; font-size: 1.5em;text-align: center;  font-weight: bolder;
+}
+.page7-images-size{
+  margin-top: 30px;
+}
+.page7-douhao1{
+  position:absolute;
+  left: 15px;
+  top: 58%;
+}
+.page7-douhao2{
+  position:absolute;
+  right: 15px;
+  top: 83%;
+}
+.page7-jiantou{
+  width: 100%;opacity: 0;text-align: center;position: absolute;z-index: 700; top: 100%;
+}
+.page7-jiantou-animate{
+  animation:jiantou 1s 5s ease infinite;-webkit-animation:jiantou 1s 5s ease infinite;
+}
+.page7-img{
+  margin-top: 20px;
+}
+.page7-img-hidden-1{
+  opacity: 1;
+  width: 100%;
+  z-index: 900;
+  position: absolute;
+  top: 20%;
+  display: none;
+}
+.page7-img-hidden-2{
+  opacity: 1;
+  width: 100%;
+  z-index: 900;
+  position: absolute;
+  top: 20%;
+  display: none;
+}
+.page7-img-hidden-3{
+  opacity: 1;
+  width: 100%;
+  z-index: 900;
+  position: absolute;
+  top: 20%;
+  display: none;
+}
+.page7-shade{
+  opacity: 0.8;
+  background-color: #000;
+  z-index: 888;
+  display: none;
+}
+/*page8  */
+#page8{
+  background:url(./images/page8_bg.jpg) top center no-repeat; background-size:cover;overflow: hidden; 
+}
+#page8 .swiper-slide {
+  height: 100%;
+  opacity: 0.8;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+#page8 .swiper-slide-visible {
+  opacity: 0.8;
+  -webkit-transform: scale(0.9);
+  -moz-transform: scale(0.9);
+  -ms-transform: scale(0.9);
+  -o-transform: scale(0.9);
+  transform: scale(0.8);
+}
+#page8 .swiper-slide-active {
+  top: 0;
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  -o-transform: scale(1);
+  transform: scale(1);
+  z-index: 999;
+}
+#page8 .page8-pagination {
+  z-index: 777;
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  top: 89%;
+  color: #EEE;
+}
+.page8-pagination-animate{
+  animation:fadeIn 2s 1.5s ease forwards;
+  -webkit-animation:fadeIn 2s 1.5s ease forwards;
+}
+#page8 .swiper-pagination-switch {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 8px;
+  background: #aaa;
+  margin-right: 8px;
+  cursor: pointer;
+  -webkit-transition: 300ms;
+  -moz-transition: 300ms;
+  -ms-transition: 300ms;
+  -o-transition: 300ms;
+  transition: 300ms;
+  opacity: 0;
+  position: relative;
+  top: -50px;
+}
+#page8 .swiper-visible-switch {
+  opacity: 1;
+  top: 0;
+  background: #aaa;
+}
+#page8 .swiper-active-switch {
+    background: #fff;
+}
+.page8-main-logo{
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  height:33%;
+  overflow: hidden;
+}
+@keyframes page8logoanimate{
+  0%{opacity: 0;transform:translateY(100%);}
+  100%{opacity: 1;transform:translateY(5%);}
+}
+@-webkit-keyframes page8logoanimate{
+  0%{opacity: 0;-webkit-transform:translateY(100%);}
+  100%{opacity: 1;-webkit-transform:translateY(5%);}
+}
+.page8-logo{
+  z-index: 999;color: #fff;position: absolute;width: 100%;text-align: center;opacity: 0;
+}
+.page8-logo-animate{
+  animation:page8logoanimate 1s ease forwards;-webkit-animation:page8logoanimate 1s ease forwards;
+}
+.page8-logo p{
+  padding: 0px;margin:0px;text-align: center;
+}
+.page8-logo .p1{
+  font-size: 1.65em;
+  margin-bottom: 10px;
+}
+.page8-logo .p2{
+  font-size: 1.1em;
+  color: #CEDDE8;
+}
+.page8-logo .p3{
+  font-size: 1.1em;
+  color: #CEDDE8;
+  margin-bottom: 10px;
+}
+.page8-cnt{
+  overflow: hidden;position: absolute;opacity: 0;
+}
+.page8-cnt-animate{
+  animation:fadeIn 1s 1s ease forwards;-webkit-animation:fadeIn 1s 1s ease forwards;
+}
+.page8-images{
+  background-color: #AEE2DF;text-align: center;position: relative;margin: 0 auto;opacity: 0.85;color: #000;
+}
+.page8-images p{
+  padding: 0px;margin: 3px;font-size: 0.85em;color: #333;
+}
+.page8-images-title{
+  font-size: 1em;
+}
+.page8-images-name{
+  margin-top:10px;margin-bottom: 10px; font-size: 1.5em;text-align: center;
+}
+.page8-images-size{
+  margin-top: 20px;
+}
+.page8-p{
+  font-size: 1em;
+}
+.page8-p-top{
+width: 100%;
+height: 28px;
+}
+.page8-jiantou{
+  width: 100%;opacity: 0;text-align: center;position: absolute;z-index: 777;top: 100%;
+}
+.page8-jiantou-animate{
+  animation:jiantou 1s 5s ease infinite;-webkit-animation:jiantou 1s 5s ease infinite;
+}
+.page8-movie{
+  margin-top: 20px;
+}
+.page8-movie-hidden-1{
+  display: none;
+  background-color: #000;
+  z-index: 900;
+  position: absolute;
+}
+.page8-movie-hidden-2{
+  display: none;
+  background-color: #000;
+  z-index: 900;
+  position: absolute;
+}
+.page8-close{
+  position:absolute;
+  right:0px;
+  z-index: 999;
+  display: none;
+}
+.page8-movie-shade{
+  opacity: 0.8;
+  background-color: #000;
+  z-index: 888;
+  display: none;
+}
+/*page9*/
+#page9{
+  background:url(images/page9_bg.jpg) top center no-repeat; background-size:cover;
+  overflow: hidden;
+}
+#page9 p{
+  padding: 0;
+  margin: 0px;
+  font-size: 1.1em;
+}
+@keyframes page9-logo-fadeIn{
+  0%{opacity: 0;}
+  10%{opacity: .2;}
+  20%{opacity: .4;}
+  30%{opacity: .6;}
+  40%{opacity: .8;}
+  50%{opacity: 1;}
+  60%{opacity: 1;}
+  70%{opacity: 1;}
+  80%{opacity: 0.6;}
+  90%{opacity: 0.3;}
+  100%{opacity: 0;}
+}
+@-webkit-keyframes page9-logo-fadeIn{
+   0%{opacity: 0;}
+  10%{opacity: .2;}
+  20%{opacity: .4;}
+  30%{opacity: .6;}
+  40%{opacity: .8;}
+  50%{opacity: 1;}
+  60%{opacity: 1;}
+  70%{opacity: 1;}
+  80%{opacity: 0.6;}
+  90%{opacity: 0.3;}
+  100%{opacity: 0;}
+}
+
+.page9-logo{
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  top: 40%;
+  z-index: 99;
+}
+.page9-logo-animate{
+  animation:page9-logo-fadeIn 3.8s ease forwards;
+  -webkit-animation:page9-logo-fadeIn 3.8s ease forwards;
+}
+.page9-stars{
+  display: none;
+}
+.page9-shade{
+  background-color: #000;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%;
+  z-index: 88;
+}
+.page9-jiantou{
+  width: 100%;
+  opacity: 0;
+  text-align: center;
+  position: absolute;
+  z-index: 999;
+  top: 100%;
+}
+.page9-jiantou-animate{
+  animation:jiantou 1.5s ease infinite;
+  -webkit-animation:jiantou 1.5s ease infinite;
+}
+.page9-2{
+  position: absolute;
+  top: 20%;
+  width: 100%;
+  text-align: center;
+}
+.page9-light{
+  position: relative;
+  opacity: 0;
+}
+.page9-light-animate{
+  animation:fadeIn .8s 4s ease infinite;
+  -webkit-animation:fadeIn .8s 4s ease infinite;
+}
+.page9-you{
+    opacity: 0;
+}
+.page9-you-animate{
+  animation:fadeIn 1s 4s ease forwards;
+  -webkit-animation:fadeIn 1s 4s ease forwards;
+}
+.page9-shake{
+  position: absolute;
+  margin-top: 10%;
+  width: 50%;
+  left:30%;
+  opacity: 0;
+}
+.page9-shake-animate{
+  animation:fadeIn 1s 4s ease infinite;
+  -webkit-animation:fadeIn 1s 4s ease infinite;
+}
+.page9-lighton{
+  display: block;
+}
+.page9-happy{
+  display: none;
+}
+.page9-happy p{
+  margin: 6px;
+}
+/*page10 */
+#page10{
+  background:url(images/page10_bg.jpg) top center no-repeat; background-size:cover;
+  overflow: hidden;
+}
+#page10 p{
+  color: #000;
+  text-align: center;
+  padding: 0;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 1.1em;
+}
+.page10-logo{
+  width: 80%;
+  opacity: 0;
+  background-color: #FFF;
+  text-align: center;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  text-align: center;
+  z-index: 999;
+}
+.page10-logo-animate{
+  animation:page10FadeIn 1s ease forwards;
+  -webkit-animation:page10FadeIn 1s ease forwards;
+}
+.page10-share{
+  width: 9%;
+  position: absolute;
+  left:55%;
+  top: 5%;
+  z-index: 888;
+  opacity: 0;
+}
+.page10-share-animate{
+  animation:page10FadeIn 1s ease forwards;
+  -webkit-animation:page10FadeIn 1s ease forwards;
+}
+@keyframes page10FadeIn{
+  0%{opacity: 0;}
+  20%{opacity: .2;}
+  40%{opacity: .3;}
+  60%{opacity: .5;}
+  80%{opacity: .7;}
+  100%{opacity: .7;}
+}
+@-webkit-keyframes page10FadeIn{
+  0%{opacity: 0;}
+  20%{opacity: .2;}
+  40%{opacity: .3;}
+  60%{opacity: .5;}
+  80%{opacity: .7;}
+  100%{opacity: .7;}
+}
+
+.loding{color:#178848;line-height:32px;width:100px;margin:50px auto}
+.logingIco{
+  background:url(./images/loading.png) no-repeat;
+  width:91px;height:91px;
+  animation:r 1s ease .7s infinite;
+  -webkit-animation:r 1s ease .7s infinite
+}
+@-webkit-keyframes r{0%{transform:rotate(0deg)}25%{transform:rotate(90deg)}50%{transform:rotate(180deg)}75%{transform:rotate(270deg)}100%{transform:rotate(360deg)}}
+@keyframes r{0%{transform:rotate(0deg)}25%{transform:rotate(90deg)}50%{transform:rotate(180deg)}75%{transform:rotate(270deg)}100%{transform:rotate(360deg)}}
+.loadingBox{width:100%;position:absolute;top:0;left:0}
+</style>
+<script type="text/javascript">
+$(document).ready(function(){ // $(document).ready()
+  $('#show').css({opacity:0});
+  var phoneWidth = $(window).width();
+  var phoneHeight = $(window).height();
+  if(phoneWidth > phoneHeight){
+    phoneWidth = phoneHeight*396/620;
+  }
+
+  $('body').css({'font-size':phoneWidth/24}); //设置整体页面的大小 每行显示24个字
+  $('.stars').css({width:phoneWidth,height:phoneHeight});
+  $(".page3-images").css({width:phoneWidth*0.66,height:phoneWidth*0.99});
+  $(".page3-douhao1").css({width:phoneWidth/12});
+  $(".page3-douhao2").css({width:phoneWidth/12});
+  $(".page3-images-size").css({width:phoneWidth/2});
+  $(".page3-swiper-container").css({width:phoneWidth*2,height:phoneWidth*0.93});
+  $(".page3-cnt").css({width:phoneWidth*3,height:phoneWidth*0.93,left:-phoneWidth/2});
+  $(".page4-star").css({top:phoneWidth*15.3/24});
+  $(".page4-pointer").css({top:phoneWidth*16.5/22});
+
+  
+  $('.page5-swiper-container').css({width:phoneWidth,height:phoneHeight});
+  $('#page5 .swiper-slide').css({width:phoneWidth,height:phoneHeight});
+  $('.page5-movie-img').css({width:phoneWidth*0.5});
+  $('.page5-chan1-img').css({width:phoneWidth*0.7});
+  $('.page5-chan2-img').css({width:phoneWidth*0.55});
+  $('.page5-movie-css').css({width:phoneWidth});
+  $('.page5-movie-shade').css({width:phoneWidth,height:phoneHeight});
+  $('.page5-p1-2').css({top:phoneHeight/3.5});
+  $('.page5-chan2').css({top:phoneHeight/5,left:'35px'});
+  $('.page5-p2-1').css({left:phoneWidth/2});
+  $('.page5-movie-hidden').css({top:phoneHeight/3});
+  $('.page5-close').css({top:phoneHeight/3-phoneWidth/8,height:phoneWidth/8});
+
+  $(".page7-images").css({width:phoneWidth*0.63,height:phoneWidth*0.99});
+  $(".page7-images-size").css({width:phoneWidth/2.5});
+  $(".page7-swiper-container").css({width:phoneWidth*2,height:phoneWidth*0.91});
+  $(".page7-cnt").css({width:phoneWidth*3,height:phoneWidth*0.91,left:-phoneWidth/2});
+  $('.page7-shade').css({width:phoneWidth,height:phoneHeight});
+  $(".page7-douhao1").css({width:phoneWidth/12});
+  $(".page7-douhao2").css({width:phoneWidth/12});
+  $(".page7-img-1-1").css({width:phoneWidth*0.9});
+  $(".page7-img-2-2").css({width:phoneWidth*0.9});
+  $(".page7-img-3-3").css({width:phoneWidth*0.9});
+  $(".page7-img-hidden-1").css({width:phoneWidth,height:phoneHeight});
+
+  $(".page8-images").css({width:phoneWidth*0.63,height:phoneWidth*0.85});
+  $(".page8-images-size").css({width:phoneWidth*0.55});
+  $(".page8-swiper-container").css({width:phoneWidth*2,height:phoneWidth*0.85});
+  $(".page8-cnt").css({width:phoneWidth*3,height:phoneWidth*0.85,left:-phoneWidth/2});
+  $('.page8-movie-css').css({width:phoneWidth});
+  $('.page8-movie-shade').css({width:phoneWidth,height:phoneHeight});
+  $('.page8-movie-hidden-1').css({top:phoneHeight/3});
+  $('.page8-movie-hidden-2').css({top:phoneHeight/3});
+  $('.page8-close').css({top:phoneHeight/3-phoneWidth/8,height:phoneWidth/8});
+  $('.page8-cnt').css({top:phoneWidth*0.5});
+
+  $('.page9-light').css({left:phoneWidth*0.28,top:20});
+
+  $('.loadingBox').css({width:phoneWidth,height:phoneHeight});
+
+
+  // $(".page7-images-size").css({width:phoneWidth*0.36});
+  // $(".page7-images").css({width:phoneWidth*0.65});
+
+  // $(".page8-images-size").css({width:phoneWidth*0.6});
+  // $(".page8-images").css({width:phoneWidth*0.65});
+ 
+
+
+  $(".page").css({width:phoneWidth,height:phoneHeight});
+
+  $(".main-swiper-container").css({width:phoneWidth,height:phoneHeight});
+
+      var mainSwiper = new Swiper('.main-swiper-container',{  //mySwiper
+      mode: 'vertical',
+      progress:true,
+      speed:300,
+      onSlideChangeStart:function(Swiper){
+          page5Swiper.swipeTo(0,0);
+          $(".page1-logo").removeClass("page1-logo-animate");
+          $(".page1-jiantou").removeClass("page1-jiantou-animate");
+          $(".page1").addClass("bianxiao");
+
+          $(".page4").fadeIn(0);
+            $("#page2").removeClass("page2background");
+            $(".page2-cnt").removeClass("page2-cnt-animate");
+            $(".page2-p1").removeClass("page2-p1-animate");
+            $(".page2-p2").removeClass("page2-p2-animate");
+            $(".page2-p1-fadeout").removeClass("page2-p1-fadeout-animate");
+            $(".page2-stars").removeClass("page2-stars-animation");
+            $(".page2-jiantou").removeClass("page2-jiantou-animate");
+          $(".page3-cnt").removeClass("page3-cnt-animate");
+          $(".page3-logo").removeClass("page3-logo-animate");
+          $(".page3-pagination").removeClass("page3-pagination-animate");
+          $(".page3-jiantou").removeClass("page3-jiantou-animate");
+          $(".page4-cnt").removeClass("page4-cnt-animate");
+          $(".page4-p1").removeClass("page4-p1-animate");
+          $(".page4-p2").removeClass("page4-p2-animate");
+          $(".page4-pointer").removeClass("page4-pointer-animate");
+          $(".page4-star").removeClass("page4-star-animate");
+          $(".page5-h1").removeClass("page5-h1-animate");
+           $(".page5").removeClass("page5-bg-animate");
+          $(".page5-p1").removeClass("page5-p1-animate");
+          $(".page5-p1-2").removeClass("page5-p1-2-animate");
+          $("#page5-arrow-right").removeClass("page5-arrows-animation");
+          $("#page5-arrow-left").removeClass("page5-arrows-animation");
+          $(".page5-jiantou").removeClass("page5-jiantou-animate");
+          $(".page6-cnt").removeClass("page6-cnt-animate");
+          $(".page6-hand1").removeClass("page6-hand1-animate");
+          $(".page6-hand2").removeClass("page6-hand2-animate");
+          $(".page6-jiantou").removeClass("page6-jiantou-animate");
+          $(".page7-cnt").removeClass("page7-cnt-animate");
+          $(".page7-logo").removeClass("page7-logo-animate");
+          $(".page7-pagination").removeClass("page7-pagination-animate");
+          $(".page7-jiantou").removeClass("page7-jiantou-animate");
+          $(".page8-cnt").removeClass("page8-cnt-animate");
+          $(".page8-logo").removeClass("page8-logo-animate");
+          $(".page8-pagination").removeClass("page8-pagination-animate");
+          $(".page8-jiantou").removeClass("page8-jiantou-animate");
+          $(".page9-logo").removeClass("page9-logo-animate");
+          $(".page9-light").removeClass("page9-light-animate");
+          $(".page9-you").removeClass("page9-you-animate");
+          $(".page9-shake").removeClass("page9-shake-animate");
+          $(".page9-jiantou").removeClass("page9-jiantou-animate");
+          $(".page9-happy").css("display","none"); 
+          $(".page9-lighton").css("display","block");
+          $(".page9-light").css("display","block");
+          $(".page9-shade").css("opacity","0.6");
+          $(".page9-stars").css("display","none");
+        
+          $(".page10-logo").removeClass("page10-logo-animate");
+          $(".page10-share").removeClass("page10-share-animate");
+
+
+        },
+      onSlideChangeEnd:function(Swiper){
+    
+        if(mainSwiper.activeIndex == 3){
+            mainSwiper.params.swipeToNext = false;
+        }else{
+              mainSwiper.params.swipeToNext = true;
+              mainSwiper.params.swipeToPrev = true; 
+        }
+
+        //$("#page1").css({'background-size':'100% 100%'}); 
+        //$("#page2").css({'background-size':'100% 100%'}); 
+        //$("#page3").css({'background-size':'100% 100%'}); 
+        //$("#page5").css({'background-size':'100% 100%'}); 
+        //$("#page6").css({'background-size':'100% 100%'}); 
+        //$("#page7").css({'background-size':'100% 100%'}); 
+        //$("#page8").css({'background-size':'100% 100%'}); 
+       // $("#page9").css({'background-size':'100% 100%'}); 
+        //$("#page10").css({'background-size':'100% 100%'}); 
+
+        $(".page1-logo").addClass("page1-logo-animate");
+        $(".page1-jiantou").addClass("page1-jiantou-animate");
+        
+        if(mainSwiper.activeIndex == 1){
+          $("#page2").addClass("page2background");
+          $(".page2-cnt").addClass("page2-cnt-animate");
+          $(".page2-p1").addClass("page2-p1-animate");
+          $(".page2-p2").addClass("page2-p2-animate");
+          $(".page2-stars").addClass("page2-stars-animation");
+          $(".page2-p1-fadeout").addClass("page2-p1-fadeout-animate");
+          $(".page2-jiantou").addClass("page2-jiantou-animate");
+        }
+        
+      if(mainSwiper.activeIndex == 2){
+          $(".page3-cnt").addClass("page3-cnt-animate");
+          $(".page3-logo").addClass("page3-logo-animate");
+          $(".page3-pagination").addClass("page3-pagination-animate");
+          $(".page3-jiantou").addClass("page3-jiantou-animate");
+        }
+        if(mainSwiper.activeIndex == 3){
+          $(".page4-cnt").addClass("page4-cnt-animate");
+          $(".page4-p1").addClass("page4-p1-animate");
+          $(".page4-p2").addClass("page4-p2-animate");
+          $(".page4-pointer").addClass("page4-pointer-animate");
+          $(".page4-star").addClass("page4-star-animate");
+        }
+        if(mainSwiper.activeIndex == 4){
+        $(".page5-h1").addClass("page5-h1-animate");
+        $(".page5-p1").addClass("page5-p1-animate");
+         $(".page5").addClass("page5-bg-animate");
+        $(".page5-p1-2").addClass("page5-p1-2-animate");
+           $("#page5-arrow-right").addClass("page5-arrows-animation");
+          $("#page5-arrow-left").addClass("page5-arrows-animation");
+        }
+        if(mainSwiper.activeIndex == 5){
+        $(".page6-cnt").addClass("page6-cnt-animate");
+        $(".page6-hand1").addClass("page6-hand1-animate");
+        $(".page6-hand2").addClass("page6-hand2-animate");
+        $(".page6-jiantou").addClass("page6-jiantou-animate");
+        }
+        if(mainSwiper.activeIndex == 6){
+        $(".page7-cnt").addClass("page7-cnt-animate");
+        $(".page7-logo").addClass("page7-logo-animate");
+        $(".page7-pagination").addClass("page7-pagination-animate");
+        $(".page7-jiantou").addClass("page7-jiantou-animate");
+        }
+        if(mainSwiper.activeIndex == 7){
+        $(".page8-cnt").addClass("page8-cnt-animate");
+        $(".page8-logo").addClass("page8-logo-animate");
+        $(".page8-pagination").addClass("page8-pagination-animate");
+        $(".page8-jiantou").addClass("page8-jiantou-animate");
+        }
+        if(mainSwiper.activeIndex == 8){
+        $(".page9-logo").addClass("page9-logo-animate");
+        $(".page9-light").addClass("page9-light-animate");
+        $(".page9-you").addClass("page9-you-animate");
+        $(".page9-shake").addClass("page9-shake-animate");
+        }
+        if(mainSwiper.activeIndex == 9){
+        $(".page10-logo").addClass("page10-logo-animate");
+        $(".page10-share").addClass("page10-share-animate");
+        }
+
+          
+        },
+            onProgressChange: function(swiper){
+        for (var i = 0; i < swiper.slides.length; i++){
+          var slide = swiper.slides[i];
+          var progress = slide.progress;
+          var scale, translate, opacity;
+          if (progress<=0) {
+            opacity = 1 - Math.min(Math.abs(progress),1);
+            scale = 1 - Math.min(Math.abs(progress/2),1);
+            translate = progress*swiper.width;  
+          }
+          else {
+            opacity = 1 - Math.min(Math.abs(progress/2),1);
+            scale=1;
+            translate=0; 
+          }
+          slide.style.opacity = opacity;
+          swiper.setTransform(slide,'translate3d(0,'+(translate)+'px,0) scale('+scale+')');
+        }
+      },
+      onTouchStart:function(swiper){
+        for (var i = 0; i < swiper.slides.length; i++){
+          swiper.setTransition(swiper.slides[i], 0);
+        }
+      },
+      onSetWrapperTransition: function(swiper, speed) {
+        for (var i = 0; i < swiper.slides.length; i++){
+          swiper.setTransition(swiper.slides[i], speed);
+        }
+      }
+    })
+    // Set Z-Indexes
+    for (var i = 0; i < mainSwiper.slides.length; i++){
+      mainSwiper.slides[i].style.zIndex = mainSwiper.slides.length - i;
+    }
+
+    
+    //page4 轻点鼠标进入下一页
+      $('.page4-star').on('click', function(e){
+        e.preventDefault();
+        $(".page5-h1").removeClass("page5-h1-animate");
+        $(".page5-p1").removeClass("page5-p1-animate");
+        $(".page5-p1-2").removeClass("page5-p1-2-animate");
+         $(".page5").removeClass("page5-bg-animate");
+          $("#page5-arrow-right").removeClass("page5-arrows-animation");
+          $("#page5-arrow-left").removeClass("page5-arrows-animation");
+        $(".page4").fadeOut(1000);
+       
+        setTimeout(function(){
+          mainSwiper.params.swipeToNext = true;
+          mainSwiper.swipeTo(4,0);
+          $(".page5").addClass("page5-bg-animate");
+        $(".page5-h1").addClass("page5-h1-animate");
+        $(".page5-p1").addClass("page5-p1-animate");
+        $(".page5-p1-2").addClass("page5-p1-2-animate");
+          $("#page5-arrow-right").addClass("page5-arrows-animation");
+          $("#page5-arrow-left").addClass("page5-arrows-animation");
+        }
+        ,1000);
+        
+    });
+
+    //page3 中 滑动页面
+    var page3mySwiper = new Swiper('.page3-swiper-container',{
+        pagination: '.page3-pagination',
+        centeredSlides: true,
+        slidesPerView:'auto',
+        loop:false,
+      });
+
+      
+    var page5Swiper = new Swiper('.page5-swiper-container',{
+      loop:true,
+      paginationClickable: true
+    })
+    $('.arrow-left').on('click', function(e){
+      e.preventDefault()
+      page5Swiper.swipePrev();
+      $(".page5-jiantou").addClass("page5-jiantou-animate");
+
+    })
+    $('.arrow-right').on('click', function(e){
+      e.preventDefault()
+      page5Swiper.swipeNext();
+      $(".page5-jiantou").addClass("page5-jiantou-animate");
+    })
+   
+
+    //page7 中 滑动页面
+    var page7mySwiper = new Swiper('.page7-swiper-container',{
+        pagination: '.page7-pagination',
+        centeredSlides: true,
+        slidesPerView:'auto',
+        loop:false,
+      });
+    //page8 中 滑动页面
+      var page8mySwiper = new Swiper('.page8-swiper-container',{
+        pagination: '.page8-pagination',
+        centeredSlides: true,
+        slidesPerView:'auto',
+        loop:false,
+      });
+
+
+    $('.page7-img-1').on('click',function(e){
+      $('.page7-shade').css({'display':'block'});
+      $('.page7-img-hidden-1').css({'display':'block'});
+    });
+    $('.page7-img-1-1').on('click',function(e){
+      $('.page7-shade').css({'display':'none'});
+      $('.page7-img-hidden-1').css({'display':'none'});
+    });
+
+    $('.page7-img-2').on('click',function(e){
+      $('.page7-shade').css({'display':'block'});
+      $('.page7-img-hidden-2').css({'display':'block'});
+    });
+    $('.page7-img-2-2').on('click',function(e){
+      $('.page7-shade').css({'display':'none'});
+      $('.page7-img-hidden-2').css({'display':'none'});
+    });
+
+    $('.page7-img-3').on('click',function(e){
+      $('.page7-shade').css({'display':'block'});
+      $('.page7-img-hidden-3').css({'display':'block'});
+    });
+    $('.page7-img-3-3').on('click',function(e){
+      $('.page7-shade').css({'display':'none'});
+      $('.page7-img-hidden-3').css({'display':'none'});
+    });
+
+    //处理多媒体
+    var bgAudio = $('#bgAudio')[0];
+
+    $(document).on('touchstart', function() {
+      if(bgAudio.played.length == 0){
+        bgAudio.load();
+        bgAudio.volume = 0.3;
+        bgAudio.play();
+      }
+    })
+    
+
+    var myVideo = document.getElementById('page5-movie');
+    $('.page5-movie-img').on('click',function(e){
+     myVideo.src="http://wemiss.qiniudn.com/Bou.mp4";
+    bgAudio.pause();
+    $('.page5-movie-hidden').css('display','block');
+    $('.page5-movie-shade').css('display','block');
+    $('.page5-close').css('display','block');
+    });
+    $('.page5-movie-close').on('click',function(e){
+     bgAudio.play();
+    if(myVideo.currentTime){
+       myVideo.currentTime = 0;
+       myVideo.pause(); 
+    }
+    $('.page5-movie-hidden').css('display','none');
+    $('.page5-movie-shade').css('display','none');
+    $('.page5-close').css('display','none');
+    });
+    var myVideo1 = document.getElementById('page8-movie-1');
+    $('.page8-movie-img-1').on('click',function(e){
+      myVideo1.src="http://wemiss.qiniudn.com/sea.mp4";
+      bgAudio.pause();
+      $('.page8-movie-hidden-1').css('display','block');
+      $('.page8-movie-shade').css('display','block');
+      $('.page8-close-1').css('display','block');
+    });
+    $('.page8-movie-close-1').on('click',function(e){
+      bgAudio.play();
+      if(myVideo1.currentTime){ 
+        myVideo1.currentTime = 0;
+        myVideo1.pause(); 
+      }
+      $('.page8-movie-hidden-1').css('display','none');
+      $('.page8-movie-shade').css('display','none');
+      $('.page8-close-1').css('display','none');
+    });
+
+    var myVideo2 = document.getElementById('page8-movie-2');
+    $('.page8-movie-img-2').on('click',function(e){
+     myVideo2.src="http://wemiss.qiniudn.com/KOL.mp4";
+      bgAudio.pause();
+      $('.page8-movie-hidden-2').css('display','block');
+      $('.page8-movie-shade').css('display','block');
+      $('.page8-close-2').css('display','block');
+    });
+    $('.page8-movie-close-2').on('click',function(e){
+      bgAudio.play();
+      if(myVideo2.currentTime){
+        myVideo2.currentTime = 0;
+        myVideo2.pause(); 
+      }
+      $('.page8-movie-hidden-2').css('display','none');
+      $('.page8-movie-shade').css('display','none');
+      $('.page8-close-2').css('display','none');
+    });
+
+
+  // $("#jquery_jplayer_1").jPlayer({
+  //  ready: function () {
+  //   $(this).jPlayer("setMedia", {
+  //   mp3: "http://wemiss.qiniudn.com/bg.mp3",
+  //   m4a: "http://wemiss.qiniudn.com/bg.mp4",
+  //   oga: "http://wemiss.qiniudn.com/bg.ogg"
+  //   }).jPlayer("play")
+  //  },
+  //  swfPath: "./jQuery.jPlayer.2.7.0/jQuery.jPlayer.2.7.0/",
+  //  supplied: "mp3,oga,m4v",
+  //  loop:true
+  // });
+  //  $("#jquery_jplayer").hide();
+
+}); // $(document).ready()
+</script>
+</head>
+<body>
+<DIV class="loadingBox">
+<DIV class="loding">
+<DIV class="logingIco"></DIV>
+<P>Loading<SPAN id="bfb">0%</SPAN></P></DIV></DIV>
+<SCRIPT>newLoadingFile(
+  {numerical:"bfb",files:[
+    {link:"./images/arrows.png",pert:"2.86"},
+    {link:"./images/jiantou.png",pert:"5.71"},
+    {link:"./images/movie_close.jpg",pert:"8.57"},
+    {link:"./images/page1_bg.jpg",pert:"11.43"},
+    {link:"./images/yanglan.jpg",pert:"14.29"},
+    {link:"./images/page2_bg.jpg",pert:"17.15"},
+    {link:"./images/page3_bg.jpg",pert:"20.01"},
+    {link:"./images/page4_bg.jpg",pert:"22.87"},
+    {link:"./images/page4_pointer.png",pert:"25.73"},
+    {link:"./images/page5_bg.jpg",pert:"28.59"},
+    {link:"./images/page5_chan1.png",pert:"31.45"},
+    {link:"./images/page5_chan2.png",pert:"34.31"},
+    {link:"./images/page5_movie.jpg",pert:"37.17"},
+    {link:"./images/page6_bg.jpg",pert:"40.03"},
+    {link:"./images/page6_hand.png",pert:"42.89"},
+    {link:"./images/page6_hand2.png",pert:"45.75"},
+    {link:"./images/page7_1.jpg",pert:"48.61"},
+    {link:"./images/page7_2.jpg",pert:"51.47"},
+    {link:"./images/page7_3.jpg",pert:"54.33"},
+    {link:"./images/page7_bg.jpg",pert:"57.19"},
+    {link:"./images/page8_1.jpg",pert:"60.05"},
+    {link:"./images/page8_2.jpg",pert:"62.91"},
+    {link:"./images/page8_3.jpg",pert:"66.91"},
+    {link:"./images/page8_bg.jpg",pert:"70.20"},
+    {link:"./images/page9_bg.jpg",pert:"74.56"},
+    {link:"./images/page9_light.png",pert:"78.32"},
+    {link:"./images/page9_shake.png",pert:"82.20"},
+    {link:"./images/page9_you.png",pert:"86.32"},
+    {link:"./images/page10_bg.jpg",pert:"86.90"},
+    {link:"./images/page10_share.png",pert:"88.01"},
+    {link:"./images/qinhailu.jpg",pert:"88.36"},
+    {link:"./images/star.png",pert:"93.25"},
+    {link:"./images/sumang.jpg",pert:"96.36"},
+    {link:"./images/page1_logo.png",pert:"100"}
+  ]},pageInit)
+
+function pageInit(){
+  $('.loadingBox').css({display:'none'});
+  $('#show').css({opacity:1});
+  $(".page1-logo").addClass("page1-logo-animate");
+  $(".page1-jiantou").addClass("page1-jiantou-animate");
+  // $("#jquery_jplayer_1").jPlayer("play");
+/*
+var bgAudio = $('#bgAudio')[0];
+  bgAudio.load();
+  bgAudio.volume = 0.3;
+  bgAudio.play();
+  */
+}
+</SCRIPT>
+<!-- <div id="jquery_jplayer_1" style="display:none;"></div> -->
+<div class="main-swiper-container swiper-container" id="show"><!-- .swiper-container div-->
+    <div class="swiper-wrapper"><!-- .swiper-wrapper div-->      
+        <div id="page1" class="swiper-slide"><!-- #page1 div-->
+          <div class="page"><!-- #page div-->
+            
+
+        <div class="page1-logo">
+          <img src="images/page1_logo.png" width="45%" />
+          <br/><br/>
+          <p>海蓝之谜中国10年</p>
+          <p>打造优雅精致女人</p>
+        </div>
+        <div class="page1-jiantou"><img src="images/jiantou.png" /></div>
+      </div><!-- #page div-->
+        </div> <!-- #page1 div-->
+        <div id="page2" class="swiper-slide"  style="opacity: 0;"> <!-- #page2 div-->
+          <div class="page"><!-- #page div-->
+            
+            
+        <div class="page2-cnt">          
+          <div class="page2-p1">
+            <h1>2004-2014 挚臻十年</h1>
+              <div class="page2-p1-fadeout">
+              <p>2004年，LA MER海蓝之谜进入中国，</p>
+              <p>仅凭一件最具代表海蓝之谜神韵的传奇精华面</p>
+              <p>霜，成为中国女性关注的焦点。</p>
+              </div>
+          </div>
+          <div class="page2-p2">
+            <p>十年来，一直坚持源自内心深处的臻爱与诚切，</p>
+            <p>为中国消费者奉上至臻奢华的产品与服务。</p>
+          </div>
+        </div>
+        <div class="page2-jiantou"><img src="images/jiantou.png" /></div>
+      </div><!-- #page div-->
+        </div><!-- #page2 div-->
+        <div id="page3" class="swiper-slide"><!-- #page3 div-->
+          <div class="page"><!-- #page div-->           
+            <div class="page3-logo">
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+          <p class="p1"><br/>海蓝之谜入驻中国10周年</p>
+          <p class="p2">各界名人共襄盛举</p>
+          <p>&nbsp;</p>
+        </div>
+            
+            <div class="page3-cnt">
+          <div class="page3-swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page3-images">
+                  <img src="./images/douhao1.png" class="page3-douhao1" />
+                  <img src="./images/douhao2.png" class="page3-douhao2" />
+                  <p><img src="./images/yanglan.jpg" class="page3-images-size" /></p>
+                  <div class="page3-images-title">知名主持人、媒体人、企业家</div>
+                  <div class="page3-images-name"><strong>杨澜</strong></div>
+                  <p>LA MER带给我的体验更像是一种</p>
+                  <p>心灵的交互对话，能让人静下心来</p>
+                  <p>去感受精致生活所带来的美好。</p>
+                  <p>&nbsp;</p>                 
+                </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page3-images">
+                  <img src="./images/douhao1.png" class="page3-douhao1" />
+                  <img src="./images/douhao2.png" class="page3-douhao2" />
+                  <p><img src="./images/qinhailu.jpg" class="page3-images-size" /></p>      
+                  <div class="page3-images-title">艺人 金马奖影后</div>          
+                  <div class="page3-images-name"><strong>秦海璐</strong></div>
+                  <p>LA MER最精华的焕变新生能力就像</p>
+                  <p>女人坚强的后盾,让我变得更加自信</p>
+                </div>
+                  </div>
+                </div>
+                 <div class="swiper-slide">
+                  <div class="title">
+                <div class="page3-images">
+                  <img src="./images/douhao1.png" class="page3-douhao1" />
+                  <img src="./images/douhao2.png" class="page3-douhao2" />
+                  <p><img src="./images/sumang.jpg" class="page3-images-size" /></p>      
+                  <div class="page3-images-title">时尚集团总裁、《时尚芭莎》主编</div>
+                  <div class="page3-images-name"><strong>苏芒</strong></div>
+                  <p>第一次与LA MER邂逅时，就深深的</p>
+                  <p>爱上了她，每一次的使用感受都如</p>
+                  <p>同是一种享受。</p>
+                  <p>&nbsp;</p>             
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>             
+          </div>  
+          <div class="page3-pagination"></div>
+        <div class="page3-jiantou"><img src="images/jiantou.png" /></div>
+      </div><!-- #page div-->
+        </div><!-- #page3 div-->
+        <div id="page4" class="swiper-slide"><!-- #page4 div-->
+          <div class="page page4"><!-- #page div-->
+          <div class="page4-main-cnt">
+            <div class="page4-cnt">
+              <div class="h1">秘承深海 修护传奇</div>
+              <div class="page4-p1">
+                <p>太空物理学家贺伯博士利用低温生物性发酵技术</p>
+                <p>从纯净无污染海域的深海巨藻中</p>
+                <p>萃炼出品牌灵魂成分、修护秘方</p>
+                <p><strong><i>—神奇活性精萃MiracleBroth<sup>TM</sup></i></strong></p>
+              </div>
+              <div class="page4-p2">
+                <p>从饱含灵魂成分的精华面霜到如今海蓝之谜</p>
+                <p>全系列产品，一脉相承，</p>
+                <p>满足各种肌肤类型的需求及偏好，</p>
+                <p>缔造出传奇修护的焕变奇迹。 </p>
+              </div>
+            </div>
+          </div>
+        <div class="page4-pointer"><img src="images/page4_pointer.png"  /></div>
+        <div class="page4-star"><img src="images/star.png" class="page4-pointer-star" /></div>
+      </div><!-- #page div-->
+        </div><!-- #page4 div-->
+        <div id="page5" class="swiper-slide"><!-- #page5 div-->
+            <div class="page page5" style="position:absolute;">  <!-- #page div-->
+                <div class="page5-movie-shade"></div>
+                <div class="page5-close">               
+                    <img src="./images/movie_close.jpg" class="page5-movie-close" />
+                </div>
+                <div class="page5-movie-hidden"> <!-- movie hidden-->
+                    <video controls="controls" class="page5-movie-css" id="page5-movie" poster="images/page5_movie.jpg">
+                      您的浏览器不支持 video 标签。
+                    </video>
+                </div>    <!-- movie hidden-->
+              <div style="width:100%;height:30px;"></div>     
+              <div class="page5-h1" >
+                <p>奢华跨界，缔造传世臻品</p>
+              </div>
+          <a class="arrow-left" href="#" id="page5-arrow-left"></a> 
+                  <a class="arrow-right" href="#" id="page5-arrow-right"></a>
+                <div class="page5-main-swiper">         
+                    <div class="page5-swiper-container">
+                      <div class="swiper-wrapper">
+                          <div class="swiper-slide">      
+                          <div style="position:relative;">
+                            <div class="page5-p1">
+                                <p>联袂法国传奇珠宝品牌</p>
+                                <div style="width:50%;text-align:center;margin:0 auto;">  
+                                  <span class="page5-hr" style="margin-top:5px;"></span>
+                                  <span class="page5-baoshilong">
+                                    <p>&nbsp;<strong>宝诗龙</strong></p>
+                                    <p><strong>Boucheron</strong></p>
+                                    </span>
+                                  <span class="page5-hr" style="margin-bottom:5px;"></span>
+                                </div>
+                                  <p>限量打造100毫升限量臻藏版</p>
+                              <div class="page5-movie">
+                                <img src="images/page5_movie.jpg" class="page5-movie-img"  width="50%">
+                              </div>  
+                            </div>
+                            <div class="page5-p1-2">
+                              <p>&nbsp;</p>
+                              <img src="./images/page5_chan1.png" class="page5-chan1-img">
+                            </div>
+                        </div>
+                </div>
+                <div class="swiper-slide"> 
+                  <div style="position:relative;">
+                  <div class="page5-p2">
+                    <div class="page5-p2-1">
+                              <p>&nbsp;</p>
+                                <p>英国顶级奢侈品牌</p>
+                                <div style="width:60%;text-align:center;margin:0 auto;">  
+                                  <span class="page5-hr" style="margin-top:8px;margin-bottom:8px;"></span>
+                                  <span class="page5-baoshilong">
+                                    <p><strong>爱丝普蕾</strong></p>
+                                    <p><strong>Asprey</strong></p>
+                                    </span>
+                                  <span class="page5-hr" style="margin-top:8px;margin-bottom:8px;"></span>
+                                </div>
+                                    <p>为海蓝之谜量身打造定制</p>
+                                    <p>全手工精美化妆箱</p>
+                                    <p>&nbsp;</p>
+                                    <p>&nbsp;</p>
+                                </div>
+                            <div class="page5-chan2">
+                                <img src="./images/page5_chan2.png" class="page5-chan2-img">
+                              </div>
+                          </div>                            
+                            </div>
+                  </div>                 
+                  </div>
+              </div>
+           </div>
+        <div class="page5-jiantou"><img src="images/jiantou.png" /></div>
+      </div><!-- #page div-->
+      </div><!-- #page5 div-->
+      <div id="page6" class="swiper-slide"><!-- #page6 div-->
+            <div class="page"><!-- #page div-->
+            <div class="page6-main-cnt">
+                <div class="page6-cnt">
+                  <div class="h1">极致呵宠的奢华服务</div>
+                  <p>十年来，倾己所力奉献奢华尊宠护肤体验，</p>
+                  <p>将奢华服务理念带入护肤领域，</p>
+                  <p>一直创造超越期待的贴心服务惊喜，</p>
+                  <p>并使每一位到店顾客体验从感官到内心的</p>
+                  <p>极致满足。</p>
+                </div>
+           </div>
+          <div class="page6-hand1"><img src="images/page6_hand1.png" width="80%" /></div>
+           <div class="page6-hand2"><img src="images/page6_hand2.png" width="85%" /></div>
+          <div class="page6-jiantou"><img src="images/jiantou.png" /></div>
+        </div><!-- #page div-->
+          </div><!-- #page6 div-->
+      <div id="page7" class="swiper-slide"><!-- #page7 div-->
+          <div class="page"><!-- #page div--> 
+            <div class="page7-shade" style="z-index:888;position:relative;"></div>
+            <div class="page7-img-hidden-1"> <!-- img hidden-->
+                <img src="./images/page7_1.png" class="page7-img-1-1">
+            </div>    <!-- img hidden-->          
+            <div class="page7-img-hidden-2"> <!-- img hidden-->
+                <img src="./images/page7_2.png" class="page7-img-2-2">
+            </div>    <!-- img hidden-->        
+            <div class="page7-img-hidden-3"> <!-- img hidden-->
+                <img src="./images/page7_3.png" class="page7-img-3-3">
+            </div>    <!-- img hidden-->        
+            <div class="page7-logo">
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+          <p class="p1"><br/>亲述源自心底的真挚奢宠</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
+            <div class="page7-cnt">
+          <div class="page7-swiper-container">
+              <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page7-images">
+                  <img src="./images/douhao1.png" class="page7-douhao1" />
+                  <img src="./images/douhao2.png" class="page7-douhao2" />
+                  <p><img src="./images/page7_1.jpg" class="page7-images-size page7-img-1" /></p>     
+                   <div class="page7-images-title"><strong>OnlyLady美妆达人</strong></div>
+                  <div class="page7-images-name"><strong>Daniella</strong></div>
+                  <p>为特意同行而来的闺蜜、先生或</p>
+                  <p>儿童辟出专属休息区，在等待过</p>
+                  <p>程中享用LA MER特调健康饮品，</p>
+                  <p>苹果Mac电脑与无线wifi。 </p>           
+                </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page7-images">
+                  <img src="./images/douhao1.png" class="page7-douhao1" />
+                  <img src="./images/douhao2.png" class="page7-douhao2" />
+                  <p><img src="./images/page7_2.jpg" class="page7-images-size page7-img-2" /></p>
+                  <div class="page7-images-title"><strong>LA MER VIP</strong></div>
+                  <div class="page7-images-name"><strong>倪琳</strong></div>
+                  <p>我最喜欢的是奢华护理的SPA服务，</p>
+                  <p>用8分之一瓶面霜给我做面膜，感觉</p>
+                  <p>个面部被包裹在面霜里面，十分奢</p>
+                  <p>华，护理完成后，肌肤非常弹润健康</p>             
+                </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page7-images">
+                  <img src="./images/douhao1.png" class="page7-douhao1" />
+                  <img src="./images/douhao2.png" class="page7-douhao2" />
+                  <p><img src="./images/page7_3.jpg" class="page7-images-size  page7-img-3" /></p>     
+                  <div class="page7-images-title"><strong>LA MER VIP</strong></div>          
+                  <div class="page7-images-name"><strong>徐倩</strong></div>
+                  <p>每次都会根据我的肌肤状况推荐适</p>
+                  <p>合的产品，并帮我使用和安排日常</p>
+                  <p>护理、茶会以及第一时间通知我了</p>
+                  <p>解限量产品发布和护肤技巧。</p>
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>             
+          </div>  
+          <div class="page7-pagination"></div>
+        <div class="page7-jiantou"><img src="images/jiantou.png" /></div>
+      </div><!-- #page div-->
+        </div><!-- #page7 div-->
+
+    <div id="page8" class="swiper-slide"><!-- #page8 div-->
+          <div class="page"><!-- #page div-->
+            <div class="page8-movie-shade" style="z-index:888;position:relative;"></div>
+            <div class="page8-close-1 page8-close">
+            <img src="./images/movie_close.jpg" class="page8-movie-close-1 page8-movie-close" />
+            </div>
+            <div class="page8-movie-hidden-1"> <!-- movie hidden-->
+            <video controls="controls" class="page8-movie-css" id="page8-movie-1" poster="./images/page8_2.jpg">
+            您的浏览器不支持 video 标签。
+            </video>
+            </div>    <!-- movie hidden-->
+            <div class="page8-close-2 page8-close">
+            <img src="./images/movie_close.jpg" class="page8-movie-close-2 page8-movie-close" />
+            </div>
+            <div class="page8-movie-hidden-2"> <!-- movie hidden-->
+            <video controls="controls" class="page8-movie-css" id="page8-movie-2" poster="./images/page8_3.jpg">
+            您的浏览器不支持 video 标签。
+            </video>
+            </div>    <!-- movie hidden-->
+            <div class="page8-main-logo">             
+              <div class="page8-logo">
+              <p>&nbsp;</p>
+              <p>&nbsp;</p>
+              <p class="p1">永续蔚蓝心动</p>
+              <p class="p2">海蓝之谜为保护海洋不懈努力，</p>
+              <p class="p2">秉承“取自海洋、回馈海洋”的理念， </p>
+              <p class="p2">以实际行动保护海洋生态系统，</p>
+              <p class="p3">延续这份大自然的馈赠。</p>          
+            </div>
+          </div> 
+            <div class="page8-cnt">
+          <div class="page8-swiper-container">
+              <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page8-images">
+                  <p><img src="./images/page8_2.jpg" class="page8-images-size page8-movie-img-1" /></p>
+                  <div class="page8-p-top"><p>&nbsp;</p></div>
+                  <p class="page8-p">与世界海洋保护组织Oceana</p>
+                  <p class="page8-p">共同推动6月8日“世界海洋日”</p>
+                  <p class="page8-p">让海洋拥有属于自己的一天。</p>
+                  <p class="page8-p">&nbsp;</p>
+                  <p>&nbsp;</p>         
+                </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page8-images">
+                  <p><img src="./images/page8_3.jpg" class="page8-images-size page8-movie-img-2"  /></p>      
+                  <div  class="page8-p-top"><p>&nbsp;</p></div>          
+                  <p class="page8-p">追求卓越品质的同时</p>
+                  <p class="page8-p">也始终坚持天然与环境保护。</p>
+                  <p class="page8-p">一直坚持着限量人工采摘，</p>
+                  <p class="page8-p">来确保深海巨藻的可持续生长。 </p>
+                  <p>&nbsp;</p>
+                </div>
+                  </div>
+                </div>
+                                <div class="swiper-slide">
+                  <div class="title">
+                <div class="page8-images">
+                  <p><img src="./images/page8_1.jpg" class="page8-images-size" /></p>     
+                  <div  class="page8-p-top"><p>&nbsp;</p></div>
+                  <p class="page8-p">海蓝之谜的每个专柜</p>
+                  <p class="page8-p">都设有立体海底水族馆，</p>
+                  <p class="page8-p">鱼缸内珊瑚均为</p>
+                  <p class="page8-p"> 人工珊瑚和淡水鱼。</p>
+                  <p class="page8-p"><strong>LA MER</strong>摒弃所有</p>
+                  <p class="page8-p"> 可能破坏海洋生态的做法。</p>
+                  <p class="page8-p">坚持海洋环保理念。</p>
+                  <p>&nbsp;</p>     
+                </div>
+                  </div>
+                </div>
+              </div>
+            </div>             
+          </div>  
+          <div class="page8-pagination"></div>
+        <div class="page8-jiantou"><img src="images/jiantou.png" /></div>
+      </div><!-- #page div-->
+        </div><!-- #page8 div-->
+
+        <div id="page9" class="swiper-slide"><!-- #page9 div-->
+          <div class="page"><!-- #page div-->
+           
+        <div class="page9-shade"></div>
+        <div class="page9-logo">
+          <p style="margin:6px;">LA MER海蓝之谜与您相伴十年，</p>
+          <p style="margin:6px;"> 感谢您对我们的支持与陪伴！ </p>
+        </div>
+
+        <div class="page9-2">
+            <div class="page9-light" style="text-align:left;">
+              <img src="images/page9_light.png" class="page9-light-img" />
+            </div>
+          <div class="page9-you">
+            <img src="images/page9_you.png" width="65%" />
+          </div>
+          <div class="page9-shake" style="width:90%;text-align:center;margin:10px auto;">
+            <p>&nbsp;</p>
+            <p>&nbsp;</p>
+            <table width="100%" class="page9-lighton">
+              <tr>
+                <td align="right"><span style="font-size:0.8em;">晃动手机，吹灭蜡烛</span></td>
+                <td align="left"><img src="images/page9_shake.png" width="50%" /></td>
+              </tr>
+            </table> 
+            
+          </div>
+          <div style="width:90%;text-align:center;margin:10px auto;">
+            <div class="page9-happy" style="text-align:center;font-size:0.8em;">
+                <p align="center" style="margin:6px;">祝愿LA MER海蓝之谜进入中国10周年</p>
+              
+                <p align="center" style="margin:6px;">生日快乐</p>
+              </div>
+            </div>
+        </div>
+        <div class="page9-jiantou"><img src="images/jiantou.png" /></div>
+      </div><!-- #page div-->
+        </div> <!-- #page9 div-->
+
+    <div id="page10" class="swiper-slide"><!-- #page10 div-->
+          <div class="page"><!-- #page div-->
+        <div class="page10-share"><img src="images/page10_share.png" /></div>
+        <div class="page10-logo">
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>点击右上角分享你的祝福至朋友圈，</p>
+          <p> 截图发送至LA MER官方微信， </p>
+          <p> 即有机会臻享十周年奢华礼盒。 </p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+        </div>
+      </div><!-- #page div-->
+        </div> <!-- #page10 div-->
+    </div><!-- .swiper-wrapper div-->
+</div><!-- .swiper-container div-->
+<div style="display:none;">
+<!--
+<audio id="bgAudio" loop>
+<source src="http://wemiss.qiniudn.com/bg.ogg" />
+<source src="http://wemiss.qiniudn.com/bg.mp3" />
+</audio>-->
+</div>
+<script type="text/javascript">
+/* touch.on('#page1', 'swipeup', function(ev){
+    $("#page1").css({'background-size':'90% 90%'}); 
+  });
+  touch.on('#page2', 'swipeup', function(ev){
+    $("#page2").css({'background-size':'90% 90%'}); 
+  });
+  touch.on('#page3', 'swipeup', function(ev){
+    $("#page3").css({'background-size':'90% 90%'}); 
+  });
+
+  touch.on('#page5', 'swipeup', function(ev){
+    $("#page5").css({'background-size':'90% 90%'}); 
+  });
+    touch.on('#page6', 'swipeup', function(ev){
+    $("#page6").css({'background-size':'90% 90%'}); 
+  });
+    touch.on('#page7', 'swipeup', function(ev){
+    $("#page7").css({'background-size':'90% 90%'}); 
+  });
+    touch.on('#page8', 'swipeup', function(ev){
+    $("#page8").css({'background-size':'90% 90%'}); 
+  });
+    touch.on('#page9', 'swipeup', function(ev){
+    $("#page9").css({'background-size':'90% 90%'}); 
+  });*/
+</script>
+</body>
+</html>

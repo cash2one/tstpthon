@@ -1,0 +1,271 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Projects{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Project<span>人工推荐管理</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">Project</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<h4 class="mb30"><a href="{% url 'project.detail' project.pk %}" target="_blank">{{project.name_cn}}</a>  {{project.name_en}} （Total Recommend：{{total_num}}）</h4>
+<div class="table-responsive">
+        <h4 style="margin-bottom:30px;">Final List（No. {{man_list_count}}）  <a class="btn btn-default" href="###" style="float:right;" id="one_click_btn">一键发送</a></h4>
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>
+                <div class="ckbox ckbox-success">
+                    <input type="checkbox" id="checkbox_all">
+                    <label for="checkbox_all"></label>
+                </div>
+
+                </th>
+                <th>推荐人</th>
+                <th>#</th>
+                <th>公司名称</th>
+                <th>公司简称</th>
+                <th>公司类型</th>
+                <th>推荐理由</th>
+                <th>是否有用户</th>
+                <th>推荐分数</th>
+                <th>标星</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {% for m in man_list %}
+              <tr>
+                <td>
+                  <div class="ckbox ckbox-success">
+
+                    <input type="checkbox" id="check_{{ m.company.id }}" name="check_company" class="check_company" value="{{ m.id }}"  rel ="{{ m.company.id }}">
+                    <label for="check_{{ m.company.id }}"></label>
+
+                  </div>
+
+                </td>
+
+                <td>
+                    {% if m.is_man %}
+                         BD推荐
+                    {% else %}
+                         用户推荐
+                    {% endif %}
+                </td>
+                
+                <td>{{ m.company.id }}</td>
+                <td><a href="{% url 'company.edit' m.company.id %}" target="_blank">{{ m.company.name_cn}}</a></td>
+                <td>{{ m.company.short_name_cn}}</td>
+                <td>{{ m.company.get_type_display}}</td>
+                <td>{{ m.target_reason_cn}}</td>
+                <td><a href="{% url 'company.edit' m.company.id %}#member_table" target="_blank">{{ m.company.member_set.count}}</a></td>
+                 <td>{{ m.sum_score}}</td>
+                <td>{{ m.is_star_cn|default:''}}</td>
+                <td>
+                    <a href="{% url 'project.recommend_toprank' m.id %}" title="置顶">置顶</a>&nbsp;&nbsp;
+                    <a href="{% url 'project.recommend_uprank' m.id %}" title="置顶">上移</a>&nbsp;&nbsp;
+                    <a href="{% url 'project.recommend_downrank' m.id %}" title="置顶">下移</a>&nbsp;&nbsp;
+                    {% if m.is_star %}
+                    <a href="{% url 'project.recommend_unstar' m.id %}" title="取消标星">取消标星</a>&nbsp;&nbsp;
+                    {% else %}
+                    <a href="{% url 'project.recommend_star' m.id %}" title="标星">标星</a>&nbsp;&nbsp;
+                    {% endif %}
+                    <a href="{% url 'project.recommend_remove' m.id %}" title="移除">移除</a>&nbsp;&nbsp;
+                    <a href="{% url 'project.recommend_detail' m.id %}" title="移除">详细</a>&nbsp;&nbsp;
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <br/><br/>
+
+        <h4>Recommend（No. {{recommend_list_count}}）</h4>
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>公司名称</th>
+                <th>公司简称</th>
+                <th>公司类型</th>
+                <th>推荐理由</th>
+                <th>是否有用户</th>
+                <th>推荐分数</th>
+
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate recommend_list 10 %}
+            {% for m in recommend_list %}
+              <tr>
+                <td>{{ m.company.id }}</td>
+                <td><a href="{% url 'company.edit' m.company.id %}" target="_blank">{{ m.company.name_cn}}</a></td>
+                <td>{{ m.company.short_name_cn}}</td>
+                <td>{{ m.company.get_type_display}}</td>
+                <td>{{ m.target_reason_cn}}</td>
+                <td><a href="{% url 'company.edit' m.company.id %}#member_table" target="_blank">{{ m.company.member_set.count}}</a></td>
+                <td>{{ m.sum_score}}</td>
+                <td>
+                    <a href="{% url 'project.recommend_add' m.id %}?page={{ curr_page }}" title="推荐">推荐</a>&nbsp;&nbsp;
+                    <a href="{% url 'project.recommend_delete' m.id %}?page={{ curr_page }}" title="删除">删除</a>&nbsp;&nbsp;
+                    <a href="{% url 'project.recommend_detail' m.id %}?page={{ curr_page }}" title="移除">详细</a>&nbsp;&nbsp;
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+
+    {% paginate %}
+
+    <br/><br/>
+
+        <h4>Manual</h4>
+        <form class="form-inline mb60"  method="post" name="myform" id='myform'>
+         {% csrf_token %}
+        
+
+        <input type="text" placeholder="Input Company Name" id="add_name" name="add_name" value="" class="form-control" style="width:300px;" />
+        <input type="hidden" value="" name="addcompany_id" id="addcompany_id">
+        <input type="hidden" value="{{project.id}}" name="addcompany_project_id" id="addcompany_project_id">
+
+
+        &nbsp;&nbsp;
+        <select class="form-control input-sm" name="recommend_reason" id="recommend_reason">
+            <option value="Company Investment Criteria" selected="selected">有相关投资需求</option>
+            <option value="Strategic Industry Investor">行业战略投资人</option>
+            <option value="Active Buy-Side Mandates">有活跃的买方需求</option>
+            <option value="Relevant Portfolio Company">投资过相关的行业</option>
+
+        </select>&nbsp;&nbsp;
+        <input type="hidden" name="page" value="{{ curr_page }}">
+         <button type="button"class="btn btn-primary"  id="add_name_btn" onclick="checkform();">add</button>
+        </form>
+
+        <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
+    </div>
+
+   
+
+{% endblock %}
+
+{% block customjs %}
+ <script>
+ var is_all=false;
+ var _project_id ={{project.id}} ;
+ var _operate=1;
+
+ $(document).ready(function(){
+    $('#checkbox_all').click(function(){
+
+      if(is_all==false){
+        $('.check_company').prop("checked",true);
+        is_all=true;
+      }else{
+        $('.check_company').prop("checked",false);
+        is_all=false;
+      }
+    });
+
+
+    $('#one_click_btn').click(function(){
+      
+      var _itemIds= new Array();
+      var _companyIds=new Array();
+        $(".check_company").each(function(){
+        if (true == $(this).prop("checked")) {
+             
+              _itemIds.push($(this).val());
+              _companyIds.push($(this).attr('rel'))
+        }});
+         //alert(itemIds.join(','));
+         //alert(companyIds.join(','));
+
+
+         if(confirm('Are you confirm send push mail for this project?'))
+    {
+        var url = "/project/genuissave";
+        jQuery.post(url,{'operate':_operate,'itemIds':_itemIds.join(','),'companyIds':_companyIds.join(','),'project_id':_project_id},function(data){
+            if(data=="success")
+            {
+               location.reload();
+            }else
+            {
+                alert(data);
+            }
+        });
+    }
+
+
+
+    });
+      
+
+ });
+
+
+
+ function checkform()
+        {
+           
+
+
+            if ($('#addcompany_id').val()!=''){
+                 myform.submit();
+            }
+                
+            else{
+                alert('请输入正确的公司名称！');
+
+            }
+                
+            
+        }
+
+
+    $("#add_name").autocomplete({
+          source: function( request, response ) {
+            $.ajax({
+              url: "/project/get_companies/"+request.term,
+              dataType: "json",
+              success: function( jsonResponse ) {
+                 var data = $(jsonResponse).map(function(id,item) {
+                  return {
+                    value: item['name_cn'],
+                    label: item['company_type_cn'] + ":" +
+                       item['name_cn'],
+                    id: item['id']
+                  };
+                })
+               response(data);
+              }
+            });
+          },
+          minLength: 2,
+          select: function( event, ui ) {
+            SelectedCompany(ui.item.id,ui.item.value);
+          }
+    });
+
+
+    function SelectedCompany(id,name_cn)
+    {
+        $('#addcompany_id').val(id);
+        $('#add_name').val(name_cn);
+
+    }
+
+
+
+    </script>
+{% endblock %}

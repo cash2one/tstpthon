@@ -1,0 +1,101 @@
+{% extends "backend/base.html" %}
+
+
+{% block headerbar %} 
+    <div class="headerbar">
+      {% include "backend/headerbar.html" %}  
+    </div><!-- headerbar -->
+{% endblock %}
+
+{% block pageheader %}
+    <div class="pageheader">      
+      <h2><i class="fa fa-home"></i> 用户管理</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'backend.index' %}">OliveCMS</a></li>
+          <li class="active">用户管理</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block contentpanel %} 
+    <div class="contentpanel">
+      
+    <div class="row">
+        
+        <div class="col-md-12">
+         
+          <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Username</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+                <td class="table-action">
+                  <a href=""><i class="fa fa-pencil"></i></a>
+                  <a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+                <td class="table-action">
+                  <a href=""><i class="fa fa-pencil"></i></a>
+                  <a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Larry</td>
+                <td>the Bird</td>
+                <td>@twitter</td>
+                <td class="table-action">
+                  <a href=""><i class="fa fa-pencil"></i></a>
+                  <a href="" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div><!-- table-responsive -->
+
+        </div><!-- col-md-12 -->
+
+        <div class="col-md-12">
+         <ul class="pagination pull-right">
+                <li class="disabled"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+              </ul>
+        </div><!-- col-md-12 -->
+      
+      </div>
+     
+    </div><!-- contentpanel -->
+{% endblock %}
+
+
+{% block customjs %} 
+
+
+<script src="{{STATIC_URL}}backend/js/custom.js"></script>
+{% endblock %}

@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上海显德投资管理有限公司</title>
+    <meta name="Keywords" content="上海显德投资管理有限公司 " /> 
+    <meta name="Description" content="上海显德投资管理有限公司（Vantage Capital）是一家国际化专业的资产管理公司，于2011年成立，注册资金2000万人民币，在国际金融中心香港、上海均设有机构，面向全球金融市场投资于证券、外汇、基金、债券、衍生品等投资工具，以量化对冲基金发展模式，并多年在海外市场持续稳健盈利。" />
+
+    <link href="{{STATIC_URL}}common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}common/css/xiande.css">
+    
+  </head>
+<body>
+<div class="container-fluid">
+    <div class="row heading">
+        <div class="col-md-12">
+        <h1>获取小金库</h1>
+
+        </div>
+    </div>
+
+     <div class="row content">
+        <div class="col-md-12">
+
+        {% if messages %}
+        <div class="message_block">
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            {{ message }}
+                        </div> <!-- /.alert -->
+                    {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if is_ok %}
+<p>恭喜您,已经成功提交资料,我们正在验证你的信息,请稍等!</p>
+{#         <p>恭喜您，已经成功提交资料，稍后我们的客户经理会跟你电话联系！感谢您对我公司的支持！如有任何问题请和我们客服联系400-081-9628</p>#}
+         <br/>
+         <a class="center-block btn btn-danger "  href="{% url 'event.cash' %}?u={{openid}}">分享朋友圈、转发好友获得更多货币</a>
+
+
+        {% else %}
+        <p class="f12">显德投资理财虚拟货币，简称显德货币，使用权归显德所有。<br>
+显德的虚拟货币是什么，它是在虚拟跟现实有连接的情况下，虚拟的货币有其现实价值。显德货币使用范围，在特定的情况下，它是可以直接和人民币价值同等兑换显德发行的理财项目，具体看项目说明。
+</p>
+
+        
+        <form class="form-horizontal" method="POST" data-validate="parsley">
+       
+           
+        
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="text" class="form-control" name="username" id="username" placeholder="姓名" tabindex="1"  data-required="true" value="{{ f.username | default:'' }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="tel" class="form-control" name="mobile" id="mobile" placeholder="手机号码" tabindex="2"  data-required="true" value="{{ f.mobile | default:'' }}">
+                <small>显德不会在任何地方泄露您的号码</small>
+            </div>
+        </div>
+
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <input type="text" class="form-control" name="address" id="address" placeholder="地址" tabindex="3"  value="{{ f.address | default:'' }}">#}
+{#            </div>#}
+{#        </div>#}
+{#        #}
+{##}
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <input type="email" class="form-control" name="email" id="email" placeholder="邮箱" tabindex="4"  value="{{ f.email | default:'' }}">#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <input type="text" class="form-control" name="company" id="company" placeholder="单位" tabindex="5"  value="{{ f.company | default:'' }}">#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#         <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <input type="text" class="form-control" name="job_title" id="job_title" placeholder="职务" tabindex="6"  value="{{ f.job_title | default:'' }}">#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <label>您家庭的最大支出部分是:</label>#}
+{#                 <select class="form-control" name="household_spending" tabindex="7"  placeholder="家庭的最大支出">#}
+{#                        <option value="">请选择</option>#}
+{#                        <option value="1" {% if f.household_spending == 1 %} selected="selected" {% endif %}>教育费</option>#}
+{#                        <option value="2" {% if f.household_spending == 2 %} selected="selected" {% endif %}>医疗</option>#}
+{#                        <option value="3" {% if f.household_spending == 3 %} selected="selected" {% endif %}>旅游</option>#}
+{#                        <option value="4" {% if f.household_spending == 4 %} selected="selected" {% endif %}>保险</option>#}
+{#                        <option value="5" {% if f.household_spending == 5 %} selected="selected" {% endif %}>还贷款</option>#}
+{#                        <option value="6" {% if f.household_spending == 6 %} selected="selected" {% endif %}>理财</option>#}
+{#                        <option value="7" {% if f.household_spending == 7 %} selected="selected" {% endif %}>理其他财</option>#}
+{#                    </select>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <label>您近期是否有资金配资的安排:</label>#}
+{#                 <select class="form-control" name="investment_apply" tabindex="8"  placeholder="资金配资安排">#}
+{#                        <option value="">请选择</option>#}
+{#                        <option value="1" {% if f.investment_apply == 1 %} selected="selected" {% endif %}>创业</option>#}
+{#                        <option value="2" {% if f.investment_apply == 2 %} selected="selected" {% endif %}>投资房产</option>#}
+{#                        <option value="3" {% if f.investment_apply == 3 %} selected="selected" {% endif %}>孩子海外留学</option>#}
+{#                        <option value="4" {% if f.investment_apply == 4 %} selected="selected" {% endif %}>移民</option>#}
+{#                        <option value="5" {% if f.investment_apply == 5 %} selected="selected" {% endif %}>其他</option>#}
+{#                    </select>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{##}
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <label>您在选择理财产品关注什么:</label>#}
+{#                 <select class="form-control" name="investement_focus" tabindex="9"  placeholder="选择理财产品关注点">#}
+{#                        <option value="">请选择</option>#}
+{#                        <option value="1" {% if f.investement_focus == 1 %} selected="selected" {% endif %}>产品的投资风险和收益</option>#}
+{#                        <option value="2" {% if f.investement_focus == 2 %} selected="selected" {% endif %}>工作人员是否专业</option>#}
+{#                        <option value="3" {% if f.investement_focus == 3 %} selected="selected" {% endif %}>该机构的品牌和收益</option>#}
+{#                        <option value="4" {% if f.investement_focus == 4 %} selected="selected" {% endif %}>媒体的投资建议</option>#}
+{#                    </select>#}
+{#            </div>#}
+{#        </div>#}
+{##}
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <textarea class="form-control" name="hobby" id="hobby" placeholder="您平时热爱的休闲活动" tabindex="10" >{{ f.hobby | default:'' }}</textarea>#}
+{#            </div>#}
+{#        </div>#}
+
+{#        <div class="form-group">#}
+{#            <div class="col-md-12">#}
+{#                <input type="text" class="form-control" name="fund_customer_number" id="fund_customer_number" placeholder="客户编号-选填" tabindex="11"  value="{{ f.{#fund_customer_number | default:'' }}">#}
+{#            </div>#}
+{#        </div>#}
+
+
+        <div class="form-group">
+            <div class="col-md-12">
+            {% csrf_token %}      
+                <input type="submit" class="center-block btn btn-danger" style="width:100%" value="立刻提交">
+            </div>
+        </div>
+
+    </form>
+    {% endif %}
+        </div>
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery.cookies.js"></script>
+<script src="{{STATIC_URL}}common/js/plugins/bootbox/bootbox.min.js"></script>
+<link href="{{STATIC_URL}}common/css/parsley.css" rel="stylesheet">
+<script src="{{STATIC_URL}}common/js/plugins/parsley/parsley_zh.js"></script>
+
+
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+
+  wx.config({
+      debug: false,
+      appId: '{{appid}}',
+      timestamp: {{sign.timestamp}},
+      nonceStr: '{{sign.nonceStr}}',
+      signature: '{{sign.signature}}',
+      jsApiList: [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage'
+      ]
+  });
+
+
+wx.ready(function () {
+ 
+  var shareData = {
+    title: '显德货币新品上线啦',
+      desc: '显德的虚拟货币是什么，它是在虚拟跟现实有连接的情况下，虚拟的货币有其现实价值。',
+      link: 'http://xiande.olive-app.com/event/cash/?u={{introducer}}'
+  };
+
+
+
+  
+  wx.onMenuShareTimeline(shareData);
+  wx.onMenuShareAppMessage(shareData);
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+</body>
+</html>

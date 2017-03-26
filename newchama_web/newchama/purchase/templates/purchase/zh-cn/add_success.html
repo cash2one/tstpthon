@@ -1,0 +1,305 @@
+{% extends "common/en-us/base.html" %}
+{% load pagination_tags %}
+{% block mainbar %}
+  <div class="mainbar">
+
+  <div class="container">
+
+    <button type="button" class="btn mainbar-toggle" data-toggle="collapse" data-target=".mainbar-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="mainbar-collapse collapse">
+
+      <ul class="nav navbar-nav mainbar-nav">
+
+        <li class=""  >
+          <a href="{% url 'account.buyer' %}">
+            <i class="fa fa-home"></i>
+            首页
+          </a>
+        </li>
+
+        <li class=" ">
+          <a href="{% url 'sales.new' %}" >
+            <i class="fa fa-bolt"></i>
+            新项目
+          </a>
+        </li>
+
+        <li class=" ">
+          <a href="{% url 'sales.search' %}">
+          <i class="fa fa-search"></i> 
+          项目搜索
+          </a>
+        </li>
+
+        <li class="">
+          <a href="{% url 'purchase.add' %}">
+            <i class="fa fa-dollar"></i>
+            发布需求
+          </a>
+        </li>  
+
+        <li class="active">
+          <a href="{% url 'purchase.mylist' %}">
+            <i class="fa fa-folder-open"></i>
+            需求管理
+          </a>
+        </li>
+
+      </ul>
+
+    </div> <!-- /.navbar-collapse -->   
+
+  </div> <!-- /.container --> 
+
+</div> <!-- /.mainbar -->
+{% endblock %}
+{% block content %}
+    <div class="content-container">
+
+      <div class="content-header">
+        <h2 class="content-header-title">{{title}}</h2>
+        <ol class="breadcrumb">
+          <li><a href="javascript:;">首页</a></li>
+          <li class="active">{{title}}</li>
+        </ol>
+      </div> <!-- /.content-header -->
+
+      <div class="row">
+      <div class="col-xs-12">
+
+
+      <div class="alert alert-success">
+        
+        You have successfully submitted project information, according to your project information to the following for you to match buyers
+      </div> <!-- /.alert -->
+
+
+
+      <ul id="myTab1" class="nav nav-tabs">
+            <li class='active'>
+              <a href="{% url 'purchase.mylist' %}">有对应需求</a>
+            </li>
+            <li class=''>
+              <a href="{% url 'purchase.mylist_expired' %}">投资过相关行业</a>
+            </li>
+            <li class=''>
+              <a href="{% url 'purchase.mylist_expired' %}">有对应偏好</a>
+            </li>
+           
+          </ul>
+
+
+      <div class="table">
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <td style="width: 125px;">Sep 15th, 2014<br/>
+                 <div class="thumbnail" style="width: 60px; margin-top:10px;">
+                    <img src="{{MEDIA_PREFIX}}img/avatars/avatar-1.jpg" alt="Avatar" style="width: 60px;" />
+                </div></td>
+                <td>
+                  <p><strong>Project Name</strong></p>
+                  <div class="row">
+                    <span class="col-xs-6">地域：XXX</span>
+                    <span class="col-xs-6">行业：XXXX</span>
+                    <span class="col-xs-6">交易类型：XXX</span>
+                    <span class="col-xs-6">交易类型：<span class="label label-secondary">buyer</span>XXX</span>
+                  </div>
+                  <br />
+
+                  <p>项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述</p>
+                </td>
+                <td style="width: 100px;">
+                 <span>$ 12,000</span>
+                 
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 125px;">Sep 15th, 2014<br/>
+                 <div class="thumbnail" style="width: 60px; margin-top:10px;">
+                    <img src="{{MEDIA_PREFIX}}img/avatars/avatar-1.jpg" alt="Avatar" style="width: 60px;" />
+                </div></td>
+                <td>
+                  <p><strong>Project Name</strong></p>
+                  <div class="row">
+                    <span class="col-xs-6">地域：XXX</span>
+                    <span class="col-xs-6">行业：XXXX</span>
+                    <span class="col-xs-6">交易类型：XXX</span>
+                    <span class="col-xs-6">交易类型：<span class="label label-secondary">buyer</span>XXX</span>
+                  </div>
+                  <br />
+
+                  <p>项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述</p>
+                </td>
+                <td style="width: 100px;">
+                 <span>$ 12,000</span>
+                 
+                </td>
+              </tr>
+              <tr>
+                <td style="width: 125px;">Sep 15th, 2014<br/>
+                 <div class="thumbnail" style="width: 60px; margin-top:10px;">
+                    <img src="{{MEDIA_PREFIX}}img/avatars/avatar-1.jpg" alt="Avatar" style="width: 60px;" />
+                </div></td>
+                <td>
+                  <p><strong>Project Name</strong></p>
+                  <div class="row">
+                    <span class="col-xs-6">地域：XXX</span>
+                    <span class="col-xs-6">行业：XXXX</span>
+                    <span class="col-xs-6">交易类型：XXX</span>
+                    <span class="col-xs-6">交易类型：<span class="label label-secondary">buyer</span>XXX</span>
+                  </div>
+                  <br />
+
+                  <p>项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述项目描述</p>
+                </td>
+                <td style="width: 100px;">
+                 <span>$ 12,000</span>
+                 
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          </div> <!-- /.table-responsive -->
+          <div class="pull-right">
+            
+          
+          <ul class="pagination">
+                <li><a href="javascript:;">&laquo;</a></li>
+                <li><a href="javascript:;">1</a></li>
+                <li class="active"><a href="javascript:;">2</a></li>
+                <li><a href="javascript:;">3</a></li>
+                <li><a href="javascript:;">4</a></li>
+                <li><a href="javascript:;">5</a></li>
+                <li><a href="javascript:;">&raquo;</a></li>
+              </ul>
+          </div>
+
+       
+          </div>      
+      </div> <!-- /.row -->
+
+
+       <br/>
+          <br/>
+
+            <h4 class="heading">Recent industry</h4>
+
+            <ul id="myTab1" class="nav nav-tabs">
+            <li class="active">
+              <a href="#home" data-toggle="tab">Industry</a>
+            </li>
+            <li>
+              <a href="#profile" data-toggle="tab">Area</a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Other <b class="caret"></b>
+              </a>
+
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                <li><a href="#dropdown1" tabindex="-1" data-toggle="tab">并购规模</a></li>
+                <li><a href="#dropdown2" tabindex="-1" data-toggle="tab">并购类型</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="row">
+            
+          <div class="col-xs-12">
+              <div class="pull-left">
+                <div class="btn-group" data-toggle="buttons">
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option1">  Nearly 3 months
+                  </label>
+                  <label class="btn btn-sm btn-default">
+                    <input type="radio" name="options" id="option2"> Nearly 6 months
+                  </label>
+                  <label class="btn btn-sm btn-default active">
+                    <input type="radio" name="options" id="option3"> Nearly 1 year
+                  </label>
+                </div>
+
+                &nbsp;
+
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                    Show Number
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:;">前5条</a></li>
+                    <li><a href="javascript:;">前10条</a></li>
+                    <li><a href="javascript:;">前20条</a></li>
+                    <li><a href="javascript:;">更多</a></li>
+                  </ul>
+                </div>                
+              </div> <!-- /.pull-left -->
+
+              <div class="pull-right">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i> &nbsp;&nbsp;<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="javascript:;">获取更多数据</a></li>
+                  </ul>
+                </div>
+              </div> <!-- /.pull-right -->
+              </div>
+          </div>
+          <br/>
+
+
+      <div class="row">
+      <div class="col-xs-12">
+         <div id="myTab1Content" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+            <div class="portlet">
+
+            
+
+            <div class="portlet-content">
+
+              <div id="bar-chart" class="chart-holder" style="height:400px;"></div> 
+              <div class="col-xs-12">
+                <div class="labels_tip">
+
+                   
+                </div>
+              </div>
+
+            </div> <!-- /.portlet-content -->
+
+          </div> <!-- /.portlet -->
+
+              
+            </div>
+
+            
+          </div>
+          </div>
+      </div>
+
+
+    </div> <!-- /.content-container -->
+
+{% endblock %}
+
+
+{% block footer %}
+  <!-- Plugin JS -->
+  <script src="{{STATIC_PREFIX}}js/libs/raphael-2.1.2.min.js"></script>
+  <script src="{{STATIC_PREFIX}}js/plugins/morris/morris.min.js"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+  <!-- Plugin JS -->
+  <script src="{{STATIC_PREFIX}}js/charts/index_bar_01.js"></script>
+
+
+
+  {% include "account/zh-cn/tipmodal.html" %}
+{% endblock %}

@@ -1,0 +1,91 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-02-03 15:47+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: views.py:45 views.py:127
+msgid "Search"
+msgstr "项目搜索"
+
+#: views.py:151
+msgid "New"
+msgstr "最新项目"
+
+#: views.py:894
+msgid "invested in similar companies"
+msgstr "投资过类似行业"
+
+#: views.py:925
+msgid "investment orientation"
+msgstr "有投资方向"
+
+#: views.py:949
+msgid "public company within the same industry"
+msgstr "行业战略投资人"
+
+msgid "relate buy-side mandate"
+msgstr "有相关需求"
+
+msgid "investor within the same industry"
+msgstr "投资过相同行业"
+
+#: views.py:959
+msgid "Add"
+msgstr "发布项目"
+
+#: views.py:998
+msgid "Detail"
+msgstr "项目详情"
+
+#: views.py:1005
+msgid "Please submit a project before you visit the detail"
+msgstr "在您浏览该项目详情前，请先提交一个项目"
+
+#: views.py:1013
+msgid "not target"
+msgstr "该项目是定向发送的项目，我们可以协助您跟用户取得联系。联系方式：8621-61911021，邮箱：support@newchama.com"
+#msgstr "此项目为发布者定向推送，您暂时无法查看详细信息。若您对此标的有进一步兴趣，可委托NewChama联络发布者,或直接联系support@newchama.com"
+
+#: views.py:1124
+msgid "Edit"
+msgstr "编辑项目"
+
+#: views.py:1193
+msgid "please input project name"
+msgstr "请输入项目名称"
+
+#: views.py:1635
+msgid ""
+"Hello, This is a project recommend, Please contact us if you interested!"
+msgstr ""
+
+#: views.py:1651
+msgid "NewChama Project Message"
+msgstr "Newchama项目消息"
+
+msgid "NewChama unsuccess push Message"
+msgstr "Newchama未成功推送机构项目消息"
+
+#: views.py:1669 views.py:1672
+msgid "error"
+msgstr ""
+
+#: views.py:1790
+msgid "no attach"
+msgstr "没有附件"
+

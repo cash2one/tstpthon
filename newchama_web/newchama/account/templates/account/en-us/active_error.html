@@ -1,0 +1,25 @@
+{% extends "common/en-us/nologin_base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main" style="width:50%;">
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">system</h3>
+          </div>
+          <div class="panel-body" style="margin:0 auto;width:94%">
+              <br/>
+              <h5 style="text-align: center">Your account hasn't been activated yet!</h5>
+              <p>If you didn't receive the activation mail or you encountered some problems, please try the following approaches:</p>
+              <p>(1)Checking your spam box or AD box to see if our mail was misclassified.</p>
+              <p>(2)If your are sure that you don't get the the activation mail,please Click<a href="{% url 'account.send_active' %}"> resend the activation mail</a>.</p>
+              <br/>
+              <br/>
+          </div>
+        </div>
+        </div>
+    </div>
+<div style="clear:both;"></div>
+{% endblock %}
+{% block footer %}
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/fix_height.js"></script>
+{% endblock %}

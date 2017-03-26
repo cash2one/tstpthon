@@ -1,0 +1,50 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-16 01:15+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: views.py:61
+msgid "please input your email"
+msgstr "请输入您的Email地址!"
+
+#: views.py:64
+msgid "please input your password"
+msgstr "请输入您的密码!"
+
+#: views.py:68
+msgid "please select your company type"
+msgstr "请输入您的公司类型!"
+
+#: views.py:71
+msgid "please input your company"
+msgstr "请输入您的公司名称!"
+
+#: views.py:75
+msgid "please input your mobile"
+msgstr "请输入您的手机号码!"
+
+#: views.py:90
+msgid "the email is existed"
+msgstr "该Email地址已经存在!"
+
+#: views.py:94
+msgid "the mobile is existed"
+msgstr "该手机号码已经存在!"
+
+#~ msgid "Login"
+#~ msgstr "登录"

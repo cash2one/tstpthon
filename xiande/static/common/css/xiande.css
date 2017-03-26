@@ -1,0 +1,41 @@
+body{color:#333;background: url(../images/xiande_bg.jpg) top center no-repeat;background-size: 100%; padding-bottom: 40px;}
+.f12{font-size: 12px;}
+.form-group input,.form-group select ,.form-group textarea{font-size: 12px;}
+.form-group label{font-size: 12px;font-weight: normal;}
+
+.form-group input.btn{font-size: 14px;}
+.heading{margin-top: 34px; padding: 0px 20px;}
+.heading h1{font-size: 18px;}
+
+.content{padding: 20px;}
+.content p{line-height: 160%; font-size: 14px;}
+.content p.f12{font-size: 12px;}
+
+
+.tb1{font-size: 12px;}
+.tb1 td{vertical-align: top; padding: 4px 0px;}
+.tb1_label{width: 40%;}
+
+.bb{border-bottom: 1px dotted #999; padding-bottom: 4px;}
+
+.big{font-size: 24px; color: #d43f3a}
+
+.cash_block{background: url(../images/cash.jpg) top center no-repeat; height: 100%; min-height: 480px;background-size: 100%; }
+#cash_btn{position: relative; margin-top: 90%;}
+
+.bbb_block{background: url(../images/bbb2.jpg) top center no-repeat; height: 100%; min-height: 540px;background-size: 100%; position: relative; }
+.bbb_block a{display: block; width: 25%; height: 18%; position: absolute;top: 58%; left: 12%;}
+
+.bbb_block2{background: url(../images/bb3.jpg) top center no-repeat; height: 100%; min-height: 540px;background-size: 100%; position: relative; padding-top: 30px; }
+
+
+
+.money_big{background:#d9534f;margin-top:40px; color:#fff; padding:20px;}
+.money_big_money{font-size: 40px; margin-top: 10px;}
+
+.money_big2{background:#fff;color:#999;  padding:20px;}
+.money_big_money2{font-size: 28px; margin-top: 10px;color:#d9534f; }
+
+.money_big3{background:#e4e4e4;color:#999; overflow: hidden;padding: 20px 0px; margin-bottom: 40px;}
+.money_big3 .item{width: 50%; float: left; padding: 0px 20px; overflow: hidden;}
+.money_big_money3{font-size: 20px; margin-top: 10px;color:#666; }

@@ -1,0 +1,19 @@
+{% for m in data %}
+<tr class="{% cycle 'custom_odd' 'custom_even' %}" onclick="javascript:location.href='{% url 'sales.detail' m.id%}'">
+    <td style="width:100px">S-{{ m.id }}</td>
+    <td>{{ m.name_cn }}</td>
+    <td>{{ m.company_industry.name_cn }}</td>
+    <td>
+       {% if m.company_cities != None %}
+       {{ m.company_cities.name_cn }}
+       {% elif m.company_province != None %}
+       {{ m.company_province.name_cn }}
+       {% else %}
+       {{ m.company_country.name_cn }}
+       {% endif %}
+    </td>
+    <td>
+      {{ m.features_cn | slice:"60" }}
+    </td>
+</tr>
+{% endfor %}

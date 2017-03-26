@@ -1,0 +1,24 @@
+<div class="col-sm-3">
+    <select id="regionlevelone" name="regionlevelone" class="form-control chosen-select" data-placeholder="请选择" required>
+        <option value="">请选择</option>
+        {% for levelone in regionlevelones %}
+        <option value="{{ levelone.id }}" {% if u.regionlevelone.id == levelone.id %} selected="selected" {% endif %}>{{ levelone.name_cn }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div class="col-sm-3">
+    <select id="regionleveltwo" name="regionleveltwo" class="form-control chosen-select" data-placeholder="请选择" required>
+        <option value="">请选择</option>
+        {% for leveltwo in regionleveltwos %}
+        <option value="{{ leveltwo.id }}" {% if u.regionleveltwo.id == leveltwo.id %} selected="selected" {% endif %}>{{ leveltwo.name_cn }}</option>
+        {% endfor %}
+    </select>
+</div>
+<div class="col-sm-3">
+    <select id="regionlevelthree" name="regionlevelthree" class="form-control chosen-select" data-placeholder="请选择" required>
+        <option value="">请选择</option>
+        {% for levelthree in regionlevelthrees %}
+        <option value="{{ levelthree.id }}" {% if u.regionlevelthree.id == levelthree.id %} selected="selected" {% endif %}>{{ levelthree.name_cn }}</option>
+        {% endfor %}
+    </select>
+</div>

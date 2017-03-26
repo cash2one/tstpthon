@@ -1,0 +1,298 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Edit Member{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Company<span>Add Investment History</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Company</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">{{u.company.name_cn}} Investment History</h4>
+         
+        </div>
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+           <div class="form-group">
+              <label class="col-sm-3 control-label">目标公司(中文*)</label>
+              <div class="col-sm-6">
+                <input type="text"  name="targetcompany_cn" value="{{ u.targetcompany_cn|default:'' }}" class="form-control" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">目标公司(英文)</label>
+              <div class="col-sm-6">
+                <input type="text"  name="targetcompany_en" value="{{ u.targetcompany_en|default:'' }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">金额(*)</label>
+              
+              <div class="col-sm-3">
+                  <input type="text" name="amount" value="{{ u.amount | default:'' }}" required maxlength="50" class="form-control required number" />
+              </div>
+              <div class="col-sm-3">
+                  <select class="form-control chosen-select" data-placeholder="Choose Currency..." name="currency" id="currency">
+                       <option value="Unknow" {% if u.currency == 'Unknow' %} selected="selected" {% endif %}>Unknow</option>
+                       
+                        <option value="人民币" {% if u.currency == '人民币' %} selected="selected" {% endif %}>人民币</option>
+                        <option value="美元" {% if u.currency == '美元' %} selected="selected" {% endif %}>美元</option>
+                        <option value="人民币" {% if u.currency == '欧元' %} selected="selected" {% endif %}>欧元</option>
+                        <option value="港元" {% if u.currency == '港元' %} selected="selected" {% endif %}>港元</option>
+                        <option value="日元" {% if u.currency == '日元' %} selected="selected" {% endif %}>日元</option>
+                        
+                     
+                </select>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">投资阶段</label>
+              
+              <div class="col-sm-3">
+                  <select class="form-control chosen-select" data-placeholder="Choose Stage..." name="invest_stage" id="invest_stage">
+                       <option value="Unknow" {% if u.invest_stage == 'Unknow' %} selected="selected" {% endif %}>Unknow</option>
+                        <option value="VC-Series A" {% if u.invest_stage == 'VC-Series A' %} selected="selected" {% endif %}>VC-Series A</option>
+                        <option value="VC-Series B" {% if u.invest_stage == 'VC-Series B' %} selected="selected" {% endif %}>VC-Series B</option>
+                        <option value="VC-Series C" {% if u.invest_stage == 'VC-Series C' %} selected="selected" {% endif %}>VC-Series C</option>
+                        <option value="VC-Series D" {% if u.invest_stage == 'VC-Series D' %} selected="selected" {% endif %}>VC-Series D</option>
+                        <option value="VC-Series E" {% if u.invest_stage == 'VC-Series E' %} selected="selected" {% endif %}>VC-Series E</option>
+                        <option value="PE-Growth" {% if u.invest_stage == 'PE-Growth' %} selected="selected" {% endif %}>PE-Growth</option>
+                        <option value="VC" {% if u.invest_stage == 'VC' %} selected="selected" {% endif %}>VC</option>
+                        <option value="PE-Buyout" {% if u.invest_stage == 'PE-Buyout' %} selected="selected" {% endif %}>PE-Buyout</option>
+                        <option value="PE-PIPE" {% if u.invest_stage == 'PE-PIPE' %} selected="selected" {% endif %}>PE-PIPE</option>
+                        <option value="Angel" {% if u.invest_stage == 'Angel' %} selected="selected" {% endif %}>Angel</option>
+                        <option value="PE" {% if u.invest_stage == 'PE' %} selected="selected" {% endif %}>PE</option>
+                        
+                     
+                </select>
+              </div>
+
+            </div>
+
+           
+           
+           <div class="form-group">
+              <label class="col-sm-3 control-label">标题(中文)</label>
+              <div class="col-sm-6">
+                <input type="text"  name="title_cn" value="{{ u.title_cn|default:'' }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">标题(英文)</label>
+              <div class="col-sm-6">
+                <input type="text" name="title_en" value="{{ u.title_en|default:'' }}" class="form-control" />
+              </div>
+            </div>
+            
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">内容(中文)</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="content_cn" name="content_cn">{{ u.content_cn|default:'' }}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">内容(英文)</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="content_en" name="content_en">{{ u.content_en|default:'' }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">地区</label>
+              <div class="col-sm-3">
+                  <select id="country" name="country" class="form-control chosen-select" data-placeholder="Choose a Country...">
+                        <option value="0">Please Select</option>
+                      {% for country in countries %}
+                          <option value="{{ country.id }}" {% if u.country_id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+            
+               <div class="col-sm-3 hide_" id="box_province">
+                  <select id="province" name="province" class="form-control chosen-select" data-placeholder="Choose a Region...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+                <div class="col-sm-3 hide_" id="box_city">
+                  <select id="city" name="city" class="form-control chosen-select" data-placeholder="Choose a City...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+             
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">行业</label>
+              <div class="col-sm-3">
+                  <select id="industry_first"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+              <div class="col-sm-3 hide_">
+                   <select id="industry_second"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+              <div class="col-sm-3 hide_">
+                  <select id="industry_third"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+            </div>
+           
+            <div class="form-group">
+              <label class="col-sm-3 control-label">发生时间(*)</label>
+              <div class="col-sm-6">
+               
+                <input type="text" name="happen_date" id="happen_date" placeholder="yyyy-mm-dd" class="form-control" value="{{ u.happen_date|date:'Y-m-d' }}" required>
+
+
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">投资人(中文)</label>
+              <div class="col-sm-6">
+                <input type="text" name="person_cn"  value="{{ u.person_cn|default:'' }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">投资人(英文)</label>
+              <div class="col-sm-6">
+                <input type="text" name="person_en"  value="{{ u.person_en|default:'' }}" class="form-control" />
+              </div>
+            </div>
+            
+        <input value="{{ u.id }}" name="id" type="hidden" />
+               {% csrf_token %}
+
+                <input type="hidden" value="{{ u.province.id|default:0 }}" id="province_id" name="province_id">
+                <input type="hidden" value="{{ u.city.id|default:0 }}" id="city_id" name="city_id">
+                <input type="hidden" value="{{ u.industry.id|default:0 }}" id="industry_id" name="industry_id">
+
+
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+             <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                  <button class="btn btn-primary">Submit</button>&nbsp;
+                  <button class="btn btn-default">Cancel</button>
+                </div>
+             </div>
+          </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+{% endblock %}
+{% block customjs %}
+    <script>
+    jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+    jQuery('#happen_date').datepicker({dateFormat:'yy-mm-dd',changeYear: true, changeMonth: true});
+
+    jQuery("#country").change(function(){
+        
+        LoadProvinces("province",jQuery(this).val(),0);
+        jQuery("#province_id").val(0);
+        jQuery("#city").parent().hide()
+        jQuery("#city_id").val(0)
+    });
+    jQuery("#province").change(function(){
+        var province_id=jQuery(this).val();
+        jQuery("#province_id").val(province_id);
+        LoadCities("city",province_id,0);
+        jQuery("#city_id").val(0)
+    });
+    jQuery("#city").change(function(){
+        var city_id=jQuery(this).val();
+        jQuery("#city_id").val(city_id)
+        
+    });
+
+     jQuery(document).ready(function() {
+        var country_id = jQuery("#country").val();
+        var province_id = jQuery("#province_id").val();
+        var city_id = jQuery("#city_id").val();
+        LoadProvinces("province",country_id, province_id);
+        LoadCities("city",province_id, city_id);
+       
+    })
+
+     jQuery("#industry_first").change(function(){
+        var industry_id=jQuery(this).val();
+        if(industry_id>0)
+        {
+            jQuery("#industry_id").val(industry_id);
+            industrySelect("industry_second", industry_id);
+        }else
+        {
+            jQuery("#industry_id").val(0);
+            jQuery('#industry_second').parent().hide();
+        }
+    });
+    jQuery("#industry_second").change(function(){
+        var industry_id=jQuery(this).val();
+        if(industry_id>0) {
+            jQuery("#industry_id").val(industry_id);
+            industrySelect("industry_third", industry_id);
+        }else
+        {
+            jQuery("#industry_id").val(jQuery("#industry_first").val());
+            jQuery('#industry_third').parent().hide();
+        }
+    });
+    jQuery("#industry_third").change(function(){
+        var industry_id=jQuery(this).val();
+        if(industry_id>0) {
+            jQuery("#industry_id").val(industry_id)
+        }else{
+             jQuery("#industry_id").val(jQuery("#industry_second").val());
+        }
+    });
+
+
+     var company_industry_result_value = {{ u.industry.id|default:0 }};
+    var company_industry_result_level = {{ u.industry.level|default:0 }};
+    var company_industry_result_father_id = {{ u.industry.father.id|default:0 }};
+    if (company_industry_result_level ==1)
+    {
+        industrySelect("industry_first", 0,company_industry_result_value);
+        industrySelect("industry_second", company_industry_result_value);
+    }else
+    {
+        if(company_industry_result_level==2)
+        {
+           industrySelect("industry_first", 0,company_industry_result_father_id);
+           industrySelect("industry_second", company_industry_result_father_id,company_industry_result_value);
+        }
+        else if(company_industry_result_level==3)
+        {
+           var company_industry_result_father_father_id = "{{ u.industry.father.father.id }}";
+           industrySelect("industry_first", 0,company_industry_result_father_father_id);
+           industrySelect("industry_second", company_industry_result_father_father_id,company_industry_result_father_id);
+           industrySelect("industry_third", company_industry_result_father_id,company_industry_result_value);
+        }else
+        {
+           industrySelect("industry_first", 0,company_industry_result_value);
+        }
+    }
+    </script>
+{% endblock %}

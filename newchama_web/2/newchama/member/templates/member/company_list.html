@@ -1,0 +1,84 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Companies{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Company<span>Companies</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Company</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class=" mb20" id="table2_filter">
+      <form class="form-inline">
+        <label>总记录:<span class="badge badge-success">{{ total }}</span>条</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        搜索条件:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="输入关键字">
+        <input type="text" name="symbol" value="{{ symbol }}"  class="form-control" id="symbolSearch" placeholder="股票代码">
+          <select name="type" class="form-control input-sm" >
+            <option value="">公司类型</option>
+            {% for id,value in Types %}
+                <option value="{{ id }}" {% if type == id %} selected {% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+
+        <select name="status" class="form-control input-sm" >
+            <option value="">账户类型</option>
+            {% for id,value in Status %}
+                <option value="{{ id }}" {% if status == id %} selected {% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+
+
+        <button class="btn btn-primary">搜索</button>
+       <a class="btn btn-primary pull-right" href="{% url 'company.add' %}">添加新纪录</a>
+      </form>
+       
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>中文全称</th>
+                <th>中文简称</th>
+                <th>国家</th>
+                <th>行业</th>
+                
+                <th>公司类型</th>
+                <th>账户类型</th>
+                <th>投资类型</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate data %}
+            {% for m in data %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.name_cn }}</td>
+                <td>{{ m.short_name_cn }}</td>
+                <td>{{ m.country.name_cn }}</td>
+                <td>{{ m.industry.name_cn }}</td>
+                
+                <td>{{ m.get_new_type_display }}</td>
+                <td>{{ m.get_status_display }}</td>
+                <td>{{ m.get_investment_type_display }}</td>
+                <td>
+                    <a href="{% url 'company.edit' m.id %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                    <a href="javascript:DoDelete('{% url "company.remove" %}',{{ m.id }});" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% paginate %}
+    </div><!-- table-responsive -->
+{% endblock %}

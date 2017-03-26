@@ -1,0 +1,138 @@
+{% extends "common/en-us/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Results</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="news-list">
+
+        <li class="nav-header">
+        <span class="news-list-item-tags">
+              Tag：<i class="glyphicon glyphicon-tags"></i>
+              <a class="tag" href="###"><span class="label label-secondary">{{ keyword }}&nbsp;<i class="glyphicon glyphicon-plus"></i></span></a>
+          </span>
+
+        </li>
+
+        <li class="nav-header">
+           <ul class="nav nav-pills top_nav_pills" role="tablist">
+              <li><a href="{% url 'sales.search_keyword'  %}?keyword={{ keyword }}">Sell-Side Deal({{ total_project }})</a></li>
+              <li class="active"><a href="{% url 'purchase.search_keyword'  %}?keyword={{ keyword }}">Buy-Side Mandates({{ total_demand }})</a></li>
+              {% comment %}<li><a href="{% url 'news.search_keyword'  %}?keyword={{ keyword }}">新闻({{ total_news }})</a></li>{% endcomment %}
+{#              <li><a href="{% url 'account.search_keyword_company'  %}?keyword={{ keyword }}">机构({{ total_company }})</a></li>#}
+{#              <li><a href="{% url 'account.search_keyword_member'  %}?keyword={{ keyword }}">用户({{ total_member }})</a></li>#}
+            </ul>
+        </li>
+                {% for d in demands %}
+                <li class="project-item2">
+                    <div class="col-xs-9">
+                        <strong class="news-list-item-title2"><a href="{% url 'purchase.detail' d.id %}">{{ d.name_en|safe }}</a></strong>
+         <span class="news-list-item-text">
+          <table class="table index-table-1">
+              <tbody>
+              <tr class="project-th">
+                  <td width="28%">Industry</td>
+                  <td width="25%">Location</td>
+                  <td width="25%">Deal Type</td>
+{#                  <td>交易规模</td>#}
+                  <td width="11%">Validity Period</td>
+                  <td width="11%">Updated</td>
+              </tr>
+              <tr>
+                  <td>{% if d.company_industries.count > 0 %}
+                            {% for industry in d.company_industries.all %}
+                                <i class="glyphicon glyphicon-tags"></i> <a class="tag preference_common_keyword" data-type="demand" data-tag="{{ industry.name_en }}" href="javascript:;">{{ industry.name_en }}</a>
+                            {% endfor %}
+                        {% else %}
+                            不限
+                        {% endif %}
+                       </td>
+                  <td>{% if d.company_countries.count > 0 %}
+                                {% for c in d.company_countries.all %} {{ c.name_en }}&nbsp;&nbsp;{% endfor %}
+                      {% else %}
+                            不限
+                      {% endif %}
+                  </td>
+                  <td>{{ d.get_service_type_display }}</td>
+                  <td>{{ d.expire_date|date:'Y-m-d' }}</td>
+                  <td>{{ d.update_time|date:'Y-m-d' }}</td>
+              </tr>
+              {% if not d.is_suitor%}
+              <tr>
+                 <td colspan="5"><small>{{ d.intro_en|safe }}</small></td>
+              </tr>
+              {% endif %}
+              </tbody>
+          </table> </span>
+                    </div>
+                    <div class="col-xs-3">
+         <span class="pull-right"> {% if not d.is_suitor%}<button class="btn-xs btn-primary send_message_btn" data-message-type="2" data-message-id="{{ d.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Message</button>
+             &nbsp;&nbsp;
+            {% if d.id in favorites_demand_ids %}
+                 <button class="btn-xs btn-primary btn-cancelfavorite" data-id="{{ d.id }}" data-type="demand"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;WatchList</button> &nbsp;&nbsp;
+             {% else %}
+                  <button class="btn-xs btn-primary btn-addfavorite" data-id="{{ d.id }}" data-type="demand"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</button> &nbsp;&nbsp;
+             {% endif %}
+         {% if d.has_attach %}
+             <button class="btn-xs btn-primary btn-attach" data-type="demand" data-id="{{ d.id }}"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;Attachments</button>
+         {% endif %}{% endif %}
+         </span>
+                    </div> </li>
+                {% endfor %}
+            {% if total_demand > 5 %}
+                <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                <li class="news-list-view-all" id="load_btn"> <a href="javascript:LoadData();">More</a> </li>
+            {% endif %}
+                <li class="news-list-view-all" id="btn_add" {% if total_demand > 5 %} style="display: none;" {% endif %}> <a href="{% url 'sales.add' 0 %}">You can creat a Buy-Side Mandates if you aren't satisfied with the search result.&nbsp;&nbsp;<i class="glyphicon glyphicon-plus btn-xs btn-default"></i></a> </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+{#    <div class="col-xs-2">#}
+{#        <div class="panel panel-default">#}
+{#            <div class="panel-heading">#}
+{#                <h3 class="panel-title">搜索记录</h3>#}
+{#            </div>#}
+{#            <div class="panel-body">#}
+{#                <ul class="news-list">#}
+{#                    <li> <span class="news-list-item-title">1、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">2、互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">3、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                </ul>#}
+{#                <br />#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    </div>
+{% endblock %}
+{% block footer %}
+    {% include "account/en-us/sendmessagemodal.html" %}
+    <script>
+    page =1;
+    keyword='{{ keyword }}';
+    function LoadData()
+    {
+        $("#loader").show();
+          page++;
+          var pagesize=5;
+          var url = "/purchase/ajax_more?page="+page+"&pagesize="+pagesize+"&keyword="+keyword;
+          $.get(url,function(data){
+                var newData = data.replace(/\s/g,'');
+                if(newData)
+                {
+                    $("#loader").before(data);
+                }else
+                {
+                    $("#load_btn").remove();
+                    $("#btn_add").show();
+                }
+                $("#loader").hide();
+          });
+     }
+    </script>
+{% endblock %}

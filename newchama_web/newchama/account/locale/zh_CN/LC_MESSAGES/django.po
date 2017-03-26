@@ -1,0 +1,267 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-01-30 15:33+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: views.py:147 views.py:244 views.py:341 views.py:430
+#, fuzzy
+msgid "Active code is error"
+msgstr "邀请码错误！"
+
+#: views.py:181
+msgid "Login"
+msgstr "登录"
+
+#: views.py:193
+msgid "Signup"
+msgstr "注册"
+
+#: views.py:219 views.py:434
+msgid "please input your email"
+msgstr "请输入您的Email地址"
+
+#: views.py:222
+#, fuzzy
+msgid "please input your password"
+msgstr "请输入您的密码"
+
+#: views.py:225
+#, fuzzy
+msgid "please confirm your password"
+msgstr "请确认您的密码"
+
+#: views.py:228
+#, fuzzy
+msgid "please select your company type"
+msgstr "请选择您公司所在国家地区"
+
+#: views.py:231
+#, fuzzy
+msgid "please input your company"
+msgstr "请输入您的公司"
+
+#: views.py:235
+#, fuzzy
+msgid "please input your fullname"
+msgstr "请输入您的全名"
+
+#: views.py:239
+#, fuzzy
+msgid "please input your mobile"
+msgstr "请输入您的移动电话"
+
+#: views.py:261
+msgid "the email is exist"
+msgstr "邮件已经存在"
+
+#: views.py:266
+#, fuzzy
+msgid "the mobile is exist"
+msgstr "手机号码已经存在"
+
+#: views.py:305 views.py:371
+#, fuzzy
+msgid "NewChama users active messages"
+msgstr "NewChama邀请信"
+
+#: views.py:337
+#, fuzzy
+msgid "Active is error"
+msgstr "邮件错误！"
+
+#: views.py:383 views.py:864 views.py:971
+msgid "Account Settings"
+msgstr "账户设定"
+
+#: views.py:396 views.py:986
+msgid "please input new password"
+msgstr "请输入新密码！"
+
+#: views.py:399 views.py:989
+msgid "please confirm new password"
+msgstr "请确认新密码！"
+
+#: views.py:422
+msgid "Forgot password"
+msgstr "忘记密码"
+
+#: views.py:448
+msgid "NewChama Reset Password"
+msgstr "重置密码"
+
+#: views.py:454 views.py:475
+msgid "the email is not exist"
+msgstr "该Email地址不存在！"
+
+#: views.py:462
+msgid "Reset password"
+msgstr "重置密码"
+
+#: views.py:466
+msgid "email error"
+msgstr "邮件错误！"
+
+#: views.py:468
+msgid "the code is used"
+msgstr "该验证码已经失效！"
+
+#: views.py:486
+msgid "please input your new password"
+msgstr "请输入你的新密码！"
+
+#: views.py:489
+msgid "please confirm your new password"
+msgstr "请确认你的新密码！"
+
+#: views.py:524
+msgid "Profile"
+msgstr "个人资料"
+
+#: views.py:543 views.py:562
+msgid "Company"
+msgstr "公司"
+
+#: views.py:590
+msgid "Invitation"
+msgstr "邀请码"
+
+#: views.py:738
+msgid "Preference"
+msgstr "偏好设定"
+
+#: views.py:795 views.py:932 views.py:994 views.py:1527
+msgid "success"
+msgstr "操作成功！"
+
+#: views.py:954
+msgid "Focus Aspect"
+msgstr "关注方向"
+
+#: views.py:983
+msgid "please input old password"
+msgstr "请输入旧密码！"
+
+#: views.py:996
+msgid "The old password is incorrect"
+msgstr "旧密码错误！"
+
+#: views.py:1004
+msgid "Notifications"
+msgstr "信息"
+
+#: views.py:1200
+msgid "Seller Home"
+msgstr "卖家首页"
+
+#: views.py:1249
+msgid "Buyer Home"
+msgstr "买家首页"
+
+#: views.py:1301 views.py:1320
+msgid "User is not exist!"
+msgstr "用户不存在"
+
+#: views.py:1386
+msgid "Message send success!"
+msgstr "信息发送成功！"
+
+#: views.py:1395
+msgid "Can't send same message to a receiver!"
+msgstr "不能向同一个收件人发送同样内容的信息！"
+
+#: views.py:1398
+msgid "Message send fail!"
+msgstr "信息发送失败！"
+
+#: views.py:1422
+msgid "Message set read success!"
+msgstr "信息设定已读成功！"
+
+#: views.py:1425
+msgid "Can't set read  message without receiver!"
+msgstr "您不是收件人，不能设定已读信息！"
+
+#: views.py:1428 views.py:1463
+msgid "Message is not exist!"
+msgstr "信息不存在！"
+
+#: views.py:1456
+msgid "Message remove success!"
+msgstr "信息删除成功！"
+
+#: views.py:1460
+msgid "Can't remove  message without receiver!"
+msgstr "您不是收件人，不能删除信息！"
+
+#: views.py:1493
+msgid "NewChama InviteCode Message"
+msgstr "NewChama邀请信"
+
+#: views.py:1499
+msgid "Invite send success!"
+msgstr "邀请信发送成功！"
+
+#: views.py:1502
+msgid "Invite send fault!"
+msgstr "邀请信发送失败！"
+
+#: views.py:1519
+msgid "avatar file format not jpg"
+msgstr "头像文件不是jpg格式"
+
+#~ msgid "login fail"
+#~ msgstr "登录失败"
+
+#, fuzzy
+#~ msgid "please select your company industry"
+#~ msgstr "请选择您公司的所属行业"
+
+#, fuzzy
+#~ msgid "please select your company country"
+#~ msgstr "请选择您公司所在国家地区"
+
+#, fuzzy
+#~ msgid "please input your title"
+#~ msgstr "请输入您的职位"
+
+#~ msgid "you must agree the privacy policy"
+#~ msgstr "您必须同意用户协议才能申请"
+
+#, fuzzy
+#~ msgid "please input your telephone"
+#~ msgstr "请输入您的电话"
+
+#~ msgid "success,please check your email"
+#~ msgstr "操作成功！请检查您的邮件！"
+
+#~ msgid "please input you email"
+#~ msgstr "请输入您的Email"
+
+#~ msgid "please input invitation code"
+#~ msgstr "请输入邀请码"
+
+#~ msgid "the invitation code is used"
+#~ msgstr "邀请码已经使用！"
+
+#~ msgid "invitation record not exist"
+#~ msgstr "邀请码记录不存在！"
+
+#~ msgid "please click the link to reset your password<br />"
+#~ msgstr "请点击链接重置密码！"
+
+#~ msgid "Setting preference successfully!"
+#~ msgstr "偏好设置成功！"

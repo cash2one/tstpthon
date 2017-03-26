@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<html>
+<head>
+  <meta charset="utf-8">
+    <title>NewChama Innovative Global Online Deal Sourcing Platform</title>
+    <meta name="Keywords" content="M&A platform, financing platform, equity transaction platform, add new equity information, transaction service, Chamadao" />
+    <meta name="Description" content="NewChama is the world-leading deal sourcing platform of equity-transactions and M&A information. Up to now, NewChama has hundreds of deals, and facilitate matching between the seller’s deal and world-wide buyer’s mandates. Our information supports the buyer side to spot the most rewarding projects." />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="{{STATIC_PREFIX}}img/favicon.ico">
+    <link href="{{STATIC_PREFIX}}css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_PREFIX}}css/newchama.css" rel="stylesheet">
+    <link href="{{STATIC_PREFIX}}css/custom.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="{{STATIC_PREFIX}}js/html5shiv.min.js"></script>
+      <script src="{{STATIC_PREFIX}}js/respond.min.js"></script>
+    <![endif]-->
+
+  {% block header %}{% endblock %}
+  <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?690046ddb5b2d6eadafc3f2827c92b75";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="{% url 'account.gohome' %}">Innovative Global Online Deal Sourcing Platform</a>
+    </div>
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="{% url 'account.gohome' %}">Back</a></li>
+        <li><a href="javascript:change_lang('zh-cn')"><i class="glyphicon glyphicon-globe"></i>&nbsp;中文</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+    </nav>
+
+  {% block content %}{% endblock %}
+
+    <div class="footer">
+      <div class="container-fluid">
+        <p><a href="{% url 'home.us' %}">About Us</a>        ｜    <a href="{% url 'home.bd' %}">Business Corporation</a>    ｜    <a href="{% url 'home.contact' %}">Contact Us</a>     ｜      <a href="{% url 'account.privacy' %}">Privacy Policy</a>     ｜      <a href="{% url 'account.user' %}">Term of Use</a>
+         </p>
+        <p>Copyright  @2014  NewChama.com </p>
+    </div>
+    </div>
+
+  <script src="{{STATIC_PREFIX}}js/libs/jquery-1.10.1.min.js"></script>
+  <script src="{{STATIC_PREFIX}}js/libs/bootstrap.min.js"></script>
+  <!--[if lt IE 9]>
+  <script src="{{STATIC_PREFIX}}js/libs/excanvas.compiled.js"></script>
+  <![endif]-->
+  <!-- App JS -->
+
+  <!-- Plugin JS -->
+  <script src="{{STATIC_PREFIX}}js/target-account.js"></script>
+  <script src="{{STATIC_PREFIX}}js/plugins/bootbox/bootbox.min.js"></script>
+  <link href="{{STATIC_PREFIX}}css/parsley.css" rel="stylesheet">
+  <script src="{{STATIC_PREFIX}}js/plugins/parsley/parsley_zh.js"></script>
+  <script src="{{STATIC_PREFIX}}js/common/lang.js"></script>
+  
+
+
+  {% block footer %}{% endblock %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57230495-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{% extends "common/zh-cn/nologin_base.html" %}
+{% block content %}
+        <div class="container-fluid" id="newchama_logo_main">
+        <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">500错误</h3>
+          </div>
+          <div class="panel-body">
+            <br>
+          <div class="well">
+            <h4>500错误</h4>
+            出错了，我们将尽快修复，您可以点击<a href="javascript:;" onclick="javascript:history.back()">返回上一页</a>。
+          </div>
+          <div class="col-xs-12">
+                <div class="form-group text-center">
+                <button type="button" class="btn btn-default btn-xs" onclick="javascript:history.go(-1);">返回</button>
+                </div>
+           </div>
+          </div>
+        </div>
+    </div>
+    </div>
+{% endblock %}

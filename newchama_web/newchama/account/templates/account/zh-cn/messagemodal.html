@@ -1,0 +1,67 @@
+
+<div id="showMessageModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">消息</h3>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+              <div class="col-xs-12">
+                <div class="scoller_message_block">
+                  <ul></ul>
+                </div>
+                <div class="m_loader"><img src='/static/img/loaders/ajax-loader.gif'></div>
+
+              </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+      <div class="col-xs-8">
+        <input type="text" class="form-control col-xs-12" id="message_txtbox" >
+        <input type="hidden" id="receiver_id" value="0">
+        <input type="hidden" id="receiver_name" value="">
+        <input type="hidden" id="receiver_pic" value="">
+        <input type="hidden" id="sender_id" value="0">
+        <input type="hidden" id="sender_name" value="">
+        <input type="hidden" id="sender_pic" value="">
+        <input type="hidden" id="message_id" name="message_id" value="0">
+
+
+        </div>
+
+        <div class="col-xs-4">
+        <div class="col-xs-3">
+        <button type="button" class="btn btn-xs btn-primary" id="submit_message_btn">发送</button>
+        </div>
+        <div class="col-xs-3"  id="selectFileButton">
+
+        <span class='btn btn-xs btn-default fileinput-button'>文件<input type='file' name='uploadFile' id='uploadFile'/></span>
+
+        </div>
+      
+
+       <div class="btn-group col-xs-6">
+                <button type="button" class="btn btn-xs btn-default">常用语</button>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu" id="phrase_block">
+                  <li><a href="javascript:;">你好，我对您的项目感兴趣，能否提供一下最近一年的财务数据</a></li>
+                  <li><a href="javascript:;">你好，我对您的项目感兴趣，能否介绍一下核心管理层的背景</a></li>
+                  <li><a href="javascript:;">你好，我对您的项目感兴趣，能否发送一下项目的BP（商业计划书）</a></li>
+                </ul>
+              </div>
+
+        </div>
+        <div class="col-xs-12" style="text-align:left; font-size:12px; color:#999; margin-top:10px;">
+        <p>为了保护您的隐私，建议您在索取对方联系方式之前，先通过平台了解更多信息</p>
+        <p id="selectFileUploading" class="hide_">上传中...</p>
+        </div>
+        
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+
+</div><!-- /.modal -->

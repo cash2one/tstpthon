@@ -1,0 +1,362 @@
+[
+{
+  "pk": 1, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Africa/Middle East", 
+    "name_cn": "\u975e\u6d32\u53ca\u4e2d\u4e1c", 
+    "parent": 2
+  }
+},
+{
+  "pk": 2, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Asia / Pacific", 
+    "name_cn": "\u4e9a\u592a\u5730\u533a", 
+    "parent": 2
+  }
+},
+{
+  "pk": 3, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Europe", 
+    "name_cn": "\u6b27\u6d32", 
+    "parent": 2
+  }
+},
+{
+  "pk": 4, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Latin America and Caribbean", 
+    "name_cn": "\u62c9\u4e01\u7f8e\u6d32\u548c\u52a0\u52d2\u6bd4\u5730\u533a", 
+    "parent": 2
+  }
+},
+{
+  "pk": 5, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "North America", 
+    "name_cn": "\u5317\u7f8e\u6d32", 
+    "parent": 2
+  }
+},
+{
+  "pk": 6, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Anhui Province", 
+    "name_cn": "\u5b89\u5fbd", 
+    "parent": 1
+  }
+},
+{
+  "pk": 7, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 99, 
+    "name_en": "Beijing Province", 
+    "name_cn": "\u5317\u4eac", 
+    "parent": 1
+  }
+},
+{
+  "pk": 8, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Chongqing Province", 
+    "name_cn": "\u91cd\u5e86", 
+    "parent": 1
+  }
+},
+{
+  "pk": 9, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Fujian Province", 
+    "name_cn": "\u798f\u5efa", 
+    "parent": 1
+  }
+},
+{
+  "pk": 10, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Gansu Province", 
+    "name_cn": "\u7518\u8083", 
+    "parent": 1
+  }
+},
+{
+  "pk": 11, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 97, 
+    "name_en": "Guangdong Province", 
+    "name_cn": "\u5e7f\u4e1c", 
+    "parent": 1
+  }
+},
+{
+  "pk": 12, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Guangxi Zhuang Province", 
+    "name_cn": "\u5e7f\u897f", 
+    "parent": 1
+  }
+},
+{
+  "pk": 13, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Guizhou Province", 
+    "name_cn": "\u8d35\u5dde", 
+    "parent": 1
+  }
+},
+{
+  "pk": 14, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Hainan Province", 
+    "name_cn": "\u6d77\u5357", 
+    "parent": 1
+  }
+},
+{
+  "pk": 15, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Hebei Province", 
+    "name_cn": "\u6cb3\u5317", 
+    "parent": 1
+  }
+},
+{
+  "pk": 16, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Heilongjiang Province", 
+    "name_cn": "\u9ed1\u9f99\u6c5f", 
+    "parent": 1
+  }
+},
+{
+  "pk": 17, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Henan Province", 
+    "name_cn": "\u6cb3\u5357", 
+    "parent": 1
+  }
+},
+{
+  "pk": 18, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Hubei Province", 
+    "name_cn": "\u6e56\u5317", 
+    "parent": 1
+  }
+},
+{
+  "pk": 19, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Hunan Province", 
+    "name_cn": "\u6e56\u5357", 
+    "parent": 1
+  }
+},
+{
+  "pk": 20, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Inner Mongolia Province", 
+    "name_cn": "\u5185\u8499\u53e4", 
+    "parent": 1
+  }
+},
+{
+  "pk": 21, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Jiangsu Province", 
+    "name_cn": "\u6c5f\u82cf", 
+    "parent": 1
+  }
+},
+{
+  "pk": 22, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Jiangxi Province", 
+    "name_cn": "\u6c5f\u897f", 
+    "parent": 1
+  }
+},
+{
+  "pk": 23, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Jilin Province", 
+    "name_cn": "\u5409\u6797", 
+    "parent": 1
+  }
+},
+{
+  "pk": 24, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Lianoning Province", 
+    "name_cn": "\u8fbd\u5b81", 
+    "parent": 1
+  }
+},
+{
+  "pk": 25, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Ningxia Hui Province", 
+    "name_cn": "\u5b81\u590f", 
+    "parent": 1
+  }
+},
+{
+  "pk": 26, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Qinghai Province", 
+    "name_cn": "\u9752\u6d77", 
+    "parent": 1
+  }
+},
+{
+  "pk": 27, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Shaanxi Province", 
+    "name_cn": "\u9655\u897f", 
+    "parent": 1
+  }
+},
+{
+  "pk": 28, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Shandong Province", 
+    "name_cn": "\u5c71\u4e1c", 
+    "parent": 1
+  }
+},
+{
+  "pk": 29, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 98, 
+    "name_en": "Shanghai Province", 
+    "name_cn": "\u4e0a\u6d77", 
+    "parent": 1
+  }
+},
+{
+  "pk": 30, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Shanxi Province", 
+    "name_cn": "\u5c71\u897f", 
+    "parent": 1
+  }
+},
+{
+  "pk": 31, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Sichuan Province", 
+    "name_cn": "\u56db\u5ddd", 
+    "parent": 1
+  }
+},
+{
+  "pk": 32, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Tianjin Province", 
+    "name_cn": "\u5929\u6d25", 
+    "parent": 1
+  }
+},
+{
+  "pk": 33, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Xinjiang Uygur Province", 
+    "name_cn": "\u65b0\u7586", 
+    "parent": 1
+  }
+},
+{
+  "pk": 34, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Xisang Province", 
+    "name_cn": "\u897f\u85cf", 
+    "parent": 1
+  }
+},
+{
+  "pk": 35, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Yunnan Province", 
+    "name_cn": "\u4e91\u5357", 
+    "parent": 1
+  }
+},
+{
+  "pk": 36, 
+  "model": "area.regionleveltwo", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Zhejiang Province", 
+    "name_cn": "\u6d59\u6c5f", 
+    "parent": 1
+  }
+}
+]

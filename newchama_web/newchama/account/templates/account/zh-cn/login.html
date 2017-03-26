@@ -1,0 +1,86 @@
+{% extends "common/zh-cn/nologin_base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main">
+        <div class="col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">用户登录</h3>
+          </div>
+          <div class="panel-body">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+              <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+              {{ message }}
+              </div> <!-- /.alert -->
+            {% endfor %}
+          {% endif %}
+          <div class="col-xs-12">
+            <br>
+            <form class="form-horizontal account-form" method="POST" data-validate="parsley">
+            {% csrf_token %}
+            <div class="form-group">
+              <label class="col-xs-3">用户名</label>
+              <div class="col-xs-6">
+              <input type="text" class="form-control" id="username" name="username" placeholder="" tabindex="1" value="{{ username }}" data-required="true" data-maxlength="100">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3">密码</label>
+              <div class="col-xs-6">
+                <input type="password" class="form-control" id="password" name="password" placeholder="" tabindex="2" data-required="true" data-maxlength="32">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3">验证码</label>
+              <div class="col-xs-2">
+                <input type="checkcode" class="form-control" id="checkcode" name="checkcode" placeholder="" tabindex="2" data-required="true" data-maxlength="4">
+              </div>
+              <div class="col-xs-7">
+                <img onclick="this.setAttribute('src','/account/get_check_code_image/?nocache='+Math.random());" src="/account/get_check_code_image/" alt="CheckCode"/>
+              </div>
+            </div>
+
+             <div class="form-group">
+              <label class="col-xs-3"></label>
+              <div class="col-xs-6">
+{#              <label class="checkbox-inline">#}
+{#                <input type="checkbox" name="remember_me" class="" value="" tabindex="3">记住我#}
+{#              </label>#}
+                    <a href="{% url 'account.forgot' %}">忘记密码?</a>
+              </div>
+            </div>
+              <div class="form-group">
+              <div class="col-xs-3"></div>
+                  <div class="col-xs-9">
+                    
+                     
+                        <button type="submit" class="btn btn-primary btn-sm" id="btn_search">登录</button>&nbsp;&nbsp;
+                        <a href="{% url 'account.signup' %}">申请账号</a>
+                      
+                   
+                  </div>
+            </div>
+              {% comment %}<div class="form-group">
+              <div class="col-xs-3"></div>
+                  <div class="col-xs-9">
+                      <a href="{% url "other_login.signin" %}">
+                      <img src="{{STATIC_PREFIX}}images/weibo.png" width="159" height="32">
+                      </a>
+                  </div>
+            </div>{% endcomment %}
+            </form>
+           </div>
+          </div>
+        </div>
+    </div>
+
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/fix_height.js"></script>
+
+   
+{% endblock %}
+

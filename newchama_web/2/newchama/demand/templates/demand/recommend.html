@@ -1,0 +1,110 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Projects{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Demand<span>人工推荐管理</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">Demand</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<h4 class="mb30"><a href="{% url 'demand.detail' demand.pk %}" target="_blank">{{demand.name_cn}}</a>  {{demand.name_en}} （Total Recommend：{{total_num}}）</h4>
+<div class="table-responsive">
+        <h4>Final List（No. {{man_list_count}}）</h4>
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>项目名称</th>
+                <th>发布人</th>
+                <th>公司简称</th>
+                <th>公司类型</th>
+                <th>推荐分数</th>
+                <th>标星</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {% for m in man_list %}
+              <tr>
+                <td>{{ m.project.id }}</td>
+                <td><a href="{% url 'project.detail' m.project.id %}" target="_blank">{{ m.project.name_cn}}</a></td>
+                <td>{{ m.project.member}}</td>
+                <td>{{ m.project.member.company.name_cn}}</td>
+                <td>{{ m.project.member.company.get_type_display}}</td>
+                
+                <td>{{ m.sum_project_score}}</td>
+                <td>{{ m.is_star_cn|default:''}}</td>
+                <td>
+                    <a href="{% url 'demand.recommend_toprank' m.id %}" title="置顶">置顶</a>&nbsp;&nbsp;
+                    <a href="{% url 'demand.recommend_uprank' m.id %}" title="置顶">上移</a>&nbsp;&nbsp;
+                    <a href="{% url 'demand.recommend_downrank' m.id %}" title="置顶">下移</a>&nbsp;&nbsp;
+                    {% if m.is_star %}
+                    <a href="{% url 'demand.recommend_unstar' m.id %}" title="取消标星">取消标星</a>&nbsp;&nbsp;
+                    {% else %}
+                    <a href="{% url 'demand.recommend_star' m.id %}" title="标星">标星</a>&nbsp;&nbsp;
+                    {% endif %}
+                    <a href="{% url 'demand.recommend_remove' m.id %}" title="移除">移除</a>&nbsp;&nbsp;
+                    <a href="{% url 'demand.recommend_detail' m.id %}" title="详细">详细</a>&nbsp;&nbsp;
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+
+        <br/><br/>
+
+        <h4>Recommend（No. {{recommend_list_count}}）</h4>
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>项目名称</th>
+                <th>发布人</th>
+                <th>公司简称</th>
+                <th>公司类型</th>
+                <th>推荐分数</th>
+
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate recommend_list 10 %}
+            {% for m in recommend_list %}
+              <tr>
+                <td>{{ m.project.id }}</td>
+                <td><a href="{% url 'project.detail' m.project.id %}" target="_blank">{{ m.project.name_cn}}</a></td>
+                <td>{{ m.project.member}}</td>
+                <td>{{ m.project.member.company.name_cn}}</td>
+                <td>{{ m.project.member.company.get_type_display}}</td>
+                
+                <td>{{ m.sum_project_score}}</td>
+                <td>
+                
+                    <a href="{% url 'demand.recommend_add' m.id %}" title="推荐">推荐</a>&nbsp;&nbsp;
+                    <a href="{% url 'demand.recommend_delete' m.id %}" title="删除">删除</a>&nbsp;&nbsp;
+                    <a href="{% url 'demand.recommend_detail' m.id %}" title="详细">详细</a>&nbsp;&nbsp;
+
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        
+
+    {% paginate %}
+
+    
+
+{% endblock %}
+
+{% block customjs %}
+ 
+{% endblock %}

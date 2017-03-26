@@ -1,0 +1,3 @@
+"ID","姓名","邮箱","电话","公司","公司类型","Owner","登录","浏览项目","浏览需求","发送消息","发布项目","发布需求","收藏项目","收藏需求"
+{% for item in result_list %}{{ item.id }},{{ item.first_name }}{{ item.last_name }},{{ item.email }},{{ item.mobile|addslashes|default:'' }},{{ item.company.name_cn }}, {{ item.company.get_new_type_display|addslashes|default:'' }},{{ item.owner | default:''}},{{ item.login_num }},{{ item.view_project_num }},{{ item.view_demand_num }},{{ item.send_message_num }},{{ item.send_project_num }},{{ item.send_demand_num }},{{ item.fav_project_num }},{{ item.fav_demand_num }}
+{% endfor %}

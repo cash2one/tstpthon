@@ -1,0 +1,12 @@
+{% for d in favorites %}
+    <div class="col-sm-3" style="margin-top: 10px; ">
+        <a href="{% url 'account.company' d.company.id %}">
+            {% if d.company.logo == "" %}
+                 <img src="{{MEDIA_URL}}companylogo/default.png" alt="{{ d.company.short_name_cn|safe }}" width="80" class="thumbnail" style="margin-bottom: 3px"/>
+              {% else %}
+                <img src="{{MEDIA_URL}}companylogo/{{d.company.logo}}" alt="{{ d.company.short_name_cn|safe }}" width="80" class="thumbnail" style="margin-bottom: 3px"/>
+              {% endif %}</a>
+        <a href="{% url 'account.company' d.company.id %}">{{ d.company.short_name_cn }}</a><br />
+        <button class="btn-xs btn-primary btn-remove-favorite" style="margin-top: 3px" data-type="company" data-id="{{ d.company.id }}"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消关注</button>
+    </div>
+{% endfor %}

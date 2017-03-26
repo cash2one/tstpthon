@@ -1,0 +1,8 @@
+{% for d in favorites %}
+<div class="col-sm-3" style="margin-top: 10px; ">
+    <a href="{% url 'account.profile' d.receiver.id %}"><img src="{% url 'account.avatar' 80 80 d.member.avatar%}" class="thumbnail" width="80" style="margin-bottom: 3px"/></a>
+    <a href="{% url 'account.profile' d.receiver.id %}">{{ d.receiver }}</a> <br />
+    <button class="btn-xs btn-primary send_message_btn" style="margin-top: 3px" data-message-type="0" data-message-id="{{ d.receiver.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Messange</button> &nbsp;&nbsp;
+    <button class="btn-xs btn-primary btn-remove-favorite" data-id="{{ d.receiver.id }}" data-type="member"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;Delete</button>
+</div>
+{% endfor %}

@@ -1,0 +1,30 @@
+{
+ "name": "flare",
+ "children": [
+  
+  {
+   "name": "query",
+   "children": [
+    {"name": "并购", "size": 1010},
+    {"name": "互联网", "size": 3842},
+    {
+     "name": "interpolate",
+     "children": [
+      {"name": "IT", "size": 1983},
+      {"name": "金融", "size": 2047}
+     ]
+    },
+    {"name": "P2P", "size": 1041},
+    {"name": "TMT", "size": 6006}
+   ]
+  },
+  
+  {
+   "name": "palette",
+   "children": [
+    {"name": "融资", "size": 1010},
+    {"name": "企业融资", "size": 5842}
+   ]
+  }
+ ]
+}

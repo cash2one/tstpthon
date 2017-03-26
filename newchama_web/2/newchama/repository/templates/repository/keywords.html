@@ -1,0 +1,54 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Members{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Message<span>Messages</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Messages</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <button class="btn btn-primary">Search</button>
+        <a class="btn btn-default" href="{% url 'repository.addKeyword' %}">Add</a>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Createtime</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate result_list %}
+            {% for m in result_list %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.name }}</td>
+                <td>{{ m.add_time|date:'Y-m-d H:i:s' }}</td>
+                <td>
+                    <a href="{% url 'repository.editKeyword' m.pk %}" title="edit"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                    <a href="javascript:;" onclick="DoDelete('{% url 'repository.removeKeyword' %}', {{ m.id }})" class="delete-row" title="remove"><i class="fa fa-trash-o"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% paginate %}
+    </div><!-- table-responsive -->
+{% endblock %}

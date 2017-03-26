@@ -1,0 +1,70 @@
+{% extends "adminuser/base.html" %}
+{% load myTags %}
+{% load pagination_tags %}
+{% block title %}Projects{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Project<span>One Click</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">One Click</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+      <label>Total:<span class="badge badge-success">{{ total }}</span></label>&nbsp;&nbsp;
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+          <select name="status" class="form-control" >
+            <option value="">status</option>
+            {% for id,value in StatusType %}
+                <option value="{{ id }}" {% if status == id %} selected {% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary">Search</button>
+        <a class="btn btn-default" href="{% url 'project.add' %}">Add</a>
+        <a class="btn btn-default" href="/project/?keyword={{ keyword }}&status={{ status }}&download=1">Export</a>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>编号</th>
+                <th>文件名</th>
+                <th>文件大小</th>
+                <th>用户名称</th>
+                <th>上传时间</th>
+                <th>状态</th>
+                <th>下载附件</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate oneclickList %}
+            {% for m in oneclickList %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.file_name }}</td>
+                <td>{{ m.file_size | handleFileSize }}</td>
+                <td>{{ m.member.first_name }} {{ m.member.last_name }}</td>
+                <td>{{ m.update_time }}</td>
+                <td>{{ m.status }}</td>
+                <td>
+                    <a href="{{ MEDIA_URL }}sales/oneclick/{{ m.new_name }}" title="download_attach" target="_blank"><i class="fa fa-eye"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% paginate %}
+    </div>
+    </div>
+</div>
+{% endblock %}

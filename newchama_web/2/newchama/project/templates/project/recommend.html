@@ -1,0 +1,65 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Projects{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Project<span>Projects</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">Project</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+        <strong>{{ m.name_cn|safe }}</strong> &nbsp;&nbsp; <strong>{{ m.name_en|safe }}</strong> &nbsp;
+            (推荐总数：{{ total_count |default:0 }})<br/>
+        <div class="col-md-12">
+        <table border="1">
+        <tr>
+        <td width="20%">
+        按投资方向：{{ orient_investmentCompanyCount |default:0}}
+        </td>
+        <td width="20%">
+        按需求：{{ demand_count |default:0}}
+        </td><td width="20%">
+        按已注册公司行业分类：{{ industry_company_count |default:0 }}
+        </td><td width="20%">
+        按未注册公司投资机构行业分类：{{ industry_investcompany_count |default:0 }}
+        </td><td width="20%">
+        按上市公司行业分类：{{ list_company_count |default:0 }}
+        </td>
+        </tr>
+        <tr>
+        <td valign="top">
+            {% for c in orient_investmentCompany %}
+                {{ c.name_cn }}<br/>
+            {% endfor %}
+        </td>
+        <td valign="top">
+            {% for c in companyList_demand %}
+                {{ c.name_cn }}<br/>
+            {% endfor %}
+        </td>
+        <td valign="top">
+            {% for c in member_companyList %}
+                {{ c.name_cn }}<br/>
+            {% endfor %}
+        </td><td valign="top">
+            {% for c in investmentCompany %}
+                {{ c.name_cn }}<br/>
+            {% endfor %}
+        </td><td valign="top">
+            {% for c in listedCompanyList %}
+                {{ c.name_cn }}<br/>
+            {% endfor %}
+        </td>
+        </tr>
+        </table>
+</div>
+</div>
+{% endblock %}

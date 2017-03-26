@@ -1,0 +1,87 @@
+{% extends "common/en-us/base.html" %}
+{% load humanize %}
+{% load pagination_tags %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+            <div class="col-xs-12">
+                <ul class="nav nav-pills top_nav_pills" role="tablist">
+             <li class="active"> <a href="{% url 'sales.mylist' %}">Sell-Side Deal {# ({{ total_all }}) #}</a>
+            <li> <a href="{% url 'purchase.mylist' %}">Buy-Side Mandates{#({{ total_demand }})#} </a>
+                    </li>
+                </ul>
+                <br/>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <ul class="news-list">
+                        <li class="nav-header">
+                            <ul class="nav nav-pills top_nav_pills" role="tablist">
+                            <li class="{{ release }}"><a href="{% url 'sales.mylist_release' %}" tabindex="-1">Released to the Market({{ total_release }})</a></li>
+                            <li class="{{ offline }}"><a href="{% url 'sales.mylist_offline' %}" tabindex="-1">Off the Market({{ total_offline }})</a></li>
+                            <li class="{{ pending }}"><a href="{% url 'sales.mylist_pending' %}" tabindex="-1">Pending({{ total_pending }})</a></li>
+                            <li class="{{ not_approved }}"><a href="{% url 'sales.mylist_not_approved' %}" tabindex="-1">Disapproved({{ total_not_approved }})</a></li>
+                            <li class="{{ draft }}"><a href="{% url 'sales.mylist_draft' %}" tabindex="-1">Draft Box({{ total_draft }})</a></li>
+                        </ul>
+                        </li>
+                        {% if result_list %}
+                            {% autopaginate result_list 10%}
+                            {% for m in result_list %}
+                                {% comment %}<div class="col-xs-1">
+                                    <strong><span class="label label-success">{{ m.statusName }}</span></strong>
+                                </div>{% endcomment %}
+                            <li class="project-item2">
+                                <div class="col-xs-9">
+                                    <a href="{% url "sales.mydetail" m.id %}"><strong>{{ m.name_en|safe | truncatechars:75 }}</strong></a>
+                                </div>
+                                <div class="col-xs-10" style="margin-bottom: 10px;">
+                                    <table class="table index-table-1">
+                                        <tbody>
+                                        <tr class="project-th">
+                                            <td width="15%">Recommendations</td>
+                                            <td width="10%">Pushed</td>
+                                            <td width="15%">Visitor</td>
+                                            <td width="15%">WatchList</td>
+                                            <td width="15%">Message</td>
+                                            <td width="15%">Completion</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ m.total_recommends}}</td>
+                                            <td>{{ m.total_target}}</td>
+                                            <td>{{ m.pvs}}</td>
+                                            <td>{{ m.total_favorites}}</td>
+                                            <td>{{ m.not_read_messages}}</td>
+                                            <td>{{ m.integrity | default:'60'}}%</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    {{ m.features_en | safe | replaceBrToEmpty | truncatechars:200}}
+                                </div>
+                                <div class="col-xs-2">
+                                    <span class="pull-right" style="width:230px; text-align: right">
+                                        <button class="btn-xs btn-primary" onclick="javascript:location.href='{% url "sales.mydetail" m.id %}'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;BankIng Genius</button>
+                                        <button class="btn-xs btn-primary" onclick="javascript:location.href='{% url "sales.detail" m.id %}'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detail</button>
+                                        <button class="btn-xs btn-primary" onclick="javascript:location.href='{% url "sales.edit" m.id %}'"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit</button>
+                                        <!--{% if type == "release" %}
+                                            <button class="btn-xs btn-primary" onclick="javascript:OfflineSales({{ m.id }});"><i class="glyphicon glyphicon-arrow-down"></i>&nbsp;下线</button>&nbsp;&nbsp;
+                                        {% endif %}
+                                        <button class="btn-xs btn-primary" onclick="DeleteSales({{ m.id }});"><i class="glyphicon glyphicon-trash"></i>&nbsp;删除</button>-->
+                                     </span>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        {% else %}
+                            <div class="news-list-empty">
+                                <p class="news-list-empty-text">No related record</p>
+                            </div>
+                        {% endif %}
+                        <div class="pull-right">
+                            {% paginate %}
+                        </div>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />  
+    <title>NewChama 让交易更简单</title>
+    <meta name="Keywords" content="并购平台,融资平台,股权平台,股权信息发布,交易服务,纽熙,茶马,茶马古道 " /> 
+    <meta name="Description" content="NewChama是全球领先的股权交易与并购信息平台。截止今天，平台上的项目发布已达到数百个。NewChama帮助项目寻找遍及全球的投资者；同时，也为买方定位优质项目，提供投资决策的信息支持。" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link href="{{STATIC_PREFIX}}home/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_PREFIX}}home/css/mobile_newchama.css" rel="stylesheet">
+     <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?690046ddb5b2d6eadafc3f2827c92b75";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    
+  </head>
+<body>
+<div class="warpper" style="padding:0px;">
+  <div class="tag_search_block">
+    <a href="{% url 'home.m_tag_list' 1 %}" id="tag_btn_01"></a>
+    <a href="{% url 'home.m_tag_list' 2 %}" id="tag_btn_02"></a>
+    <a href="{% url 'home.m_tag_list' 3 %}" id="tag_btn_03"></a>
+    <a href="{% url 'home.m_tag_list' 4 %}" id="tag_btn_04"></a>
+    <a href="{% url 'home.m_tag_list' 5 %}" id="tag_btn_05"></a>
+    <a href="{% url 'home.m_tag_list' 6 %}" id="tag_btn_06"></a>
+    <a href="{% url 'home.m_tag_list' 7 %}" id="tag_btn_07"></a>
+    <a href="{% url 'home.m_tag_list' 8 %}" id="tag_btn_08"></a>
+  </div>
+</div>
+ <script src="{{STATIC_PREFIX}}js/libs/jquery-1.10.1.min.js"></script>
+<script type="text/javascript">
+  $('.warpper').height($(document).height());
+  $('.tag_search_block').height($('.tag_search_block').width()*788/640);
+</script>
+</body>
+</html>

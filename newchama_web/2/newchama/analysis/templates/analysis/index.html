@@ -1,0 +1,59 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+   {% include "analysis/analysis_nav.html" %}
+     
+<h4>用户总表</h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>用户总数</th>
+            <th>项目数</th>
+            <th>需求数</th>
+            <th>上市公司用户数</th>
+            <th>非上市公司用户数</th>
+            <th>PE/VC用户数</th>
+            <th>FA用户数</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% autopaginate result_list %}
+        {% for item in result_list %}
+          <tr>
+            <td>{{ item.time | date:'Y-m-d' }}</td>
+            <td>{{ item.user_num }}</td>
+            <td>{{ item.project_num }}</td>
+            <td>{{ item.demand_num }}</td>
+            <td>{{ item.listed_user_num }}</td>
+            <td>{{ item.unlisted_user_num }}</td>
+            <td>{{ item.vc_user_num }}</td>
+            <td>{{ item.fa_user_num }}</td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

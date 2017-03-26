@@ -1,0 +1,597 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-04-10 17:37+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: models.py:171 models.py:700
+msgid "Listed"
+msgstr "上市公司"
+
+#: models.py:172 models.py:701
+msgid "UnListed"
+msgstr "非上市公司"
+
+#: models.py:173 models.py:702
+msgid "Investment"
+msgstr "投资机构"
+
+#: models.py:174 models.py:703
+msgid "Service"
+msgstr "第三方服务机构"
+
+#: models.py:175 models.py:704
+msgid "Other"
+msgstr "其他"
+
+#: models.py:178
+msgid "NotAccount"
+msgstr ""
+
+#: models.py:179 models.py:475 models.py:480 models.py:1038
+msgid "Normal"
+msgstr "正常"
+
+#: models.py:180 models.py:481
+msgid "Abnormal"
+msgstr "异常"
+
+#: models.py:181 models.py:769 models.py:1034 models.py:1290
+msgid "Deleted"
+msgstr "已删除"
+
+#: models.py:184
+#, fuzzy
+msgid "RMB Capital"
+msgstr "合资"
+
+#: models.py:185
+#, fuzzy
+msgid "USD Capital"
+msgstr "合资"
+
+#: models.py:186
+#, fuzzy
+msgid "EUR Capital"
+msgstr "合资"
+
+#: models.py:187
+msgid "Other Currency Capital"
+msgstr ""
+
+#: models.py:188 models.py:358 models.py:392
+msgid "Mixed Capital"
+msgstr "合资"
+
+#: models.py:246 models.py:258 models.py:267 models.py:283
+msgid "Unknow"
+msgstr ""
+
+#: models.py:247 models.py:259 models.py:268 models.py:284
+msgid "Unlimited"
+msgstr ""
+
+#: models.py:248 models.py:773 models.py:783 models.py:1042
+msgid "Buyout"
+msgstr "控股权收购"
+
+#: models.py:249 models.py:774 models.py:784 models.py:1043
+msgid "Growth Capital/Financing"
+msgstr "小股权投资"
+
+#: models.py:250 models.py:775 models.py:785 models.py:1044
+msgid "Old stock transfer(not buyout)"
+msgstr "老股转让（非并购）"
+
+#: models.py:251 models.py:776 models.py:786 models.py:1045
+msgid "Buyout or Financing"
+msgstr "融资或并购皆可"
+
+#: models.py:252 models.py:777 models.py:787 models.py:1046
+msgid "Asset sale"
+msgstr "资产转让"
+
+#: models.py:253 models.py:778 models.py:788 models.py:1047
+msgid "Additonal issue"
+msgstr "增发"
+
+#: models.py:254 models.py:779 models.py:789 models.py:1048
+msgid "Debt"
+msgstr "企业债券"
+
+#: models.py:255 models.py:780 models.py:790 models.py:1050
+msgid "IPO"
+msgstr "IPO"
+
+#: models.py:260 models.py:793 models.py:857 models.py:1053 models.py:1058
+#: models.py:1348
+msgid "CNY"
+msgstr "CNY"
+
+#: models.py:261 models.py:794 models.py:858 models.py:1054 models.py:1059
+#: models.py:1349
+msgid "USD"
+msgstr "USD"
+
+#: models.py:262 models.py:859 models.py:1060
+msgid "EUR"
+msgstr ""
+
+#: models.py:263
+msgid "OTHER"
+msgstr ""
+
+#: models.py:269
+#, fuzzy
+msgid "Less than 10M"
+msgstr "10人以下"
+
+#: models.py:279
+#, fuzzy
+msgid "More than 3000M"
+msgstr "3000人以上"
+
+#: models.py:285 models.py:836
+msgid "Less than 10%"
+msgstr "10%以下"
+
+#: models.py:291
+#, fuzzy
+msgid "More than 150%"
+msgstr "90%以上"
+
+#: models.py:356 models.py:390
+msgid "Chinese Capital"
+msgstr "中资"
+
+#: models.py:357 models.py:391
+msgid "Foreign Capital"
+msgstr "外资"
+
+#: models.py:470 models.py:691
+msgid "Male"
+msgstr "男"
+
+#: models.py:471 models.py:692
+msgid "Female"
+msgstr "女"
+
+#: models.py:474
+msgid "Test"
+msgstr "测试"
+
+#: models.py:476
+msgid "UserAdd"
+msgstr ""
+
+#: models.py:477
+msgid "BDAdd"
+msgstr ""
+
+#: models.py:482
+msgid "MustChangePassword"
+msgstr ""
+
+#: models.py:483
+msgid "Activing"
+msgstr ""
+
+#: models.py:675
+msgid "Your account has bean locked. Please contact customer services."
+msgstr "您的帐号已被锁定. 请联系网站管理员."
+
+#: models.py:678
+msgid "Your account has expired. Please contact customer services."
+msgstr "您的帐号已过期. 请联系网站管理员."
+
+#: models.py:681
+#, fuzzy
+msgid "Login failed. Please confirm your password."
+msgstr "登录失败，请检查您的用户名密码是否正确."
+
+#: models.py:683
+msgid "Login failed. Please confirm your account."
+msgstr "登录失败，请检查您的用户名密码是否正确."
+
+#: models.py:695 models.py:764 models.py:1029 models.py:1287
+msgid "Pending"
+msgstr "待审核"
+
+#: models.py:696 models.py:765 models.py:1030 models.py:1288
+msgid "Not approved"
+msgstr "审核未通过"
+
+#: models.py:697 models.py:766 models.py:1031 models.py:1289
+msgid "Approved"
+msgstr "已审核"
+
+#: models.py:767 models.py:1032
+msgid "Offline"
+msgstr "下线"
+
+#: models.py:768 models.py:1033
+msgid "Draft"
+msgstr "未发布"
+
+#: models.py:772 models.py:798 models.py:812 models.py:835
+msgid "All"
+msgstr "不限"
+
+#: models.py:799 models.py:1063
+msgid "Less than 10"
+msgstr "10人以下"
+
+#: models.py:800 models.py:1064
+msgid "10-20"
+msgstr "10人-20人"
+
+#: models.py:801 models.py:1065
+msgid "20-50"
+msgstr "20人-50人"
+
+#: models.py:802 models.py:1066
+msgid "50-100"
+msgstr "50人-100人"
+
+#: models.py:803 models.py:1067
+msgid "100-200"
+msgstr "100人-200人"
+
+#: models.py:804 models.py:1068
+msgid "200-300"
+msgstr "200人-300人"
+
+#: models.py:805 models.py:1069
+msgid "300-500"
+msgstr "300人-500人"
+
+#: models.py:806 models.py:1070
+msgid "500-1000"
+msgstr "500人-1000人"
+
+#: models.py:807 models.py:1071
+msgid "1000-2000"
+msgstr "1000人-2000人"
+
+#: models.py:808 models.py:1072
+msgid "2000-3000"
+msgstr "2000人-3000人"
+
+#: models.py:809 models.py:1073
+msgid "More than 3000"
+msgstr "3000人以上"
+
+#: models.py:813 models.py:824 models.py:1076
+msgid "Less than 5 M"
+msgstr "500万以下"
+
+#: models.py:814 models.py:825 models.py:1077
+msgid "5-10 M"
+msgstr "500万-1000万"
+
+#: models.py:815 models.py:826 models.py:1078
+msgid "10-20 M"
+msgstr "1000万-2000万"
+
+#: models.py:816 models.py:827 models.py:1079
+msgid "20-50 M"
+msgstr "2000万-5000万"
+
+#: models.py:817 models.py:828 models.py:1080
+msgid "50-100 M"
+msgstr "5000万-1亿"
+
+#: models.py:818 models.py:829 models.py:1081
+msgid "100-300 M"
+msgstr "1亿-3亿"
+
+#: models.py:819 models.py:830 models.py:1082
+msgid "300-500 M"
+msgstr "3亿-5亿"
+
+#: models.py:820 models.py:831 models.py:1083
+msgid "500-1000 M"
+msgstr "5亿-10亿"
+
+#: models.py:821 models.py:832 models.py:1084
+msgid "More than 1000 M"
+msgstr "10亿以上"
+
+#: models.py:843
+msgid "More than 90%"
+msgstr "90%以上"
+
+#: models.py:846 models.py:1087
+msgid "Angel Investment"
+msgstr "天使轮"
+
+#: models.py:846 models.py:1087
+msgid "series A"
+msgstr "A轮"
+
+#: models.py:847 models.py:1088
+msgid "series B"
+msgstr "B轮"
+
+#: models.py:848 models.py:1089
+msgid "series C"
+msgstr "C轮"
+
+#: models.py:849 models.py:1090
+msgid "series D"
+msgstr "D轮"
+
+#: models.py:852
+msgid "cash"
+msgstr "现金"
+
+#: models.py:853
+msgid "stock"
+msgstr "股票"
+
+#: models.py:854 models.py:864 models.py:1097
+msgid "other"
+msgstr "其他"
+
+#: models.py:862
+msgid "buyer agent"
+msgstr "买方代理"
+
+#: models.py:863
+msgid "direct buyer"
+msgstr "直接买方"
+
+#: models.py:867 models.py:1100
+msgid "30 days"
+msgstr "30天"
+
+#: models.py:868 models.py:1101
+msgid "60 days"
+msgstr "60天"
+
+#: models.py:869 models.py:1102
+msgid "90 days"
+msgstr "90天"
+
+#: models.py:870 models.py:1103
+msgid "180 days"
+msgstr "180天"
+
+#: models.py:873 models.py:1106 models.py:1724
+msgid "UnPublished"
+msgstr "未发送"
+
+#: models.py:874 models.py:1107 models.py:1725
+msgid "Published"
+msgstr "已发送"
+
+#: models.py:875 models.py:1108
+msgid "In Negotiation"
+msgstr "沟通中"
+
+#: models.py:876 models.py:1109 models.py:1727
+msgid "NDA Signed"
+msgstr "签订NDA"
+
+#: models.py:877 models.py:1110 models.py:1728
+msgid "TS Signed"
+msgstr "签订TS"
+
+#: models.py:878 models.py:1111 models.py:1729
+msgid "Settlement"
+msgstr "交割"
+
+#: models.py:881 models.py:1114
+msgid "No audited"
+msgstr "未审计"
+
+#: models.py:882 models.py:1115
+msgid "Big four"
+msgstr "四大审计"
+
+#: models.py:883 models.py:1116
+msgid "Not big four"
+msgstr "非四大审计"
+
+#: models.py:1003 models.py:1230
+msgid "repository_investmentcompany"
+msgstr ""
+
+#: models.py:1004 models.py:1231
+msgid "repository_listedcompany"
+msgstr ""
+
+#: models.py:1020
+msgid "Less than 500"
+msgstr "500以下"
+
+#: models.py:1026
+msgid "More than 5001"
+msgstr "5001以上"
+
+#: models.py:1037
+msgid "Return"
+msgstr "退回"
+
+#: models.py:1039
+msgid "Pass"
+msgstr "通过"
+
+#: models.py:1049
+msgid "Convertible bond"
+msgstr "可转债"
+
+#: models.py:1093
+msgid "exclusive agent"
+msgstr "独家代理"
+
+#: models.py:1094
+msgid "not exclusive agent"
+msgstr "非独家代理"
+
+#: models.py:1095
+msgid "management of seller"
+msgstr "卖方管理层"
+
+#: models.py:1096
+msgid "shareholder of seller"
+msgstr "卖方股东"
+
+#: models.py:1311
+msgid "Management"
+msgstr "管理层"
+
+#: models.py:1312
+msgid "Institutional"
+msgstr "机构投资者"
+
+#: models.py:1313
+msgid "Personal"
+msgstr "个人投资者"
+
+#: models.py:1510
+#, fuzzy
+msgid "List"
+msgstr "上市公司"
+
+#: models.py:1511
+msgid "Trans"
+msgstr ""
+
+#: models.py:1512
+msgid "BuyTogether"
+msgstr ""
+
+#: models.py:1698
+msgid "newchama company"
+msgstr ""
+
+#: models.py:1699
+#, fuzzy
+msgid "investment company"
+msgstr "有确定此行业投资意向"
+
+#: models.py:1700
+msgid "listed company"
+msgstr ""
+
+#: models.py:1726
+msgid "Remove"
+msgstr ""
+
+#: models.py:1807 models.py:1835
+msgid "Admin"
+msgstr ""
+
+#: models.py:1808 models.py:1836
+msgid "Self"
+msgstr ""
+
+#: models.py:1809 models.py:1837
+msgid "Submit"
+msgstr ""
+
+#: views.py:96
+#, fuzzy
+msgid "The file cannot be more than 50M"
+msgstr "图片大小不能超过500K"
+
+#: views.py:112
+#, fuzzy
+msgid "Only Support JPG, JEPG, PNG, DOC,DOCX,XLS,XLSX,PPT,PPTX,PDF"
+msgstr "只支持jpg、jepg和png格式的图片"
+
+#: views.py:124
+msgid "The file cannot be more than 500K"
+msgstr "图片大小不能超过500K"
+
+#: views.py:139
+msgid "Only Support JPG, JEPG, PNG"
+msgstr "只支持jpg、jepg和png格式的图片"
+
+#: templates/services/error_message.html:8
+msgid "System Message"
+msgstr "系统消息"
+
+msgid "Your invitation was successfully sent"
+msgstr "邀请邮件已成功发送"
+
+#~ msgid "Fund"
+#~ msgstr "基金公司"
+
+#~ msgid "Less than 2"
+#~ msgstr "2以下"
+
+#~ msgid "More than 1000"
+#~ msgstr "1000以上"
+
+#~ msgid "Order from NewChama"
+#~ msgstr "来自NewChama的订单"
+
+#~ msgid "Need More Information"
+#~ msgstr "获取更多数据"
+
+#~ msgid "The file cannot be more than 2M"
+#~ msgstr "文件大小不能大于2兆"
+
+#~ msgid "The file must be 'doc|docx|pdf"
+#~ msgstr "上传文件必须是doc|docx|pdf"
+
+#~ msgid "Permission Error"
+#~ msgstr "权限错误"
+
+#~ msgid "Please submit a project before you visit the detail"
+#~ msgstr "请先发布一个卖方项目后，进行详细信息查看"
+
+#~ msgid "You have no permission to visit this page"
+#~ msgstr "您没有权限访问该页面"
+
+#~ msgid "Please contact customer services."
+#~ msgstr "请联系网站管理员."
+
+#~ msgid "not target"
+#~ msgstr "您不是目标推送用户，不能访问."
+
+#~ msgid "NewChama Project Message"
+#~ msgstr "NewChama新项目推荐."
+
+#~ msgid "error"
+#~ msgstr "操作失败，请联系网站管理员."
+
+#~ msgid "investor within the same industry"
+#~ msgstr "有意愿投资类似行业"
+
+#~ msgid "invested in similar companies"
+#~ msgstr "投资过相同行业"
+
+#~ msgid "public company within the same industry"
+#~ msgstr "同行业战略投资人"
+
+#~ msgid "relate buy-side mandate"
+#~ msgstr "有相关需求"
+
+msgid "Audited"
+msgstr "审计"
+
+msgid "Reviewed"
+msgstr "审阅"
+
+msgid "Compiled"
+msgstr "管理报表"
+
+msgid "Internal"
+msgstr "内部记账"

@@ -1,0 +1,89 @@
+{% extends "common/zh-cn/base.html" %}
+{% load humanize %}
+{% load pagination_tags %}
+{% load myTags %}
+{% block content %}
+<div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+        <input type="hidden" id="edit_id" name="id" value="{{ id |default:"" }}"/>
+        <input type="hidden" id="target_industry_id" value="0">
+        <input type="hidden" id="target_industry_name" value="0">
+        <input type="hidden" id="target_location_type" value="country">
+        <input type="hidden" id="target_location_id" value="0">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-xs-12">
+                    <div class="purchase_title">
+                        交易匹配
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="assist_border">
+                        <label class="col-xs-12">行业</label>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="target_company_industry_0" name="target_company_industry_0" class="form-control " data-required="true" data-error-message="请选择标的公司所在行业" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                                {% for i in industries %}
+                                <option value="{{ i.id }}" {% if u.d.id == i.id %} selected="selected" {% endif %}>{{ i.name_cn }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="target_company_industry_1" name="target_company_industry_1" class="form-control" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12 hide_" >
+                            <select id="target_company_industry_2" name="target_company_industry_2" class="form-control" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <label class="col-xs-12">地域</label>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="target_country" name="target_country" class="form-control chosen-select" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                                {% for country in countries %}
+                                <option value="{{ country.id }}" {% if u.company_country.id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-12" style="margin-bottom:10px;">
+                            <select id="target_province" name="target_province" class="form-control chosen-select" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-12" style="text-align:center;">
+                            <button type="button" class="btn btn-primary btn-xs" name="btn_search" id="btn_search">搜索</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-9">
+                    <div class="pull-left" style="margin-top:0px;">
+                    <div class="project_title" style="font-size:16px;color:#59acb8; margin-bottom:5px;">{{ project_title }}</div>
+                    <div>为您匹配到的潜在项目数： <span class="potentialNum">{{ totalRecommend }}</span></div></div>
+                    <div class="pull-right" style="margin-top:10px"><button type="button" class="btn btn-primary btn-xs" name="btn_review" id="btn_review">Teaser预览</button></div>
+                    {% comment %}<div class="col-xs-12 assist_button_background">
+                        推荐项目
+                    </div>{% endcomment %}
+                    <table class="col-xs-12 table_recommend table_recommend_1">
+                        <tr class="recommend_title">
+                            <th width="85%">&nbsp;&nbsp;&nbsp;&nbsp;推荐项目</th>
+                            <th width="15%">操作</th>
+                        </tr>
+                        {% include "purchase/zh-cn/json_recommend.html" %}
+                    </table>
+                    <div class="news-list-view-all view-more-recommond_1"> <a href="javascript:loadRecommend();">查看更多</a> </div>
+                    <div class="col-xs-12 hide_ assist_loading" style="text-align: center; ">
+                        <img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+<script src="{{STATIC_PREFIX}}js/plugins/layer/layer.min.js"></script>
+<script src="{{STATIC_PREFIX}}js/common/banking_genius_purchase.js?aa=3"></script>
+{% endblock %}

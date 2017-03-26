@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NewChama用户注册通知</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    </head>
+    <body style=' -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "Hiragino Sans GB", "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif '>
+        <div class="container" style="box-sizing: border-box;margin: 0 auto;padding: 0;border: 0;font: inherit;font-size: 14px;vertical-align: baseline;max-width: 450px;background: #fff;font-weight: 300;color: #3B3B3B;">
+
+            <div class="header" style="box-sizing: border-box;margin: 0;padding: 20px 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;">
+                <img src="http://www.newchama.com/media/img/logo.png" alt="NewChama" style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;max-width: 100%;display: block;width: 180px;">
+            </div>
+
+            <div class="body" style="box-sizing: border-box;margin: 0;padding: 40px 0px 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;">
+
+                <div class="content" style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 1.714;margin-bottom: 20px;">
+
+                    <p class="title" style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;margin-bottom: 18px;">{{ name }}，您好！</p>
+                    {% if is_right %}
+                    <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 30px">欢迎加入NewChama，您的认证信息已经顺利通过审核。</p>
+                    {% if role == "2" %}
+                    <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 30px;">使用产品的过程中的任何问题，随时与我们联络，我们会尽快帮助您解决。</p>
+                    {% elif role == "1" %}
+                    <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 30px">您可以点击<span style="color: rgb(116,195,196)"><a href="http:///www.newchama.com/account/login" style="color:rgb(116,195,196);">登录</a></span>使用NewChama的所有服务，为您的交易机会对接合适的投资人。</p> 
+                    <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 30px">使用产品的过程中的任何问题，欢迎您通过以下方式与我们联络。我们会尽快帮助您解决。</p>
+                    {% endif %}
+                    {% else %}
+                    <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 30px">感谢您对NewChama的关注。十分抱歉的通知您，您于{{ add_time|date:"Y年m月d日" }}提交的注册申请，由于以下原因暂未通过。</p>
+                    <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 30px">未通过原因：<span style="text-decoration: underline;">{{ reason }}</span>。</p> 
+                    <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;line-height: 30px">请登录NewChama修改后重新提交。</p>
+                    {% endif %}
+                    <div class="footer" style="box-sizing: border-box;margin: 0;padding: 25px 0px 15px;border: 0;font: inherit;font-size: 12px;vertical-align: baseline;background: #fff;color: #3B3B3B;text-align: left;">
+                        <table style="width:450px;margin:10px auto 10px;border-spacing:0px;line-height:0px" class="">
+                            <tbody class="">
+                                <tr class="">
+                                    <td style="border-bottom-width:1px;border-bottom-color:#c0c0c8;border-bottom-style:solid" class="">&nbsp;</td>
+                                    <td style="border-bottom-width:1px;border-bottom-color:#c0c0c8;border-bottom-style:solid" class="">&nbsp;</td>
+                                </tr>
+                                <tr class="">
+                                    <td style="border-top-width:1px;border-top-color:#ffffff;border-top-style:solid" class="">&nbsp;</td>
+                                    <td style="border-top-width:1px;border-top-color:#ffffff;border-top-style:solid" class="">&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <p style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;">NewChama团队<br/><span class="联系标题">E-mail:support@newchama.com</span></p>
+                        <img src="http://www.newchama.com/media/img/banner.jpg" alt="" style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;max-width: 100%;display: block;">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

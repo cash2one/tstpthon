@@ -1,0 +1,296 @@
+{% extends "common/en-us/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% load humanize %}
+{% load myTags %}
+{% block content %}
+<div class="container-fluid" id="newchama_main">
+<div class="col-xs-12">
+<div class="col-xs-9">
+    <div class="panel panel-default">
+        <div class="panel-body">
+{#            <span class="news-list-item-tags"> <a href="{% url 'sales.new' %}">最新项目</a> 》 某互联网公司寻求并购 </span>#}
+            <div class="project_detail_block">
+                <h3>{{ u.name_en |truncatechars:64 }}&nbsp;<span class="pull-right"> <i class="glyphicon glyphicon-time"></i>
+                Validity Period：{{ u.expire_date|date:'Y-m-d' }}
+
+
+                &nbsp;&nbsp;
+
+                     {% if is_own != True %}
+                    <button class="btn-xs btn-primary send_message_btn" data-message-id="{{u.id}}" data-message-type="1"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Message</button> &nbsp;&nbsp;
+                        {% if is_added_favorite %}
+                              <button class="btn-xs btn-primary btn-cancelfavorite" data-id="{{u.id}}" data-type="project"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;WatchList</button> &nbsp;&nbsp;
+                        {% else %}
+                              <button class="btn-xs btn-primary btn-addfavorite" data-id="{{u.id}}" data-type="project"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</button> &nbsp;&nbsp;
+                        {% endif %}
+                    {% endif %}
+                    <button class="btn-xs btn-primary" onclick="javascript:_hmt.push(['_trackEvent', '打印', 'print', '{{ u.name_en |truncatechars:32 }}']);window.open('{% url "sales.pdf" u.id %}')"><i class="glyphicon glyphicon-print"></i>&nbsp;Print</button> &nbsp;&nbsp; </span></h3>
+                <div class="col-xs-6">
+                    <h5>Representative:</h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            {% if u.is_anonymous%}
+                                <td style="width: 90px">
+                                  <div class="thumbnail">
+                                    <img src="{% url 'account.avatar' 80 80 'default.jpg' %}" alt="anonymous" style="width: 90px;" />
+                                  </div>
+                                </td>
+                                <td>
+                                  <strong>Anonymous Post</strong>
+                                  <br />{{ u.member.company.get_type_display }}
+                                </td>
+                                {% else %}
+                                <td class="col-xs-2"> <a href="{% url 'account.profile' u.member.id %}">
+                                    <img src="{% url 'account.avatar' 80 80 u.member.avatar %}" alt="{{ u.member }}" class="thumbnail" /></a> </td>
+                                <td> {{ u.member }}<br /> <a href="{% url 'account.company' u.member.company.id %}">{{ u.member.company.name_en }}</a>
+                                    <br/>{{ u.member.company.get_type_display }}
+{#                                <br /> Phone: {{ u.member.mobile|default:'NA' }} <br /> Tel: {{ u.member.tel|default:'NA' }} #}
+                                </td>
+                              {% endif %}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-xs-6">
+                    <h5>Summary:</h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td style="width:120px;"><strong>Deal Title:</strong></td>
+                            <td>{{ u.name_en|safe }}</td>
+                        </tr>
+                        {% ifequal u.member.company.type 4 %}
+                        <tr>
+                            <td><strong>Exclusive Agent:</strong></td>
+                            <td>{% if u.is_public %}Y{% else %}N{% endif %}</td>
+                        </tr>
+                        {% endifequal %}
+                        {% ifequal u.is_agent_project True %}
+                        <tr>
+                            <td><strong>是否为代理项目:</strong></td>
+                            <td>{% if u.is_agent_project %}Y{% else %}N{% endif %}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Exclusive Agent:</strong></td>
+                            <td>{% if u.is_public %}Y{% else %}N{% endif %}</td>
+                        </tr>
+                        {% endifequal %}
+                        <tr>
+                            <td><strong>Transaction:</strong></td>
+                            <td>{{ u.get_service_type_display }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Industry:</strong></td>
+                            <td>{{ u.company_industry.name_en }}</td>
+                        </tr>
+                        {% if u.has_attach %}
+                        <tr>
+                            <td><strong>Attachments:</strong></td>
+                            <td> <button class="btn-xs btn-primary dropdown-toggle btn-attach" data-toggle="dropdown" data-type="project" data-id="{{ u.id }}"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;附件&nbsp;</button>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <td><strong>Asking Price:</strong></td>
+                            <td>{{ u.stock_percent | showPercent2 }}</td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Deal Size:</strong></td>
+                            <td>{{ u.deal_size | formatCurrency2:u.get_currency_type_financial_display }}</td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><strong>Key Words:</strong></td>
+                            <td>{{ u.keywords|default:'N/A' }}</td>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+                {% if u.company_intro_en %}
+                <div class="col-xs-12">
+
+                    <h4 class="heading">Business Description:</h4>
+                    <p>{{ u.company_intro_en | default:'N/A' | safe}}</p>
+                    <br />
+                </div>
+                {% endif %}
+                {% if u.features_en %}
+                 <div class="col-xs-12">
+                    <h4 class="heading">Highlights:</h4>
+                    <p>{{ u.features_en | default:'N/A' | safe}}</p>
+                    <br />
+                </div>
+                {% endif %}
+                {% if u.company_industry_intro_en %}
+                <div class="col-xs-12">
+                    <h4 class="heading">Industry Description:</h4>
+                    <p>{{ u.company_industry_intro_en | default:'N/A' | safe}}</p>
+                    <br />
+                </div>
+                {% endif %}
+                <div class="col-xs-12">
+                    <h4>Deal Summary:</h4>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                            <td><strong>Industry:</strong></td>
+                            <td>{{ u.company_industry.name_en }}</td>
+                            <td><strong>Location:</strong></td>
+                            <td>{{ u.company_country.name_en }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Employee Headcount:</strong></td>
+                            <td>{{ u.get_employees_count_type_display | default:'N/A' }}</td>
+                            <td><strong>Listed Company:</strong></td>
+                            <td>{% if u.is_list_company%}Y{% else %}N{% endif %}</td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-xs-12">
+                    <h4 class="heading">Financial Summary:</h4>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th class="col-xs-3"></th>
+                            <th class="col-xs-3">Currency</th>
+                            <th class="price col-xs-3">FY{{ curr_year }}</th>
+                            <th class="price col-xs-3">FY{{ last_year }}</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td><strong>Revenue:</strong></td>
+                            <td>{{ u.get_currency_type_financial_display }}</td>
+                            <td>{{ u.income|formatCurrency }}</td>
+                            <td>{{ u.income_last_phase|formatCurrency }}</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Profit:</strong></td>
+                            <td>{{ u.get_currency_type_financial_display }}</td>
+                            <td>{{ u.profit|formatCurrency }}</td>
+                            <td>{{ u.profit_last_phase|formatCurrency }}</td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="4">&nbsp;</td>
+                        </tr>
+                        <tr class="row-subtotal">
+                            <td><strong>Total Asset:</strong></td>
+                            <td>{{ u.total_assets_last_phase|formatCurrency2:u.get_currency_type_financial_display }}</td>
+                            <td><strong>Registered Capital:</strong></td>
+                            <td >{{ u.registered_capital|formatCurrency2:u.get_currency_type_financial_display }}</td>
+                        </tr>
+                        <tr class="row-subtotal">
+                            <td><strong>EBITDA:</strong></td>
+                            <td>{{ u.ebitda |formatCurrency2:u.get_currency_type_financial_display }}</td>
+                            <td></td>
+                            <td ></td>
+                        </tr>
+
+                          <tr class="row-subtotal">
+                            <td><strong>Estimated Valuation:</strong></td>
+                            <td>{{ u.expected_enterprice_value|formatCurrency }}</td>
+                            <td><strong>Growth forecast for the next three years:</strong></td>
+                            <td >{{ u.growth_three_year |showPercent2}}</td>
+                        </tr>
+
+                          <tr>
+                             <td><strong>Financial Statements:</strong></td>
+                            <td colspan="3">{% if u.financial_is_audit %} Y {% else %} N {% endif %}</td>
+                        </tr>
+                          {% if u.financial_is_audit %}
+                            <tr>
+                                <td><strong>Audit Company:</strong></td>
+                                <td>{{ u.financial_audit_company_name  | default:'N/A' }}</td>
+                                <td><strong>Audited by Big Four:</strong></td>
+                                <td>{% if u.financial_audit_company_is_default %} Y {% else %} N {% endif %}</td>
+                            </tr>
+                        {% endif %}
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-xs-12">
+                    <h5>Equity Structure:</h5>
+                    <table class="table">
+                        <tbody>
+                        <tr>
+                           {% for ss in stockST%}
+                            {% comment %}{% cycle '</tr><tr>' '' %}{% endcomment %}
+                            <td><strong>{% if forloop.counter == 1 %}Mangement Structure{% elif forloop.counter == 2 %}Institutional Investor{% else %}Others{% endif %}:</strong></td>
+                            <td>{{ ss.rate | showPercent2 }}</td>
+                        {% endfor %}
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            {% if u.is_anonymous == False and history_list %}
+                <div class="col-xs-12">
+                    <h4>Deal Histroy:</h4>
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover ">
+                            <tbody>
+                             {% for m in history_list %}
+                            <tr>
+                                <td style="width: 125px;">{{ m.add_time|date:'Y-m-d' }}</td>
+                                <td> <p><strong><a href="{% url 'sales.detail' m.id%}">{{ m.name_en }}</a></strong></p> <p>{{ m.features_en | slice:"100" }}</p> </td>
+                                <td>
+                                    <div class="thumbnail" style="width: 60px; margin-top:10px;">
+                                        {% if m.is_anonymous %}
+                                             <img src="{% url 'account.avatar' 60 60 'default.jpg' %}" alt="anonymous" style="width: 60px;" />
+                                         {% else %}
+                                             <img src="{% url 'account.avatar' 60 60 m.member.avatar %}" alt="{{ m.member }}" />
+                                         {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                             {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- /.table-responsive -->
+                </div>
+            {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- /.news -->
+<div class="col-xs-3">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Related Deal</h3>
+            </div>
+            <div class="panel-body">
+                <ul class="news-list">
+                {% if recommend_list%}
+                    {% for m in recommend_list %}
+                    <li class="project-item3"> <strong class="col-xs-12"><a href="{%url 'sales.detail' m.id %}">&middot; {{ m.name_en|safe }}</a></strong>
+                        <span class="col-xs-6"> Revenue：{{ u.income | formatCurrency}} </span> <span class="col-xs-6"> Industry：{{ u.company_industry.name_en }} </span>
+                        <span class="col-xs-6"> Profit：{{ u.profit | formatCurrency}} </span> <span class="col-xs-6"> Location：{{ u.company_country.name_en }} </span> </li>
+                    {% endfor %}
+                {% else %}
+                     <div class="news-list-empty">
+                         <p class="news-list-empty-text">No record</p>
+                    </div>
+                {% endif %}
+               </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+    {% include "account/en-us/sendmessagemodal.html" %}
+{% endblock %}

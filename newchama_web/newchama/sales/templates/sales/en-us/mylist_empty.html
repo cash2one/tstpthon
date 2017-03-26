@@ -1,0 +1,32 @@
+{% extends "common/en-us/base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-9">
+    <div class="col-xs-12">
+        <ul class="nav nav-pills top_nav_pills" role="tablist">
+            <li class="dropdown active"> <a href="javascript:;" id="myTabDrop3" class="dropdown-toggle" data-toggle="dropdown">我的卖方项目({{ total }}) <b class="caret"></b></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                    <li class="{{ public }}"><a href="{% url 'sales.mylist_public' %}" tabindex="-1">公开发布({{ total_public }})</a></li>
+                    <li class="{{ private }}"><a href="{% url 'sales.mylist_private' %}" tabindex="-1">定向发布({{ total_private }})</a></li>
+                    <li class="{{ draft }}"><a href="{% url 'sales.mylist_draft' %}" tabindex="-1">草稿箱({{ total_draft }})</a></li>
+                </ul>
+            </li>
+            <li> <a href="{% url 'purchase.mylist' %}" class="dropdown-toggle">我的买方项目({{ total_demand }}) </a>
+{#                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">#}
+{#                    <li><a href="#dropdown5" tabindex="-1" data-toggle="tab">公开发布</a></li>#}
+{#                    <li><a href="#dropdown6" tabindex="-1" data-toggle="tab">定向发布</a></li>#}
+{#                    <li><a href="#dropdown6" tabindex="-1" data-toggle="tab">草稿箱</a></li>#}
+{#                </ul>#}
+            </li>
+        </ul>
+         <div class="panel panel-default">
+            <div class="panel-body">
+               <div class="news-list-empty">
+                    <p class="news-list-empty-text">暂无</p>
+                </div>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+{% endblock %}

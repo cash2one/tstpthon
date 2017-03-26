@@ -1,0 +1,659 @@
+{% extends "common/en-us/base.html" %}
+{% load humanize %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <form id="formData" name="formData" class="form-horizontal parsley-form" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="hidden" id="industry_id" name="industry_id" value="0">
+    <input type="hidden" id="industry_name" name="industry_name" value="0">
+    <input type="hidden" name="id" value="{{ u.id }}"/>
+    <input type="hidden" name="status" id="status" value="{{ u.status }}">
+    <input type="hidden" id="target_industry_id" value="0">
+    <input type="hidden" id="target_industry_name" value="0">
+    <input type="hidden" id="submitStatus" name="submitStatus" value="draft">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">{% if u.is_follow %}卖方跟投{% else %}卖方项目{% endif %}辑辑 - 基本信息（必填）</h3>
+        </div>
+        <div class="panel-body ">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                        {{ message }}
+                    </div> <!-- /.alert -->
+                {% endfor %}
+            {% endif %}
+            <div class="col-xs-12">
+                <br />
+                <div class="form-group">
+                    <label class="col-xs-2">交易类型：</label>
+                    <div class="col-xs-4">
+                        <select name="service_type" required id="service_type" class="form-control">
+                            <option value="">请选择</option>
+                            {% for st in u.SERVICE_TYPES %}
+                                <option value="{{ st.0 }}" {% if u.service_type == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    {% ifequal member.company_type 4 %}
+                        <label class="col-xs-1">是否独家代理：</label>
+                        <div class="col-xs-4">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="is_public" name="is_public" value="1" {% if u.is_public%}checked{% endif %} />是
+                            </label>
+                        </div>
+                    {% endifequal %}
+                </div>
+                {% ifnotequal member.company_type 4 %}
+                <div class="form-group">
+                    <label class="col-xs-2">是否为代理项目：</label>
+                    <div class="col-xs-4">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="is_agent_project" name="is_agent_project" value="1" {% if u.is_agent_project%}checked{% endif %} />是
+                        </label>
+                    </div>
+                    <label class="col-xs-1 is_agent_project_ {% if u.is_agent_project == False%}hide_{% endif %}">是否独家代理：</label>
+                    <div class="col-xs-4 is_agent_project_ {% if u.is_agent_project == False%}hide_{% endif %}">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="is_public" name="is_public" value="1" {% if u.is_public%}checked{% endif %} />是
+                        </label>
+                    </div>
+                </div>
+                 {% endifnotequal %}
+                <div class="form-group service_type {% if u.service_type != projectServiceType.additonalIssue%}hide_{% endif %}">
+                    <label class="col-xs-2">增发价格区间(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-4">
+                            <input type="text" placeholder="" name="price_min" value="{{ u.price_min |default:"" }}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-1 unit_position" style="text-align:center;">至</div>
+                        <div class="col-xs-4">
+                            <input type="text" placeholder="" name="price_max" value="{{ u.price_max |default:"" }}" class="form-control" data-type="number" />
+                        </div>
+                    </div>
+                    <label class="col-xs-1">锁定期：</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" type="text" id="lock_date" name="lock_date" value="{{ u.lock_date|date:'Y-m-d' }}" placeholder="锁定期至">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">项目名称(中文)：</label>
+                    <div class="col-xs-4">
+                        <input type="text" name="name_cn" class="form-control custom-required" required value="{{ u.name_cn }}" data-maxlength="100" placeholder="">
+                    </div>
+                    <label class="col-xs-1">英文：</label>
+                    <div class="col-xs-4">
+                        <input type="text" name="name_en" class="form-control" required value="{{ u.name_en }}" data-maxlength="250" placeholder="">
+                    </div>
+                </div>
+                <!--
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司简称(中文)：</label>
+                    <div class="col-xs-4">
+                        <div class="input-group">
+                            <input type="text" name="company_symbol_cn" class="form-control" required value="{{ u.company_symbol_cn }}" data-maxlength="100" placeholder="" />
+                            <span class="input-group-addon-custom"><i class="glyphicon glyphicon-info-sign text-muted ui-popover" data-toggle="tooltip" data-placement="right" data-trigger="hover" data-content="标的公司简要名称，例如某高科技公司。"></i></span>
+                        </div>
+                    </div>
+                    <label class="col-xs-1">英文：</label>
+                    <div class="col-xs-4">
+                        <input type="text" name="company_symbol_en" class="form-control" required value="{{ u.company_symbol_en }}" data-maxlength="250" placeholder="" />
+                    </div>
+                </div>
+                -->
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司实际名称(中文)：</label>
+                    <div class="col-xs-4">
+                        <div class="input-group">
+                            <input type="text" name="company_name_cn" class="form-control" required value="{{ u.company_name_cn }}" data-maxlength="100" placeholder="" />
+                            <span class="input-group-addon-custom"><i class="glyphicon glyphicon-info-sign text-muted ui-popover" data-toggle="tooltip" data-placement="right" data-trigger="hover" data-content="仅自己可见。"></i></span>
+                        </div>
+                    </div>
+                    <label class="col-xs-1">英文：</label>
+                    <div class="col-xs-4">
+                            <input type="text" name="company_name_en" class="form-control" required value="{{ u.company_name_en }}" data-maxlength="250" placeholder="" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司所在国家：</label>
+                    <div class="col-xs-3">
+                        <select id="country" id="country" name="company_country" required class="form-control chosen-select" data-placeholder="请选择">
+                            <option value="">请选择</option>
+                            {% for country in countries %}
+                                <option value="{{ country.id }}" {% if u.company_country.id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司是否为上市公司：</label>
+                    <div class="col-xs-4">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="list_company" name="is_list_company" {% if u.is_list_company%}checked{% endif %} />是
+                        </label>
+                    </div>
+                    <span class="{% if u.is_list_company == False%}hide_{% endif %}" id="ticker_div">
+                    <label class="col-xs-1">交易代码：</label>
+                    <div class="col-xs-4">
+                        <input type="text" id="ticker" name="company_stock_symbol" value="{{ u.company_stock_symbol |default:""}}" data-maxlength="20" class="form-control">
+                        <input type="hidden" id="company_stock_exchange" name="company_stock_exchange" value="">
+                    </div>
+                    </span>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司所在行业：</label>
+                    <div class="col-xs-3">
+                        <select id="company_industry_0" name="company_industry_0" required class="form-control" data-placeholder="请选择">
+                            <option value="">请选择</option>
+                            {% for i in industries %}
+                                <option value="{{ i.id }}" {% if u.d.id == i.id %} selected="selected" {% endif %}>{{ i.name_cn }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-3 hide_">
+                        <select id="company_industry_1" name="company_industry_1" class="form-control" data-placeholder="请选择">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3 hide_">
+                        <select id="company_industry_2" name="company_industry_2" class="form-control" data-placeholder="请选择">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司整体估值期望(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="expected_enterprice_value" required id="expected_enterprice_value" value="{{ u.expected_enterprice_value |formatCurrency4Preference }}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ curr_year }}</div>
+                    </div>
+                    <input type="hidden" name="deal_size" id="deal_size" value="{{ u.deal_size |default:"" }}" />
+                    <label class="col-xs-1">股权交易比例：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-4">
+                            <input type="text" placeholder="" name="stock_percent" required id="stock_percent" value="{{ u.stock_percent | formatPercent }}" data-type="percent" class="form-control" />
+                        </div>
+                        <div class="col-xs-2 unit_position ">%
+                            <i class="glyphicon glyphicon-info-sign text-muted ui-popover" data-toggle="tooltip" data-placement="right" data-trigger="hover" data-content="请填写精确值，如为区间数，请填写平均值。"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">标的公司财务信息（必填）</h3>
+        </div>
+        <div class="panel-body ">
+            <div class="col-xs-12">
+                <br />
+                <div class="form-group">
+                    <label class="col-xs-2">财务报表是否经过审计：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-12">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="is_audited" name="financial_is_audit" {% if u.financial_is_audit%}checked{% endif %} />是
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group bigfour {% if u.financial_is_audit == False%}hide_{% endif %}">
+                    <label class="col-xs-2">审计公司：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-12">
+                            <input type="text" class="form-control" name="financial_audit_company_name" data-maxlength="100" id="financial_audit_company_name" value="{{ u.financial_audit_company_name |default:"" }}">
+                        </div>
+                    </div>
+                    <label class="col-xs-2">是否为四大：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-12">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" id="is_big_four" name="financial_audit_company_is_default" {% if u.financial_audit_company_is_default%}checked{% endif %} />是
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">财务数据货币单位：</label>
+                    <div class="col-xs-2">
+                        <div class="col-xs-12">
+                            <select id="currency_select" name="currency_type_financial" required class="form-control" data-placeholder="请选择">
+                                {% for st in u.CURRENCY_TYPES %}
+                                    <option value="{{ st.0 }}" {% if u.currency_type_financial == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <label class="col-xs-2 col-xs-offset-2">预计未来三年成长性：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-4">
+                            <input type="text" placeholder="" style="text-align: right;" required name="growth_three_year" value="{{ u.growth_three_year | formatPercent }}" data-type="digits" data-maxlength="14" class="form-control" />
+                        </div>
+                        <div class="col-xs-1 unit_position ">%</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">预计本年营业收入(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="income" required value="{{ u.income |formatCurrency4Preference}}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ curr_year }}</div>
+                    </div>
+                    <label class="col-xs-2">预计本年净利润(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="profit" required value="{{ u.profit |formatCurrency4Preference}}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ curr_year }}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">EBITDA(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="ebitda" required value="{{ u.ebitda |formatCurrency4Preference}}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ curr_year }}
+                            <i class="glyphicon glyphicon-info-sign text-muted ui-popover" data-toggle="tooltip" data-placement="right" data-trigger="hover" data-content="如果您使用的为US GAAP，EBITA，如果您使用的是PRC或者IFRS，请在此输入营业利润金额。"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"> 其他信息（选填） <span class="pull-right"><a href="###"><i class="glyphicon glyphicon-chevron-down slider-tag"></i></a></span> </h3>
+        </div>
+        <div class="panel-body slider-hide">
+            <div class="col-xs-12">
+                <br />
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司员工数：</label>
+                    <div class="col-xs-2">
+                        <div class="col-xs-12">
+                            <select name="employees_count_type" class="form-control chosen-select" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                                {% for st in u.EMPLOYEES_COUNT_TYPES %}
+                                    <option value="{{ st.0 }}" {% if u.employees_count_type == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <label class="col-xs-3 col-xs-offset-2">标的公司实缴企业注册资本(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-3">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="registered_capital" value="{{ u.registered_capital |formatCurrency4Preference }}" class="form-control" data-type="number"  />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ curr_year }}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司最近一期总资产(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="total_assets_last_phase" value="{{ u.total_assets_last_phase |formatCurrency4Preference }}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ last_year }}</div>
+                    </div>
+                    <label class="col-xs-3">标的公司最近一期营业收入(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-3">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="income_last_phase" value="{{ u.income_last_phase |formatCurrency4Preference }}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ last_year }}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司最近一期净利润(<span class="unit_position currency_unit">CNY</span>)：</label>
+                    <div class="col-xs-4">
+                        <div class="col-xs-6">
+                            <input type="text" placeholder="" name="profit_last_phase" value="{{ u.profit_last_phase |formatCurrency4Preference }}" class="form-control" data-type="number" />
+                        </div>
+                        <div class="col-xs-6 unit_position">FY {{ last_year }}</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司所在亮点(中文)：</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" rows="5" id="features_cn_">{{ u.features_cn |default:"" | replaceLine}}</textarea>
+                        <input type="hidden" name="features_cn" id="features_cn" value="{{ u.features_cn |default:"" }}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">英文：</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" rows="5" id="features_en_">{{ u.features_en |default:"" | replaceLine }}</textarea>
+                        <input type="hidden" name="features_en" id="features_en" value="{{ u.features_en |default:"" }}"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司简介(中文)：</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" rows="5" id="company_intro_cn_">{{ u.company_intro_cn |default:"" | replaceLine }}</textarea>
+                        <input type="hidden" name="company_intro_cn" id="company_intro_cn" value="{{ u.company_intro_cn |default:"" }}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">英文：</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" rows="5" id="company_intro_en_">{{ u.company_intro_en |default:"" | replaceLine }}</textarea>
+                        <input type="hidden" name="company_intro_en" id="company_intro_en" value="{{ u.company_intro_en |default:"" }}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司行业简介(中文)：</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" rows="5" id="company_industry_intro_cn_">{{ u.company_industry_intro_cn |default:"" | replaceLine }}</textarea>
+                        <input type="hidden" name="company_industry_intro_cn" id="company_industry_intro_cn" value="{{ u.company_industry_intro_cn |default:"" }}"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">英文：</label>
+                    <div class="col-xs-10">
+                        <textarea class="form-control" rows="5" id="company_industry_intro_en_">{{ u.company_industry_intro_en |default:"" | replaceLine }}</textarea>
+                        <input type="hidden" name="company_industry_intro_en" id="company_industry_intro_en" value="{{ u.company_industry_intro_en |default:"" }}"/>
+                    </div>
+                </div>
+
+
+
+                
+                <div class="form-group">
+                    <label class="col-xs-2">标的公司股权架构：</label>
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                            <div class="input-group-addon-custom font-12">
+                                管理层
+                            </div>
+                            <input type="text" placeholder="" style="text-align: right;" name="s_rate" value="{{ stockST.0.rate | formatPercent }}" data-type="percent" class="form-control parsley-validated">
+                            <div class="input-group-addon-custom font-12">%</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                            <div class="input-group-addon-custom font-12">
+                                机构投资者
+                            </div>
+                            <input type="text" placeholder="" style="text-align: right;" name="s_rate" value="{{ stockST.1.rate | formatPercent }}" data-type="percent" class="form-control parsley-validated">
+                            <div class="input-group-addon-custom font-12">%</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-2">
+                        <div class="input-group">
+                            <div class="input-group-addon-custom font-12">
+                                个人投资者
+                            </div>
+                            <input type="text" placeholder="" style="text-align: right;" name="s_rate" value="{{ stockST.2.rate | formatPercent }}" data-type="percent"  class="form-control parsley-validated">
+                            <div class="input-group-addon-custom font-12">%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">发布及其他（必填）</h3>
+        </div>
+        <div class="panel-body ">
+            <br />
+            <div class="col-xs-12">
+                <div class="form-group">
+                    <label class="col-xs-2">选择发布类型：</label>
+                    <div class="col-xs-4">
+                        <label class="radio-inline"> <input type="radio" name="is_suitor" {% if u.is_suitor == False%}checked{% endif %} value="0"/>公开发布 </label>
+                        <label class="radio-inline"> <input type="radio" required name="is_suitor" {% if u.is_suitor%}checked{% endif %} value="1"/>定向推送 </label>
+                    </div>
+                    <label class="col-xs-2">是否匿名发布：</label>
+                    <div class="col-xs-4">
+                        <label class="radio-inline"> <input type="radio" name="is_anonymous" {% if u.is_anonymous%}checked{% endif %} value="1"/>是 </label>
+                        <label class="radio-inline"> <input type="radio" required name="is_anonymous" {% if u.is_anonymous == False%}checked{% endif %} value="0"/>否 </label>
+                    </div>
+                </div>
+
+                <!--
+                <div class="form-group suitor {% if u.is_suitor == False%}hide_{% endif %}">
+                    <label class="col-xs-2">推送到指定行业：</label>
+                    <div class="col-xs-10">
+                        <div class="col-xs-10" id="target_industry">
+                            {% for tc in u.target_industries.all %}
+                                <span id="target_industry_{{ tc.id }}" class="alert alert-info preference_selected">
+                                    <a href="###">{{ tc.name_cn }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                                    <input name="target_industries" type="hidden" value="{{ tc.id }}">
+                                </span>
+                            {% endfor %}
+                        </div>
+                        <div class="col-xs-3">
+                            <select id="target_company_industry_0" name="target_company_industry_0" class="form-control chosen-select" data-placeholder="请选择">
+                            <option value="">请选择</option>
+                            {% for i in industries %}
+                                <option value="{{ i.id }}" {% if u.d.id == i.id %} selected="selected" {% endif %}>{{ i.name_cn }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-3 hide_">
+                            <select id="target_company_industry_1" name="target_company_industry_1" class="form-control chosen-select" data-placeholder="请选择"></select>
+                        </div>
+                        <div class="col-xs-4 hide_">
+                            <select id="target_company_industry_2" name="target_company_industry_2" class="form-control chosen-select" data-placeholder="请选择"></select>
+                        </div>
+                        <div class="col-xs-10"><br/>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="addIndustry2()">添加</button>
+                        </div>
+                    </div>
+                </div>
+                -->
+                <div class="form-group suitor {% if u.is_suitor == False%}hide_{% endif %}">
+                    <label class="col-xs-2">推送指定机构：</label>
+                    <div class="col-xs-10">
+                        <div class="col-xs-10" id="target_compaies">
+                            {% for tc in u.target_companies.all %}
+                                <span id="target_industry_{{ tc.id }}" class="alert alert-info preference_selected">
+                                    <a href="###">{{ tc.name_cn }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                                    <input name="target_companies" type="hidden" value="{{ tc.name_cn }}">
+                                    <input name="target_companies_type" type="hidden" value="0">
+                                </span>
+                            {% endfor %}
+                            {% for tc in other_target_companies%}
+                                <span id="target_industry_{{ tc.table_name }}_{{ tc.id }}" class="alert alert-info preference_selected">
+                                    <a href="###">{{ tc.name_cn }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                                    <input name="target_companies" type="hidden" value="{{ tc.name_cn }}">
+                                    <input name="target_companies_type" type="hidden" value="{{ tc.table_name }}">
+                                </span>
+                            {% endfor %}
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="target_company" class="form-control" placeholder="您要推送的机构名称" />
+                            <input type="hidden" id="target_company_id" />
+                        </div>
+                        <div class="col-xs-10"><br/>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="addCompany2()">添加</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group suitor {% if u.is_suitor == False%}hide_{% endif %}">
+                    <label class="col-xs-2">推送指定买家：</label>
+                    <div class="col-xs-10">
+                        <div class="col-xs-10" id="target_members">
+                            {% for tc in u.target_members.all %}
+                                <span id="target_member_{{ tc.id }}" class="alert alert-info preference_selected">
+                                    <a href="###">{{ tc.first_name }}{{ tc.last_name }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                                    <input name="target_members" type="hidden" value="{{ tc.id }}">
+                                </span>
+                            {% endfor %}
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="target_member" class="form-control" placeholder="您要推送的买家" />
+                            <input type="hidden" id="target_member_id" />
+                        </div>
+                        <div class="col-xs-10"><br/>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="addMember2()">添加</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">关键字：</label>
+                    <div class="col-xs-10">
+                        <div class="col-xs-10" id="target_keywords">
+                            {% for tc in mks %}
+                                <span id="target_keyword_{{ tc.keyword }}" class="alert alert-info preference_selected ">
+                                    <a href="###">{{ tc.keyword }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove project_key_remove"></a>
+                                </span>
+                            {% endfor %}
+                        </div>
+                        <div class="col-xs-4">
+                            <input type="text" id="key_keyword" name="key_keyword" class="form-control" placeholder="您要添加的关键字">
+                            <input type="hidden" id="project_keyword" name="project_keyword" value="{{ keywords }}"/>
+                        </div>
+                        <div class="col-xs-6 unit_position">
+                            <span class="text-muted"><i class="glyphicon glyphicon-info-sign"></i>&nbsp;您的关键字将便于其他用户更快的搜索您的需求。</span>
+                        </div>
+                        <div class="col-xs-10"><br/>
+                            <button type="button" class="btn btn-primary btn-xs" onclick="addKeyword2()">添加</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-2">需求信息有效期：</label>
+                    <div class="col-xs-3">
+                        <input class="form-control" type="text" required id="expire_date" name="expire_date" value="{{ u.expire_date|date:'Y-m-d' }}" placeholder="yyyy-mm-dd">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">附件（选填） <span class="pull-right"><a href="###"><i class="glyphicon glyphicon-chevron-down slider-tag"></i></a></span></h3>
+        </div>
+        <div class="panel-body slider-hide">
+            <div class="col-xs-12">
+                <br />
+                <div class="form-group attach_area">
+                    <label class="col-xs-2">附件类型：</label>
+                    <div class="col-xs-1">
+                        选择附件类型
+                    </div>
+                    <div class="col-xs-9">
+                        <div class="col-xs-3">
+                            <select id="attachment_type" name="attachment_type" class="form-control equity_structure_select" data-placeholder="请选择">
+                                <option value="">请选择</option>
+                                <option value="intro_cn">简介</option>
+                                <option value="secret_cn">保密协议</option>
+                                <option value="bp_cn">商业计划书</option>
+                                <option value="financial_cn">财务数据</option>
+                                <option value="other_cn">其他</option>
+                                <option value="intro_en">简介（英文）</option>
+                                <option value="secret_en">保密协议（英文）</option>
+                                <option value="bp_en">商业计划书（英文）</option>
+                                <option value="financial_en">财务数据（英文）</option>
+                                <option value="other_en">其他（英文）</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-1">
+                            <button type="button" class="btn btn-info btn-xs" id="btn_add_attach" >添加附件</button>
+                        </div>
+                        <div class="col-xs-1">
+                            <button type="button" class="btn btn-default btn-xs" id="btn_remove_attach">删除附件</button>
+                        </div>
+                    </div>
+                </div>
+                {% for am in attachments %}
+                    <div class="form-group attach_sub {{ am.file_type }}" ref='{{ am.file_type_name }}'>
+                        <label class="col-xs-2"></label>
+                        <div class="col-xs-1">{{ am.file_type_name }}</div>
+                        <div class="col-xs-2">
+                            <a href="{{ MEDIA_URL }}project/{{ am.new_name }}">{{ am.file_name }}</a>
+                            <input type="hidden" name="exist_upload_names" value="{{ am.file_name }}"/>
+                            <input type='hidden' name='upload_type_names' value='{{ am.file_type_name }}'>
+                            <input type="hidden" name="exist_upload_newNames" value="{{ am.new_name }}"/>
+                        </div>
+                        <div class="col-xs-2">
+                            <input type="hidden" name="upload_types" value="{{ am.file_type }}">
+                            <input type="file" name="upload_file_{{ am.file_type }}" />
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="form-group text-center">
+        <button type="button" class="btn btn-primary btn-xs" name="btn_save" id="btn_save">发布到市场</button>
+        <button type="button" class="btn btn-default btn-xs" name="btn_draft" id="btn_draft">保存到交易助手</button>
+        <button type="reset" class="btn btn-default btn-xs" name="btn_reset" id="btn_reset">重置</button>
+        <br />
+        <br />
+    </div>
+    </div>
+    </form>
+    </div>
+{% endblock %}
+{% block footer %}
+    <link href="{{STATIC_PREFIX}}css/jquery-ui.css" rel="stylesheet" />
+    <script src="{{STATIC_PREFIX}}js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/parsley/parsley_zh.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/imask/jquery.imask.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/datepicker/datepicker.css" />
+    <script src="{{STATIC_PREFIX}}js/datepicker/bootstrap-datepicker.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/project.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/common_fill.js"></script>
+    <script>
+        function initSelected4Project() {
+            var company_country_id = 0;
+            {% if u.company_country.id > 0 %}company_country_id = {{ u.company_country.id }};{% endif %}
+
+            var unit = jQuery("#currency_select option:selected").text();
+            jQuery(".currency_unit").html(unit);
+
+            if (jQuery("#is_big_four").attr("checked") == "checked")
+                jQuery(".financial_audit_company__name_option_False").wrap("<span class='hide_'></span>");
+
+            var company_industry_result_value = "{{ u.company_industry.id }}";
+            var company_industry_result_level = "{{ u.company_industry.level }}";
+            var company_industry_result_father_id = "{{ u.company_industry.father.id }}";
+            jQuery("#industry_id").val(company_industry_result_value);
+            if (company_industry_result_level == 1) {
+                $("#company_industry_0").val(company_industry_result_value);
+                industrySelect("company_industry_1", company_industry_result_value);
+            }
+            else {
+                if(company_industry_result_level == 2) {
+                    $("#company_industry_0").val(company_industry_result_father_id);
+                    industrySelect("company_industry_1", company_industry_result_father_id,company_industry_result_value);
+                }
+                else if(company_industry_result_level == 3) {
+                    var company_industry_result_father_father_id = "{{ u.company_industry.father.father.id }}";
+                    $("#company_industry_0").val(company_industry_result_father_father_id);
+                    industrySelect("company_industry_1", company_industry_result_father_father_id, company_industry_result_father_id);
+                    industrySelect("company_industry_2", company_industry_result_father_id,company_industry_result_value);
+                }
+                else {
+                    $("#company_industry_0").val(company_industry_result_value);
+                }
+            }
+        }
+
+        initSelected4Project();
+
+        {% comment %}$('input[data-type="number"]').each(function() {
+            var val = $(this).val();
+            $(this).val(formatMoney(val, 0, ""));
+        });{% endcomment %}
+    </script>
+{% endblock %}

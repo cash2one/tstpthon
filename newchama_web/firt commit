@@ -1,0 +1,227 @@
+[33mcommit fb064da9cc1c37408a798aea3b4bb459d9b441e3[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 9 06:03:31 2015 +0800
+
+    moidfy message of profile and demand
+
+[33mcommit e264a4213c73132061de29985d1a2b5ef5f52419[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 9 05:04:09 2015 +0800
+
+    modidfy  the must enter and deal geniues for project and demand
+
+[33mcommit 249f16b9a24c4d3130e815a40aeeb9a084f50dff[m
+Author: renkun <terry.olive.fm>
+Date:   Mon Jun 8 21:19:17 2015 +0800
+
+    add disable of setting mobile
+
+[33mcommit cf15425f708f6df33d52f4abb91bdb8287316dd8[m
+Author: renkun <terry.olive.fm>
+Date:   Mon Jun 8 20:59:00 2015 +0800
+
+    moidfy sync_message
+
+[33mcommit fb875498314c886b292e08b39fba29c815c99da7[m
+Author: renkun <terry.olive.fm>
+Date:   Mon Jun 8 17:24:23 2015 +0800
+
+    add -ad
+
+[33mcommit d34add4e6c42edf40cb93493b24b897a85e3c16c[m
+Merge: 2aa0ec8 d72df67
+Author: renkun <terry.olive.fm>
+Date:   Mon Jun 8 14:56:02 2015 +0800
+
+    Merge branch 'newchama_v4.1' of git.olive.fm:newchama_web into newchama_v4.1
+
+[33mcommit 2aa0ec840acafc003e1b58f9be181630cbf2b4e3[m
+Author: renkun <terry.olive.fm>
+Date:   Mon Jun 8 14:55:47 2015 +0800
+
+    modify view_email.html of sales
+
+[33mcommit d72df67787848c7f85ec68bf1859ce499355d6f5[m
+Author: allen <allen@newchama.com>
+Date:   Mon Jun 8 14:39:47 2015 +0800
+
+    fix message bugs
+
+[33mcommit 334d2629271c63a176b4337d02657852b77f212e[m
+Merge: c74b33b 59d55b5
+Author: renkun <terry.olive.fm>
+Date:   Sun Jun 7 23:26:44 2015 +0800
+
+    Merge branch 'newchama_v4.1' of git.olive.fm:newchama_web into newchama_v4.1
+
+[33mcommit c74b33bc431da741c48771ffe27e205f18f9c3ab[m
+Author: renkun <terry.olive.fm>
+Date:   Sun Jun 7 23:26:39 2015 +0800
+
+    back
+
+[33mcommit 59d55b5dcff0d6a3f8175e5495193e71fc0d3329[m
+Author: renkun <terry.olive.fm>
+Date:   Sun Jun 7 23:25:33 2015 +0800
+
+    modify mark said
+
+[33mcommit eb2308f0710b0b8c0a5c2d2ad997463deba0e09d[m
+Author: renkun <terry.olive.fm>
+Date:   Sun Jun 7 14:21:46 2015 +0800
+
+    modify send mail moudle
+
+[33mcommit b1ca05c50e80346194974cd95f63f8f14c671b6a[m
+Author: renkun <terry.olive.fm>
+Date:   Sun Jun 7 13:26:45 2015 +0800
+
+    modify send mail moudle
+
+[33mcommit 32aa293d57741fe3cc947522fb24cc0e833c82a3[m
+Author: renkun <terry.olive.fm>
+Date:   Sat Jun 6 22:17:33 2015 +0800
+
+    remodify the page
+
+[33mcommit e2a44685d8444e521499fcef7c83f93c8183aaf6[m
+Author: renkun <terry.olive.fm>
+Date:   Sat Jun 6 13:12:29 2015 +0800
+
+    remodify the page
+
+[33mcommit 9eacf6d8f3ffe5973332409837aa1df36ec3d35a[m
+Author: renkun <terry.olive.fm>
+Date:   Fri Jun 5 21:34:33 2015 +0800
+
+    modify the targetother sender
+
+[33mcommit 870b27fa08609ad51adfd740b754ed008794f609[m
+Author: renkun <terry.olive.fm>
+Date:   Fri Jun 5 17:23:25 2015 +0800
+
+    modify deal_alert_btn
+
+[33mcommit 2f5196248708511836774c44c6f7eda0227fea9e[m
+Author: renkun <terry.olive.fm>
+Date:   Fri Jun 5 16:18:02 2015 +0800
+
+    moidfy the process for count banking genius
+
+[33mcommit a2c6edad55e9fe15b8d31ad7870a58b7c45b5921[m
+Author: renkun <terry.olive.fm>
+Date:   Fri Jun 5 16:04:42 2015 +0800
+
+    moidfy the process for count banking genius
+
+[33mcommit 6d109b6511d9dabf51360509dd241dc8d1b099f2[m
+Merge: a62d1b9 6925d94
+Author: renkun <terry.olive.fm>
+Date:   Fri Jun 5 15:40:18 2015 +0800
+
+    Merge branch 'newchama_v4.1' of git.olive.fm:newchama_web into newchama_v4.1
+
+[33mcommit a62d1b9b5de19f021f7578499d60d17723656de8[m
+Author: renkun <terry.olive.fm>
+Date:   Fri Jun 5 15:40:07 2015 +0800
+
+    moidfy the process for count banking genius
+
+[33mcommit 6925d94c10048df752984c6682bd61ad82b73f45[m
+Author: allen <allen@newchama.com>
+Date:   Fri Jun 5 15:38:48 2015 +0800
+
+    fix message bugs
+
+[33mcommit 103e6028cbd1d25bd7f8f05dd342725488fada78[m
+Merge: 83b050c c93dc0e
+Author: renkun <terry.olive.fm>
+Date:   Thu Jun 4 13:51:40 2015 +0800
+
+    Merge branch 'newchama_v4.1' of git.olive.fm:newchama_web into newchama_v4.1
+
+[33mcommit 83b050c7d34f0e7db5911c76ac979a54c242c97b[m
+Author: renkun <terry.olive.fm>
+Date:   Thu Jun 4 13:51:09 2015 +0800
+
+    modify the page
+
+[33mcommit c93dc0e0cc2df3de0c678b9578fdb5697d76ccc1[m
+Merge: be23218 0067b3d
+Author: allen <allen@newchama.com>
+Date:   Thu Jun 4 10:11:34 2015 +0800
+
+    Merge branch 'newchama_v4.1' of git.olive.fm:newchama_web into newchama_v4.1
+
+[33mcommit be2321805de12b23ade1c91c97fa3dbcfdff5a05[m
+Author: allen <allen@newchama.com>
+Date:   Thu Jun 4 10:11:26 2015 +0800
+
+    fix message bug
+
+[33mcommit 0067b3d02c99bac22aba9ec32fe3b9e5535c3472[m
+Author: renkun <terry.olive.fm>
+Date:   Wed Jun 3 20:27:20 2015 +0800
+
+    modify the view_email and dynamic of message
+
+[33mcommit dcd2f2477fcfe714fb9a3f46f815babc0b9ede8a[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 21:39:41 2015 +0800
+
+    modify view email
+
+[33mcommit 77a74040cfe2954a9770f2107792211ff228fa86[m
+Merge: 1ba3d8f 72d5a1d
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 17:53:07 2015 +0800
+
+    Merge branch 'newchama_v4.1' of git.olive.fm:newchama_web into newchama_v4.1
+
+[33mcommit 1ba3d8f60706ea657c9fee996cb2818a36c128e9[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 17:52:52 2015 +0800
+
+    modify view email
+
+[33mcommit 72d5a1d0c170b8531bad998b9f8101cf8b152e62[m
+Author: allen <allen@newchama.com>
+Date:   Tue Jun 2 17:37:35 2015 +0800
+
+    fix bugs
+
+[33mcommit 7a616d62e914eec40fb8fa4dbb778603c935bdb5[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 08:29:52 2015 +0800
+
+    modify the annysoms
+
+[33mcommit db58c60e83e83ab8cbcb17bc85a55b258011f18c[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 08:28:28 2015 +0800
+
+    modify the annysoms
+
+[33mcommit 660bdb025ceb8678021dea5f74694520d8f9c157[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 08:23:38 2015 +0800
+
+    a
+
+[33mcommit a84bd4ccb548eea8e1531f9f86b191c66aa338d5[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 08:09:13 2015 +0800
+
+    modify the annysoms
+
+[33mcommit 61de6fe51920cf0389f03f4cbbfea830a54fbebf[m
+Author: renkun <terry.olive.fm>
+Date:   Tue Jun 2 08:08:20 2015 +0800
+
+    modify the annysoms
+
+[33mcommit 434d53001bb2f44bb22822ccc9dfdca6bea2d0f3[m
+Author: renkun <terry.olive.fm>
+Date:   Mon Jun 1 16:56:22 2015 +0800
+
+    modify banner of index and modify some abount 0.6.1

@@ -1,0 +1,78 @@
+{% extends "common/en-us/nologin_base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main">
+        <div class="col-xs-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title"></h3>
+          </div>
+          <div class="panel-body">
+          {% if messages %}
+            {% for message in messages %}
+              <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+              <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+              {{ message }}
+              </div> <!-- /.alert -->
+            {% endfor %}
+          {% endif %}
+          <div class="col-xs-12">
+            <br>
+            <form class="form-horizontal account-form" method="POST" data-validate="parsley">
+            {% csrf_token %}
+            <div class="form-group">
+              <label class="col-xs-3">Username</label>
+              <div class="col-xs-6">
+              <input type="text" class="form-control" id="username" name="username" placeholder="" tabindex="1" value="{{ username }}" data-required="true" data-maxlength="100">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3">Password</label>
+              <div class="col-xs-6">
+                <input type="password" class="form-control" id="password" name="password" placeholder="" tabindex="2" data-required="true" data-maxlength="32">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-xs-3">Captcha</label>
+              <div class="col-xs-2">
+                <input type="checkcode" class="form-control" id="checkcode" name="checkcode" placeholder="" tabindex="2" data-required="true" data-maxlength="4">
+              </div>
+              <div class="col-xs-7">
+                <img onclick="this.setAttribute('src','/account/get_check_code_image/?nocache='+Math.random());" src="/account/get_check_code_image/" alt="CheckCode"/>
+              </div>
+            </div>
+
+             <div class="form-group">
+              <label class="col-xs-3"></label>
+              <div class="col-xs-6">
+{#              <label class="checkbox-inline">#}
+{#                <input type="checkbox" name="remember_me" class="" value="" tabindex="3">Rember Me#}
+{#              </label>#}
+                    <a href="{% url 'account.forgot' %}">Forget Password?</a>
+              </div>
+            </div>
+              <div class="form-group">
+              <div class="col-xs-3"></div>
+                  <div class="col-xs-9">
+                    
+                     
+                        <button type="submit" class="btn btn-primary btn-sm" id="btn_search">Login</button>&nbsp;&nbsp;
+                        <a href="{% url 'account.signup' %}">Register</a>
+                      
+                   
+                  </div>
+            </div>
+            </form>
+           </div>
+          </div>
+        </div>
+    </div>
+
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <script type="text/javascript" src="{{STATIC_PREFIX}}js/fix_height.js"></script>
+
+   
+{% endblock %}
+

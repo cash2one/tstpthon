@@ -1,0 +1,244 @@
+{% extends "common/en-us/base.html" %}
+{% load pagination_tags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+        <div class="col-xs-9">
+            <div class="col-xs-12">
+        <ul class="nav nav-pills top_nav_pills" role="tablist" >
+
+                        
+                            <li class="{% if hidden_country_id == cn_id %}active{% endif %}" ><a href="{% url 'deal.country' cn_id %}">中国</a></li>
+                            <li class="{% if hidden_country_id == us_id %}active{% endif %}" ><a href="{% url 'deal.country' us_id %}">美国</a></li>
+                          
+
+                        </ul>
+                       <br/>
+             </div>          
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最新地域数据</h3>
+                    </div>
+                    <div class="panel-body">
+                        <br />
+                        <input type="hidden" value="0" id="hidden_industry_id">
+                        <input type="hidden" value="{{hidden_country_id}}" id="hidden_country_id">
+                        <input type="hidden" value="0" id="hidden_chart_type">
+                        <input type="hidden" value="2" id="hidden_deal_type">
+                        {% if hidden_country_id == us_id %}
+
+                          <input type="hidden" value="0" id="is_cv1">
+                        {% else %}
+                          <input type="hidden" value="{{hidden_is_cv1}}" id="is_cv1">
+                        {% endif %}
+
+                        <input type="hidden" value="{{hidden_is_cv1}}" id="is_cv1">
+
+                              <div class="pull-right">
+                                   <select name="chart_type" id="chart_type" onchange="javascript:change_chart_type();">
+                                     <option value="0">交易笔数</option>
+                                     <option value="1">交易金额</option>
+                                 </select> 
+                                 
+                              </div>
+                        
+                      
+                            <div class="col-xs-12">
+                            <div id="bar-chart" class="chart-holder" style="height:380px;"></div>
+
+                            <div class="col-xs-12"  style="margin-bottom:15px;">
+                                 <div class="form-group" style="text-align:center;">
+
+
+                                 {% if hidden_country_id == us_id %}
+
+                                 <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_2" value="2" checked=checked onclick="javascript:change_deal_type(2);" /> 并购 </label>
+
+                                  <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_1" value="1" onclick="javascript:change_deal_type(1);" /> 融资 </label>
+                                  
+                                  <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_3" value="3" onclick="javascript:change_deal_type(3);" /> 增发 </label>
+
+                                  <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_4" value="4" onclick="javascript:change_deal_type(4);" /> 定向增发 </label>
+
+                                  <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_5" value="5" onclick="javascript:change_deal_type(5);" /> IPO </label>
+
+
+                                 {% endif %}
+
+
+                                 {% if hidden_country_id == cn_id %}         
+                                <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_1" value="2" checked=checked onclick="javascript:change_deal_type(2);" /> 并购 </label>
+                                <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_2" value="1" onclick="javascript:change_deal_type(1);" /> 融资 </label>
+                                <label class="radio-inline"> <input type="radio" name="type_radio" id="type_radio_3" value="0" onclick="javascript:change_deal_type(0);" /> 上市 </label>
+
+                                {% endif %}                        
+                            </div>
+                                
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xs-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">最近</h3>
+              </div>
+              <div class="panel-body">
+              <p>交易<span class="big_num blue">{{last_num1}}</span>笔</p>
+              <p>交易额<span class="big_num red">{{last_num2}}</span>百万美元</p>
+              </div>
+              </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">热门行业</h3>
+              </div>
+              <div class="panel-body">
+              <p><strong>{{last_text1}}</strong></p>
+              <p>交易<span class="big_num blue">{{last_num3}}</span>笔</p>
+              <p>交易额<span class="big_num red">{{last_num4}}</span>百万美元</p>
+              </div>
+              </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">热门关键字</h3>
+              </div>
+              <div class="panel-body">
+                <p><strong>智能机器人</strong></p>
+              <p>交易<span class="big_num blue">8</span>笔</p>
+              <p>交易额<span class="big_num red">1220</span>百万美元</p>
+              </div>
+              </div>
+        </div>
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">最新交易</h3>
+                    </div>
+                    <div class="panel-body">
+                        <br />
+                        {% if deal_list %}
+                        <table class="table table-striped">
+                            <tbody>
+
+                            {% for deal in deal_list%}
+
+                            <tr>
+                                <td class="col-xs-10"><a href="###">{{deal.title}}</a></td>
+                                <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> {{deal.update_time|date}}</td>
+                            </tr>
+
+
+                            {% endfor %}
+                            
+                           
+                            </tbody>
+                        </table>
+                             {% if deal_total > 10 %}
+                         <p class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></p>
+                         <p class="news-list-view-all see_more_btn" id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </p>
+
+
+
+                            {% endif %}
+                        {% else %}
+                            <p class="no-record-text">暂无纪录</p>
+
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">推荐</h3>
+                    </div>
+                    <div class="panel-body tab-content">
+
+                    <ul class="nav nav-pills" role="tablist">
+                                    <li class="active"><a href="#home-1" data-toggle="tab">卖方发布</a></li>
+                                    <li><a href="#home-2" data-toggle="tab">买方发布</a></li>
+                                </ul> 
+
+                        <ul class="news-list tab-pane fade active in" id="home-1"  >
+                            <li class="nav-header"></li>
+                            {% for p in p_list %}
+                            <li class="project-item3"> <strong class="col-xs-12"><a href="{% url 'sales.detail' p.id %}">&middot; {{p.name_cn}}</a></strong> <span class="col-xs-6"> 收入：$3,000,000 </span> <span class="col-xs-6"> 行业：互联网 </span> <span class="col-xs-6"> 净利润：$300,000 </span> <span class="col-xs-6"> 地域：中国 </span> </li>
+
+                            {% empty %}
+                            <br/>
+                            <p class="no-record-text">暂无相关推荐</p>
+
+                            {% endfor %}
+
+                        </ul>
+                        <ul class="news-list tab-pane fade"  id="home-2" >
+                            <li class="nav-header"></li>
+                           {% for p in d_list %}
+                            <li class="project-item3"> <strong class="col-xs-12"><a href="{% url 'purchase.detail' p.id %}">&middot; {{p.name_cn}}</a></strong> <span class="col-xs-6"> 收入：$3,000,000 </span> <span class="col-xs-6"> 行业：互联网 </span> <span class="col-xs-6"> 净利润：$300,000 </span> <span class="col-xs-6"> 地域：中国 </span> </li>
+                            
+                            {% empty %}
+                            <br/>
+                            <p class="no-record-text">暂无相关推荐</p>
+
+
+                            {% endfor %}
+
+                            </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    <script src="{{STATIC_PREFIX}}js/deal.js"></script>
+    <script src="{{STATIC_PREFIX}}js/raphael-2.1.2.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/morris/morris.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/charts/industry.js"></script>
+     <script>
+    var page = 1;
+    var pagesize=10;
+    var is_has_data = true;
+    var industry_id = {{ industry_id|default:0 }};
+    var country_id = {{ country_id|default:0 }};
+    function LoadData()
+        {
+            if(is_has_data)
+            {
+                page++;
+                GetData(industry_id,country_id,page,pagesize);
+            }
+        }
+        function GetData(industry_id,country_id,page,pagesize) {
+            $("#loader").show();
+            var url = "/deal/ajax_get_list/"+industry_id+"/"+country_id+"/"+page+"/"+pagesize;
+            jQuery.get(url,function (data) {
+                var newData = data.replace(/\s/g,'');
+                if(newData)
+                {
+                    $(".table tbody").append(data);
+                }else
+                {
+                    is_has_data = false;
+                    $("#load_btn").remove();
+                }
+                $("#loader").hide();
+            });
+        }
+    </script>
+{% endblock %}

@@ -1,0 +1,114 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>NewChama 让交易更简单</title></head>
+
+<body style="margin: 0; padding: 0; font-family:Arial, Helvetica, sans-serif; ">
+    <style>
+        @media only screen and (max-width: 600px){
+            .emailImage{
+                height:auto !important;
+                max-width:600px !important;
+                width: 100% !important;
+            }            
+            .emailImageSmall{
+                height:auto !important;
+                max-width:600px !important;
+                width: 70% !important;
+            }
+        }
+    </style>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width:100% !important;">
+ 
+  </table>
+
+  <table width="100%" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; max-width: 600px;">
+    <tr>
+      <td  colspan="1" class="Second_headline"  style="padding-top:36px; font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #86C5C8"><a href="http://www.newchama.com/" target="_blank"><img src="http://www.newchama.com/static/img/email/logonew.png" width="180" height="39" border="0"></a><strong> 
+      为投资人士量身打造的专业交易工具</strong></td>
+    </tr>
+    <tr>
+      <td height="40"  colspan="1" class="Second_headline"  style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332">&nbsp;</td>
+    </tr>
+    <tr>
+
+      {% if is_sales %}
+      <td colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332"><p>尊敬的用户，<br>
+              <br>
+        您好！好久不见，您最近好吗？<br>
+        NewChama <font color="1292ad" size="4"><strong>DealGenius交易助手</strong></font><sup>®</sup> 小牛为您推荐<font color="#DD4B39" size="3"><strong>本周最新需求</strong></font>。<br>
+        <br>
+        <span style="font-size:16px;"><strong>
+
+        {% for item in list%}
+        {{ forloop.counter }}、<a href="http://www.newchama.com/purchase/detail/{{item.id}}/" target="_blank" style="color:#1292ad;text-decoration: none;">{{item.name_cn}}</a>{% if not forloop.last %}<br>{% endif %}
+        
+        {% endfor %}
+        </strong></span>
+
+
+        </p>
+        <div align="left"><a href="http://www.newchama.com/account/login" target="_blank" style="font-size: 16px; font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; background-color: #dd4b39; border-top: 7px solid #dd4b39; border-bottom: 7px solid #dd4b39; border-right:30px solid #dd4b39; border-left: 30px solid #dd4b39; display:
+            inline-block; font-weight: 600">登陆了解详细信息</a></div>
+        <p><br>
+        </p>
+        <div align="left">
+          <p>或直接点击登陆页面：<a href="http://www.newchama.com/account/login" target="_blank" style="color:#1292ad;">http://www.newchama.com/account/login</a><br>
+            欢迎登陆，体验NewChama最新<font color="1292ad" size="4"><strong>DealGenius交易助手</strong></font><sup>®</sup>功能          </p>
+          <p>如需其他任何帮助，请洽：<br>
+            support@newchama.com 或 021-61911021</p>
+          <p>&nbsp;</p>
+        </div>
+        </td>
+        {% else %}
+        <td colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332"><p>尊敬的用户，<br>
+              <br>
+        您好！好久不见，您最近好吗？<br>
+        NewChama <font color="1292ad" size="4"><strong>DealGenius交易助手</strong></font><sup>®</sup> 小牛为您推荐<font color="#DD4B39" size="3"><strong>本周最新项目</strong></font>。<br>
+        <br>
+        <span style="font-size:16px;"><strong>
+
+        {% for item in list%}
+        {{ forloop.counter }}、<a href="http://www.newchama.com/sales/detail/{{item.id}}/" target="_blank" style="color:#1292ad;text-decoration: none;">{{item.name_cn}}</a>{% if not forloop.last %}<br>{% endif %}
+        
+        {% endfor %}
+
+        </strong></span>
+
+
+        </p>
+        <div align="left"><a href="http://www.newchama.com/account/login" target="_blank" style="font-size: 16px; font-family:'Open Sans', Helvetica, Arial, sans-serif; color: #ffffff; text-decoration: none; border-radius: 20px; -webkit-border-radius: 20px; -moz-border-radius: 20px; background-color: #dd4b39; border-top: 7px solid #dd4b39; border-bottom: 7px solid #dd4b39; border-right:30px solid #dd4b39; border-left: 30px solid #dd4b39; display:
+            inline-block; font-weight: 600">登陆了解详细信息</a></div>
+        <p><br>
+        </p>
+        <div align="left">
+          <p>或直接点击登陆页面：<a href="http://www.newchama.com/account/login" target="_blank" style="color:#1292ad;">http://www.newchama.com/account/login</a><br>
+            欢迎登陆，体验NewChama最新<font color="1292ad" size="4"><strong>DealGenius交易助手</strong></font><sup>®</sup>功能          </p>
+          <p>如需其他任何帮助，请洽：<br>
+            support@newchama.com 或 021-61911021</p>
+          <p>&nbsp;</p>
+        </div>
+        </td>
+        {% endif %}
+
+     <tr>
+       <td height="150" colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:13px; line-height:1.6; color: #333332"><p><br>　　
+         欢迎关注微信公众号：NewChama<br>
+       <img src="http://www.newchama.com/static/img/email/qrcode_for_gh_160648cafa4c_258.jpg" width="258" height="258"></p>       　
+       </td>
+     </tr>
+
+
+    <tr>
+      <td colspan="1" class="Second_headline" style="font-family:'Open Sans', Helvetica, Arial, sans-serif; font-weight:300; font-size:10px; line-height:1.6; color: #999; border-top:1px solid #e3e3e3; padding:10px 0px;">
+       
+          <p>电子邮件发件人：NewChama.com 为投资人士量身打造的专业交易工具 <br/>(C) Copyright 2014-2015. All rights are reserved by NewChama.</p>      </td>
+    </tr><tr>
+      <td colspan="2" bgcolor="#f9f9f9" align="center" style="padding:9px 0;font-family: 'Open Sans', Helvetica, sans-serif;font-weight:300;font-size: 10px; color: #aaaaaa; line-height: 1;"> <!--  邮件显示不正确? <a href="https://newchama.com/d48b5c2fad6f796bebb4a63bfc5404dd.html" style="color:#aaa">点击在您的浏览器查看</a>--> 如邮件无法正常打开，请直接访问 <a href="http://www.newchama.com" style="color:#aaa" target="_blank">NewChama.com</a> 网站      </td>
+    </tr>
+  </table>
+
+
+</body>
+</html>

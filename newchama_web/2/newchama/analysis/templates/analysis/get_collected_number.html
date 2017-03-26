@@ -1,0 +1,45 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+       {% include "analysis/analysis_nav.html" %}
+     
+
+<h4>收藏总数/推荐总数</h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>收藏总数</th>
+            <th>推荐总数</th>
+          </tr>
+        </thead>
+        <tbody>
+
+                  <tr>
+                    <td>{{ collected_count }} </td>
+                    <td>{{ recommond_count }}</td>
+                  </tr>
+
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

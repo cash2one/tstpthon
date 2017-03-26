@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NewChama 创新交互式的全球股权交易信息平台</title>
+    <meta name="Keywords" content="并购平台,融资平台,股权平台,股权信息发布,交易服务,纽熙,茶马,茶马古道 " /> 
+    <meta name="Description" content="NewChama是全球领先的股权交易与并购信息平台。截止今天，平台上的项目发布已达到数百个。NewChama帮助项目寻找遍及全球的投资者；同时，也为买方定位优质项目，提供投资决策的信息支持。" />
+    <link rel="shortcut icon" href="/static/img/favicon.ico">
+    <link href="{{STATIC_PREFIX}}home/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_PREFIX}}home/css/mobile_newchama.css" rel="stylesheet">
+     <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?690046ddb5b2d6eadafc3f2827c92b75";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+<body>
+<div class="warpper">
+
+
+<div class="tip">
+为了提高交流和信任度，我们会对您提交的申请信息进行审核并在24小时内答复
+</div>
+{% if messages %}
+<div class="message_block">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                    {{ message }}
+                </div> <!-- /.alert -->
+            {% endfor %}
+</div>
+{% endif %}
+
+
+ <form class="form-horizontal" method="POST" data-validate="parsley">
+<div class="form_block">
+    
+       
+                  {% csrf_token %}          
+        
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="email" class="form-control email" name="email" id="email" placeholder="企业邮箱" tabindex="1"  data-required="true" value="{{ f.email }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="password" class="form-control" name="password" id="signup-password" placeholder="密码" tabindex="2"  data-required="true" value="{{ f.password }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="text" class="form-control" name="mobile" id="mobile" placeholder="手机号码" tabindex="3"  data-required="true" value="{{ f.mobile }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="text" class="form-control" name="username" id="username" placeholder="姓名" tabindex="4"  data-required="true" value="{{ f.username }}">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <input type="text" class="form-control" name="company_name" id="signup-password" placeholder="公司名称" tabindex="5"  data-required="true" value="{{ f.company_name }}">
+            </div>
+        </div>
+
+        <div class="form-group">
+
+            <div class="col-xs-12">
+            <select class="form-control" name="company_type" id="company_type" tabindex="6" data-required="true">
+            <option value="0">请选择公司类型</option>
+            <option value="1" {% if f.company_type == '1' %} selected="selected" {% endif %}>上市公司</option>
+            <option value="2" {% if f.company_type == '2' %} selected="selected" {% endif %}>非上市公司</option>
+            <option value="3" {% if f.company_type == '3' %} selected="selected" {% endif %}>投资机构</option>
+            <option value="4" {% if f.company_type == '4' %} selected="selected" {% endif %}>第三方服务机构</option>
+            <option value="5" {% if f.company_type == '5' %} selected="selected" {% endif %}>其他</option>
+        </select>
+            </div>
+        </div>
+
+</div>  
+<div class="tip2">点击提交即代表您同意NewChama平台的<a href="{% url 'home.m_user' %}">用户协议</a>和<a href="{% url 'home.m_privacy' %}">隐私政策</a></div>
+<input type="submit" class="step_btn"  value="提 交">
+    </form>
+</div>
+    <script src="{{STATIC_PREFIX}}js/libs/jquery-1.10.1.min.js"></script>
+  <script src="{{STATIC_PREFIX}}js/libs/bootstrap.min.js"></script>
+  <script src="{{STATIC_PREFIX}}js/plugins/bootbox/bootbox.min.js"></script>
+  <link href="{{STATIC_PREFIX}}css/parsley.css" rel="stylesheet">
+  <script src="{{STATIC_PREFIX}}js/plugins/parsley/parsley_zh.js"></script>
+  <script src="{{STATIC_PREFIX}}js/common/lang.js"></script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57230495-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

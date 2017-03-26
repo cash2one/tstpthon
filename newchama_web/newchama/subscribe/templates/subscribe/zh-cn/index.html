@@ -1,0 +1,107 @@
+{% extends "common/zh-cn/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load humanize %}
+{% load myTags %}
+{% block content %}
+<div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-xs-12 assist_button_background">
+                    <div class="pull-left">我的订阅</div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-default btn-xs" id="btn_create_subscribe" ><i class="glyphicon glyphicon-plus"></i>&nbsp;创建订阅</button>
+                    </div>
+                </div>
+                <table class="col-xs-12 table_my_list">
+                    <tr>
+                        <th width="20%">订阅名称</th>
+                        <th width="20%">创建日期</th>
+                        <th width="18%">匹配到的项目数</th>
+                        <th width="12%">提醒频率</th>
+                        <th width="18%">操作</th>
+                    </tr>
+                    {% if data %}
+                    {% for m in data %}
+                    <tr class="bottom_line">
+                        <td>{{ m.name_cn|safe | cut_str:28 }}</td>
+                        <td>{{ m.add_time|date:'Y-m-d' }}</td>
+                        <td>{{ m.total_match | default:0}}</td>
+                        <td>
+                            <select class="form-control" onchange="tip_interval(this.value, {{ m.id }})">
+                                <option value="">请选择</option>
+                                <option value="7" {% if m.tip_interval = 7 %}selected{% endif %}>每周</option>
+                                <option value="0" {% if m.tip_interval = 0 %}selected{% endif %}>从不</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select class="form-control subscribe_status" ref="{{ m.id }}">
+                                <option value="">请选择</option>
+                                <option value="0">查看订阅结果</option>
+                                <option value="1">编辑订阅</option>
+                                <option value="2">删除订阅</option>
+                            </select>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr class="bottom_line">
+                        <td>&nbsp;</td>
+                        <td colspan="3" height="80">您可以通过NewChama的订阅工具订阅您感兴趣的项目，NewChama会定期发送项目机会到您的邮箱，帮您跟踪项目机会　<a href="{% url "subscribe.add"%}">立即创建</a></td>
+                        <td>&nbsp;</td>
+                    </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+                <form name="goproject" id="goproject" method="post" action="{% url "sales.new" %}">
+                    <input type="hidden" id="subscribe_id" name="subscribe_id"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+<script>
+function tip_interval(val, id) {
+    if (val == "") return;
+    var url = "/subscribe/interval/"+id+"/"+val+"/";
+    jQuery.post(url,
+        function(data) {
+            var result = JSON.parse(data);
+
+            if (result.status == "success") {
+                layer.msg('操作成功.', 2, {type: 9}); //风格二
+            }
+    });
+}
+
+$(".panel-body").delegate(".subscribe_status","change",function() {
+    var val = $(this).val();
+    var id = $(this).attr("ref");
+    var obj = $(this);
+    obj.val("");
+    switch (val) {
+        case "0":
+            location.href = "/sales/new/" + id;
+            break;
+        case "1":
+            location.href = "/subscribe/edit/" + id;
+            break;
+        case "2":
+            custom_confirm("您确定删除此订阅?", "信息提示", function() {
+                location.href = "/subscribe/delete/"+id;
+            });
+            break;
+        default :
+            break;
+    }
+});
+
+
+$("#btn_create_subscribe").click(function() {
+    location.href="/subscribe/add";
+})
+</script>
+{% endblock %}

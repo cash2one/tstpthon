@@ -1,0 +1,154 @@
+{% extends "common/en-us/nologin_base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_logo_main" style="width:100%;margin:0;">
+    <div class="col-xs-8 col-xs-offset-2 col-sm-10 col-sm-offset-1">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Register</h3>
+    </div>
+    <div class="panel-body">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                    {{ message }}
+                </div> <!-- /.alert -->
+            {% endfor %}
+        {% endif %}
+        <div class="col-xs-12">
+            <br>
+             <form class="form-horizontal account-form" method="POST" data-validate="parsley">
+               
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="col-xs-2">Company Mail*</label>
+                    <div class="col-xs-4">
+                        <input type="email" value="{{ f.email }}" class="form-control email" name="email" id="signup-email" placeholder="" tabindex="1"  data-required="true">
+
+                    </div>
+                    <div class="col-xs-6 unit_position">
+                        <span class="text-muted">To build trust and promote communication, we may verify the identification of private mailbox users.</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label class="col-xs-2">Password*</label>
+                    <div class="col-xs-4">
+                        <input type="password" class="form-control" name="password" id="signup-password" placeholder="" tabindex="2"  data-required="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">Confrim Password*</label>
+                    <div class="col-xs-4">
+                        <input type="password" class="form-control" name="confirm_password" id="signup-confirm-password" placeholder="" tabindex="3"  data-required="true">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">Mobile Number*</label>
+                    <div class="col-xs-2">
+                        <select class="form-control" name="mobile_intel" tabindex="4" data-required="true">
+                            {% for c in countries %}
+                                <option value="{{ c.intel_code }}" {% ifequal mobile_intel c.intel_code %} selected {% endifequal %}>({{ c.intel_code }}){{ c.name_en }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="text" value="{{ f.mobile }}" class="form-control" name="mobile" id="signup-mobile" placeholder="" tabindex="5" data-required="true">
+                    </div>
+                    <div class="col-xs-4 unit_position">
+                        <span class="text-muted">For receiving notifications only</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2">Name*</label>
+                    <div class="col-xs-4">
+                        <input type="text" value="{{ f.fullname }}"  class="form-control" id="signup-fullname" name="fullname" placeholder="" tabindex="6" data-required="true">
+
+                    </div>
+                     <div class="col-xs-6 unit_position">
+                        <span class="text-muted">Authentic ID helps to build trust between you and your potential partners. In order to ensure the deal flow quality, Newchama will verify your identity.</span>
+                    </div>
+                  
+                    
+                </div>
+
+                 <div class="form-group">
+                    <label class="col-xs-2">Company Name*</label>
+                    <div class="col-xs-4">
+                        <input type="text" id="company" value="{{ f.company }}" class="form-control" placeholder="" name="company" tabindex="7"  data-required="true">
+
+                        
+                    </div>
+                </div>
+
+               
+
+                <div class="form-group">
+                    <label class="col-xs-2">Company Type</label>
+                    <div class="col-xs-4">
+                    <select name="company_type"  class="form-control" tabindex="8" data-required="true">
+
+                        <option value="">Please Select</option>
+                        <option value="1" {% if f.company_type == '1' %} selected="selected" {% endif %}>Listed Company</option>
+                        <option value="2" {% if f.company_type == '2' %} selected="selected" {% endif %}>Unlisted Company</option>
+                        <option value="3" {% if f.company_type == '3' %} selected="selected" {% endif %}>Investment Institution</option>
+                        <option value="4" {% if f.company_type == '4' %} selected="selected" {% endif %}>Third Party Service Provider</option>
+                        <option value="5" {% if f.company_type == '5' %} selected="selected" {% endif %}>Other</option>
+                    </select>
+                       
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="col-xs-2">CAPTCHA*</label>
+                  <div class="col-xs-2">
+                    <input type="text" value="" class="form-control" name="checkcode" id="signup-checkcode" placeholder="" tabindex="9" data-required="true">
+                  </div>
+
+                  <div class="col-xs-8">
+                    <img onclick="this.setAttribute('src','/account/get_check_code_image/?nocache='+Math.random());" src="/account/get_check_code_image/" alt="CheckCode"/>
+                  </div>
+
+
+                  
+                </div>
+
+                <div class="form-group">
+                    <label class="col-xs-2"></label>
+                    <div class="col-xs-10">
+                       
+                    Click Submit means you agree to NewChama<a href="{% url 'account.user' %}" target="_blank">Term of Use</a>and<a href="{% url 'account.privacy' %}" target="_blank">Privacy Policy</a>
+                       
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-xs-2"></div>
+                    <div class="col-xs-9">
+
+                        <button type="button" class="btn btn-primary btn-sm" tabindex="10" id="btn_">Submit</button>&nbsp;&nbsp;
+                        <a href="{% url 'account.login' %}">Already have an account?</a>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/imask/jquery.imask.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/common.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/signup.js"></script>
+{% endblock %}
+

@@ -1,0 +1,55 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Dashboard <span>Subtitle goes here...</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Dashboard</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<h3>消息队列服务器</h3>
+<div id="divmessage"></div>
+
+{% endblock %}
+
+
+{% block customjs %}
+
+<script type="text/javascript">
+
+  $.getJSON("{% url 'alert.index' %}",
+    function(data) {
+      var tt = "";
+      if (data.ok==1){
+        
+        if(data.messages.length>0){
+          $.each(data.messages, function(k, v) {
+            $.each(v,function(kk, vv) {
+                tt += kk + "：" + vv + "<br/>";
+            });
+          });
+        }else{
+          tt="不存在任何队列";
+        }
+        
+        
+      }else{
+
+        tt="服务器运行异常";
+      }
+      $("#divmessage").html(tt);
+        
+});
+
+
+</script>
+
+
+{% endblock %}

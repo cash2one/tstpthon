@@ -1,0 +1,52 @@
+{% extends "analysis/base.html" %}
+{% load myTags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+        <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+        <div class="breadcrumb-wrapper">
+            <span class="label">You are here:</span>
+            <ol class="breadcrumb">
+                <li><a href="/">NewChama</a></li>
+                <li class="active">多维度复合统计</li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+    <div class="table-responsive">
+    <div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+        {% include "analysis/analysis_nav.html" %}
+        <form id="formData" class="form-horizontal form-bordered" method="get">
+            <h4>用户周活跃度-详细</h4>查询开始时间：<input name="starttime" value="{{ starttime }}">&nbsp;&nbsp;&nbsp;&nbsp;结束时间<input name="endtime" value="{{ endtime }}">
+            <input type="submit" name="btn" value="查询">
+        </form>
+        <table class="table table-primary mb30">
+            <thead>
+            <tr>
+                <th width="25%">/</th>
+                {% for w in weekly %}
+                    <th>第{{ w.currWeekly }}周 <br/>{{ w.startDate | formatDate }} - {{ w.endDate | formatDate }}</th>
+                {% endfor %}
+            </tr>
+            </thead>
+            <tbody>
+            {% for r in result %}
+                <tr>
+                    {% for s in r %}
+                        {% if forloop.first %}
+                        <td>{{ s }}</td>
+                        {% else %}
+                        <td>{{ s.counts }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

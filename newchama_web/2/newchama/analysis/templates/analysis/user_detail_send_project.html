@@ -1,0 +1,55 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+       {% include "analysis/analysis_nav.html" %}
+     
+
+<h4>用户发布项目详细</h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+          
+            <th>用户</th>
+            <th>项目名称</th>
+            <th>状态</th>
+            <th>时间</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% autopaginate result_list %}
+        {% for item in result_list %}
+          <tr>
+           
+            <td><a href="{% url 'member.edit' item.member.id %}">{{ item.member }}</a></td>
+            <td><a href="{% url 'project.detail' item.id %}">{{ item.name_cn }}</a></td>
+            <td>{{ item.get_status_display }}</td>
+            
+             <td>{{ item.add_time | date:'Y-m-d H:i:s' }}</td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

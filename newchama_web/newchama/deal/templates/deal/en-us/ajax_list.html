@@ -1,0 +1,6 @@
+{% for deal in deal_list%}
+    <tr>
+        <td class="col-xs-10"><a href="###">{{deal.title}}</a></td>
+        <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> {{deal.update_time|date}}</td>
+    </tr>
+{% endfor %}

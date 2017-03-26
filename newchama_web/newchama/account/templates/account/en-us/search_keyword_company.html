@@ -1,0 +1,75 @@
+{% extends "common/en-us/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">Results</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="members-list">
+
+        <li class="nav-header">
+        <span class="news-list-item-tags">
+              Tag:<i class="glyphicon glyphicon-tags"></i>
+              <a class="tag" href="###"><span class="label label-secondary">{{ keyword }}&nbsp;<i class="glyphicon glyphicon-plus"></i></span></a>
+          </span>
+
+        </li>
+
+        <li class="nav-header">
+           <ul class="nav nav-pills top_nav_pills" role="tablist">
+              <li><a href="{% url 'sales.search_keyword'  %}?keyword={{ keyword }}">Deal({{ total_project }})</a></li>
+              <li><a href="{% url 'purchase.search_keyword'  %}?keyword={{ keyword }}">Demand({{ total_demand }})</a></li>
+              <li><a href="{% url 'news.search_keyword'  %}?keyword={{ keyword }}">News({{ total_news }})</a></li>
+              <li class="active"><a href="{% url 'account.search_keyword_company'  %}?keyword={{ keyword }}">Institution({{ total_company }})</a></li>
+              <li><a href="{% url 'account.search_keyword_member'  %}?keyword={{ keyword }}">User({{ total_member }})</a></li>
+
+            </ul>
+        </li>
+                {% if companies %}
+                {% for c in companies %}
+                    <li class="members-item">
+                        <a href="{% url 'account.company' c.id %}">
+                            {% if c.logo == "" %}
+                                 <img src="{{MEDIA_URL}}companylogo/default.png" alt="{{ c.short_name_cn|safe }}" width="80" class="thumbnail" />
+                              {% else %}
+                                <img src="{{MEDIA_URL}}companylogo/{{c.logo}}" alt="{{ c.short_name_cn|safe }}" width="80" class="thumbnail" />
+                              {% endif %}
+                        {{ c.short_name_cn }}<br />
+                        </a>
+                    </li>
+                    <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                  {% endfor %}
+                {% else %}
+                  <div class="members-list-empty">
+                    <p class="members-list-empty-text">No Results</p>
+                  </div>
+                {% endif %}
+
+            </ul>
+        </div>
+    </div>
+    </div>
+{#    <div class="col-xs-2">#}
+{#        <div class="panel panel-default">#}
+{#            <div class="panel-heading">#}
+{#                <h3 class="panel-title">Search History</h3>#}
+{#            </div>#}
+{#            <div class="panel-body">#}
+{#                <ul class="news-list">#}
+{#                    <li> <span class="news-list-item-title">1、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>Delete</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">2、互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>Delete</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">3、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>Delete</a></span><br /> </li>#}
+{#                </ul>#}
+{#                <br />#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    </div>
+{% endblock %}
+{% block footer %}
+
+{% endblock %}

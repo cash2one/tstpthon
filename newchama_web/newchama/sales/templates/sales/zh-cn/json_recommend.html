@@ -1,0 +1,34 @@
+{% load myTags %}
+{% if recommendList%}
+{% if have_more_data%}
+<tr id="have_more_data"><td colspan="4"></td></tr>
+{% endif %}
+    {% for rl in recommendList %}
+<tr id="recommendItemId_{{ rl.id }}">
+    <td valign="top"><input type="checkbox" name="recommendItemIds" value="{{ rl.id }}" ref="{{ rl.company.id }}"></td>
+    <td valign="top">
+        <a target="_blank" href="{% url 'account.company' rl.company.id %}">{{ rl.company.name_cn | cut_str:28 }}</a>{% comment %}<br/>{{ rl.company.address_cn | default:"" }}<br/>{{ rl.company.website | default:"" }}{% endcomment %}
+    </td>
+    <td>{{ rl.target_reason_cn | default:"" }}
+    {% if rl.investment_history %}
+    <br/>
+        {% for ht in rl.investment_history %}
+            <span style="color:#999;">{{ht.targetcompany_cn }}<span><br/>
+        {% endfor %}  
+    {% endif %}  
+
+    </td>
+    <td>
+        <div id="operate_status_{{ rl.id }}"></div>
+        <select class="form-control" onchange="bankingGenuisSave_view_email(this.value, {{ rl.id }}, {{ rl.company.id }})">
+            <option value="">请选择</option>
+            <option value="1">发送项目</option>
+            <option value="0">添加到队列</option>
+            {% comment %}<option value="6">关注</option>{% endcomment %}
+        </select>
+    </td>
+</tr>
+    {% endfor %}
+{% else %}
+    <div id="no_more_div" class="hide_"></div>
+{% endif %}

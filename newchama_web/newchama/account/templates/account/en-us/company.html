@@ -1,0 +1,213 @@
+{% extends "common/en-us/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load humanize %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+        <div class="col-xs-9">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body company_block">
+
+                        <div class="pull-left company_logo">
+                            {% if company.logo == "" or company.logo == None %}
+                                <img src="{{MEDIA_URL}}companylogo/default.png" alt="{{ company.short_name_cn|safe }}" width="200" class="thumbnail" />
+                            {% else %}
+                                <img src="{{MEDIA_URL}}companylogo/{{company.logo}}" alt="{{ company.short_name_cn|safe }}" width="200" class="thumbnail" />
+                            {% endif %}
+                        </div>
+                        <div class="pull-left">
+                            <h1>{{ company.name_cn|safe }}</h1>
+                            <p>{% if company.address_cn != None %}{{ company.address_cn|safe|default:'' }}{% endif %}</p>
+                            <p>{% if company.tel != None %}{{ company.tel|default:'' }}{% endif %}</p>
+                            <p>{% if company.website != None %}{{ company.website|default:'' }}{% endif %}</p>
+                            {% if otherCompany == False %}
+                                <p>Add Time:{{ company.add_time|date:'Y-m-d' }}</p>
+                            {% endif %}
+                            {% if member.company_id != company.id and otherCompany == False%}
+                                {% if is_added_to_favorite %}
+                                    <p><button class="btn-xs btn-primary btn-cancelfavorite" data-id="{{ company.id }}" data-type="company"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;Delete</button></p>
+                                {% else %}
+                                    <p><button class="btn-xs btn-primary btn-addfavorite" data-id="{{ company.id }}" data-type="company"><i class="glyphicon glyphicon-heart"></i>&nbsp;Collect</button></p>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Company Profile</h3>
+                    </div>
+                    <div class="panel-body" style="padding:20px;">
+                        {{ company.intro_cn|safe|default:'N/A' }}
+                    </div>
+                </div>
+            </div>
+            {% if otherCompany == False %}
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Latest post</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="news-list">
+                            {% if projects %}
+                                {% for m in projects %}
+                                    <li class="project-item2">
+                                        <div class="col-xs-9">
+                                            <strong class="news-list-item-title2"><a href="{% url 'sales.detail' m.id%}">{{ m.name_cn|safe }}</a>
+
+                                            </strong>
+                       <span class="news-list-item-text">
+
+                       <table class="table index-table-1">
+                           <tbody>
+                           <tr class="project-th">
+                               <td>Industry</td>
+                               <td>Location</td>
+                               <td>Transaction Type</td>
+                               <td>Price Range</td>
+                               <td>Listed On</td>
+                               <td>Updates</td>
+                           </tr>
+                           <tr>
+                               <td><i class="glyphicon glyphicon-tags"></i>
+                                   <a class="tag preference_common_keyword" data-type="project" data-tag="{{ m.company_industry.name_cn }}" href="javascript:;">{{ m.company_industry.name_cn }}</a>
+                               </td>
+                               <td>{{ m.company_country.name_cn }}</td>
+                               <td>{{ m.get_service_type_display }}</td>
+                               <td>{{ m.deal_size|floatformat:2|intcomma|default:'N/A' }} {{ m.get_currency_type_financial_display }}</td>
+                               <td>{{ m.add_time|date:'Y-m-d' }}</td>
+                               <td>{{ m.update_time|date:'Y-m-d' }}</td>
+                           </tr>
+                           <tr>
+                               <td colspan="6"><small>{{ m.features_cn|safe }}</small></td>
+                           </tr>
+                           </tbody>
+                       </table>
+
+                       </span>
+                                        </div>
+                                        <div class="col-xs-3">
+                    <span class="pull-right">
+                       <button class="btn-xs btn-primary send_message_btn" data-message-type="1" data-message-id="{{ m.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Message</button> &nbsp;&nbsp;
+                        {% if m.id in favorites_project_ids %}
+                            <button class="btn-xs btn-primary btn-cancelfavorite" data-id="{{ m.id }}" data-type="project"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;Delete</button> &nbsp;&nbsp;
+                        {% else %}
+                            <button class="btn-xs btn-primary btn-addfavorite" data-id="{{ m.id }}" data-type="project"><i class="glyphicon glyphicon-heart"></i>&nbsp;Collect</button> &nbsp;&nbsp;
+                        {% endif %}
+                        {% if m.has_attach %}
+                            <button class="btn-xs btn-primary btn-attach" data-type="project" data-id="{{ m.id }}"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;Supplement</button>
+                        {% endif %}
+                      </span>
+                                        </div>
+
+
+                                    </li>
+                                {% endfor %}
+                                {#                    <li class="news-list-view-all">#}
+                                {#                      <a href="###">View More</a>#}
+                                {#                    </li>#}
+                            {% else %}
+                                <li class="news-list-empty"> <h4 class="news-list-empty-title">No mandate post</h4> </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+        </div>
+        {% endif %}
+        {% if otherCompany and historyList %}
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Investment History</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="news-list">
+                            {% for h in historyList %}
+                                <li class="project-item2">
+                                    <div class="col-xs-12">
+                                       <span class="news-list-item-text">
+                                       <table class="table index-table-1">
+                                           <tbody>
+                                           <tr class="project-th">
+                                               <td width="15%">Abbreviation for Company</td>
+                                               <td width="20%">Industry</td>
+                                               <td width="15%">Loaction</td>
+                                               <td width="15%">Investor</td>
+                                               <td width="10%">Release Date</td>
+                                               <td width="10%">Investment Type</td>
+                                               <td width="15%">Investment Amount</td>
+                                           </tr>
+                                           <tr>
+                                               <td><i class="glyphicon glyphicon-tags"></i>&nbsp;&nbsp;{{ h.targetcompany }}</td>
+                                               <td>
+                                                   {% if h.cv3_cn %}
+                                                   {{ h.cv3_cn |default:'N/A' }}
+                                                   {% elif h.cv2_cn %}
+                                                   {{ h.cv2_cn |default:'N/A' }}
+                                                   {% else %}
+                                                   {{ h.cv1_cn |default:'N/A' }}
+                                                   {% endif %}
+                                               </td>
+                                               <td>
+                                                   {% if h.city_cn %}
+                                                   {{ h.city_cn |default:'N/A' }}
+                                                   {% elif h.province_cn %}
+                                                   {{ h.province_cn |default:'N/A' }}
+                                                   {% else %}
+                                                   {{ h.country_cn |default:'N/A' }}
+                                                   {% endif %}
+                                               </td>
+                                               <td>{{ h.person |default:'N/A' }}</td>
+                                               <td>{{ h.happen_date|date:'Y-m-d' }}</td>
+                                               <td>{{ h.type |default:'N/A' }}</td>
+                                               <td>{{ h.amount |formatCurrency }} {{ h.currency }}</td>
+                                           </tr>
+                                           </tbody>
+                                       </table>
+                                       </span>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                                {% comment %}<li class="news-list-view-all">
+                                  <a href="###">View More</a>
+                                </li>{% endcomment %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+            </div>
+
+        <div class="col-xs-3">
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Member</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul class="members-list">
+                            {% if company.member_set.all %}
+                                {% for m in company.member_set.all %}
+                                    <li class="members-item">
+                                        <a href="{% url 'account.profile' m.id %}"><img src="{% url 'account.avatar' 80 80 m.avatar %}" alt="{{ m }}" class="thumbnail" />{{ m }}</a>
+                                    </li>
+                                {% endfor %}
+                            {% else %}
+                                <li class="news-list-empty"> <h4 class="news-list-empty-title">No Member</h4> </li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+    {% include "account/en-us/sendmessagemodal.html" %}
+{% endblock %}

@@ -1,0 +1,76 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Add News{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> News<span>Add News</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">News</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Add News</h4>
+          <p>Add News</p>
+        </div>
+        <form class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+          {% if msg != "" %}
+              <div class="alert alert-info">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                {{ msg }}
+              </div>
+          {% endif %}
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Title</label>
+              <div class="col-sm-6">
+                  <input type="text" placeholder="Title" name="title" value="{{ u.title }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Resource</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Resource" name="resource" value="{{ u.resource }}" class="form-control" />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Url</label>
+              <div class="col-sm-6">
+                <input type="Url" placeholder="Url" name="url" value="{{ u.url }}" class="form-control" />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Industry</label>
+              <div class="col-sm-6">
+                <select name="industry" class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">Please Select</option>
+{#                      {% for industry in industries %}#}
+{#                          <option value="{{ industry.id }}" {% if industry_id == industry.id %} selected="selected" {% endif %}>{{ industry.name_en }}</option>#}
+{#                      {% endfor %}#}
+                  </select>
+              </div>
+            </div>
+               {% csrf_token %}
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary">Submit</button>&nbsp;
+				  <button class="btn btn-default" onclick="goback()">Cancel</button>
+				</div>
+			 </div>
+		  </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+{% endblock %}
+{% block customjs %}
+    <script>
+    jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+    </script>
+{% endblock %}

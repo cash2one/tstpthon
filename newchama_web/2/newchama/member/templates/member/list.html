@@ -1,0 +1,97 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Members{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Member<span>Members</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Member</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline" method="get">
+        <label>Total:<span class="badge badge-success">{{ total }}</span></label>&nbsp;&nbsp;
+          Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <select name="type" class="form-control" >
+            <option value="">Type</option>
+            {% for id,value in Types %}
+                <option value="{{ id }}" {% if type == id %} selected {% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+        <select name="status" class="form-control" >
+            <option value="">status</option>
+            {% for id,value in StatusType %}
+                <option value="{{ id }}" {% if status == id %} selected {% endif %}>{{ value }}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-primary">Search</button>
+        <a class="btn btn-default" href="{% url 'member.add' %}">Add</a>
+        <a class="btn btn-default" href="{% url 'member.invite' %}">Invite</a>
+      <a class="btn btn-default" href="/member/members?type={{ type }}&keyword={{ keyword }}&status={{ status }}&download=1">Export</a>
+      </form>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Email</th>
+                <th>姓名</th>
+                <th>状态</th>
+                <th>手机</th>
+                <th>公司</th>
+                <th>职位</th>
+                <th>公司类型</th>
+                <th>公司所在行业</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate data %}
+            {% for m in data %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.email }}</td>
+                <td>{{ m.first_name }}{{ m.last_name }}</td>
+                <td>{% if m.status == 0 %} 认证不通过
+                    {% elif m.status == 1 %} 认证通过
+                    {% elif m.status == 2 %} 黑名单
+                    {% elif m.status == 3 %} 需改密码
+                    {% elif m.status == 4 %} 正在激活
+                    {% elif m.status == 5 %} 待认证
+                    {% elif m.status == 6 %} 未认证
+                    {% endif %}
+                </td>
+                <td>{{ m.mobile }}</td>
+                <td><a target="_blank" href="{% url 'company.edit' m.company.id %}">{{ m.company.name_cn}}</a></td>
+                <td>{{ m.position_cn }}</td>
+                <td>{{ m.company.get_new_type_display }}</td>
+                <td>{{ m.company.industry.name_cn }}</td>
+                <td>
+                    <a href="{% url 'member.edit' m.id %}" title="edit"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+
+                   
+
+                     <a href="javascript:DoSendmail({{ m.id }});" class="delete-row" title="sendmail"><i class="glyphicon glyphicon-send"></i></a>&nbsp;&nbsp;
+
+
+                    <a href="{% url 'member.reset_password' m.id %}" title="reset password"><i class="fa fa-key"></i></a>&nbsp;&nbsp;
+                    <!--<a href="javascript:;" title="check"><i class="fa fa-check"></i></a>&nbsp;&nbsp;
+                    <a href="javascript:;" title="ban"><i class="fa fa-ban"></i></a>-->
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+   {% paginate %}
+{% endblock %}

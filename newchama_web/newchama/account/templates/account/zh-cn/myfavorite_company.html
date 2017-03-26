@@ -1,0 +1,70 @@
+{% extends "common/zh-cn/base.html" %}
+{% load static %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">我的关注</h3>
+    </div>
+    <div class="panel-body">
+    <ul class="news-list">
+    {% include "account/zh-cn/myFavorite_nav.html" %}
+    {% if favorites %}
+        {% for d in favorites %}
+        <div class="col-sm-3" style="margin-top: 10px; ">
+            <a href="{% url 'account.company' d.company.id %}">
+                {% if d.company.logo == "" %}
+                     <img src="{{MEDIA_URL}}companylogo/default.png" alt="{{ d.company.short_name_cn|safe }}" width="80" class="thumbnail" style="margin-bottom: 3px"/>
+                  {% else %}
+                    <img src="{{MEDIA_URL}}companylogo/{{d.company.logo}}" alt="{{ d.company.short_name_cn|safe }}" width="80" class="thumbnail" style="margin-bottom: 3px"/>
+                  {% endif %}</a>
+            <a href="{% url 'account.company' d.company.id %}">{{ d.company.short_name_cn }}</a><br />
+            <button class="btn-xs btn-primary btn-remove-favorite" style="margin-top: 3px" data-type="company" data-id="{{ d.company.id }}"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消关注</button>
+        </div>
+        {% endfor %}
+                             <li >&nbsp;</li>
+        {% if total_company > 12 %}
+        <li class="members-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+        <li class="members-list-view-all" id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </li>
+        {% endif %}
+    {% else %}
+        <div class="members-list-empty">
+            <p class="members-list-empty-text">暂无关注</p>
+        </div>
+    {% endif %}
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+    <script>
+    page=1;
+    pagesize=12;
+    function LoadData()
+    {
+        page++;
+        LoadMoreFavorite('company',page,pagesize);
+    }
+    function LoadMoreFavorite(type,page,pagesize)
+    {
+        $("#loader").show();
+        var url = "/account/ajax_more_favorite?type="+type+"&page="+page+"&pagesize="+pagesize;
+        $.get(url,function(data){
+            var newData = data.replace(/\s/g,'');
+            if(newData)
+            {
+                $("#loader").before(data);
+            }else
+            {
+                $("#load_btn").remove();
+            }
+            $("#loader").hide();
+        });
+    }
+    </script>
+{% endblock %}

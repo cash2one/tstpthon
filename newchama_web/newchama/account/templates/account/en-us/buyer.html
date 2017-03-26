@@ -1,0 +1,351 @@
+{% extends "common/en-us/base.html" %}
+{% block header%}
+  <link rel="stylesheet" href="{{STATIC_PREFIX}}css/demos/ui-notifications.css">
+{% endblock %}
+{% block mainbar %}
+{% include "account/zh-cn/mainbar.html" %}
+{% endblock %}
+{% block content %}
+    <div class="content-container">
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="row-stat">
+            In 30s, set your preference for your homepage. And you will find your favorite projects sooner, not later. <a  href="{% url 'account.preference'%}" class="btn btn-success">Set Your Preference Now</a>
+          </div> <!-- /.row-stat -->
+        </div> <!-- /.col -->
+      </div> <!-- /.row -->
+      <div class="row" style="margin-top:20px;">
+        <div class="col-xs-9">
+        <h4 class="heading">Latest Projects</h4>
+            <ul id="myTab1" class="nav nav-tabs">
+            <li class="active dropdown">
+              <a href="javascript:;" id="myTabDrop2" class="dropdown-toggle" data-toggle="dropdown">Industry 
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop2">
+                {% for i in industries %}
+                <li><a href="#dropdown3" onclick="changeIndustry('{{ i.industry_id }}', '{{ i.range_min }}', '{{ i.range_max }}')" tabindex="-1" data-toggle="tab">{{ i.industry.name_cn }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" id="myTabDrop3" class="dropdown-toggle" data-toggle="dropdown">Location <b class="caret"></b></a>
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop3">
+                {% for l in locations %}
+                <li><a href="#dropdown3" tabindex="-1"
+                    {% if l.city_id != None %}
+                        onclick="changeLocation({{ l.city_id }}, 'city')"
+                    {% elif l.province_id != None %}
+                        onclick="changeLocation({{ l.province_id }}, 'province')"
+                    {% else %}
+                        onclick="changeLocation({{ l.country_id }}, 'country')"
+                    {% endif %}
+                 data-toggle="tab">{{ l.title }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            {% comment %}<li class="dropdown">
+               <a href="javascript:;" id="myTabDrop3" class="dropdown-toggle" data-toggle="dropdown">Deal Size<b class="caret"></b>
+              </a>
+
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop3">
+                <li><a href="#dropdown3" tabindex="-1" data-toggle="tab">1-2 million dollars</a></li>
+                <li><a href="#dropdown4" tabindex="-1" data-toggle="tab">Other</a></li>
+              </ul>
+            </li>{% endcomment %}
+            
+          </ul>
+
+
+          <div id="myTab1Content" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+              <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Project No.</th>
+                <th>Project Name</th>
+                <th>Industry</th>
+                <th>Location</th>
+                <th width="50%">Project Summary</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for m in data %}
+                <tr class="{% cycle 'custom_odd' 'custom_even' %}" onclick="javascript:location.href='{% url 'sales.detail' m.id%}'">
+                    <td style="width:100px">S-{{ m.id }}</td>
+                    <td>{{ m.name_cn }}</td>
+                    <td nowrap>{{ m.company_industry.name_cn }}</td>
+                    <td nowrap>
+                       {% if m.company_cities != None %}
+                       {{ m.company_cities.name_cn }}
+                       {% elif m.company_province != None %}
+                       {{ m.company_province.name_cn }}
+                       {% else %}
+                       {{ m.company_country.name_cn }}
+                       {% endif %}
+                    </td>
+                    <td>
+                      {{ m.features_cn | slice:"60" }}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+              <tfoot>
+              <tr id='loader' class="hide_"><td colspan='5' align='center'><img src='/static/img/loaders/ajax-loader.gif'></td></tr>
+              </tfoot>
+          </table>
+            </div>
+
+            <div class="tab-pane fade" id="profile">
+              
+            </div>
+
+            
+          </div>
+          <br/>
+          <br/>
+
+            <h4 class="heading">Ongoing Deals</h4>
+            <input type="hidden" id="record_type" name="record_type" value="0">
+            <ul id="typeTab" class="nav nav-tabs">
+            <li class="active">
+              <a href="javascript:;"  onclick="javascript:change_type(0);">Industry</a>
+            </li>
+            <li>
+              <a href="javascript:;" onclick="javascript:change_type(1);">Loacation</a>
+            </li>
+            <li class="dropdown">
+              <a href="javascript:;" id="myTabDrop1" class="dropdown-toggle" data-toggle="dropdown">Other <b class="caret"></b>
+              </a>
+
+              <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                
+                <li><a href="javascript:;" onclick="javascript:change_type(2);">Transaction Type</a></li>
+                <li><a href="javascript:;" onclick="javascript:change_type(3);">Transaction Size</a></li>
+              </ul>
+            </li>
+          </ul>
+
+          <div class="row">
+            
+          <div class="col-xs-12">
+              <div class="pull-left">
+                <div class="btn-group" id="daysTab">
+                  <input type="hidden" id="record_days" name="record_days" value="90">
+                  <button class="btn btn-sm btn-default active" onclick="javascript:change_days(90);">
+                    Recent 3 months
+                  </button>
+                  <button class="btn btn-sm btn-default" onclick="javascript:change_days(180);">
+                   Recent 6 months
+                  </button>
+                  <button class="btn btn-sm btn-default " onclick="javascript:change_days(360);">
+                   Recent 12 months
+                  </button>
+                </div>
+
+                &nbsp;
+
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                    Item Per Page
+                    <span class="caret"></span>
+                  </button>
+                  <input type="hidden" id="record_num" name="record_num" value="10">
+                  <ul class="dropdown-menu">
+                    <li><a href="javascript:;" onclick="javascript:change_num(5);">the first 5 items</a></li>
+                    <li><a href="javascript:;" onclick="javascript:change_num(10);">the first 10 item</a></li>
+                    <li><a href="javascript:;" onclick="javascript:change_num(20);">the first 20 item</a></li>
+                    <li><a href="{% url 'cvsource.contact'%}" target="_blank">More</a></li>
+                  </ul>
+                </div>                
+              </div> <!-- /.pull-left -->
+
+              <div class="pull-right">
+                <div class="btn-group">
+                  <button type="button" class="btn btn-sm btn-default dropdown-toggle" data-toggle="dropdown">
+                    <i class="fa fa-cog"></i> &nbsp;&nbsp;<span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="{% url 'cvsource.contact'%}" target="_blank">More Data</a></li>
+                  </ul>
+                </div>
+              </div> <!-- /.pull-right -->
+              </div>
+          </div>
+          <br/>
+
+          <div id="myTab1Content2" class="tab-content">
+            <div class="tab-pane fade in active" id="home">
+            <div class="portlet">
+
+            
+
+            <div class="portlet-content">
+
+              <div id="bar-chart" class="chart-holder" style="height:400px;"></div> 
+
+                   
+
+            </div> <!-- /.portlet-content -->
+
+          </div> <!-- /.portlet -->
+
+              
+            </div>
+
+            <div class="tab-pane fade" id="profile">
+              
+            </div>
+
+            <div class="tab-pane fade" id="dropdown1">
+              
+            </div>
+
+            <div class="tab-pane fade" id="dropdown2">
+              
+            </div>
+          </div>
+
+
+          
+        </div>
+
+        <div class="col-xs-3">
+
+        
+        
+          
+        <div class="portlet">
+      
+        <div class="portlet-header">
+      
+          <h3>
+            <i class="fa fa-tasks"></i>
+            Invite a Friend
+          </h3>
+      
+        </div> <!-- /.portlet-header -->
+      
+        <div class="portlet-content">
+      
+          <form id="invite_block" class="form-horizontal" role="form" data-validate="parsley" method="POST" action="">
+             {% csrf_token %}
+
+            <div class="form-group">
+              <label class="col-xs-12">Refer a friend by email</label>
+
+              <div class="col-xs-12">
+
+                <input type="email" name="invite_email" id="invite_email" class="form-control email" placeholder="Email" data-required="true"  required>
+              </div>
+
+              <div class="col-xs-12" style="margin-top:10px;">
+                <button type="submit" class="btn btn-secondary" id="send_invite_btn">Send Now</button>
+              </div>
+            </div>
+
+          </form>
+      
+        </div> <!-- /.portlet-content -->
+      
+      </div> <!-- /.portlet -->
+
+       <div class="portlet">
+
+            <div class="portlet-header">
+
+              <h3>
+                <i class="fa fa-file-text-o"></i>
+                Most viewed Deals
+              </h3>
+
+            </div> <!-- /.portlet-header -->
+
+            <div class="portlet-content panel-thread">
+
+              <ul class="icons-list">
+                  {% for r in hot_list %}
+                      <li>
+                        <i class="icon-li fa fa-star"></i>
+                        <a href="{% url 'sales.detail' r.id %}">{{ r.name_cn }}</a>
+                      </li>
+                  {% endfor %}
+          </ul>
+
+            </div> <!-- /.portlet-content -->
+
+          </div> <!-- /.portlet -->
+
+     
+        </div>
+
+      </div> <!-- /.row -->
+
+
+      
+
+    </div> <!-- /.content-container -->
+
+{% endblock %}
+
+{% block footer %}
+  <!-- Plugin JS -->
+  <script src="{{STATIC_PREFIX}}js/libs/raphael-2.1.2.min.js"></script>
+  <script src="{{STATIC_PREFIX}}js/plugins/morris/morris.min.js"></script>
+
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.js"></script>
+  <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/prettify/r224/prettify.min.css">
+
+  <script src="{{STATIC_PREFIX}}js/charts/index_bar_01.js"></script>
+  <script src="{{STATIC_PREFIX}}js/common/tip.js"></script>
+<script type="text/javascript">
+  $(document).ready(function(){
+       $("#invite_block").submit(function(e){
+        
+        e.preventDefault();
+        var invite_email =$('#invite_email').val();
+        $.post("/account/send_invitecode/",{invite_email:invite_email},function(result){
+              result=JSON.parse(result);
+              if(result.is_ok==1){
+                 show_tip('Send Success!','Your invitation was successfully sent.');
+
+              }
+              else{
+                  show_tip('Send failed!','Your invitation delievery failed. ');
+
+              }
+              
+            });
+      });
+  });
+
+  function changeIndustry(id, min, max) {
+     loadData(id, "industry", "", min, max);
+  }
+
+  function changeLocation(id, location) {
+     loadData(id, "location", location, "", "");
+  }
+
+   function loadData(pid, ptype, plocation, pmin, pmax) {
+        $(".table-striped tbody").html("");
+        $("#loader").show();
+        var url = "/account/ajax_project";
+        jQuery.post(
+            url, {'type' : ptype, 'location' : plocation, 'id' : pid, rangemin : pmin, rangemax : pmax},
+            function (data) {
+                $(".table-striped tbody").append(data);
+                $("#loader").hide();
+                $("#tfoot_btn").show();
+                $('.table-striped tr').hover(function() {
+                    $(this).addClass("custom_select");
+                },function() {
+                    $(this).removeClass("custom_select");
+                });
+            },
+            "html"
+        );
+   }
+</script>
+{% include "account/zh-cn/tipmodal.html" %}
+{% endblock %}

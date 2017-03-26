@@ -1,0 +1,84 @@
+{#{% load adminuser_extras %}#}
+{% extends "adminuser/base.html" %}
+{% block title %}Edit Role{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Role<span>Edit Role</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Role</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Edit Role</h4>
+          <p> Edit role.</p>
+        </div>
+
+            <div class="tab-content mb30">
+          <div class="tab-pane active" id="information">
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Name</label>
+              <div class="col-sm-6">
+                  <input type="text" name="name" value="{{ r.name }}" class="form-control" required />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Permission</label>
+              <div class="col-sm-6">
+                <div class="checkbox block"><label><input type="checkbox" name="permission" value="role" {% if isHasPermission_Role %} checked{% endif %}> Role</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="adminuser" {% if isHasPermission_Adminuser %} checked{% endif %}> AdminUser</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="company" {% if isHasPermission_Company %} checked{% endif %}> Company</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="member" {% if isHasPermission_Member %} checked{% endif %}> Member</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="project" {% if isHasPermission_Project %} checked{% endif %}> Project</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="demand" {% if isHasPermission_Demand %} checked{% endif %}> Demand</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="news" {% if isHasPermission_News %} checked{% endif %}> News</label></div>
+                 <div class="checkbox block"><label><input type="checkbox" name="permission" value="messages" {% if isHasPermission_Message %} checked{% endif %}> Message</label></div>
+
+                 <div class="checkbox block"><label><input type="checkbox" name="permission" value="analysis" {% if isHasPermission_Analysis %} checked{% endif %}> Analysis</label></div>
+                <div class="checkbox block"><label><input type="checkbox" name="permission" value="newchamasay" {% if isHasPermission_newchamasay %} checked{% endif %}> NewChama说</label></div>
+                <div class="checkbox block"><label><input type="checkbox" name="permission" value="subscribe" {% if isHasPermission_subscribe %} checked{% endif %}> subscribe</label></div>
+
+              </div>
+            </div>
+             {% csrf_token %}
+        <input type="hidden" name="id" value="{{ r.id }}">
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary">Submit</button>&nbsp;
+				  <button class="btn btn-default" onclick="goback()">Cancel</button>
+				</div>
+			 </div>
+		</div><!-- panel-footer -->
+        </form>
+          </div>
+        </div>
+      </div>
+    </div><!-- panel -->
+{% endblock %}
+{% block customjs %}
+<script>
+    function dousersubmit() {
+        $("#userForm").submit();
+    }
+
+</script>
+{% endblock %}

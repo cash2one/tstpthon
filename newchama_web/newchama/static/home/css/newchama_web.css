@@ -1,0 +1,78 @@
+body {padding-top: 60px; background: #313131; font-family:"Microsoft YaHei","Tahoma","SimSun","WenQuanYi Micro Hei"!important;  }
+.container{width: 100%; padding: 0px;}
+.navbar { height: 60px; background: #fff; font-size: 12px; padding: 0px 15px;box-shadow: 0 0 4px #666;border-radius:0px;min-width: 870px;}
+.nav>li>a{padding: 10px 4px;}
+.change_language{margin-top: 6px; margin-right: 15px;}
+
+
+.bigtop{background: url(../images/shanghai2.jpg) center center no-repeat; height: 500px; width:100%;background-size:cover; position: relative; overflow: hidden; min-width: 900px;}
+
+.flow{width: 480px; height: 300px; top: 50%; margin-top: -150px; position: absolute; right: 0;
+    background: #1d83c7;color: #fff; padding: 30px; opacity: 0.9; filter: alpha(opacity=90); -webkit-transition: opacity 0.9s; -moz-transition: opacity 0.9s; transition: opacity 0.9s; }
+.flow h3{font-size: 24px; margin-top: 10px;}
+.flow span{font-size: 18px;}
+.flow p{margin: 25px 0px;}
+
+.partner{background: #fff; width: 100%; height: 200px; margin: 0 auto; position: relative; overflow: hidden;text-align: center; padding-top: 20px; min-width: 900px;}
+.partner_inner{ }
+.partner h3{font-size: 14px; color: #333;font-weight: normal; height: 20px; line-height: 20px; background: url(../images/line1.png) center center no-repeat; margin: 20px 0px; overflow: hidden;}
+.partner .logo_block{margin-top: 30px;}
+.partner .logo_block a{ margin: 0px 25px; padding: 10px 0px;}
+
+.btn_partner_more{ background:url(../images/arrow1.png) no-repeat;width: 27px; height: 14px; display: block; margin: 40px auto 20px auto; }
+
+.about_block1{ text-align: center; position: relative; overflow: hidden; height: 400px; padding-top: 60px; min-width: 900px;}
+.about_block1 ul{ width:840px; margin: 0px auto; height: auto; overflow: hidden; padding:0px; }
+.about_block1 ul li{width: 280px; height: auto; overflow: hidden; color: #c6c6c6; font-size: 12px; float: left; padding: 20px;}
+.about_block1 ul li img{margin-bottom: 20px;}
+.about_block1 ul li h4{font-size: 16px;  margin: 20px 0px; color: #fff;}
+
+.tv_block{height: 560px; background:#fff url(../images/newchama1.png) center center no-repeat; position: relative; overflow: hidden; text-align: center; min-width: 900px;}
+
+.solgan{ background: #2f9ba8; color: #fff; font-size: 14px; line-height: 32px; margin-top: 400px; display: block; width: 400px; height: 32px; text-align: center; left: 50%; margin-left: -200px; position: absolute;border-radius:4px;}
+
+a.btn_more2{ display: block;width: 104px; height: 50px; background: url(../images/btn_more1.png) no-repeat; position: absolute; top: 0px; left: 50%; margin-left: -52px; color: #999; font-size: 12px; overflow: hidden; padding-top: 6px;}
+a.btn_more2:hover{text-decoration: none; color: #999;}
+
+.footer{text-align: center; font-size: 12px; color: #c6c6c6; padding:20px;}
+.footer a{color: #fff;}
+
+.nocolor{background: none; border: none;box-shadow: none; margin-bottom: 0px; z-index: 10000;}
+#big2{margin-top: -60px; z-index: 1;background: url(../images/top2.jpg) center center no-repeat; height: 400px; width:100%;background-size:cover; position: relative; overflow: hidden; margin-bottom: 0px; overflow: hidden; position: relative;min-width: 900px;}
+
+.product1{background: #4a9cd2; height: 180px; overflow: hidden; position: relative; text-align: center; padding-top: 20px; width: 100%; min-width: 900px;}
+.product1 h3{font-size: 14px; color: #fff;font-weight: normal; height: 20px; line-height: 20px; background: url(../images/line2.png) center center no-repeat; margin: 20px 0px; overflow: hidden;}
+.product1 p{ font-size: 32px; color: #fff;}
+
+.product2{text-align: center; height: 780px; background:#fff url(../images/circle2.png) bottom center no-repeat; padding: 50px 0px; width: 100%; min-width: 900px;}
+.product2 p{ width: 800px; line-height: 32px; color: #4a9cd2; margin: 0px auto;}
+
+.product2 ul { width: 900px; list-style: none; height: auto; overflow: hidden; margin:40px auto; padding: 0px;}
+.product2 ul li { width: 180px; float: left;height: auto; overflow: hidden; padding: 15px; text-align: left;}
+.product2 ul li a{ display: block; height: 147px; width: 147px; background: url(../images/circle.png) 0px -147px no-repeat; line-height: 147px; margin-bottom: 20px; text-align: center; color: #333;}
+
+.product2 ul li a:hover,.product2 ul li a.on{background-position: 0px 0px; color: #fff; text-decoration: none; }
+
+.product3{color: #fff; height: 120px; position: relative; overflow: hidden; width: 100%; min-width: 900px;}
+.product3 h3{font-size: 16px; background: #6bc24b; width: 200px; text-align: center; height: 32px; line-height: 32px; margin-top: 38px; left: 50%; margin-left: -360px; position: absolute;}
+.product3 p{width: 200px; left: 50%; margin-left: -360px; position: absolute; top: 65px;}
+.product3 span.a3{width: 22px; height: 12px; background: url(../images/arrow3.png) no-repeat; display: block;left: 50%; margin-left: -270px; position: absolute;margin-top: 78px;}
+
+
+
+.float_pc{width: 619px; height: 386px; background: url(../images/pc.png) no-repeat; position: relative; margin-top: -260px; left: 50%; margin-left: -100px;}
+.product4{ height:auto; background: #fff; margin-top: -126px; padding-top: 200px; padding-bottom: 40px; width: 100%; min-width: 900px;}
+
+.dashboard{ height: auto; width: 820px;  margin: 0 auto 80px auto; clear:both; overflow: hidden;}
+.product4 .txt{  background: url(../images/arrow2.png) 0px 40px no-repeat;; color: #fff; padding-left:16px; float: right; width: 430px;}
+.product4 .txt .content{background: #6bc24b; padding: 20px;}
+
+.product4 .txt2{  background: url(../images/arrow2a.png) 414px 40px no-repeat;; color: #fff; padding-right:16px; float: left; width: 430px;}
+.product4 .txt2 .content2{background: #6bc24b; padding: 20px;}
+
+.my_nav{background: #fff; overflow: hidden; width: 100%; height: 80px; min-width: 900px;}
+.logo{display: block; width: 120px; margin: 20px; height: 40px; float: left;}
+.top-nav-right{ margin: 20px; float: right;list-style: none;}
+.top-nav-right li{list-style: none; float: left; margin-left: 10px;}
+
+

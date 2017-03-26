@@ -1,0 +1,20 @@
+[
+{
+  "pk": 1, 
+  "model": "area.regionlevelone", 
+  "fields": {
+    "sort": 1, 
+    "name_en": "China", 
+    "name_cn": "\u4e2d\u56fd"
+  }
+},
+{
+  "pk": 2, 
+  "model": "area.regionlevelone", 
+  "fields": {
+    "sort": 0, 
+    "name_en": "Overseas", 
+    "name_cn": "\u6d77\u5916"
+  }
+}
+]

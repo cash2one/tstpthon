@@ -1,0 +1,60 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Members{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Message<span>Messages</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Messages</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    {% comment %}<div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline">
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <button class="btn btn-primary">Search</button>
+      </form>
+    </div>{% endcomment %}
+
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Sender</th>
+                <th>Company</th>
+                <th>Name</th>
+                <th>title</th>
+                <th>Tel</th>
+                <th>Email</th>
+                <th>Desc</th>
+                <th>Createtime</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate data %}
+            {% for m in data %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.member.first_name|safe }}{{ m.member.last_name|safe }}</td>
+                <td>{{ m.company_name|safe }}</td>
+                <td>{{ m.contact_name|safe }}</td>
+                <td>{{ m.contact_title|safe }}</td>
+                <td>{{ m.contact_tel|safe }}</td>
+                <td>{{ m.contact_email|safe }}</td>
+                <td>{{ m.contact_desc|safe }}</td>
+                <td>{{ m.add_time|date:'Y-m-d H:i:s' }}</td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+{% paginate %}
+{% endblock %}

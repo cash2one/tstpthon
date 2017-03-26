@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>NewChama Innovative Global Online Deal Sourcing Platform</title>
+    <meta name="Keywords" content="并购平台,融资平台,股权平台,股权信息发布,交易服务,纽熙,茶马,茶马古道 " /> 
+    <meta name="Description" content="NewChama是全球领先的股权交易与并购信息平台。截止今天，平台上的项目发布已达到数百个。NewChama帮助项目寻找遍及全球的投资者；同时，也为买方定位优质项目，提供投资决策的信息支持。" />
+    <link rel="shortcut icon" href="{{STATIC_PREFIX}}img/favicon.ico">
+    <!-- Bootstrap -->
+    <link href="{{STATIC_PREFIX}}home/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_PREFIX}}home/css/newchama_web.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="{{STATIC_PREFIX}}home/js/html5shiv.min.js"></script>
+      <script src="{{STATIC_PREFIX}}home/js/respond.min.js"></script>
+    <![endif]-->
+     <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?690046ddb5b2d6eadafc3f2827c92b75";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+  </head>
+  <body style="padding-top:0px;">
+
+  <!-- Fixed navbar -->
+       <div class="my_nav" >
+    
+          <a class="logo" href="{% url 'account.gohome' %}"><img src="{{STATIC_PREFIX}}home/images/logo1.png" width="151" height="20"></a>
+     
+          <ul class="top-nav-right">
+            <li><a href="{% url 'account.signup' %}"><span  class="btn btn-primary btn-sm">Register</span></a></li>
+            <li style="margin-right:15px;"><a href="{% url 'account.login' %}"><span  class="btn btn-default btn-sm">Login</span></a></li>
+            <!--<li style="padding-top:5px;"><a href="javascript:change_lang('zh-cn')" class="change_language"><i class="glyphicon glyphicon-globe"></i>&nbsp;中文</a></li>-->
+        
+          </ul>
+       
+    </div>
+
+    <div class="container">
+
+      <div class="bigtop">
+        <div class="flow">
+          <h3>NewChama</h3>
+          <span>MORE THAN MEETS THE EYE</span>
+          <p>NewChama provides the world-leading platform of equity-transactions and M&A information. With hundreds of projects online, we facilitate the match between the seller’s project and world-wide investors. Our information support allows the buyer side to spot the most rewarding projects.</p>
+          <!--<a href="{% url 'home.products' %}" class="btn btn-success">MORE</a>-->
+
+        </div>
+      </div>
+      <div class="partner">
+        <div class="partner_inner">
+          <h3><strong>Create Miracles Using NewChama Together with…</strong></h3>
+          <div class="logo_block">
+              <a href="###"><img src="{{STATIC_PREFIX}}home/images/logo/1.png"></a>
+              <a href="###"><img src="{{STATIC_PREFIX}}home/images/logo/2.png"></a>
+              <a href="###"><img src="{{STATIC_PREFIX}}home/images/logo/3.png"></a>
+              <a href="###"><img src="{{STATIC_PREFIX}}home/images/logo/4.png"></a>
+              <a href="###"><img src="{{STATIC_PREFIX}}home/images/logo/5.png"></a>
+          </div>
+          <!--<a href="###" class="btn_partner_more"></a>-->
+        </div>
+      </div>
+
+      <div class="about_block1">
+          <ul>
+              <li>
+                  <a href="###"><img src="{{STATIC_PREFIX}}home/images/a1.png" height="100"></a>
+                  <h4>Global Transaction Platform</h4>
+                  <p>Designed specifically for private financing and M&A deals. Facilitates deal posting, deal match, and process management.</p>
+              </li>
+              <li>
+                  <a href="###"><img src="{{STATIC_PREFIX}}home/images/a2.png" height="100"></a>
+                  <h4>The Most Efficient Data Matching</h4>
+                  <p>Based on abundant investment and financing information. Use accumulated industry data. Increase the efficiency of project screening and project matching.</p>
+              </li>
+              <li>
+                  <a href="###"><img src="{{STATIC_PREFIX}}home/images/a3.png" height="100"></a>
+                  <h4>Ensured Safety and Confidentiality</h4>
+                  <p>Guarantee the confidentiality of transactions. Protect user and project information in any case.</p>
+              </li>
+          </ul>
+      </div>
+
+      <div class="tv_block">
+          <!--<a class="btn_more2" href="###">了解更多</a>-->
+          <span class="solgan">NewChama 
+Innovative Global Online Deal Sourcing Platform</span>
+      </div>
+
+    </div> <!-- /container -->
+
+    <div class="container">
+      <div class="footer">
+        <div class="container-fluid">
+          <p><a href="{% url 'home.us' %}">About Us</a>        ｜    <a href="{% url 'home.bd' %}">Business Corporation</a>    ｜    <a href="{% url 'home.contact' %}">Contact Us</a>     ｜      <a href="{% url 'account.privacy' %}">Privacy Policy</a>     ｜      <a href="{% url 'account.user' %}">Term of Use</a>       
+          <p>Copyright @2014  NewChama.com </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{STATIC_PREFIX}}home/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{STATIC_PREFIX}}home/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/lang.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57230495-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

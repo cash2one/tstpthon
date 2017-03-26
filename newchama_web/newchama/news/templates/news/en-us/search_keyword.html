@@ -1,0 +1,114 @@
+{% extends "common/en-us/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">搜索结果</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="news-list">
+
+        <li class="nav-header">
+        <span class="news-list-item-tags">
+              当前标签：<i class="glyphicon glyphicon-tags"></i>
+              <a class="tag" href="###"><span class="label label-secondary">{{ keyword }}&nbsp;<i class="glyphicon glyphicon-plus"></i></span></a>
+          </span>
+
+        </li>
+
+        <li class="nav-header">
+           <ul class="nav nav-pills top_nav_pills" role="tablist">
+              <li><a href="{% url 'sales.search_keyword'  %}?keyword={{ keyword }}">卖方发布({{ total_project }})</a></li>
+              <li><a href="{% url 'purchase.search_keyword'  %}?keyword={{ keyword }}">买方发布({{ total_demand }})</a></li>
+              <li class="active"><a href="{% url 'news.search_keyword'  %}?keyword={{ keyword }}">新闻({{ total_news }})</a></li>
+{#              <li><a href="{% url 'account.search_keyword_company'  %}?keyword={{ keyword }}">机构({{ total_company }})</a></li>#}
+{#              <li><a href="{% url 'account.search_keyword_member'  %}?keyword={{ keyword }}">用户({{ total_member }})</a></li>#}
+
+            </ul>
+        </li>
+                {% if news %}
+                <table class="table table-striped">
+                 <tbody>
+                {% for n in news %}
+                    <tr>
+                        <td class="col-xs-10"><a href="{% url 'news.detail' n.id %}" target="_blank">{{ n.title }}</a></td>
+                        <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> {{ n.time|date:'Y-m-d' }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+              </table>
+                 {% if total_news > 10 %}
+                 <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                 <li class="news-list-view-all" id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </li>
+                 {% endif %}
+            {% else %}
+                <div class="news-list-empty">
+                    <p class="news-list-empty-text">暂无结果</p>
+                </div>
+            {% endif %}
+                </ul>
+        </div>
+    </div>
+    </div>
+{#    <div class="col-xs-2">#}
+{#        <div class="panel panel-default">#}
+{#            <div class="panel-heading">#}
+{#                <h3 class="panel-title">搜索记录</h3>#}
+{#            </div>#}
+{#            <div class="panel-body">#}
+{#                <ul class="news-list">#}
+{#                    <li> <span class="news-list-item-title">1、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">2、互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">3、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                </ul>#}
+{#                <br />#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    </div>
+{% endblock %}
+{% block footer %}
+<script>
+        var keyword='{{ keyword }}';
+        var page = 1;
+        var pagesize=10;
+        var is_has_data = true;
+        /*
+        $(window).bind("scroll", function () {
+            var screenHeight = $(window).height();
+            var top = $(document.body).height();
+            //console.log(top);
+            var scrollTop = $(document).scrollTop();
+            if (top - scrollTop < screenHeight + 20) {
+                LoadData();
+            }
+        });*/
+        function LoadData()
+        {
+            if(is_has_data)
+            {
+                page++;
+                GetData(keyword,page,pagesize);
+            }
+        }
+        function GetData(keyword,page,pagesize) {
+            $("#loader").show();
+            var url = "/news/ajax_search_keyword?keyword="+keyword+"&page="+page+"&pagesize="+pagesize;
+            jQuery.get(url,function (data) {
+                var newData = data.replace(/\s/g,'');
+                if(newData)
+                {
+                    $(".table tbody").append(data);
+                }else
+                {
+                    is_has_data = false;
+                    $("#load_btn").remove();
+                }
+                $("#loader").hide();
+            });
+        }
+</script>
+{% endblock %}

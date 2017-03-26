@@ -1,0 +1,209 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Create Member{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Member<span>Create Member</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Member</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Create Member</h4>
+          <p>Create a new member</p>
+        </div>
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Email <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                <input type="email" placeholder="Email" name="email" value="{{ u.email }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Password <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                <input type="password" placeholder="Password" name="password" class="form-control" maxlength="50" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">FirstName <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                  <input type="text" placeholder="FirstName" name="first_name" value="{{ u.first_name }}" required maxlength="50" class="form-control required" />
+              </div>
+            </div>
+            {% comment %}<div class="form-group">
+              <label class="col-sm-3 control-label">LastName</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="LastName" name="last_name"  value="{{ u.last_name }}" class="form-control" />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Gender</label>
+              <div class="col-sm-6">
+                <div class="radio"><label><input type="radio" name="gender" value="1"> Male</label></div>
+                <div class="radio"><label><input type="radio" name="gender" value="2"> Female</label></div>
+              </div>
+            </div>{% endcomment %}
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Company <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                  <select name="company" class="form-control chosen-select" data-placeholder="Choose a Company...">
+                      <option value="0">Please Select</option>
+                      {% for company in companies %}
+                          <option value="{{ company.id }}">{{ company.short_name_en }}:{{ company.name_en }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">English Position</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="English Position" name="position_en" value="{{ u.position_en }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Chinese Position <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Chinese Position" name="position_cn" value="{{ u.position_cn }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Tel</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Tel" name="tel" value="{{ u.tel }}" class="form-control" />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Mobile <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Mobile" name="mobile" value="{{ u.mobile }}" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Weibo</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Weibo" name="weibo_url" value="{{ u.weibo_url }}" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">English Interested Parties</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="intro_en" name="intro_en">{{ u.intro_en }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Chinese Interested Parties</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="intro_cn" name="intro_cn">{{ u.intro_cn }}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Type</label>
+              <div class="col-sm-6">
+                 <select class="form-control chosen-select" data-placeholder="Choose Member Type..." name="type" id="type">
+                     {% for id,value in MEMBER_TYPES %}
+                        <option value="{{ id }}">{{ value }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Status <span class="asterisk">*</span></label>
+                <div class="col-sm-6">
+                    <select class="form-control chosen-select" data-placeholder="Choose Member Status..." name="status">
+                        {% for id,value in u.STATUS_TYPE  %}
+                            <option value="{{ id }}" {% if u.status == id %} selected {% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Reason</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" rows="5" id="reason" name="reason"></textarea>
+                    <span class="help-block">如果不通过，请填写理由</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Role <span class="asterisk">*</span></label>
+                <div class="col-sm-6">
+                    <select class="form-control chosen-select" data-placeholder="Choose Member Role..." name="role">
+                        {% for id,value in u.ROLE_TYPE  %}
+                            <option value="{{ id }}" {% if u.role == id %} selected {% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">ExpireDate <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="expire_date" placeholder="yyyy-mm-dd" id="expire_date">
+              </div>
+            </div>
+
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Owner <span class="asterisk">*</span></label>
+              <div class="col-sm-6">
+                  <select name="owner" class="form-control chosen-select" data-placeholder="Choose a Owner...">
+                      <option value="0">Please Select</option>
+                      {% for user in adminusers %}
+                          <option value="{{ user.id }}" {% if u.owner.id == user.id %} selected="selected" {% endif %}>{{ user.username }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">定向输出</label>
+                <div class="col-sm-6">
+                    <select id="target_platform" name="target_platform" class="form-control" data-placeholder="请选择项目来源">
+                        <option value="0">请选择项目定向输出平台</option>
+                        {% for tp in u.TARGET_PLATFORM %}
+                            <option value="{{ tp.0 }}" {% if u.target_platform == tp.0 %} selected="selected" {% endif %}>{{ tp.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-sm-3 control-label">渠道来源</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="source_channel" placeholder="source_channel" id="source_channel">
+              </div>
+            </div>
+               {% csrf_token %}
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary">Submit</button>&nbsp;
+				  <button class="btn btn-default">Cancel</button>
+				</div>
+			 </div>
+		  </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+{% endblock %}
+{% block customjs %}
+    <script>
+    jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+    jQuery('#expire_date').datepicker({dateFormat: "yy-mm-dd"});
+    </script>
+{% endblock %}

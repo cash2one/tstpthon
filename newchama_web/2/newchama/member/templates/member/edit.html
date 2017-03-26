@@ -1,0 +1,548 @@
+{% extends "adminuser/base.html" %}
+{% load staticfiles %}
+{% block title %}Edit Member{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Member<span>Edit Member</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Member</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title">Edit Member</h4>
+        <p>Edit member</p>
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+    </div>
+    <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+     <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">Basic Information</h4>
+            </div>
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Email <span class="asterisk">*</span></label>
+                    <div class="col-sm-8">
+                        <input type="email" placeholder="Email" name="email" value="{{ u.email }}" class="form-control" />
+                    </div>
+                </div>
+                {% comment %}
+                <div class="form-group">
+                  <label class="col-sm-3 control-label">LastName</label>
+                  <div class="col-sm-6">
+                    <input type="text" placeholder="LastName" name="last_name"  value="{{ u.last_name }}" class="form-control" />
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label class="col-sm-3 control-label">Gender</label>
+                  <div class="col-sm-6">
+                    <div class="radio"><label><input type="radio" name="gender" value="1" {% if u.gender == 1 %} checked {% endif %}> Male</label></div>
+                    <div class="radio"><label><input type="radio" name="gender" value="2" {% if u.gender == 2 %} checked {% endif %}> Female</label></div>
+                  </div>
+                </div>
+                {% endcomment %}
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">FirstName <span class="asterisk">*</span></label>
+                    <div class="col-sm-8">
+                        <input type="text" placeholder="FirstName" name="first_name" value="{{ u.first_name }}" required maxlength="50" class="form-control required" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Company <span class="asterisk">*</span></label>
+                    <div class="col-sm-8">
+                        <select name="company" class="form-control chosen-select" data-placeholder="Choose a Company...">
+                            <option value="0">Please Select</option>
+                            {% for company in companies %}
+                                <option value="{{ company.id }}" {% if u.company.id == company.id %} selected="selected" {% endif %}>{{ company.name_cn }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">English Position</label>
+                    <div class="col-sm-8">
+                        <input type="text" placeholder="English Position" name="position_en" value="{{ u.position_en }}" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Chinese Position <span class="asterisk">*</span></label>
+                    <div class="col-sm-8">
+                        <input type="text" placeholder="Chinese Position" name="position_cn" value="{{ u.position_cn }}" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Tel</label>
+                    <div class="col-sm-8">
+                        <input type="text" placeholder="Tel" name="tel" value="{{ u.tel }}" class="form-control" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Mobile <span class="asterisk">*</span></label>
+                    <div class="col-sm-8">
+                        <input type="text" placeholder="Mobile" name="mobile" value="{{ u.mobile }}" class="form-control" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Weibo</label>
+                    <div class="col-sm-8">
+                        <input type="text" placeholder="Weibo" name="weibo_url" value="{{ u.weibo_url |default:'' }}" class="form-control" />
+                    </div>
+                </div>
+            </div>
+          </div><!-- panel -->
+        </div><!-- col-md-6 -->
+
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h4 class="panel-title">Business Card</h4>
+            </div>
+            <div class="panel-body" style="padding: 8px;">
+                <div style="margin:0 auto;">
+                    <div class="modal-photo" style="text-align:center;">
+                        {% comment %}
+                        {% if card_file %}
+                            <img  style="margin:0 auto;" id="business-card" src="{{ MEDIA_URL }}card/{{ card_file }}" class="photo img-responsive" alt="" />
+                        {% endif %}
+                        {% endcomment %}
+                        {% if card_file %}
+                        <img  style="margin:0 auto;" id="business-card" src="{% url 'member.get_businesscard' card_file %}" class="photo img-responsive" alt="" />
+                        {% endif %}
+                    </div>
+                </div>
+                      <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                      <div class="modal-body" style="text-align:center;padding: 0px;">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <img style="margin:0 auto;" id="mimg" src="">
+                      </div>
+                    </div><!-- /.modal-content -->
+                  </div><!-- /.modal-dialog -->
+                </div><!-- /.modal -->
+            </div><!-- panel-body -->
+          </div><!-- panel -->
+        </div><!-- col-md-6 -->
+      </div><!-- row -->
+
+       <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">English Interested Parties</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="intro_en" name="intro_en">{{ u.intro_en }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Chinese Interested Parties</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="intro_cn" name="intro_cn">{{ u.intro_cn }}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+               <label class="col-sm-3 control-label">Type</label>
+               <div class="col-sm-6">
+                  <select class="form-control chosen-select" data-placeholder="Choose Member Type..." name="type" id="type">
+                      {% for id,value in MEMBER_TYPES  %}
+                         <option value="{{ id }}" {% if u.type == id %} selected {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                 </select>
+               </div>
+             </div>
+             <div class="form-group">
+                <label class="col-sm-3 control-label">Status <span class="asterisk">*</span></label>
+                <div class="col-sm-6">
+                  <select class="form-control chosen-select" data-placeholder="Choose Member Status..." name="status">
+                      {% for id,value in u.STATUS_TYPE  %}
+                          <option value="{{ id }}" {% if u.status == id %} selected {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                  </select>
+                </div>
+             </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Reason</label>
+                <div class="col-sm-6">
+                    <textarea class="form-control" rows="5" id="reason" name="reason"></textarea>
+                    <span class="help-block">如果不通过，请填写理由</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Role <span class="asterisk">*</span></label>
+                <div class="col-sm-6">
+                    <select class="form-control chosen-select" data-placeholder="Choose Member Role..." name="role">
+                        {% for id,value in u.ROLE_TYPE  %}
+                            <option value="{{ id }}" {% if u.role == id %} selected {% endif %}>{{ value }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+             <div class="form-group">
+               <label class="col-sm-3 control-label">ExpireDate <span class="asterisk">*</span></label>
+               <div class="col-sm-6">
+                 <input type="text" class="form-control" name="expire_date" placeholder="yyyy-mm-dd" id="expire_date" value="{{ u.expire_date|date:'Y-m-d'}}">
+               </div>
+             </div>
+
+             <div class="form-group">
+               <label class="col-sm-3 control-label">Owner <span class="asterisk">*</span></label>
+               <div class="col-sm-6">
+                   <select name="owner" class="form-control chosen-select" data-placeholder="Choose a Owner...">
+                       <option value="0">Please Select</option>
+                       {% for user in adminusers %}
+                           <option value="{{ user.id }}" {% if u.owner.id == user.id %} selected="selected" {% endif %}>{{ user.username }}</option>
+                       {% endfor %}
+                   </select>
+               </div>
+            </div>
+             <div class="form-group">
+                 <label class="col-sm-3 control-label">注册来源</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" name="source_create" placeholder="source_create" id="source_create" value="{{ u.source_create }}" disabled>
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">定向输出</label>
+                <div class="col-sm-6">
+                    <select id="target_platform" name="target_platform" class="form-control" data-placeholder="请选择项目来源">
+                        <option value="0">请选择项目定向输出平台</option>
+                        {% for tp in u.TARGET_PLATFORM %}
+                            <option value="{{ tp.0 }}" {% if u.target_platform == tp.0 %} selected="selected" {% endif %}>{{ tp.1 }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+             <div class="form-group">
+                <label class="col-sm-3 control-label">渠道来源</label>
+              <div class="col-sm-6">
+                  <input type="text" class="form-control" name="source_channel" placeholder="source_channel" id="source_channel" value="{{ u.source_channel}}" >
+              </div>
+            </div>
+
+            <input value="{{ u.id }}" name="id" type="hidden" />
+               {% csrf_token %}
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary">Submit</button>&nbsp;
+				  <button class="btn btn-default">Cancel</button>
+				</div>
+			 </div>
+		  </div><!-- panel-footer -->
+      </div><!-- panel -->
+    </form>
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Tracking Table<a class="btn btn-default pull-right " href="{% url 'member.tracking_add' u.id %}">Add</a></h4>
+          
+        </div>
+       
+        <div class="panel-body">
+         <div class="table-responsive">
+          <table class="table table-primary mb30">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>User</th>
+                  <th>Datetime</th>
+                  <th width="60%">Content</th>
+                </tr>
+              </thead>
+              <tbody>
+              
+              {% for m in trackingdata %}
+                <tr>
+                  <td>{{ m.id }}</td>
+                  <td>{{ m.user|default:'' }}</td>
+                  <td>{{ m.add_time }}</td>
+                  <td>{{ m.content }}</td>
+                 
+                </tr>
+              {% endfor %}
+              </tbody>
+          </table>
+    
+        </div><!-- table-responsive -->
+        </div><!-- panel-body -->
+      </div><!-- panel -->
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title">Matching Table<a class="btn btn-default pull-right " href="{% url 'member.matching_add' u.id %}">Add</a></h4>
+
+        </div>
+
+        <div class="panel-body">
+
+            <div class="table-responsive">
+                <table class="table table-primary mb30">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Industry(50%)</th>
+                        <th>Deal Category(20%)</th>
+                        <th>Deal Size Min</th>
+                        <th>Deal Size Max</th>
+                        <th>Currency(5%)</th>
+                        <th>Finicial(10%)</th>
+                        <th>Geography(5%) (old)</th>
+                        <th>Region(5%)</th>
+                        <th>Hot</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for m in matchingdata %}
+                        <tr>
+                            <td>{{ m.id }}</td>
+                            <td>{{ m.tags|default:'' }}</td>
+                            <td>
+                                {% for category in m.deal_category.all %}
+                                    {{ category.get_category_display }}<br/>
+                                {% endfor %}
+                            </td>
+                            <td>{% widthratio m.deal_size_min 1000000 1 %}M</td>
+                            <td>{% widthratio m.deal_size_max 1000000 1 %}M</td>
+                            <td>{{ m.get_deal_currency_display }}</td>
+
+                            <td>Revenue:{{ m.get_revenue_display }}<br/>
+                                Growth Rate:{{ m.get_growth_display }}<br/>
+                                Net Income:{{ m.get_net_income_display }}<br/>
+                                EBITA:{{ m.get_ebita_display }}</td>
+                            <td>{{ m.country.name_cn }}</td>
+                            <td>{{ m.regionlevelone}}
+                                {% if m.regionleveltwo %}
+                                , {{ m.regionleveltwo }}
+                                {% endif %}
+                                {% if m.regionlevelthree %}
+                                , {{m.regionlevelthree}}
+                                {% endif %}
+                            </td>
+                            <td>{{ m.hot }}</td>
+                            <td>
+                                <a href="{% url 'member.matching_edit' m.id %}"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                                <a href="javascript:DoDelete('{% url "member.matching_remove" %}',{{ m.id }});" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+
+            </div><!-- table-responsive -->
+
+
+        </div><!-- panel-body -->
+
+
+
+    </div><!-- panel -->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Projects</h4>
+          
+        </div>
+       
+        <div class="panel-body">
+
+         <div class="table-responsive">
+          <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Project Name</th>
+                <th>Member</th>
+                <th>Create Date</th>
+                <th>Expire Date</th>
+                <th>Status</th>
+                <th>定向推送</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {% for m in project_list %}
+              <tr>
+                <td>{{ m.pk }}</td>
+                <td>{{ m.name_cn|default:m.name_en|safe|slice:'30'}}</td>
+                <td>{{ m.member }}</td>
+                <td>{{ m.add_time|date:'Y-m-d' }}</td>
+                <td>{{ m.expire_date|date:'Y-m-d' }}</td>
+                <td>{{ m.get_status_display }}</td>
+                <td>{{ m.is_suitor }}</td>
+                <td>
+                    <a href="{% url 'project.detail' m.pk %}" title="detail" target="_blank"><i class="fa fa-eye"></i></a>
+                    <a href="{% url 'project.edit' m.pk %}" title="edit"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                    {% if m.status != Status.approved and m.status != Status.draft and m.status != Status.deleted %}
+                    <a href="{% url 'project.check' m.id %}" title="check"><i class="fa fa-check"></i></a>
+{#                    <a href="javascript:ApproveProject({{ m.id }});" title="check"><i class="fa fa-check"></i></a>#}
+                    {% endif %}
+                    {% if m.status == Status.approved %}
+                    <a href="javascript:BanProject({{ m.id }});" title="ban"><i class="fa fa-ban"></i></a>
+                    {% endif %}
+                    <a href="{% url 'project.recommend' m.pk %}" target="_blank" title="recommend"><i class="fa fa-expand"></i></a>
+                    {% if m.is_recommend == 1 %}
+                        <a href="javascript:CancelRecommendProject({{ m.id }});" title="cancel recommed status"><i class="fa fa-star-o"></i></a>
+                    {% else %}
+                        <a href="javascript:SetRecommendProject({{ m.id }});" title="set recommend status"><i class="fa fa-star"></i></a>
+                    {% endif %}
+                    {% if m.is_top == 1 %}
+                        <a href="javascript:CancelTopProject({{ m.id }});" title="cancel top status"><i class="fa fa-arrow-down"></i></a>
+                    {% else %}
+                        <a href="javascript:SetTopProject({{ m.id }});" title="set top status"><i class="fa fa-arrow-up"></i></a>
+                    {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    
+    </div><!-- table-responsive -->
+
+          
+        </div><!-- panel-body -->
+       
+      
+       
+      </div><!-- panel -->
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Demands</h4>
+          
+        </div>
+       
+        <div class="panel-body">
+
+         <div class="table-responsive">
+          <table class="table table-primary mb30">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Member</th>
+                <th>Expired</th>
+                <th>Updated</th>
+                <th>Status</th>
+                <th>定向推送</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+            
+            {% for m in demand_list %}
+              <tr>
+                <td>{{ m.id }}</td>
+                <td>{{ m.name_cn|default:m.name_en|safe|slice:'30' }}</td>
+                <td>{{ m.member }}</td>
+                <td>{{ m.expire_date|date:'Y-m-d' }}</td>
+                <td>{{ m.update_time|date:'Y-m-d H:i' }}</td>
+                <td>{{ m.get_status_display}}</td>
+                <td>{{ m.is_suitor }}</td>
+                <td>
+                    <a href="{% url 'demand.detail' m.id %}" title="detail"><i class="fa fa-eye"></i></a>
+                    <a href="{% url 'demand.edit' m.id %}" title="edit"><i class="fa fa-pencil"></i></a>&nbsp;&nbsp;
+                    {% if m.status != Status.approved and m.status != Status.draft and m.status != Status.deleted %}
+                    <a href="{% url 'demand.check' m.id %}" title="check"><i class="fa fa-check"></i></a>
+{#                    <a href="javascript:ApproveDemand({{ m.id }});" title="check"><i class="fa fa-check"></i></a>#}
+                    {% endif %}
+                    {% if m.status == Status.approved %}
+                    <a href="javascript:BanDemand({{ m.id }});" title="ban"><i class="fa fa-ban"></i></a>
+                    {% endif %}
+
+                    <a href="{% url 'demand.recommend' m.pk %}" target="_blank" title="recommend"><i class="fa fa-expand"></i></a>
+                    {% if m.is_recommend == 1 %}
+                        <a href="javascript:CancelRecommendDemand({{ m.id }});" title="cancel recommed status"><i class="fa fa-star-o"></i></a>
+                    {% else %}
+                        <a href="javascript:SetRecommendDemand({{ m.id }});" title="set recommend status"><i class="fa fa-star"></i></a>
+                    {% endif %}
+                    {% if m.is_top == 1 %}
+                        <a href="javascript:CancelTopDemand({{ m.id }});" title="cancel top status"><i class="fa fa-arrow-down"></i></a>
+                    {% else %}
+                        <a href="javascript:SetTopDemand({{ m.id }});" title="set top status"><i class="fa fa-arrow-up"></i></a>
+                    {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    
+    </div><!-- table-responsive -->
+
+          
+        </div><!-- panel-body -->
+       
+      
+       
+      </div><!-- panel -->
+
+{% endblock %}
+{% block customjs %}
+    <script>
+    jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+    jQuery('#expired_date').datepicker();
+    </script>
+
+    <script>
+        function getRotationDegrees(obj) {
+        var matrix = obj.css("-webkit-transform") ||
+        obj.css("-moz-transform")    ||
+        obj.css("-ms-transform")     ||
+        obj.css("-o-transform")      ||
+        obj.css("transform");
+        if(matrix !== 'none') {
+            var values = matrix.split('(')[1].split(')')[0].split(',');
+            var a = values[0];
+            var b = values[1];
+            var angle = Math.round(Math.atan2(b, a) * (180/Math.PI));
+        } else { var angle = 0; }
+        return (angle < 0) ? angle + 360 : angle;
+        }
+
+        $(window).load(function(){
+        $('#business-card').on('click',function()
+            {
+                var sr=$(this).attr('src');
+                $('#mimg').attr('src',sr);
+                $('#myModal').modal('show');
+            });
+
+        });
+
+        $('#mimg').click(function(){
+            var angle = getRotationDegrees($(this));
+            var next_angle = angle + 90;
+            if (next_angle > 360) {
+                next_angle - 360;
+            }
+            $(this).css({
+            "-webkit-transform": "rotate(" + next_angle + "deg)",
+            "-moz-transform": "rotate(" + next_angle + "deg)",
+            "transform": "rotate(" + next_angle + "deg)", /* For modern browsers(CSS3)  */
+            });
+        });
+    </script>
+{% endblock %}
+

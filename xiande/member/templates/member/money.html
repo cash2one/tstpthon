@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>上海显德投资管理有限公司</title>
+    <meta name="Keywords" content="上海显德投资管理有限公司 " /> 
+    <meta name="Description" content="上海显德投资管理有限公司（Vantage Capital）是一家国际化专业的资产管理公司，于2011年成立，注册资金2000万人民币，在国际金融中心香港、上海均设有机构，面向全球金融市场投资于证券、外汇、基金、债券、衍生品等投资工具，以量化对冲基金发展模式，并多年在海外市场持续稳健盈利。" />
+
+    <link href="{{STATIC_URL}}common/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{STATIC_URL}}common/css/xiande.css">
+    
+  </head>
+<body>
+<div class="container-fluid">
+    <div class="row heading">
+        <div class="col-md-12">
+        <h1>我的小金库</h1>
+        </div>
+    </div>
+
+     <div class="row content">
+     
+        {% if has_cash %}
+
+        <div class="row col-md-12">
+
+         <div class="col-md-12 money_big">
+           <span>昨日收益(元)</span><br/>
+           <span class="money_big_money">{{yesterday_income |default:'0'}}</span>
+         </div>
+         <div class="col-md-12 money_big2">
+           <span>总金额(元)</span><br/>
+           <span class="money_big_money2">{{all_amount |default:'0'}}</span>
+         </div>
+         <div class="col-md-12 money_big3">
+         <div class="item">
+            <span>本金(元)</span><br/>
+           <span class="money_big_money3">{{event_amount |default:'0'}}</span>
+         </div>
+         <div class="item" style="border-left:1px solid #d1d1d1;">
+            <span>累计收益(元)</span><br/>
+           <span class="money_big_money3">{{income |default:'0'}}</span>
+         </div>
+         <div class="item" style="margin-top:20px;">
+            <span>本月推荐(元)</span><br/>
+           <span class="money_big_money3">{{recommond_amount |default:'0'}}</span>
+         </div>
+         <div class="item" style="margin-top:20px; border-left:1px solid #d1d1d1;">
+            <span>本月推荐(人)</span><br/>
+           <span class="money_big_money3">{{recommond_num |default:'0'}}</span>
+         </div>
+           
+         </div>
+         <div class="col-md-12">
+
+        <p class="bb">关于显德小金库</p>
+        <p class="f12">显德投资理财虚拟货币，简称显德货币，使用权归显德所有。
+        显德的虚拟货币是什么，它是在虚拟跟现实有连接的情况下，虚拟的货币有其现实价值。显德货币使用范围，在特定的情况下，它是可以直接和人民币价值同等兑换显德发行的理财项目，具体看项目说明。
+        </p>
+
+        <br/>
+        <a class="center-block btn btn-danger" href="{% url 'event.cash' %}?u={{openid}}">获取更多显德货币</a>
+        </div></div>
+        {% else %}
+        <div class="col-md-12">
+        <p>您还没有获得显德货币呢！</p>
+        <p>当期收益： <span class="big">0</span><span></span></p>
+        
+        <p>小金库本金： <span>0元</span><span></span></p>
+        <br/>
+        <br/>
+        <p class="bb">关于显德小金库</p>
+        <p class="f12">显德投资理财虚拟货币，简称显德货币，使用权归显德所有。
+        显德的虚拟货币是什么，它是在虚拟跟现实有连接的情况下，虚拟的货币有其现实价值。显德货币使用范围，在特定的情况下，它是可以直接和人民币价值同等兑换显德发行的理财项目，具体看项目说明。
+        
+        </p>
+        <br/>
+        <p class="bb">怎样获取货币？</p>
+        <p class="f12">参加显德微信公众号发出的活动，获取的货币多少根据具体活动定
+
+
+        </p>
+
+        <br/>
+        <a class="center-block btn btn-danger" href="{% url 'event.cash' %}">马上参加活动</a>
+        </div>
+        {% endif %}
+
+    </div>
+</div>
+</div>
+
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="{{STATIC_URL}}common/js/jquery.cookies.js"></script>
+
+
+
+
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+<script>
+
+  wx.config({
+      debug: false,
+      appId: '{{appid}}',
+      timestamp: {{sign.timestamp}},
+      nonceStr: '{{sign.nonceStr}}',
+      signature: '{{sign.signature}}',
+      jsApiList: [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage'
+      ]
+  });
+
+
+wx.ready(function () {
+  {% if has_cash %}
+     var shareData = {
+      title: '显德货币新品上线啦',
+      desc: '显德的虚拟货币是什么，它是在虚拟跟现实有连接的情况下，虚拟的货币有其现实价值。',
+      link: 'http://xiande.olive-app.com/event/cash/?u={{openid}}'
+    };
+
+   {% else %}
+  var shareData = {
+    title: '显德货币新品上线啦',
+      desc: '显德的虚拟货币是什么，它是在虚拟跟现实有连接的情况下，虚拟的货币有其现实价值。',
+      link: 'http://xiande.olive-app.com/event/cash/?u={{introducer}}'
+  };
+
+
+ {% endif %}
+
+
+  
+  wx.onMenuShareTimeline(shareData);
+  wx.onMenuShareAppMessage(shareData);
+});
+
+wx.error(function (res) {
+  alert(res.errMsg);
+});
+
+</script>
+</body>
+</html>

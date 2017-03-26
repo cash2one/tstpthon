@@ -1,0 +1,82 @@
+{% load static %}
+{% load myTags %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% for p in result_list %}
+    <li class='project-item'>
+        <strong class='news-list-item-title2'>
+            <a href='{%  url 'sales.detail' p.id %}'>{{p.name_cn|striptags |truncatechars:64 }}</a>
+            {% if not p.is_suitor%}
+            {% if p.id in favorites_project_ids %}
+                <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="project"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;WatchList</a>
+            {% else %}
+                <a href="###" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="project"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</a>
+            {% endif %}{% endif %}
+        </strong>
+    <span class='news-list-item-text'>
+      <table class='table index-table-1'>
+          <tbody>
+          <tr class='project-th'>
+              <td class="col-xs-4">Location</td>
+              <td class="col-xs-4">Deal Type</td>
+              <td class="col-xs-4">Industry</td>
+          </tr>
+          <tr>
+              <td>{{ p.company_country.name_cn |striptags |truncatechars:16}}</td>
+              <td>{{ p.get_service_type_display |striptags |truncatechars:16}}</td>
+              <td><i class='glyphicon glyphicon-tags'></i> <a class="tag preference_common_keyword" data-type="project" href='javascript:;'>{{ p.company_industry.name_cn |striptags |truncatechars:8|default:"N/A" }}</a></td>
+          </tr>
+          <tr class='project-th'>
+              <td>Deal Size</td>
+              <td>EBITDA</td>
+              <td>Net Profit</td>
+          </tr>
+          <tr>
+              <td>{{ p.deal_size |formatCurrency}}</td>
+              <td>{{ p.ebitda |formatCurrency}}</td>
+              <td>{{ p.profit |formatCurrency}}</td>
+          </tr>
+          </tbody>
+      </table>
+    </span>
+    </li>
+{% endfor %}
+{% for p in recent_project %}
+    <li class="project-item">
+        <strong class="news-list-item-title2">
+            {% comment %}<font color="blue">(系统推荐)</font>&nbsp;{% endcomment %}<a href="{%  url "sales.detail" p.id %}">{{p.name_cn|striptags |truncatechars:46 }}</a>
+            {% if not p.is_suitor%}
+            {% if p.id in favorites_project_ids %}
+                <a href='javascript:;' class='pull-right btn-cancelfavorite' data-id="{{ p.id }}" data-type="project"><i class='glyphicon glyphicon-heart-empty'></i>&nbsp;WatchList</a>
+            {% else %}
+                <a href="javascript:;" class="pull-right btn-addfavorite" data-id="{{ p.id }}" data-type="project"><i class="glyphicon glyphicon-heart"></i>&nbsp;WatchList</a>
+            {% endif %}{% endif %}
+        </strong>
+        <span class="news-list-item-text">
+          <table class="table index-table-1">
+              <tbody>
+              <tr class="project-th">
+                  <td class="col-xs-4">Location</td>
+                  <td class="col-xs-4">Deal Type</td>
+                  <td class="col-xs-4">Industry</td>
+              </tr>
+              <tr>
+                  <td>{{ p.company_country.name_cn |striptags |truncatechars:16}}</td>
+                  <td>{{ p.get_service_type_display |striptags |truncatechars:16}}</td>
+                  <td><i class="glyphicon glyphicon-tags"></i> <a class="tag preference_common_keyword" data-type="project" data-tag="{{ p.company_industry.name_cn }}" href="javascript:;">{{ p.company_industry.name_cn |striptags |truncatechars:8|default:"N/A" }}</a></td>
+              </tr>
+              <tr class="project-th">
+                  <td>Deal Size</td>
+                  <td>EBITDA</td>
+                  <td>Net Profit</td>
+              </tr>
+              <tr>
+                  <td>{{ p.deal_size |formatCurrency}}</td>
+                  <td>{{ p.ebitda |formatCurrency}}</td>
+                  <td>{{ p.profit |formatCurrency}}</td>
+              </tr>
+              </tbody>
+          </table>
+        </span>
+    </li>
+{% endfor %}

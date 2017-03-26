@@ -1,0 +1,27 @@
+{% for d in data %}
+  <tr class="{% cycle 'custom_odd' 'custom_even' %}" onclick="javascript:location.href='{% url 'purchase.detail' d.id %}'" style="cursor:pointer;">
+    <td>P-{{ d.id }}</td>
+    <td>{{ d.name_cn }}</td>
+    <td>{% if d.company_industries.all.count > 0 %}
+        {% for industry in d.company_industries.all %} {{ industry.name_cn }}&nbsp;&nbsp;{% endfor %}
+    {% else %}
+        不限
+    {% endif %}</td>
+    <td>
+     {% if d.company_countries.count == 0 and d.company_provinces.count == 0 and d.company_cities.count == 0 %}
+        不限
+    {% else %}
+        {% if d.company_countries.count > 0 %}
+            {% for c in d.company_countries.all %} {{ c.name_cn }}&nbsp;&nbsp;{% endfor %}
+        {% endif %}
+        {% if d.company_provinces.count > 0 %}
+            {% for p in d.company_provinces.all %} {{ p.country.name_cn }}-{{ p.name_cn }}&nbsp;&nbsp;{% endfor %}
+        {% endif %}
+        {% if d.company_cities.count > 0 %}
+            {% for c in d.company_cities.all %} {{ c.country.name_cn }}-{{ c.province.name_cn }}-{{ c.name_cn }}&nbsp;&nbsp;{% endfor %}
+        {% endif %}
+    {% endif %}
+    </td>
+    <td>{{ d.get_service_type_display }}</td>
+  </tr>
+{% endfor %}

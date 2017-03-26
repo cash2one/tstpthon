@@ -1,0 +1,100 @@
+{% extends "common/en-us/base.html" %}
+{% load i18n %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid form-horizontal" id="newchama_main">
+        <div class="col-xs-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+
+                    <h3 class="panel-title">Preference Manage</h3>
+
+                </div>
+                <form class="form-horizontal account-form" method="POST" data-validate="parsley">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" id="id" value="{{ p.id }}"/>
+                    <input type="hidden" name="preference_type" id="preference_type" value="li_{{ type }}"/>
+                    <div class="panel-body ">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                                    {{ message }}
+                                </div> <!-- /.alert -->
+                            {% endfor %}
+                        {% endif %}
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li id="li_project"><a href="{% url 'account.preference_project' %}">Sell-Side Preference</a></li>
+                            <li id="li_demand"><a href="{% url 'account.preference_demand' %}">Buy-Side Preference</a></li>
+                            <li id="li_news"><a href="{% url 'account.preference_news' %}">News Preference</a></li>
+                        </ul>
+                        <br />
+                        {% if type != "news" %}
+                        <div class="col-xs-12">
+                            <div class="preference_title">
+                                <h5>Industries of my interest<span class="pull-right"><a href="javascript:;" onclick="open_industry_win()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add</a></span></h5>
+                            </div>
+                            <div class="col-xs-12 tag_block" id="member_industry">
+                                {% for industry in indusrtis %}
+                              <span id="member_industry_{{ industry.id }}" class="alert alert-info preference_selected preference_selected-width">
+                                  <a href="javascript:;" data-id="{{ industry.id }}" data-type="industry" class="glyphicon glyphicon-remove pull-right"></a>
+                                  Location：{{ industry.country.name_en }}<br/>
+                                  Industry：{{ industry.industry.name_en }}<br/>
+                                  Amount:{{ industry.get_currency_type_financial_display }} <a href="###">{{ industry.range_min | formatCurrency4Preference}} - {{ industry.range_max| formatCurrency4Preference}}</a>&nbsp;
+                                  <input name="member_industry_ids" type="hidden" value="{{ industry.industry.id }}"><input name="member_range_mins" type="hidden" value="{{ industry.range_min }}">
+                                  <input name="member_range_maxs" type="hidden" value="{{ industry.range_max }}"><input name="member_currencys" type="hidden" value="{{ industry.currency_type_financial }}">
+                                  <input name="member_industry_countryIds" type="hidden" value="{{ industry.country.id }}">
+                              </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="preference_title">
+                                <h5>Location of my interest<span class="pull-right"><a href="javascript:;" onclick="open_location_win()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add</a></span></h5>
+                            </div>
+                            <div class="col-xs-12 tag_block" id="member_location">
+                                {% for location in locations %}
+                                <span id="member_location_{{ location.id }}" class="alert alert-info preference_selected preference_selected-width">
+                                    <a href="###">{{ location.title }}</a>&nbsp;<a href="javascript:;" data-id="{{ location.id }}" data-type="location" class="glyphicon glyphicon-remove pull-right"></a>
+                                    <input name="member_country_ids" type="hidden" value="{{ location.country.id }}"><input name="member_titles" type="hidden" value="{{ location.title }}">
+                                </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="col-xs-12">
+                            <div class="preference_title">
+                                <h5>Key words of my interest<span class="pull-right"><a href="javascript:;" onclick="open_keyword_win()"><i class="glyphicon glyphicon-plus"></i>&nbsp;Add</a></span></h5>
+                            </div>
+                            <div class="col-xs-12 tag_block" id="member_keyword_tag">
+                                {% for keyword in keywords %}
+                                <span id='member_keyword_{{ keyword.keyword }}' class='alert alert-info preference_selected preference_selected-width'>
+                                    <a href='###'>{{ keyword.keyword }}</a>&nbsp;<a href='javascript:;' data-id="{{ keyword.id }}" data-type="keyword" class='glyphicon glyphicon-remove pull-right'></a>
+                                <input name='member_keywords' id="member_keywords" type='hidden' value='{{ keyword.keyword }}'/></span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                {% comment %}<div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-xs" >Submit</button>
+                <button type="button" class="btn btn-default btn-xs" onclick="javascript:history.go(-2);">Back</button>
+                <br><br>
+                </div>{% endcomment %}
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    {% include "account/en-us/preference_win.html" %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}css/demos/sliders.css" />
+    <link href="{{STATIC_PREFIX}}css/jquery-ui.css" rel="stylesheet" />
+    <script src="{{STATIC_PREFIX}}js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/parsley/parsley.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/preference_en.js"></script>
+{% endblock %}

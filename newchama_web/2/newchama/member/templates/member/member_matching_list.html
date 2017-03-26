@@ -1,0 +1,76 @@
+{% extends "adminuser/base.html" %}
+{% load pagination_tags %}
+{% block title %}Members{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Member<span>Members</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Member</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+   
+  <div class="dataTables_filter" id="table2_filter">
+      <form class="form-inline" method="get">
+        Search:<input type="text" name="keyword" value="{{ keyword }}"  class="form-control" id="keywordSearch" placeholder="Enter KeyWord">
+        <button class="btn btn-primary">Search</button>
+      </form>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-primary mb30">
+            <thead>
+              
+              <tr>
+                 <th>#</th>
+                  <th>公司</th>
+                  <th>公司类型</th>
+                  <th>用户</th>
+                  <th>Industry(50%)</th>
+                  <th>Deal Type(20%)</th>
+                  <th>Deal Size(10%)</th>
+                  <th>Currency(5%)</th>
+                  <th>Finicial(10%)</th>
+                  <th>Geography(5%)</th>
+                  <th>Hot</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% autopaginate matching_list %}
+            
+              {% for m in matching_list %}
+                <tr>
+                  <td>{{ m.id }}</td>
+                  <td><a href="{% url 'company.edit' m.company_id %}">{{ m.company|default:'' }}</a></td>
+                  <td>{{ m.company.get_type_display |default:'' }}</td>
+                  <td>
+                    {% for u in m.user_list %}
+                      {{ u.first_name }}{{ u.last_name }} {{ m.mobile }} {{ m.email }}<br/>
+                    {% endfor %}
+                  </td>
+                  <td>{{ m.tags|default:'' }}</td>
+                  <td>{{ m.get_deal_type_display }}</td>
+                  <td>{{ m.get_deal_size_display }}</td>
+                  <td>{{ m.get_deal_currency_display }}</td>
+                  
+                  <td>Revenue:{{ m.get_revenue_display }}<br/>
+                  Growth Rate:{{ m.get_growth_display }}<br/>
+                  Net Income:{{ m.get_net_income_display }}<br/>
+                  EBITA:{{ m.get_ebita_display }}</td>
+                  <td>{{ m.country.name_cn }}</td>
+                  <td>{{ m.hot }}</td>
+                  
+                </tr>
+              {% endfor %}
+          
+            </tbody>
+        </table>
+    </div><!-- table-responsive -->
+   {% paginate %}
+{% endblock %}

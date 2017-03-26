@@ -1,0 +1,1476 @@
+Tue, 02 Dec 2014 17:27:05 get_company_from_itjuzi.py[line:110] ERROR Only the following pseudo-classes are implemented: nth-of-type.
+Tue, 02 Dec 2014 18:08:17 get_company_from_itjuzi.py[line:115] ERROR 'unicode' object has no attribute 'trim'
+Thu, 04 Dec 2014 16:51:20 get_company_from_itjuzi.py[line:176] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:21 get_company_from_itjuzi.py[line:176] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:22 get_company_from_itjuzi.py[line:176] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:23 get_company_from_itjuzi.py[line:176] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:23 get_company_from_itjuzi.py[line:176] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:46 get_company_from_itjuzi.py[line:178] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:47 get_company_from_itjuzi.py[line:178] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:48 get_company_from_itjuzi.py[line:178] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:49 get_company_from_itjuzi.py[line:178] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:49 get_company_from_itjuzi.py[line:178] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:51:50 get_company_from_itjuzi.py[line:178] ERROR 'list' object has no attribute 'strip'
+Thu, 04 Dec 2014 16:53:49 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:51 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:51 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:52 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:53 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:53 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:54 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:54 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:55 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:55 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:56 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:57 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:53:57 get_company_from_itjuzi.py[line:181] ERROR 'list' object has no attribute 'get_text'
+Thu, 04 Dec 2014 16:54:09 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:10 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:10 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:11 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:12 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:13 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:13 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:14 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:15 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:15 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:16 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:16 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:17 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:18 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:19 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:20 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:20 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:21 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:21 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:22 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:22 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:23 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:24 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:24 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:25 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:26 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:26 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:27 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:54:27 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:55:57 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:55:58 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:55:59 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:00 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:16 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:17 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:18 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:34 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:35 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:35 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:36 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:37 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:48 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:49 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:50 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:51 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:51 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:52 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:56:52 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:11 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:12 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:13 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:28 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:30 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:31 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:42 get_company_from_itjuzi.py[line:175] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:43 get_company_from_itjuzi.py[line:175] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:43 get_company_from_itjuzi.py[line:175] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:44 get_company_from_itjuzi.py[line:175] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:45 get_company_from_itjuzi.py[line:175] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:45 get_company_from_itjuzi.py[line:175] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:57:46 get_company_from_itjuzi.py[line:175] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 16:58:14 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:15 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:16 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:17 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:17 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:18 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:18 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:19 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 16:58:20 get_company_from_itjuzi.py[line:181] ERROR 'CompanyItem' object does not support item assignment
+Thu, 04 Dec 2014 17:00:01 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:02 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:03 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:04 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:05 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:06 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:06 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:07 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:07 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:08 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:08 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:09 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:11 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:12 get_company_from_itjuzi.py[line:181] ERROR 'Item' object does not support item assignment
+Thu, 04 Dec 2014 17:00:29 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:30 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:31 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:32 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:33 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:33 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:34 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:34 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:35 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:00:35 get_company_from_itjuzi.py[line:159] ERROR list index out of range
+Thu, 04 Dec 2014 17:05:29 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:30 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:31 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:32 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:33 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:33 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:34 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:34 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:35 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:35 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:36 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:37 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:38 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:39 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:40 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:40 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:41 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:41 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:42 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:43 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:43 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:44 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:44 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:45 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:46 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:46 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:47 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:47 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:48 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:49 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:49 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:50 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:51 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:51 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:52 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:52 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:53 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:05:54 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:10 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:11 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:12 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:13 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:13 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:14 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:14 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:15 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:16 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:16 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:17 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:18 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:48 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:49 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:50 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:51 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:52 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:53 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:53 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:54 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:54 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:55 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:56 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:57 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:57 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:58 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:06:59 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:09 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:10 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:11 get_company_from_itjuzi.py[line:168] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:29 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:30 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:31 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:32 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:07:33 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:08:01 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:08:05 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:08:20 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:08:21 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:08:21 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:04 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:05 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:06 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:22 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:24 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:25 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:26 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:35 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:36 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:09:37 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:10:09 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 2: ordinal not in range(128)
+Thu, 04 Dec 2014 17:10:10 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 2: ordinal not in range(128)
+Thu, 04 Dec 2014 17:10:11 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 2: ordinal not in range(128)
+Thu, 04 Dec 2014 17:10:56 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:10:57 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:10:58 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't encode character u'\u5e74' in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:43 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:44 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:45 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:46 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:46 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:47 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:47 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:48 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:49 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:49 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:50 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:51 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:51 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:52 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:53 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:54 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:54 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:12:56 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:13:21 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:13:23 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:13:23 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:13:25 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:13:52 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:13:53 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:13:54 get_company_from_itjuzi.py[line:169] ERROR 'ascii' codec can't decode byte 0xe5 in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:14:25 get_company_from_itjuzi.py[line:169] ERROR time data '2009-11-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:26 get_company_from_itjuzi.py[line:169] ERROR time data '2011-2-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:27 get_company_from_itjuzi.py[line:169] ERROR time data '2012-5-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:28 get_company_from_itjuzi.py[line:169] ERROR time data '2012-5-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:29 get_company_from_itjuzi.py[line:169] ERROR time data '2013-1-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:29 get_company_from_itjuzi.py[line:169] ERROR time data '2012-10-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:30 get_company_from_itjuzi.py[line:169] ERROR time data '2012-8-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:30 get_company_from_itjuzi.py[line:169] ERROR time data '2012-5-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:31 get_company_from_itjuzi.py[line:169] ERROR time data '2013-4-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:32 get_company_from_itjuzi.py[line:169] ERROR time data '2011-11-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:14:32 get_company_from_itjuzi.py[line:169] ERROR time data '2011-10-' does not match format '%Y-%m-%d'
+Thu, 04 Dec 2014 17:20:46 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:47 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:48 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:49 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:49 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:50 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:51 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:51 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe5 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:52 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe6 in position 3: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:52 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe6 in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:53 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe6 in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:54 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe6 in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:55 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe6 in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:55 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe6 in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:20:56 get_company_from_itjuzi.py[line:142] ERROR 'ascii' codec can't decode byte 0xe6 in position 4: ordinal not in range(128)
+Thu, 04 Dec 2014 17:34:19 get_company_from_itjuzi.py[line:148] ERROR 'ascii' codec can't decode byte 0xef in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:34:20 get_company_from_itjuzi.py[line:148] ERROR 'ascii' codec can't decode byte 0xef in position 0: ordinal not in range(128)
+Thu, 04 Dec 2014 17:50:32 get_company_from_itjuzi.py[line:161] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:34 get_company_from_itjuzi.py[line:161] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:34 get_company_from_itjuzi.py[line:161] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:35 get_company_from_itjuzi.py[line:161] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:36 get_company_from_itjuzi.py[line:161] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:36 get_company_from_itjuzi.py[line:161] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:57 get_company_from_itjuzi.py[line:160] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:58 get_company_from_itjuzi.py[line:160] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:50:59 get_company_from_itjuzi.py[line:160] ERROR 'NoneType' object has no attribute '__getitem__'
+Thu, 04 Dec 2014 17:51:28 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:29 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:30 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:31 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:32 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:32 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:33 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:33 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:34 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:34 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:35 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 17:51:36 get_company_from_itjuzi.py[line:160] ERROR name '_item' is not defined
+Thu, 04 Dec 2014 18:03:07 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:03:08 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:03:09 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:03:10 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:03:59 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:04:00 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:04:01 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:04:02 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Thu, 04 Dec 2014 18:04:03 get_company_from_itjuzi.py[line:165] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:13:25 get_vc_from_itjuzi.py[line:61] ERROR global name '_item' is not defined
+Mon, 15 Dec 2014 17:13:27 get_vc_from_itjuzi.py[line:61] ERROR global name '_item' is not defined
+Mon, 15 Dec 2014 17:13:28 get_vc_from_itjuzi.py[line:61] ERROR global name '_item' is not defined
+Mon, 15 Dec 2014 17:13:29 get_vc_from_itjuzi.py[line:61] ERROR global name '_item' is not defined
+Mon, 15 Dec 2014 17:13:30 get_vc_from_itjuzi.py[line:61] ERROR global name '_item' is not defined
+Mon, 15 Dec 2014 17:13:31 get_vc_from_itjuzi.py[line:61] ERROR global name '_item' is not defined
+Mon, 15 Dec 2014 17:16:58 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:16:59 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:17:00 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:18:19 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:18:20 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:18:21 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:18:32 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:18:34 get_vc_from_itjuzi.py[line:61] ERROR list index out of range
+Mon, 15 Dec 2014 17:24:50 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:24:52 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:24:52 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:25:04 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:25:06 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:28:20 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:28:21 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:28:22 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:28:33 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:30:03 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:30:04 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:30:04 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:30:05 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:30:06 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:30:36 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:30:37 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:30:37 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:30:38 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:30:38 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:30:39 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:32:49 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:32:50 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:32:50 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:32:50 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:32:51 get_vc_from_itjuzi.py[line:63] ERROR list index out of range
+Mon, 15 Dec 2014 17:32:52 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:32:52 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:32:53 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:32:53 get_vc_from_itjuzi.py[line:63] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:00 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:01 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:03 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:03 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:04 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:05 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:05 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:06 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:06 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:07 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:07 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:08 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:34:08 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:38:13 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:38:58 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:39:27 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:39:29 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:39:34 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:40:10 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:40:25 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:40:31 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:40:55 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:41:46 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:41:58 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:42:13 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:42:39 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:02 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:17 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:25 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:36 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:36 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:37 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:37 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:40 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:47 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:44:52 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:45:04 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:45:46 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:45:47 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:45:51 get_vc_from_itjuzi.py[line:62] ERROR HTTP Error 404: Not Found
+Mon, 15 Dec 2014 17:49:33 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:49:35 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:50:30 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object is not iterable
+Mon, 15 Dec 2014 17:51:15 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:51:36 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute '__getitem__'
+Mon, 15 Dec 2014 17:51:58 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:53:31 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:53:33 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:57:06 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object is not iterable
+Mon, 15 Dec 2014 17:58:04 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:58:06 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:58:07 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:58:08 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 17:58:09 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object has no attribute 'update'
+Mon, 15 Dec 2014 18:01:29 get_vc_from_itjuzi.py[line:62] ERROR filter() got an unexpected keyword argument 'name'
+Mon, 15 Dec 2014 18:01:31 get_vc_from_itjuzi.py[line:62] ERROR filter() got an unexpected keyword argument 'name'
+Mon, 15 Dec 2014 18:01:32 get_vc_from_itjuzi.py[line:62] ERROR filter() got an unexpected keyword argument 'name'
+Mon, 15 Dec 2014 18:10:19 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:21 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:23 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:24 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:25 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:26 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:27 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:28 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:29 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:30 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:31 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:32 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:32 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:33 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:33 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:10:34 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:11:27 get_vc_from_itjuzi.py[line:62] ERROR u'id'
+Mon, 15 Dec 2014 18:12:24 get_vc_from_itjuzi.py[line:62] ERROR 'Item' object does not support item assignment
+Mon, 15 Dec 2014 18:31:58 get_company_from_itjuzi.py[line:82] ERROR global name '_item' is not defined
+Mon, 15 Dec 2014 18:33:41 get_company_from_itjuzi.py[line:80] ERROR global name 'datetime' is not defined
+Mon, 15 Dec 2014 18:33:42 get_company_from_itjuzi.py[line:80] ERROR global name 'datetime' is not defined
+Mon, 15 Dec 2014 18:33:43 get_company_from_itjuzi.py[line:80] ERROR global name 'datetime' is not defined
+Mon, 15 Dec 2014 18:34:09 get_company_from_itjuzi.py[line:81] ERROR 'Item' object has no attribute 'logo'
+Mon, 15 Dec 2014 18:34:11 get_company_from_itjuzi.py[line:81] ERROR 'Item' object has no attribute 'logo'
+Mon, 15 Dec 2014 18:34:11 get_company_from_itjuzi.py[line:81] ERROR 'Item' object has no attribute 'logo'
+Thu, 01 Jan 2015 15:02:02 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-5: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:05 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 3-4: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:06 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:08 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:09 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 5-8: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:10 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-4: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:13 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:14 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:15 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
+Thu, 01 Jan 2015 15:02:16 get_vc_from_itjuzi.py[line:59] ERROR 'ascii' codec can't encode characters in position 0-3: ordinal not in range(128)
+Thu, 01 Jan 2015 15:03:18 get_vc_from_itjuzi.py[line:59] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:03:19 get_vc_from_itjuzi.py[line:59] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:03:23 get_vc_from_itjuzi.py[line:59] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:03:40 get_vc_from_itjuzi.py[line:59] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:03 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:03 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:21 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:27 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:28 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:31 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:33 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:33 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:33 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:34 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:43 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:44 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:46 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:48 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:49 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:49 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:05:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:07 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:09 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:13 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:22 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:24 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:31 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:31 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:31 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:32 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:37 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:37 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:40 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:41 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:42 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:42 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:43 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:44 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:48 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:06:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:07 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:08 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:19 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:21 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:21 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:23 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:30 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:39 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:39 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:39 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:40 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:40 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:40 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:44 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:46 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:46 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:53 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:53 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:53 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:54 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:56 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:57 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:07:58 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:01 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:05 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:13 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:21 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:24 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:30 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:30 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:34 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:46 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:50 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:08:54 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:06 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:10 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:12 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:13 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:21 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:09:21 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 15:42:41 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:41 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:42 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:42 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:42 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:43 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:43 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:44 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:44 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:44 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:45 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:45 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:46 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:46 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:47 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:47 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:42:48 get_investevents_from_itjuzi.py[line:61] ERROR 'Item' object has no attribute 'name'
+Thu, 01 Jan 2015 15:44:47 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 15:44:47 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 15:44:48 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 15:44:48 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 15:44:49 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 15:44:49 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 15:44:49 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 15:44:50 get_investevents_from_itjuzi.py[line:63] ERROR global name 'datetime' is not defined
+Thu, 01 Jan 2015 16:00:27 get_investevents_from_itjuzi.py[line:45] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:00:31 get_investevents_from_itjuzi.py[line:45] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:00:36 get_investevents_from_itjuzi.py[line:45] ERROR list index out of range
+Thu, 01 Jan 2015 16:04:00 get_investevents_from_itjuzi.py[line:61] ERROR Instance <Item at 0x1061fce10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:00 get_investevents_from_itjuzi.py[line:61] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x1061fce10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:00 get_investevents_from_itjuzi.py[line:61] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x1061fce10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:01 get_investevents_from_itjuzi.py[line:61] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x1061fce10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:01 get_investevents_from_itjuzi.py[line:61] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x1061fce10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:02 get_investevents_from_itjuzi.py[line:61] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x1061fce10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:02 get_investevents_from_itjuzi.py[line:61] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x1061fce10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:58 get_investevents_from_itjuzi.py[line:48] ERROR Instance <Item at 0x10a7b0e10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:58 get_investevents_from_itjuzi.py[line:48] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x10a7b0e10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:59 get_investevents_from_itjuzi.py[line:48] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x10a7b0e10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:04:59 get_investevents_from_itjuzi.py[line:48] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x10a7b0e10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:05:00 get_investevents_from_itjuzi.py[line:48] ERROR This Session's transaction has been rolled back due to a previous exception during flush. To begin a new transaction with this Session, first issue Session.rollback(). Original exception was: Instance <Item at 0x10a7b0e10> has a NULL identity key.  If this is an auto-generated value, check that the database table allows generation of new primary key values, and that the mapped Column object is configured to expect these generated values.  Ensure also that this flush() is not occurring at an inappropriate time, such aswithin a load() event.
+Thu, 01 Jan 2015 16:06:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:06:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:06:43 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:07:26 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:07:26 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:07:43 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:07:55 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:08:29 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:08:30 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:08:32 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:08:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:08:58 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:08:58 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:09:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:09:08 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:09 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:11 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:12 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:13 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:09:16 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:22 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:30 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:40 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:09:58 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:01 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:01 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:02 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:17 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:28 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:29 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:39 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:10:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:10:58 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:06 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:08 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:13 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:14 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:14 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:15 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:29 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:33 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:34 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:35 get_merger_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:35 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:35 get_merger_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:36 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:37 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:46 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:46 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:48 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:48 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:51 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:51 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:52 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:52 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:52 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:11:54 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:55 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:57 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:11:57 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:02 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:03 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:03 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:06 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:12:07 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:14 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:16 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:17 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:19 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:22 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:12:37 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:37 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:38 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:12:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:12:39 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:40 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:40 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:42 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:43 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:44 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:44 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:45 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:46 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:47 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:50 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:12:55 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:05 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:17 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:18 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:20 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:22 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:25 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:26 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:27 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:27 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:31 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:32 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:36 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:36 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:36 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:39 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:42 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:44 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:48 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:49 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:50 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:51 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:51 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:13:53 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:55 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:13:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:01 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:02 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:10 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:11 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:14 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:14 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:15 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:15 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:16 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:17 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:18 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:21 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:21 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:21 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:21 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:22 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:23 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:23 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:23 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:26 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:26 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:27 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:28 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:28 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:29 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:29 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:30 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:38 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:44 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:46 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:49 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:50 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:54 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:55 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:14:56 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:14:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:04 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:06 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:07 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:08 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:09 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:09 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:12 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:17 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:18 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:18 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:20 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:24 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:25 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:30 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:37 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:37 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:39 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:40 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:46 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:46 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:50 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:53 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:55 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:15:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:15:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:16:02 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:16:02 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:16:03 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:16:07 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:16:10 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:16:12 get_investevents_from_itjuzi.py[line:61] ERROR list index out of range
+Thu, 01 Jan 2015 16:16:54 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:16:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:17:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:17:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:17:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:18:15 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:18:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:18:31 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:18:32 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:18:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:28 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:28 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:42 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:42 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:42 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:42 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:42 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:42 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:42 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:43 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:44 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:45 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:19:46 get_merger_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:21:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:21:45 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:21:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:21:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:21:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:22:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:22:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:22:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:22:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:22:37 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:22:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:22:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:23:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:23:45 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:23:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:23:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:23:55 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:00 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:29 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:37 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:24:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:04 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:54 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:56 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:25:59 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:26:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:26:04 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:26:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:26:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:26:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:26:56 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:01 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:08 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:32 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:56 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:27:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:18 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:36 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:36 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:28:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:10 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:13 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:34 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:29:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:30:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:30:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:30:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:30:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:30:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:30:45 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:30:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:15 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:26 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:31:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:21 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:21 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:28 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:29 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:29 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:54 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:32:54 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:40 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:40 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:40 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:33:41 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:10 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:15 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:21 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:22 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:22 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:23 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:23 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:41 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:45 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:48 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:51 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:51 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:34:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:10 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:15 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:15 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:22 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:36 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:35:54 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:36:32 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:36:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:36:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:36:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:36:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:37:01 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:37:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:37:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:37:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:37:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:37:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:38:01 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:38:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:38:13 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:38:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:38:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:38:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:38:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:09 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:10 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:43 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:39:55 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:40 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:43 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:40:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:00 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:01 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:32 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:34 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:34 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:34 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:34 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:41:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:09 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:28 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:29 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:29 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:52 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:42:52 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:00 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:22 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:29 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:43 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:43 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:55 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:43:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:07 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:23 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:30 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:44:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:28 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:37 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:49 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:50 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:51 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:53 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:45:59 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:07 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:32 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:32 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:32 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:46:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:47:00 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:47:10 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:47:10 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:47:15 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:47:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:47:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:47:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:11 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:33 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:43 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:48:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:03 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:09 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:22 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:46 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:56 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:56 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:58 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:49:59 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:13 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:20 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:23 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:35 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:50:54 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:51:01 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:51:07 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:51:13 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:51:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:51:32 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:51:48 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:51:48 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:05 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:08 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:08 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:19 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:40 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:40 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:52:52 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:53:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:53:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:53:57 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:25 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:42 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:47 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:54:52 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:55:09 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:55:10 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:55:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:55:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:55:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:55:51 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:55:53 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:15 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:16 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:27 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:31 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:36 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:38 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:39 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:40 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:51 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:52 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:56:55 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 16:57:15 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:05:06 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:08:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:08:48 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:08:55 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:09:00 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:09:00 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:09:00 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:09:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:09:02 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:09:24 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:09:44 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:10:14 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:12:12 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Thu, 01 Jan 2015 17:13:08 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:34:50 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:34:50 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:09 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:09 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:09 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:10 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:10 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:18 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:49 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:49 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:50 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:50 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:53 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:35:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:03 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:03 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:05 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:05 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:05 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:05 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:12 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:12 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:14 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:23 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:27 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:28 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:28 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:29 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:32 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:35 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:39 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:39 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:43 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:44 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:44 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:45 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:46 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:46 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:56 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:57 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:57 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:58 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:58 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:58 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:36:59 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:03 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:06 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:07 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:12 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:13 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:13 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:13 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:15 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:16 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:20 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:21 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:24 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:24 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:24 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:25 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:27 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:27 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:28 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:28 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:37 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:37 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:38 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:39 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:42 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:42 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:47 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:51 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:52 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:54 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:37:55 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:07 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:07 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:09 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:09 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:09 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:10 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:10 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:11 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:12 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:12 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:38:17 get_company_from_itjuzi.py[line:86] ERROR HTTP Error 404: Not Found
+Fri, 16 Jan 2015 11:43:17 get_investevents_from_itjuzi.py[line:61] ERROR HTTP Error 404: Not Found

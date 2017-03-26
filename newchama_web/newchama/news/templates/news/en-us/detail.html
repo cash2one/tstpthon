@@ -1,0 +1,95 @@
+{% extends "common/en-us/base.html" %}
+{% load pagination_tags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+
+
+
+        <div class="col-xs-12">
+            <div class="col-xs-9">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">新闻</h3>
+                    </div>
+                    <div class="panel-body">
+
+               <span class="news-list-item-tags">
+                  <a href="{% url 'news.index' %}">行业动态</a> 》{{news.title}}
+              </span>
+
+
+                        <div class="newlist_item_block">
+
+                        {% if is_added_favorite %}
+                            <h3>{{news.title}}<a href="###" class="pull-right btn-cancelfavorite" data-id="{{ news.id }}" data-type="news"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消收藏</a></h3>
+                        {% else %}
+                            <h3>{{news.title}}<a href="###" class="pull-right btn-addfavorite" data-id="{{ news.id }}" data-type="news"><i class="glyphicon glyphicon-heart"></i>&nbsp;收藏</a></h3>
+                        {% endif %}
+
+                            <div class="new_detail_content">
+                                <span class="news-list-item-time"><i class="glyphicon glyphicon-time"></i> {{news.time|timesince}} 以前</span>
+
+                                <div class="new_detail_warpper">
+                                    {{news.content|safe}}
+                                </div>
+                            </div>
+
+                            <div class="new_detail_content">
+                                <i class="glyphicon glyphicon-tags"></i>
+                                <a class="tag preference_common_keyword" data-type="news" data-tag="{{ news.tag }}" href="###">{{news.tag}}</a>
+                            </div>
+
+
+                        </div>
+
+
+
+                    </div>
+
+
+
+                </div>
+
+            </div><!-- /.news -->
+
+            <div class="col-xs-3">
+
+                <div class="col-xs-12">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">相关新闻</h3>
+                        </div>
+                        <div class="panel-body">
+
+
+                            <ul class="news-list">
+
+                                {% for item in relation_news %}
+
+                                    <li>
+                                        <span class="news-list-item-title"><a href="{% url 'news.detail' item.id %}">{{item.title|truncatechars:20}}</a></span>
+                  <span class="news-list-item-time">
+                      <i class="glyphicon glyphicon-time"></i>&nbsp;{{ item.time |date}}
+                  </span>
+                                        <br/>
+
+                                    </li>
+
+                                {% endfor %}
+
+                            </ul>
+
+                        </div>
+
+                    </div>
+
+                </div><!-- /.news -->
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+{% endblock %}

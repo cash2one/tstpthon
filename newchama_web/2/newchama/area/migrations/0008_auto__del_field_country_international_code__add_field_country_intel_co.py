@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+from south.utils import datetime_utils as datetime
+from south.db import db
+from south.v2 import SchemaMigration
+from django.db import models
+
+
+class Migration(SchemaMigration):
+
+    def forwards(self, orm):
+        # Deleting field 'Country.international_code'
+        db.delete_column(u'area_country', 'international_code')
+
+        # Adding field 'Country.intel_code'
+        db.add_column('area_country', 'intel_code',
+                      self.gf('django.db.models.fields.CharField')(max_length=10, null=True),
+                      keep_default=False)
+
+
+    def backwards(self, orm):
+        # Adding field 'Country.international_code'
+        db.add_column(u'area_country', 'international_code',
+                      self.gf('django.db.models.fields.CharField')(max_length=10, null=True),
+                      keep_default=False)
+
+        # Deleting field 'Country.intel_code'
+        db.delete_column('area_country', 'intel_code')
+
+
+    models = {
+        u'area.city': {
+            'Meta': {'object_name': 'City'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name_cn': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'name_en': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'province': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['area.Province']"})
+        },
+        u'area.continent': {
+            'Meta': {'object_name': 'Continent'},
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name_cn': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'name_en': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        },
+        u'area.country': {
+            'Meta': {'object_name': 'Country'},
+            'continent': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['area.Continent']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'intel_code': ('django.db.models.fields.CharField', [], {'max_length': '10', 'null': 'True'}),
+            'name_cn': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'name_en': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'sort': ('django.db.models.fields.IntegerField', [], {'default': '0'})
+        },
+        u'area.province': {
+            'Meta': {'object_name': 'Province'},
+            'country': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['area.Country']"}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'name_cn': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'name_en': ('django.db.models.fields.CharField', [], {'max_length': '255'})
+        }
+    }
+
+    complete_apps = ['area']

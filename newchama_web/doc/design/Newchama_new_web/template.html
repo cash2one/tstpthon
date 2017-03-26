@@ -1,0 +1,2722 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Newchama</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/newchama.css" rel="stylesheet">
+    <link rel="stylesheet" href="js/datepicker/datepicker.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.min.js"></script>
+      <script src="js/respond.min.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <nav class="navbar navbar-default" role="navigation">
+      
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+        <ul class="nav navbar-nav noticebar navbar-left">
+
+
+        <li class="dropdown">
+          <a href="./page-notifications.html" class="dropdown-toggle" data-toggle="dropdown">
+            <i class="glyphicon glyphicon-envelope"></i>
+            <span class="navbar-visible-collapsed">&nbsp;Messages&nbsp;</span>
+            <span class="badge">3</span>
+          </a>
+
+          <ul class="dropdown-menu noticebar-menu" role="menu">                
+            <li class="nav-header">
+              <div class="pull-left">
+                消息
+              </div>
+
+              <div class="pull-right">
+                <a href="javascript:;">新消息</a>
+              </div>
+            </li>
+
+            <li>
+              <a href="###" class="noticebar-item">
+                <span class="noticebar-item-image">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 50px" alt="">
+                </span>
+
+                <span class="noticebar-item-body">
+                  <strong class="noticebar-item-title">新消息</strong>
+                  <span class="noticebar-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
+                  <span class="noticebar-item-time"><i class="fa fa-clock-o"></i> 20 minutes ago</span>
+                </span>
+              </a>
+            </li>
+
+            <li>
+              <a href="###" class="noticebar-item">
+                <span class="noticebar-item-image">
+                  <img src="./img/avatars/avatar-1-md.jpg" style="width: 50px" alt="">
+                </span>
+
+                <span class="noticebar-item-body">
+                  <strong class="noticebar-item-title">新消息</strong>
+                  <span class="noticebar-item-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit...</span>
+                  <span class="noticebar-item-time"><i class="fa fa-clock-o"></i> 20 minutes ago</span>
+                </span>
+              </a>
+            </li>
+
+            <li class="noticebar-empty">                  
+              <h4 class="noticebar-empty-title">No alerts here.</h4>
+              <p class="noticebar-empty-text">Check out what other makers are doing on Explore!</p>                
+            </li>
+
+            <li class="noticebar-menu-view-all">
+              <a href="./page-notifications.html">查看全部</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+
+          
+          <ul class="nav navbar-nav navbar-right">
+            
+            <li class="dropdown" id="avatar-dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <img src="###" class="thumbnail"></a>
+
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">个人首页</a></li>
+                <li><a href="#">我的公司</a></li>
+                <li><a href="#">偏好设置</a></li>
+                <li><a href="#">资料设置</a></li>
+                <li class="divider"></li>
+                <li><a href="#">退出</a></li>
+              </ul>
+            </li>
+            <li><a href="#"><i class="glyphicon glyphicon-globe"></i>&nbsp;EN</a></li>
+          </ul>
+          <form class="navbar-search-form navbar-right" role="search">
+            
+            <div class="input-group">
+              <input type="text" class="form-control">
+              <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+              </span>
+            </div><!-- /input-group -->
+
+          </form>
+          
+          <div class="container-fluid" id="newchama_nav">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#"><i class="glyphicon glyphicon-plus"></i>发布</a></li>
+            <li><a href="#">项目管理</a></li>
+            <li><a href="#">筛选</a></li>
+            <li><a href="#">行业数据</a></li>
+            <li><a href="#">行业动态</a></li>
+            <li><a href="#">最新项目</a></li>
+            <li><a href="#">最新需求</a></li>
+            <li><a href="#">我的收藏</a></li>
+            <li><a href="#">偏好管理</a></li>
+            
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">模版下载 <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">简介</a></li>
+                <li><a href="#">保密协议</a></li>
+                <li><a href="#">商业计划书</a></li>
+                <li><a href="#">财务数据</a></li>
+                <li><a href="#">投资意向书模版</a></li>
+                <li><a href="#">估值模型模版</a></li>
+              </ul>
+            </li>
+          </ul>
+          
+           </div><!-- /.container-fluid -->
+         
+        </div><!-- /.navbar-collapse -->
+     
+    </nav>
+
+    <div class="container-fluid" id="newchama_main">
+
+        <div class="col-md-12">
+
+        <div class="col-md-12">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Tabs<span class="pull-right"><a href="###"><i class="glyphicon glyphicon-chevron-down"></i></a></span></h3>
+
+              </div>
+              <div class="panel-body">
+
+               <div class="col-md-4">
+                 <h4 class="heading">Tabs 3</h4>
+               <ul id="myTab" class="nav nav-pills nav-stacked">
+                      <li class="active"><a href="#home-3" data-toggle="tab"><i class="glyphicon glyphicon-home"></i> &nbsp;&nbsp;Home</a></li>
+                      <li><a href="#profile-3" data-toggle="tab"><i class="glyphicon glyphicon-user"></i> &nbsp;&nbsp;Profile</a></li>
+                      <li class="dropdown">
+                        <a href="javascript:;" id="myTabDrop3" class="dropdown-toggle" data-toggle="dropdown"><i class="glyphicon glyphicon-list-alt"></i> &nbsp;&nbsp;Dropdown <b class="caret"></b></a>
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">
+                          <li><a href="#dropdown5" tabindex="-1" data-toggle="tab">@fat</a></li>
+                          <li><a href="#dropdown6" tabindex="-1" data-toggle="tab">@mdo</a></li>
+                        </ul>
+                      </li>
+                    </ul>
+
+
+              </div>
+              <div class="col-md-8">
+              <h4 class="heading">Tabs 1</h4>
+
+
+              <ul class="nav nav-tabs" role="tablist">
+                  <li class="active"><a href="#">Tabs1</a></li>
+                  <li><a href="#">Tabs2</a></li>
+                  <li><a href="#">Tabs3</a></li>
+                  <li><a href="#">Tabs4</a></li>
+                  <li><a href="#">Tabs5</a></li>
+                </ul>
+
+                <br/>
+
+                <h4 class="heading">Tabs 2</h4>
+
+                 <ul class="nav nav-pills" role="tablist">
+                          <li class="active"><a href="#">Tabs1</a></li>
+                          <li><a href="#">Tabs2</a></li>
+                          <li><a href="#">Tabs3</a></li>
+                          <li><a href="#">Tabs4</a></li>
+                          <li class="pull-right"><a href="#"><i class="glyphicon glyphicon-chevron-right"></i></a></li>
+                          <li class="pull-right"><a href="#"><i class="glyphicon glyphicon-chevron-left"></i></a></li>
+                        </ul>
+
+                </div>    
+
+
+                <div class="col-md-12">
+                  
+                  <h4 class="heading">Accordion Panel</h4>
+
+
+            <div class="panel-group accordion" id="accordion">
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent=".accordion" href="#collapseOne">
+                    Collapsible Group Item #1
+                    </a>
+                  </h4>
+                </div>
+
+                <div id="collapseOne" class="panel-collapse collapse in">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div> <!-- /.panel-default -->
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent=".accordion" href="#collapseTwo">
+                    Collapsible Group Item #2
+                    </a>
+                  </h4>
+                </div>
+
+                <div id="collapseTwo" class="panel-collapse collapse">
+                  <div class="panel-body">
+                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div> <!-- /.panel-default -->
+
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent=".accordion" href="#collapseThree">
+                    Collapsible Group Item #3
+                    </a>
+                  </h4>
+                </div>
+
+                <div id="collapseThree" class="panel-collapse collapse">
+                  <div class="panel-body">
+                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                  </div>
+                </div>
+              </div> <!-- /.panel-default -->
+
+            </div> <!-- /.accordion -->
+                </div>    
+
+              </div>
+
+
+              </div>
+        </div>
+        
+         <div class="col-md-12">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">表格<span class="pull-right"><a href="###"><i class="glyphicon glyphicon-chevron-down"></i></a></span></h3>
+
+              </div>
+              <div class="panel-body">
+
+             
+
+                <div class="col-md-12">
+
+                  <div class="col-md-6">
+              
+                    <h4 class="heading">
+                      Light Bordered Table
+                    </h4>
+
+                    <table class="table table-bordered">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Larry</td>
+                          <td>Smith</td>
+                          <td>@lsmith</td>
+                          <td>
+                            <span class="label label-primary">Approved</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Mark</td>
+                          <td>Williams</td>
+                          <td>@mwills</td>
+                          <td>
+                            <span class="label label-secondary">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Jeremy</td>
+                          <td>Jones</td>
+                          <td>@jj</td>
+                          <td>
+                            <span class="label label-success">Success</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Carlos</td>
+                          <td>Martin</td>
+                          <td>@cmar</td>
+                          <td>
+                            <span class="label label-default">Suspended</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                        
+                  </div> <!-- /.col -->
+
+                  <div class="col-md-6">
+
+                    <h4 class="heading">
+                      Dark Bordered Table
+                    </h4>
+
+                    <table class="table table-bordered table-highlight">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Larry</td>
+                          <td>Smith</td>
+                          <td>@lsmith</td>
+                          <td>
+                            <span class="label label-primary">Approved</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Mark</td>
+                          <td>Williams</td>
+                          <td>@mwills</td>
+                          <td>
+                            <span class="label label-secondary">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Jeremy</td>
+                          <td>Jones</td>
+                          <td>@jj</td>
+                          <td>
+                            <span class="label label-success">Success</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Carlos</td>
+                          <td>Martin</td>
+                          <td>@cmar</td>
+                          <td>
+                            <span class="label label-default">Suspended</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>              
+
+                  </div> <!-- /.col -->
+
+                </div> <!-- /.row -->
+
+
+                <br><br>
+
+
+                <div class="col-md-12">
+
+                  <div class="col-md-6">
+
+                    <h4 class="heading">
+                      Basic Table
+                    </h4>
+
+                    <table class="table">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Larry</td>
+                          <td>Smith</td>
+                          <td>@lsmith</td>
+                          <td>
+                            <span class="label label-primary">Approved</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Mark</td>
+                          <td>Williams</td>
+                          <td>@mwills</td>
+                          <td>
+                            <span class="label label-secondary">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Jeremy</td>
+                          <td>Jones</td>
+                          <td>@jj</td>
+                          <td>
+                            <span class="label label-success">Success</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Carlos</td>
+                          <td>Martin</td>
+                          <td>@cmar</td>
+                          <td>
+                            <span class="label label-default">Suspended</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>          
+
+                  </div> <!-- /.col -->
+
+                  <div class="col-md-6">
+
+                    <h4 class="heading">
+                      Condensed Table
+                    </h4>
+
+                    <table class="table table-condensed">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Larry</td>
+                          <td>Smith</td>
+                          <td>@lsmith</td>
+                          <td>
+                            <span class="label label-primary">Approved</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Mark</td>
+                          <td>Williams</td>
+                          <td>@mwills</td>
+                          <td>
+                            <span class="label label-secondary">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Jeremy</td>
+                          <td>Jones</td>
+                          <td>@jj</td>
+                          <td>
+                            <span class="label label-success">Success</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Carlos</td>
+                          <td>Martin</td>
+                          <td>@cmar</td>
+                          <td>
+                            <span class="label label-default">Suspended</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div> <!-- /.col -->
+
+                </div> <!-- /.row -->
+
+
+                <br><br>
+
+                <div class="col-md-12">
+
+                  <div class="col-md-6">
+
+                    <h4 class="heading">
+                      Hover Rows
+                    </h4>
+
+                    <table class="table table-hover">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Larry</td>
+                          <td>Smith</td>
+                          <td>@lsmith</td>
+                          <td>
+                            <span class="label label-primary">Approved</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Mark</td>
+                          <td>Williams</td>
+                          <td>@mwills</td>
+                          <td>
+                            <span class="label label-secondary">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Jeremy</td>
+                          <td>Jones</td>
+                          <td>@jj</td>
+                          <td>
+                            <span class="label label-success">Success</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Carlos</td>
+                          <td>Martin</td>
+                          <td>@cmar</td>
+                          <td>
+                            <span class="label label-default">Suspended</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div> <!-- /.col -->
+
+                  <div class="col-md-6">
+
+                    <h4 class="heading">
+                      Striped Table
+                    </h4>
+
+                    <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>#</th>
+                          <th>First Name</th>
+                          <th>Last Name</th>
+                          <th>Username</th>
+                          <th>Status</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>1</td>
+                          <td>Larry</td>
+                          <td>Smith</td>
+                          <td>@lsmith</td>
+                          <td>
+                            <span class="label label-primary">Approved</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>2</td>
+                          <td>Mark</td>
+                          <td>Williams</td>
+                          <td>@mwills</td>
+                          <td>
+                            <span class="label label-secondary">Pending</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>3</td>
+                          <td>Jeremy</td>
+                          <td>Jones</td>
+                          <td>@jj</td>
+                          <td>
+                            <span class="label label-success">Success</span>
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>4</td>
+                          <td>Carlos</td>
+                          <td>Martin</td>
+                          <td>@cmar</td>
+                          <td>
+                            <span class="label label-default">Suspended</span>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+
+                  </div> <!-- /.col -->
+
+                </div> <!-- /.row -->
+                
+                
+              </div>
+            </div>
+        </div>
+       
+       
+            <div class="col-md-12">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Buttons</h3>
+
+              </div>
+              <div class="panel-body">
+
+
+
+              <div class="col-md-12">
+
+                <h4 class="heading">Regular Buttons</h4>
+              
+
+                <button type="button" class="btn btn-default">Default</button>
+                <button type="button" class="btn btn-primary">Primary</button>
+                <button type="button" class="btn btn-secondary">Secondary</button>
+                <button type="button" class="btn btn-tertiary">Tertiary</button>
+                <button type="button" class="btn btn-link">Link</button>
+
+                <button type="button" class="btn btn-success">Success</button>
+                <button type="button" class="btn btn-info">Info</button>
+                <button type="button" class="btn btn-warning">Warning</button>
+                <button type="button" class="btn btn-danger">Danger</button>
+                <br/>
+                <br/>
+                <h4 class="heading">Disabled Buttons</h4>
+                <button type="button" class="btn btn-default" disabled="disabled">Default</button>
+                <button type="button" class="btn btn-primary" disabled="disabled">Primary</button>
+                <button type="button" class="btn btn-secondary" disabled="disabled">Secondary</button>
+                <button type="button" class="btn btn-tertiary" disabled="disabled">Tertiary</button>
+                <button type="button" class="btn btn-link" disabled="disabled">Link</button>
+
+                <button type="button" class="btn btn-success" disabled="disabled">Success</button>
+                <button type="button" class="btn btn-info" disabled="disabled">Info</button>
+                <button type="button" class="btn btn-warning" disabled="disabled">Warning</button>
+                <button type="button" class="btn btn-danger" disabled="disabled">Danger</button>
+                <br/>
+                <br/>
+                <h4 class="heading">Button Sizing</h4>
+
+                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                <button type="button" class="btn btn-default btn-lg">Large button</button>
+                <button type="button" class="btn btn-primary">Default button</button>
+                <button type="button" class="btn btn-default">Default button</button>
+                <button type="button" class="btn btn-primary btn-sm">Small button</button>
+                <button type="button" class="btn btn-default btn-sm">Small button</button>
+                <button type="button" class="btn btn-primary btn-xs">Extra small button</button>
+                <button type="button" class="btn btn-default btn-xs">Extra small button</button>
+
+                <br/>
+                <br/>
+                <h4 class="heading">Button Dropdowns</h4>
+
+                <div class="btn-group">
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  Regular Dropdown <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript:;">Action</a></li>
+                  <li><a href="javascript:;">Another action</a></li>
+                  <li><a href="javascript:;">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  Regular Dropdown <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript:;">Action</a></li>
+                  <li><a href="javascript:;">Another action</a></li>
+                  <li><a href="javascript:;">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+              </div>
+
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-primary">Split Dropdown</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript:;">Action</a></li>
+                  <li><a href="javascript:;">Another action</a></li>
+                  <li><a href="javascript:;">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-default">Split Dropdown</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><a href="javascript:;">Action</a></li>
+                  <li><a href="javascript:;">Another action</a></li>
+                  <li><a href="javascript:;">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+              </div>
+
+
+              <div class="btn-group dropup">
+                <button type="button" class="btn btn-primary">Dropup</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="javascript:;">Action</a></li>
+                  <li><a href="javascript:;">Another action</a></li>
+                  <li><a href="javascript:;">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+              </div>
+
+              <div class="btn-group dropup">
+                <button type="button" class="btn btn-default">Dropup</button>
+                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a href="javascript:;">Action</a></li>
+                  <li><a href="javascript:;">Another action</a></li>
+                  <li><a href="javascript:;">Something else here</a></li>
+                  <li class="divider"></li>
+                  <li><a href="javascript:;">Separated link</a></li>
+                </ul>
+              </div>
+              <br/>
+               <br/>
+
+
+              </div>
+              </div>
+            </div>
+        </div>
+
+        <div class="col-md-12">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Form</h3>
+
+              </div>
+              <div class="panel-body">
+
+              <div class="col-md-12">
+
+            <div class="col-sm-4">
+
+              <div class="form-group">
+                <label for="text-input">Text input</label>
+                <input type="text" id="text-input" class="form-control">
+              </div>
+
+              <div class="form-group">
+                <label for="textarea-input">Textarea</label>
+                <textarea name="textarea-input" id="textarea-input" cols="10" rows="3" class="form-control"></textarea>
+              </div>
+
+            </div> <!-- /.col -->
+
+            <div class="col-sm-4">
+              <div class="form-group">  
+                <label for="select-input">Select</label>
+                <select id="select-input" class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="select-multi-input">Select (multiple)</label>
+                <select multiple="multiple" id="select-multi-input" class="form-control">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                  <option>6</option>
+                </select>
+              </div>
+
+            </div> <!-- /.col -->
+
+            <div class="col-sm-4 col-md-3 col-md-offset-1">
+              <label>Checkbox (stacked)</label>
+              <div class="checkbox">
+                <label>
+                    <input type="checkbox" value="">
+                    Option 1
+                </label>
+              </div>
+
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" value="">
+                  Option 2
+                </label>
+              </div>
+                      
+              <label>Radio (stacked)</label>
+              <div class="radio">
+                <label>
+                  <input type="radio" name="option-input" id="option-input-1" value="option1" checked="">
+                  Option 1
+                </label>
+              </div>
+
+              <div class="radio">
+                <label>
+                  <input type="radio" name="option-input" id="option-input-2" value="option2">
+                  Option 2
+                </label>
+              </div>
+
+            </div> <!-- /.col -->
+
+          </div> <!-- /.row -->
+
+          <div class="col-md-12">
+            <div class="col-sm-4">
+              <label>Checkbox (inline)</label>
+
+              <div class="form-group">
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox1" value="option1"> Option 1
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox2" value="option2"> Option 2
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox" id="inlineCheckbox3" value="option3"> Option 3
+                </label>
+              </div>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-4">
+              <label>Radio (inline)</label>
+              <div class="form-group">
+
+                <label class="radio-inline">
+                  <input type="radio" name="inline_optionsRadios" id="inline_optionsRadios1" value="option1">
+                  Option 1
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inline_optionsRadios" id="inline_optionsRadios2" value="option2" checked="">
+                  Option 2
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="inline_optionsRadios" id="inline_optionsRadios3" value="option3">
+                  Option 3
+                </label>
+              </div>
+            </div> <!-- /. -->
+
+            <div class="col-md-12">
+
+            <div class="col-md-12">
+
+            <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-md-2">Full Width Input</label>
+
+              <div class="col-md-10">
+                <input type="text" class="form-control" placeholder="Full Width">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2">Large Width Input</label>
+
+              <div class="col-md-8">
+                <input type="text" class="form-control" placeholder="Large Width">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2">Medium Width Input</label>
+
+              <div class="col-md-5">
+                <input type="text" class="form-control" placeholder="Medium Width">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2">Small Width Input</label>
+
+              <div class="col-md-2">
+                <input type="text" class="form-control" placeholder="Small Width">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2">Multiple Inputs</label> 
+              
+              <div class="col-md-10">
+                <div class="row">
+                  <div class="col-md-4">
+                    <input type="text" class="form-control">
+                    <p class="help-block">Left aligned helper.</p>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="text" class="form-control">
+                    <p class="help-block text-center">Center aligned helper.</p>
+                  </div>
+                  <div class="col-md-4">
+                    <input type="text" class="form-control">
+                    <p class="help-block text-right">Right aligned helper.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2">Checkbox (inline)</label>
+
+              <div class="col-md-10">
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Option 1
+                </label>
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Option 2
+                </label>
+
+                <label class="checkbox-inline">
+                  <input type="checkbox"> Option 3
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-md-2">Radio (inline)</label>
+
+              <div class="col-md-10">
+                <label class="radio-inline">
+                  <input type="radio" name="radioset1"> Option 1
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="radioset1"> Option 2
+                </label>
+
+                <label class="radio-inline">
+                  <input type="radio" name="radioset1"> Option 3
+                </label>
+              </div>
+            </div>
+
+          </form>
+          </div>
+          <br/>
+           </div>
+
+            <div class="col-sm-6">
+
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">@</span>
+                  <input class="form-control" id="prependedInput" type="text" placeholder="Username">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" id="appendedInput" type="text">
+                  <span class="input-group-addon">.00</span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon">$</span>
+                  <input class="form-control" id="appendedPrependedInput" type="text">
+                  <span class="input-group-addon">.00</span>
+                </div>
+              </div>
+
+              <div class="form-group">                
+                <div class="input-group">
+                  <span class="input-group-addon">
+                    <input type="checkbox">
+                  </span>
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+
+            </div> <!-- /.col -->
+
+            <div class="col-sm-6">
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input class="form-control" id="appendedInputButton" type="text">
+                  <span class="input-group-btn">
+                    <button class="btn btn-secondary" type="button">Go!</button>
+                  </span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                    <input type="text" id="appendedDropdownButton" class="form-control">
+                    <div class="input-group-btn">
+                        <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Action <span class="caret"></span></button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:;">Action</a></li>
+                            <li><a href="javascript:;">Another action</a></li>
+                            <li><a href="javascript:;">Something else here</a></li>
+                            <li><a href="javascript:;">Separated link</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+              <div class="form-group">                
+                <div class="input-group">
+                  <input class="form-control" type="text">
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-tertiary" tabindex="-1">Action</button>
+                    <button type="button" class="btn btn-tertiary dropdown-toggle" data-toggle="dropdown" tabindex="-1">
+                      <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                      <li><a href="javascript:;">Action</a></li>
+                      <li><a href="javascript:;">Another action</a></li>
+                      <li><a href="javascript:;">Something else here</a></li>
+                      <li class="divider"></li>
+                      <li><a href="javascript:;">Separated link</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="input-group">
+                  <input type="text" class="form-control">
+                  <span class="input-group-addon">
+                    <input type="radio">
+                  </span>
+                </div><!-- /input-group -->
+              </div>
+
+            </div> <!-- /.col -->
+
+          </div> <!-- /.row -->
+
+
+          <div class="col-md-12">
+            <div class="col-sm-3">
+                <strong>Default</strong>
+                <input id="dp-ex-1" class="form-control" type="text">
+                <span class="help-block">mm/dd/yyyy</span>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-3">
+                <strong>As component</strong>
+                <div id="dp-ex-2" class="input-group date">
+                    <input class="form-control" type="text">
+                    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+                <span class="help-block">dd-mm-yyyy</span>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-3">
+                <strong>Autoclose</strong>
+                <div id="dp-ex-3" class="input-group date" data-auto-close="true" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-autoclose="true">
+                    <input class="form-control" type="text">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+                <span class="help-block">dd-mm-yyyy</span>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-3">
+                <strong>Start with year view</strong>
+                <div id="dp-ex-4" class="input-group date" data-date="12-02-2012" data-date-format="dd.mm.yyyy" data-date-autoclose="true" data-date-start-view="2">
+                    <input class="form-control" type="text">
+    <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                </div>
+                <span class="help-block">dd.mm.yyyy</span>
+            </div> <!-- /.col -->
+
+          </div> <!-- /.row -->
+
+           <div class="col-sm-12">
+
+            <div class="col-sm-4">
+                <strong>Range input</strong>
+                <div class="col-sm-12">
+                    <div class="col-sm-6">
+                      <input class="form-control" type="text" placeholder="Start date" id="dpStart" data-date-format="mm-dd-yyyy" data-date-autoclose="true">
+                      <span class="help-block">mm-dd-yyyy</span>
+                    </div>
+
+                    <div class="col-sm-6">
+                      <input class="form-control" type="text" placeholder="End date" id="dpEnd" data-date-format="mm-dd-yyyy" data-date-autoclose="true">
+                    </div>
+                </div>
+            </div> <!-- /.col -->
+
+            <div class="col-sm-4">
+                <strong>Inline</strong>
+                <div id="dp-ex-5" class="" data-date-format="dd-mm-yyyy"></div>
+            </div> <!-- /.col -->
+
+        </div> <!-- /.row -->
+
+
+
+              </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Modal</h3>
+
+              </div>
+              <div class="panel-body">
+
+                <div class="col-md-12">
+              <h4 class="heading">Modal</h4>
+
+      <p>
+        <a data-toggle="modal" href="#basicModal" class="btn btn-default">Basic Modal</a>
+        &nbsp;&nbsp;
+        <a data-toggle="modal" href="#styledModal" class="btn btn-primary">Styled Modal</a>
+
+      </p>
+
+      </div>
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <h4 class="heading">Popovers</h4>
+
+      <div class="col-md-12">
+
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-default ui-popover" data-toggle="tooltip" data-placement="right" data-trigger="hover" data-content="<h1>aaaaa</h1>Sed posuere consectetur est at lobortis. Aenean eu leo quam." title="Tooltip on right">
+              Popover on right
+            </button>
+
+        </div> <!-- /.col -->
+
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-default ui-popover" data-toggle="tooltip" data-placement="top" data-trigger="hover" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam." title="Tooltip on top">
+              Popover on top
+            </button>
+
+        </div> <!-- /.col -->
+
+        <div class="col-md-3">
+
+            <button type="button" class="btn btn-default ui-popover" data-toggle="tooltip" data-placement="bottom" data-trigger="hover" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam." title="Tooltip on bottom">
+              Popover on bottom
+            </button>
+
+        </div> <!-- /.col -->
+
+        <div class="col-md-3">
+            
+            <button type="button" class="btn btn-default ui-popover" data-toggle="tooltip" data-placement="left" data-trigger="hover" data-content="Sed posuere consectetur est at lobortis. Aenean eu leo quam." title="Tooltip on left">
+              Popover on left
+            </button>
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+
+      <h4 class="heading">Tooltip</h4>
+
+
+
+     <div class="col-md-12">
+
+        <div class="col-md-3">
+            <button type="button" class="btn btn-default ui-tooltip" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+              Tooltip on right
+            </button>
+        </div> <!-- /.col -->
+
+        <div class="col-md-3">
+            <button type="button" class="btn btn-default ui-tooltip" data-toggle="tooltip" data-placement="top" title="Tooltip on top">Tooltip on top</button>
+        </div> <!-- /.col -->
+
+        <div class="col-md-3">
+            <button type="button" class="btn btn-default ui-tooltip" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom">Tooltip on bottom</button>
+        </div> <!-- /.col -->
+
+        <div class="col-md-3">
+            <button type="button" class="btn btn-default ui-tooltip" data-toggle="tooltip" data-placement="left" title="Tooltip on left">Tooltip on left</button>
+        </div> <!-- /.col -->
+          
+      </div> <!-- /.row -->
+
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+
+      <div class="col-md-12">
+      <h4 class="heading">Alerts</h4>
+
+      <div class="alert alert-success">
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+        <strong>Well done!</strong> You successfully read this important alert message.
+      </div> <!-- /.alert -->
+
+      <div class="alert alert-info">
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+        <strong>Heads up!</strong> This alert needs your attention, but it's not super important.
+      </div> <!-- /.alert -->
+
+      <div class="alert alert-warning">
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+        <strong>Warning!</strong> Best check yo self, you're not looking too good.
+      </div> <!-- /.alert -->
+
+      <div class="alert alert-danger">
+        <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+        <strong>Oh snap!</strong> Change a few things up and try submitting again.
+      </div> <!-- /.alert -->
+
+      </div>
+
+
+      <br>
+      <br>
+      <br>
+      <br>
+
+      <div class="col-md-12">
+
+      <h4 class="heading">Progress Bars</h4>
+
+
+      <h5>Basic Progress Bars</h5>
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          <span class="sr-only">60% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-secondary" role="progressbar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" style="width: 44%;">
+          <span class="sr-only">44% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-tertiary" role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100" style="width: 31%;">
+          <span class="sr-only">31% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <br>
+
+      <h5>Striped Progress Bars</h5>
+
+      <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          <span class="sr-only">60% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-secondary" role="progressbar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" style="width: 44%;">
+          <span class="sr-only">44% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <div class="progress progress-striped">
+        <div class="progress-bar progress-bar-tertiary" role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100" style="width: 31%;">
+          <span class="sr-only">31% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <br>
+
+      <h5>Animated Progress Bars</h5>
+
+      <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+          <span class="sr-only">60% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-secondary" role="progressbar" aria-valuenow="44" aria-valuemin="0" aria-valuemax="100" style="width: 44%;">
+          <span class="sr-only">44% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <div class="progress progress-striped active">
+        <div class="progress-bar progress-bar-tertiary" role="progressbar" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100" style="width: 31%;">
+          <span class="sr-only">31% Complete</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      <br>
+
+      <h5>Stacked Progress Bar</h5>
+
+      <div class="progress">
+        <div class="progress-bar progress-bar-primary" style="width: 35%">
+          <span class="sr-only">35% Complete (success)</span>
+        </div>
+        <div class="progress-bar progress-bar-secondary" style="width: 20%">
+          <span class="sr-only">20% Complete (warning)</span>
+        </div>
+        <div class="progress-bar progress-bar-tertiary" style="width: 10%">
+          <span class="sr-only">10% Complete (danger)</span>
+        </div>
+      </div> <!-- /.progress -->
+
+      </div>
+
+
+              
+
+              </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-12">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Typography</h3>
+
+              </div>
+              <div class="panel-body">
+
+
+               <div class="col-md-12">
+
+        <div class="col-md-8">
+
+          <div class="col-md-12">
+
+            <div class="col-md-6">
+
+              <h2>Sample text with lead body</h2>
+
+              <p class="lead">Lead body. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+
+              <br>
+
+                  <p class="text-muted">Fusce dapibus, tellus ac cursus commodo, tortor mauris nibh.</p>
+                  <p class="text-primary">Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                  <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
+                  <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+                  <p class="text-warning">Etiam porta sem malesuada magna mollis euismod.</p>
+                  <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
+            
+              <br>
+
+              <h3>Labels</h3>
+
+              <span style="font-size: 16px">
+                <span class="label label-default">Default</span>
+                <span class="label label-primary">Primary</span>
+                <span class="label label-secondary">Secondary</span>
+                <span class="label label-tertiary">Tertiary</span>
+                <br/><br/>
+                <span class="label label-success">Success</span>
+                <span class="label label-info">Info</span>
+                <span class="label label-warning">Warning</span>
+                <span class="label label-danger">Danger</span>
+              </span>
+
+
+
+            </div> <!-- /.col -->
+
+
+            <div class="col-md-6">
+          
+
+              <h2>Sample Text</h2>
+
+              <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+
+
+              <br>
+
+
+              <h1>h1. Heading 1</h1>
+              <h2>h2. Heading 2</h2>
+              <h3>h3. Heading 3</h3>
+              <h4>h4. Heading 4</h4>
+              <h5>h5. Heading 5</h5>
+              <h6>h6. Heading 6</h6>
+
+
+
+
+              
+
+
+              <br><br><br><br>
+
+              <h3>Pagination</h3>
+
+              <ul class="pagination">
+                <li><a href="javascript:;">&laquo;</a></li>
+                <li><a href="javascript:;">1</a></li>
+                <li class="active"><a href="javascript:;">2</a></li>
+                <li><a href="javascript:;">3</a></li>
+                <li><a href="javascript:;">4</a></li>
+                <li><a href="javascript:;">5</a></li>
+                <li><a href="javascript:;">&raquo;</a></li>
+              </ul>
+
+              <br><br>
+
+              <h3>Pager</h3>
+
+              <ul class="pager pull-left">
+                <li><a href="javascript:;">Previous</a></li>
+                <li><a href="javascript:;">Next</a></li>
+              </ul>
+
+
+
+            </div> <!-- /.col -->
+
+          </div> <!-- /.row -->
+
+
+          <br>
+          <br>
+
+          <h3>Blockquotes</h3>
+
+          <blockquote>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+          </blockquote>
+
+
+          <blockquote class="pull-right">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+            <small>Someone famous in <cite title="Source Title">Source Title</cite></small>
+          </blockquote>
+
+          <div class="clear"></div>
+          <br>
+
+          <h3>Wells</h3>
+
+          <div class="well">
+            <h4>Default well</h4>
+            Lorem ipsum dolor sit amet Lorem ipsum dolor sit amet.Integer molestie lorem at massa Integer molestie lorem at massa Integer molestie lorem at massa Integer molestie lorem at massa.
+          </div>
+
+          
+        </div> <!-- /.col -->
+
+        <div class="col-md-4">
+
+        <h4>Unordered List</h4>
+
+            <ul>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>
+                  Nulla volutpat aliquam velit
+                  <ul>
+                    <li>Phasellus iaculis neque</li>
+                    <li>Purus sodales ultricies</li>
+                    <li>Vestibulum laoreet porttitor sem</li>
+                    <li>Ac tristique libero volutpat at</li>
+                  </ul>
+                </li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+              </ul>
+
+            <br/>
+
+          <h4>Ordered List</h4>
+            <ol>
+                <li>Lorem ipsum dolor sit amet</li>
+                <li>Consectetur adipiscing elit</li>
+                <li>Integer molestie lorem at massa</li>
+                <li>Facilisis in pretium nisl aliquet</li>
+                <li>Nulla volutpat aliquam velit</li>
+                <li>Faucibus porta lacus fringilla vel</li>
+                <li>Aenean sit amet erat nunc</li>
+                <li>Eget porttitor lorem</li>
+              </ol>
+
+              <br/>
+
+          <h4>Description Lists</h4>
+            <dl>
+                <dt>Description lists</dt>
+                <dd>A description list is perfect for defining terms.</dd>
+                <dt>Euismod</dt>
+                <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
+                <dd>Donec id elit non mi porta gravida at eget metus.</dd>
+                <dt>Malesuada porta</dt>
+                <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
+              </dl>
+
+        </div> <!-- /.col -->
+
+      </div> <!-- /.row -->
+
+              
+
+              </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="col-md-12">
+             <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Icons</h3>
+
+              </div>
+              <div class="panel-body">
+
+
+
+              <div class="col-md-12">
+
+                 <ul class="bs-glyphicons-list">
+      
+                  <li>
+                    <span class="glyphicon glyphicon-asterisk"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-asterisk</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-plus</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-euro"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-euro</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-minus"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-minus</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-cloud"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-cloud</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-envelope"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-envelope</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-pencil</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-glass"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-glass</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-music"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-music</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-search"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-search</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-heart"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-heart</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-star"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-star</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-star-empty</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-user"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-user</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-film"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-film</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-th-large"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-th-large</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-th"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-th</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-th-list"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-th-list</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-ok"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-ok</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-remove</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-zoom-in"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-zoom-in</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-zoom-out"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-zoom-out</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-off"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-off</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-signal"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-signal</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-cog"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-cog</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-trash"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-trash</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-home"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-home</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-file"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-file</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-time"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-time</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-road"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-road</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-download-alt"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-download-alt</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-download"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-download</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-upload"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-upload</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-inbox"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-inbox</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-play-circle"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-play-circle</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-repeat"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-repeat</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-refresh"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-refresh</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-list-alt</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-lock"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-lock</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-flag"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-flag</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-headphones"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-headphones</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-volume-off"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-volume-off</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-volume-down"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-volume-down</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-volume-up"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-volume-up</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-qrcode"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-qrcode</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-barcode"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-barcode</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-tag"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-tag</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-tags"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-tags</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-book"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-book</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-bookmark"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-bookmark</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-print"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-print</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-camera"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-camera</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-font"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-font</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-bold"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-bold</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-italic"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-italic</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-text-height"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-text-height</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-text-width"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-text-width</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-align-left"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-align-left</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-align-center"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-align-center</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-align-right"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-align-right</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-align-justify"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-align-justify</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-list"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-list</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-indent-left"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-indent-left</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-indent-right"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-indent-right</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-facetime-video"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-facetime-video</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-picture"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-picture</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-map-marker"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-map-marker</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-adjust"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-adjust</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-tint"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-tint</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-edit"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-edit</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-share"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-share</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-check"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-check</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-move"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-move</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-step-backward"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-step-backward</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-fast-backward"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-fast-backward</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-backward"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-backward</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-play"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-play</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-pause"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-pause</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-stop"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-stop</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-forward"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-forward</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-fast-forward"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-fast-forward</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-step-forward"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-step-forward</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-eject"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-eject</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-chevron-left</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-chevron-right</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-plus-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-plus-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-minus-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-minus-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-remove-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-remove-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-ok-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-ok-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-question-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-question-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-info-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-info-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-screenshot"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-screenshot</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-remove-circle"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-remove-circle</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-ok-circle"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-ok-circle</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-ban-circle"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-ban-circle</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-arrow-left</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-arrow-right</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-arrow-up</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-arrow-down</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-share-alt"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-share-alt</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-resize-full"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-resize-full</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-resize-small"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-resize-small</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-exclamation-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-exclamation-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-gift"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-gift</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-leaf"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-leaf</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-fire"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-fire</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-eye-open"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-eye-open</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-eye-close"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-eye-close</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-warning-sign"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-warning-sign</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-plane"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-plane</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-calendar"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-calendar</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-random"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-random</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-comment"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-comment</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-magnet"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-magnet</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-chevron-up"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-chevron-up</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-chevron-down"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-chevron-down</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-retweet"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-retweet</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-shopping-cart"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-shopping-cart</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-folder-close</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-folder-open"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-folder-open</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-resize-vertical"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-resize-vertical</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-resize-horizontal"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-resize-horizontal</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-hdd"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-hdd</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-bullhorn"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-bullhorn</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-bell"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-bell</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-certificate"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-certificate</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-thumbs-up"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-thumbs-up</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-thumbs-down"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-thumbs-down</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-hand-right"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-hand-right</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-hand-left"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-hand-left</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-hand-up"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-hand-up</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-hand-down"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-hand-down</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-circle-arrow-right"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-right</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-circle-arrow-left"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-left</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-circle-arrow-up"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-up</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-circle-arrow-down"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-circle-arrow-down</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-globe"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-globe</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-wrench"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-wrench</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-tasks"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-tasks</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-filter"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-filter</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-briefcase</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-fullscreen"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-fullscreen</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-dashboard"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-dashboard</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-paperclip"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-paperclip</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-heart-empty"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-heart-empty</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-link"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-link</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-phone"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-phone</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-pushpin"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-pushpin</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-usd"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-usd</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-gbp"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-gbp</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sort"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sort</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sort-by-alphabet"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sort-by-alphabet</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sort-by-alphabet-alt"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sort-by-alphabet-alt</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sort-by-order"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sort-by-order</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sort-by-order-alt"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sort-by-order-alt</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sort-by-attributes"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sort-by-attributes</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sort-by-attributes-alt"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sort-by-attributes-alt</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-unchecked"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-unchecked</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-expand"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-expand</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-collapse-down"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-collapse-down</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-collapse-up"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-collapse-up</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-log-in"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-log-in</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-flash"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-flash</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-log-out"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-log-out</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-new-window"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-new-window</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-record"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-record</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-save"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-save</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-open"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-open</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-saved"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-saved</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-import"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-import</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-export"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-export</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-send"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-send</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-floppy-disk"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-floppy-disk</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-floppy-saved"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-floppy-saved</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-floppy-remove"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-floppy-remove</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-floppy-save"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-floppy-save</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-floppy-open"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-floppy-open</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-credit-card"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-credit-card</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-transfer"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-transfer</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-cutlery"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-cutlery</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-header"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-header</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-compressed"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-compressed</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-earphone"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-earphone</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-phone-alt"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-phone-alt</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-tower"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-tower</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-stats"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-stats</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sd-video"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sd-video</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-hd-video"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-hd-video</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-subtitles"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-subtitles</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sound-stereo"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sound-stereo</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sound-dolby"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sound-dolby</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sound-5-1"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sound-5-1</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sound-6-1"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sound-6-1</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-sound-7-1"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-sound-7-1</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-copyright-mark"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-copyright-mark</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-registration-mark"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-registration-mark</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-cloud-download"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-cloud-download</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-cloud-upload"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-cloud-upload</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-tree-conifer"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-tree-conifer</span>
+                  </li>
+                
+                  <li>
+                    <span class="glyphicon glyphicon-tree-deciduous"></span>
+                    <span class="glyphicon-class">glyphicon glyphicon-tree-deciduous</span>
+                  </li>
+                
+              </ul>
+
+
+              </div>
+              </div>
+            </div>
+        </div>
+
+
+
+            
+        </div>
+
+       
+    </div>
+
+    <div class="footer">
+      <div class="container-fluid">
+        <p><a href="###">关于我们</a>   ｜    <a href="###">团队</a>     ｜    <a href="###">工作机会</a>    ｜    <a href="###">联系我们</a>     ｜      <a href="###">服务协议条款</a>       ｜     <a href="###">FAQ</a></p>
+        <p>版权所有 @2014  NewChama.com</p>
+      </div>
+    </div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui-1.9.2.custom.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/target-admin.js"></script>
+
+    <script src="js/datepicker/bootstrap-datepicker.js"></script>
+    <script src="js/demos/form-extended.js"></script>
+
+      <!-- Plugin JS -->
+  <script src="js/demos/ui-notifications.js"></script>
+
+  
+
+
+  
+  <div id="basicModal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Basic Modal</h3>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+<div id="styledModal" class="modal modal-styled fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h3 class="modal-title">Styled Modal</h3>
+      </div>
+      <div class="modal-body">
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium.&hellip;</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-tertiary btn-sm" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary btn-sm">Save changes</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+  </body>
+</html>

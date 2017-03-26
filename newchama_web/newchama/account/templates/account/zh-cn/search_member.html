@@ -1,0 +1,188 @@
+{% extends "common/zh-cn/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% block content %}
+     <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-10">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">设定搜索条件</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li><a href="{% url 'sales.search' %}">项目</a></li>
+                    <li><a href="{% url 'purchase.search' %}">需求</a></li>
+                    <li><a href="{% url 'news.search' %}">新闻</a></li>
+                    <li><a href="{% url 'account.search_company' %}">机构</a></li>
+                    <li class="active"><a href="{% url 'account.search_member' %}">用户</a></li>
+                </ul>
+                <br />
+                <form class="form-horizontal" role="form">
+                    <div class="form-group">
+                        <label class="col-xs-2">选择行业</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                   <select id="industry_first" name="industry_first" class="form-control">
+                                       <option value="0">不限</option>
+                                       {% for industry in industries %}
+                                          <option value="{{ industry.id }}" {% if industry_first == industry.id %} selected="selected" {% endif %}>{{ industry.name_cn }}</option>
+                                      {% endfor %}
+                                </select>
+                                </div>
+                                <div class="col-xs-3 hide_">
+                                    <select id="industry_second" name="industry_second" class="form-control">
+                                      <option value="">请选择</option>
+                                  </select>
+                                </div>
+                                <div class="col-xs-3 hide_">
+                                     <select id="industry_third" name="industry_third" class="form-control">
+                                      <option value="">请选择</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">选择地域</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select class="form-control" name="country" id="country">
+                                      <option value="0">不限</option>
+                                       {% for c in countries %}
+                                         <option value="{{ c.id }}" {% if country == c.id %} selected {% endif %}>{{ c.name_cn }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">搜索关键字</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input type="text" id="keyword" name="keyword" class="form-control" placeholder="请填写关键字" value="{{ keyword }}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-10 col-xs-offset-2">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input type="hidden" value="1" name="is_search">
+                                    <button type="submit" class="btn btn-primary btn-xs" id="search">立即搜索</button>
+{#                                    <button type="button" class="btn btn-default btn-xs" id="btn_search_in_results">在结果中搜索</button>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+        {% if is_search %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">搜索结果</h3>
+        </div>
+        <div class="panel-body">
+
+            <ul class="members-list">
+            {% if members %}
+                {% for m in members %}
+                <li class="members-item"> <a href="{% url 'account.profile' m.id %}">
+                    <img src="{% url 'account.avatar' 80 80 m.avatar%}" class="thumbnail" />{{ m }} </a><br />{{ m.company.short_name_cn }}
+                </li>
+                {% endfor %}
+             {% else %}
+                <div class="members-list-empty">
+                    <p class="members-list-empty-text">暂无结果</p>
+                </div>
+             {% endif %}
+            </ul>
+
+        </div>
+    </div>
+        {% endif %}
+    </div>
+{#    <div class="col-xs-2">#}
+{#        <div class="panel panel-default">#}
+{#            <div class="panel-heading">#}
+{#                <h3 class="panel-title">搜索记录</h3>#}
+{#            </div>#}
+{#            <div class="panel-body">#}
+{#                <ul class="news-list">#}
+{#                    <li> <span class="news-list-item-title">1、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">2、互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">3、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                </ul>#}
+{#                <br />#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    </div>
+{% endblock %}
+{% block footer %}
+  {% include "account/zh-cn/sendmessagemodal.html" %}
+  <script src="{{STATIC_PREFIX}}js/plugins/select2/select2.js"></script>
+  <script type="text/javascript">
+        var country = {{ country|default:0 }};
+        var province = {{ province|default:0 }};
+        var city = {{ city|default:0 }};
+        var industry_first = {{ industry_first|default:0 }};
+        var industry_second = {{ industry_second|default:0 }};
+        var industry_third = {{ industry_third|default:0 }};
+        //jQuery("#country").select2({});
+        /*
+        jQuery("#country").change(function(){
+            LoadProvinces('province',jQuery(this).val(),0);
+        });
+        jQuery("#province").change(function(){
+            var province_id=jQuery(this).val();
+            LoadCities('city',province_id,0);
+        });
+        */
+        //industrySelect("industry_first",0, industry_first);
+        jQuery('#industry_first').change(function() {
+            var val = jQuery(this).val();
+            if(val>0) {
+                industrySelect("industry_second", val);
+            }else
+            {
+                jQuery('#industry_second').parent().hide();
+                jQuery('#industry_third').parent().hide();
+            }
+        });
+        jQuery('#industry_second').change(function() {
+            var val = jQuery(this).val();
+            if(val>0) {
+                industrySelect("industry_third", val);
+            }else
+            {
+                jQuery('#industry_third').parent().hide();
+            }
+        });
+        /*
+        if(province>0)
+        {
+            LoadProvinces("province",country,province);
+        }
+        if(city>0)
+        {
+          LoadCities("city",province,city)
+        }*/
+
+        if(industry_first>0||industry_second>0)
+        {
+           industrySelect("industry_second", industry_first, industry_second);
+        }
+        if(industry_third>0)
+        {
+          industrySelect("industry_third", industry_second, industry_third);
+        }
+  </script>
+{% endblock %}

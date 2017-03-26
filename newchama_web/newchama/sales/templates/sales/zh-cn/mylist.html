@@ -1,0 +1,118 @@
+{% extends "common/zh-cn/base.html" %}
+{% load humanize %}
+{% load pagination_tags %}
+{% load myTags %}
+{% block content %}
+<div class="container-fluid" id="newchama_main">
+    {% comment %}<div class="col-xs-12">
+        <ul class="nav nav-pills top_nav_pills" role="tablist">
+            <li class="active"> <a href="{% url 'sales.mylist' %}">项目管理 ({{ total_all }})</a> </li>
+            &lt;!&ndash;<li> <a href="{% url 'purchase.mylist' %}">买方发布 {#({{ total_demand }})#} </a> </li>&ndash;&gt;
+        </ul>
+        <br/>
+    </div> {% endcomment %}
+    <div class="col-xs-12">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="col-xs-12 assist_button_background">
+                    <div class="pull-left">项目管理 ({{ total_all }})</div>
+                    <div class="pull-right">
+                        <button type="button" class="btn btn-default btn-xs" id="btn_create_project" ><i class="glyphicon glyphicon-plus"></i>&nbsp;创建项目</button>
+                    </div>
+                </div>
+                <table class="col-xs-12 table_my_list">
+                    <tr>
+                        <th width="10%">日期</th>
+                        <th width="47%">名称</th>
+                        <th width="3%"></th>
+                        <th width="10%">发布方式</th>
+                        <!--<th width="15%">发布方式</th>-->
+                        <th width="8%">完整度</th>
+                        <th width="10%">审核状态</th>
+                        <th width="12%">操作</th>
+                    </tr>
+                    {% if result_list %}
+                    {% autopaginate result_list 10%}
+                    {% for m in result_list %}
+                    <tr class="bottom_line">
+                        <td>{{ m.add_time|date:'Y-m-d' }}</td>
+                        <td><a href="{% url "sales.edit" m.id %}?status=4"><strong>{{ m.name_cn|safe | cut_str:28 }}</strong></a></td>
+                        <td><i class="glyphicon glyphicon-chevron-down myListTotal" style="cursor:pointer" ref="{{ m.id }}"></i></td>
+                        <!--<td>{{ m.processName }}</td>-->
+                        <td>{% if m.is_anonymous == False%}匿名发布{% else %}实名发布{% endif %}</td>
+                        <td>{{ m.integrity | default:'60'}}%</td>
+                        <td>{{ m.statusName }}</td>
+                        <td>
+                            <select class="form-control operateStatus" id="operateStatus_{{ m.id }}" name="operateStatus" ref="{{ m.id }}">
+                                <option value="">请选择</option>
+                                <option value="0">项目信息</option>
+                                <option value="1">公司信息</option>
+                                <option value="2">财务信息</option>
+                                <option value="3">买家匹配</option>
+                                <option value="4">管理面板</option>
+                                <option value="5">删除</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="myListCount_{{ m.id }}" class="bottom_line mylist_hide_height hide_">
+                        <td colspan="8" align="center">
+                            匹配的买家 {{ m.total_recommends}}&nbsp;&nbsp;&nbsp;&nbsp;
+                            项目被访问 {{ m.pvs}}&nbsp;&nbsp;&nbsp;&nbsp;
+                            关注人数 {{ m.total_favorites }}&nbsp;&nbsp;&nbsp;&nbsp;
+                            未读留言 {{ m.not_read_messages}}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr class="bottom_line">
+                        <td colspan="8" align="center">暂无相关项目</td>
+                    </tr>
+                    {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="pull-right">
+                {% paginate %}
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
+{% block footer %}
+<script>
+    $(".myListTotal").click(function() {
+        var ref = $(this).attr("ref");
+        $("#myListCount_" + ref).fadeToggle();
+        if ($(this).hasClass("glyphicon-chevron-down")) {
+            $(this).removeClass("glyphicon-chevron-down");
+            $(this).addClass("glyphicon-chevron-up");
+            $(this).parent().parent().removeClass("bottom_line");
+        }
+        else {
+            $(this).removeClass("glyphicon-chevron-up");
+            $(this).addClass("glyphicon-chevron-down");
+            $(this).parent().parent().addClass("bottom_line");
+        }
+    });
+
+    $(".panel-body").delegate(".operateStatus","change",function() {
+        var val = $(this).val();
+        var editId = $(this).attr("ref");
+        var obj = $(this);
+        obj.attr("disabled", true);
+        if (val == 5) {
+            DeleteSales(editId);
+        }
+        else {
+            obj.val("");
+            obj.attr("disabled", false);
+            location.href = "/sales/edit/" + editId + "/?status=" + val;
+        }
+    });
+
+    $("#btn_create_project").click(function() {
+        location.href = "/sales/add/0";
+    })
+</script>
+{% endblock %}

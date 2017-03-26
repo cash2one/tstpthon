@@ -1,0 +1,538 @@
+{% extends "common/en-us/base.html" %}
+{% load myTags %}
+{% block content %}
+<div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <form id="formData" name="formData" class="form-horizontal parsley-form" method="post" enctype="multipart/form-data" action="{% url 'purchase.save' %}">
+    {% csrf_token %}
+    <input type="hidden" id="industry_id" name="industry_id" value="0">
+    <input type="hidden" id="industry_name" name="industry_name" value="0">
+    <input type="hidden" id="target_industry_id" value="0">
+    <input type="hidden" id="target_industry_name" value="0">
+    <input type="hidden" id="submitStatus" name="submitStatus" value="draft">
+    <input type="hidden" id="name_cn" name="name_cn" value="{{ u.name_cn |default:" " }}">
+    <input type="hidden" id="edit_id" name="id" value="{{ u.id |default:"" }}"/>
+    <input type="hidden" id="curr_step" name="curr_step" value="{{ u.id |default:"" }}">
+    <input type="hidden" id="pending_page" name="pending_page" value="{% url 'purchase.mylist_pending' %}">
+    <input type="hidden" id="draft_page" name="draft_page" value="{% url 'purchase.mylist_draft' %}">
+    <input type="hidden" id="process" name="process" value="{{ u.process |default:"1" }}">
+    <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">{% if u.id %}Demand Summary{% else %}Demand Summary{% endif %}</h3>
+            </div>
+            <div class="panel-body">
+                <span class="tip_span"></span>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label class="col-xs-2">&nbsp;</label>
+                        <div class="col-xs-8">
+                            <div class="project_step">
+                              <a href="javascript:;" class="step_btn_publish curr"><span class="step_num">1</span><span class="step_name">Deal Summary</span></a>
+                              <a href="javascript:;" class="step_btn_publish "><span class="step_num">2</span><span class="step_name">Target Company</span></a>
+                              <a href="javascript:;" class="step_btn_publish "><span class="step_num">3</span><span class="step_name">Financial Summary</span></a>
+                              <a href="javascript:;" class="step_btn_publish "><span class="step_num">4</span><span class="step_name">Posting</span></a>
+                              <a href="javascript:;" class="step_btn_publish "><span class="step_num">5</span><span class="step_name">Completion</span></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+                <br>
+                <div class="panel-body step_class ">
+                    <div class="form-group">
+                        <label class="col-xs-2">Demand Title*</label>
+                        <div class="col-xs-6">
+                            <input type="text" name="name_en" class="form-control custom-required" data-required="true" data-error-message="Please Input Demand Title" value="{{ u.name_en |default:"" }}" data-maxlength="100">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Transaction Type*</label>
+                        <div class="col-xs-3">
+                            <select id="service_type" class="form-control custom-required" data-required="true" data-error-message="Please Select Transaction Type" name="service_type">
+                                    <option value="">Please Select</option>
+                                {% for id,value in SERVICE_TYPES_2 %}
+                                    <option value="{{ id }}" {% if u.service_type == id %} selected {% endif %}>{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-3 project_stage hide_">
+                            <select name="project_stage" id="project_stage" class="form-control">
+                                <option value="">Please Select Project Stage</option>
+                                {% for st in u.INVESTMENT_STAGE %}
+                                    <option value="{{ st.0 }}" {% if u.project_stage == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Payment Type</label>
+                        <div class="col-xs-3">
+                            <select name="pay_way" id="pay_way" class="form-control">
+                            {% for st in u.PAY_WAY %}
+                                <option value="{{ st.0 }}" {% if u.pay_way == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Payment Currency</label>
+                        <div class="col-xs-3">
+                            <select name="pay_currency" id="pay_currency" class="form-control">
+                            {% for st in u.PAY_CURRENCY %}
+                                <option value="{{ st.0 }}" {% if u.pay_currency == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                            {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Project Name</label>
+                        <div class="col-xs-6">
+                            <input type="text" name="name_project_en" class="form-control" value="{{ u.name_project_en |default:"" }}" data-maxlength="100" placeholder="Viewed by yourself only.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Seller Description</label>
+                        <div class="col-xs-6">
+                            <input type="text" name="business_en" class="form-control" value="{{ u.business_en |default:"" }}" data-maxlength="250" placeholder="Accurate descriptions will get the buyer-side learn better about your demand.">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Company Type</label>
+                        <div class="col-xs-3">
+                            <label class="radio-inline">
+                                <input type="radio" id="list_company" name="is_list_company" value="1" {% if u.is_list_company%}checked{% endif %} />Listed Company
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="list_company" name="is_list_company" value="0" {% if u.is_list_company == False%}checked{% endif %} />Unlisted Company
+                            </label>
+                        </div>
+                        <div class="col-xs-3">
+                            <input type="text" id="ticker" name="company_stock_symbol" class="form-control" data-maxlength="20" value="{{ u.company_stock_symbol |default:"" }}" {% if u.is_list_company == False %}disabled="" {% endif %} placeholder="Traded as">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Validity Period</label>
+                        <div class="col-xs-3">
+                            <select id="valid_day" name="valid_day" class="form-control" data-placeholder="Please Select">
+                                {% for st in u.VALID_DAY %}
+                                    <option value="{{ st.0 }}" {% if u.valid_day == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                                {% endfor %}
+                            </select>
+                            <input type="hidden" id="expire_date" name="expire_date" value="{{ u.expire_date|date:'Y-m-d' }}" placeholder="yyyy-mm-dd">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Notes</label>
+                        <div class="col-xs-6">
+                            <textarea id="intro_en_" cols="10" rows="5" class="form-control" data-maxlength="1000">{{ u.intro_en |default:"" | replaceLine}}</textarea>
+                            <input type="hidden" name="intro_en" id="intro_en" value="{{ u.intro_en |default:""}}"/>
+                        </div>
+                        <div class="col-xs-4 tip_">
+                            Detailed information will enhance the market attention to your demand on our platform.
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body step_class hide_">
+                    <div class="form-group">
+                        <label class="col-xs-2">Industry Classification</label>
+                        <div class="col-xs-3">
+                            <select id="company_industry_0" name="company_industry_0" class="form-control" data-placeholder="Please Select">
+                                <option value="0">All</option>
+                                {% for d in industries %}
+                                    <option value="{{ d.id }}" {% if company_industry.id == d.id %} selected {% endif %}>{{ d.name_en }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <select id="company_industry_1" name="company_industry_1" class="form-control" data-placeholder="Please Select">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-3 hide_">
+                            <select id="company_industry_2" name="company_industry_2" class="form-control" data-placeholder="Please Select">
+                                <option value="0">All</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Company Location</label>
+                        <div class="col-xs-3">
+                            {% comment %}<select id="dest_country" name="dest_country" class="form-control">{% endcomment %}
+                            <select id="country" name="country" class="form-control">
+                                <option value="0">All</option>
+                                {% for country in countries %}
+                                    <option value="{{ country.id }}" {% if company_country.id == country.id %} selected {% endif %}>{{ country.name_en }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-xs-3">
+                            <select id="province" name="province" class="form-control chosen-select" data-placeholder="Please Select">
+                                <option value="">Please Select</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Employee Headcount</label>
+                        <div class="col-xs-3">
+                            <select name="employees_count_type" class="form-control">
+                                {% for id,value in EMPLOYEES_COUNT_TYPES %}
+                                    <option value="{{ id }}" {% if u.employees_count_type == id %} selected="selected" {% endif %}>{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Equity Structure</label>
+                        <div class="col-xs-2">
+                            <div class="input-group">
+                                <div class="input-group-addon-custom_2 font-12">
+                                    Mangement Structure&nbsp;
+                                </div>
+                                <input type="text" placeholder="" name="stock_structure_percentage_type_management" value="{{ u.stock_structure_percentage_type_management | formatPercent }}" data-type="percent" class="s_rate form-control parsley-validated">
+                                <div class="input-group-addon-custom font-12">%</div>
+                                {% comment %}<select class="form-control" name="stock_structure_percentage_type_management">
+                                    <option value="">Please Select</option>
+                                    {% for id,value in STOCK_STRUCTURE_PERCENTAGE_TYPES %}
+                                        <option value="{{ id }}" {% if u.stock_structure_percentage_type_management == id %} selected="selected" {% endif %}>{{ value }}</option>
+                                    {% endfor %}
+                                </select>{% endcomment %}
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="input-group">
+                                <div class="input-group-addon-custom_2 font-12">
+                                    Institutional Investor&nbsp;
+                                </div>
+                                <input type="text" placeholder="" name="stock_structure_percentage_type_institutional" value="{{ u.stock_structure_percentage_type_institutional | formatPercent }}" data-type="percent" class="s_rate form-control parsley-validated">
+                                <div class="input-group-addon-custom font-12">%</div>
+                                {% comment %}<select class="form-control" name="stock_structure_percentage_type_institutional">
+                                    <option value="">Please Select</option>
+                                    {% for id,value in STOCK_STRUCTURE_PERCENTAGE_TYPES %}
+                                        <option value="{{ id }}" {% if u.stock_structure_percentage_type_institutional == id %} selected="selected" {% endif %}>{{ value }}</option>
+                                    {% endfor %}
+                                </select>{% endcomment %}
+                            </div>
+                        </div>
+                        <div class="col-xs-2">
+                            <div class="input-group">
+                                <div class="input-group-addon-custom_2 font-12">
+                                    Others&nbsp;
+                                </div>
+                                <input type="text" placeholder="" name="stock_structure_percentage_type_private" value="{{ u.stock_structure_percentage_type_private | formatPercent }}" data-type="percent" class="s_rate form-control parsley-validated">
+                                <div class="input-group-addon-custom font-12">%</div>
+                                {% comment %}<select class="form-control" name="stock_structure_percentage_type_private">
+                                    <option value="">Please Select</option>
+                                    {% for id,value in STOCK_STRUCTURE_PERCENTAGE_TYPES %}
+                                        <option value="{{ id }}" {% if u.stock_structure_percentage_type_institutional == id %} selected="selected" {% endif %}>{{ value }}</option>
+                                    {% endfor %}
+                                </select>{% endcomment %}
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-group">
+                            <label class="col-xs-2">Key Words</label>
+                            <div class="col-xs-6">
+                                <input type="text" id="key_keyword" name="key_keyword" class="form-control" placeholder="Detailed industry (eg. AI) key words will help you find buyers more quikly.">
+                                <input type="hidden" id="project_keyword" name="project_keyword" value="{{ keywords }}"/>
+                            </div>
+                            <div class="col-xs-2">
+                                <button type="button" class="btn btn-default btn-xs" onclick="addKeyword2()">Add</button>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2">&nbsp;</label>
+                            <div class="col-xs-10" id="target_keywords">
+                            {% for tc in mks %}
+                                <span id="target_keyword_{{ tc.keyword }}" class="alert alert-info preference_selected ">
+                                    <a href="###">{{ tc.keyword }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove project_key_remove"></a>
+                                </span>
+                            {% endfor %}
+                            </div>
+                        </div>
+                </div>
+                <div class="panel-body step_class hide_">
+                    <div class="form-group">
+                        <label class="col-xs-2">Currency</label>
+                        <div class="col-xs-3">
+                            <select id="currency_select" name="currency_type" class="form-control">
+                                {% for id,value in CURRENCY_TYPES %}
+                                    <option value="{{ id }}" {% if u.currency_type_financial == id %} selected {% endif %}>{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Expected Deal Size</label>
+                        <div class="col-xs-3">
+                            <select class="form-control" name="deal_size">
+                                <option value="">Please Select</option>
+                                {% for id,value in FINANCIAL_TYPES_2 %}
+                                    <option value="{{ id }}" {% if u.deal_size == id %}selected{% endif %}>{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Expected Valuation</label>
+                        <div class="col-xs-3">
+                            <select class="form-control" name="expected_enterprice_value">
+                                {% for id,value in FINANCIAL_TYPES %}
+                                    <option value="{{ id }}" {% if u.expected_enterprice_value == id %} selected="selected" {% endif %}>{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Forecast growth for 3 years</label>
+                        <div class="col-xs-3">
+                            <input name="growth_three_year" class="form-control " value="{{ u.growth_three_year | formatPercent }}" data-type="digits" data-maxlength="14" placeholder="Please fill in with percentage ratio, eg. 30%">
+                        </div>
+                        <div class="col-xs-1 unit_position ">%</div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Revenue Outlook(FY {{ current_year }})</label>
+                        {% comment %}<div class="col-xs-3">
+                            <input type="text" placeholder="" name="income_enter" value="{{ u.income_enter |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16"/>
+                        </div>{% endcomment %}
+                        <div class="col-xs-3">
+                            <select class="form-control" name="income">
+                                <option value="">Please Select</option>
+                                {% for id,value in FINANCIAL_TYPES_2 %}
+                                    <option value="{{ id }}" {% if u.income == id %}selected{% endif %}>{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Revenue(FY {{ current_year }})</label>
+                        {% comment %}<div class="col-xs-3">
+                            <input type="text" placeholder="" name="profit_enter" value="{{ u.profit_enter |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16"/>
+                        </div>{% endcomment %}
+                        <div class="col-xs-3">
+                            <select class="form-control" name="profit">
+                                <option value="">Please Select</option>
+                                {% for id,value in FINANCIAL_TYPES_2 %}
+                                    <option value="{{ id }}" {% if u.profit == id %}selected{% endif %}>{{ value }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Total Asset</label>
+                        <div class="col-xs-3">
+                            <input type="text" placeholder="" name="total_assets" value="{{ u.total_assets |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Net Asset</label>
+                        <div class="col-xs-3">
+                            <input type="text" placeholder="" name="total_profit" value="{{ u.total_profit |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16"/>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">Financial Statements</label>
+                        <div class="col-xs-3">
+                            <label class="radio-inline">
+                                <input type="radio" id="is_audited" name="financial_is_must_audit" value="0" {% if u.financial_is_must_audit == False%}checked{% endif %} />Unaudited&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" id="is_big_four" name="financial_is_must_audit" value="1" {% if u.financial_is_must_audit and u.financial_audit_company_is_must_default%}checked{% endif %} />Audited by Big Four
+                            </label>
+                        </div>
+                        <div class="col-xs-4">
+                            <label class="radio-inline">
+                                <input type="radio" id="is_big_four" name="financial_is_must_audit" value="2" {% if u.financial_is_must_audit and u.financial_audit_company_is_must_default == False%}checked{% endif %} />Audited, not by Big Four
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body step_class hide_ ">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="col-xs-2">Anonymous Post*</label>
+                            <div class="col-xs-3">
+                                <label class="radio-inline"> <input type="radio" name="is_anonymous" {% if u.is_anonymous == False%}checked{% endif %} value="0"/>N </label>
+                                <label class="radio-inline"> <input type="radio" name="is_anonymous" {% if u.is_anonymous%}checked{% endif %} value="1"/>Y </label>
+                            </div>
+                            <div class="col-xs-7 tip_">
+                                Anonymous Post
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-2">Post Type*</label>
+                            <div class="col-xs-4">
+                                <label class="radio-inline"> <input type="radio"  name="is_suitor" {% if u.is_suitor == False%}checked{% endif %} value="0"/>Accessible to the Public </label>
+                                <label class="radio-inline"> <input type="radio" name="is_suitor" {% if u.is_suitor%}checked{% endif %} value="1"/>Direct to Selected Companies </label>
+                            </div>
+                            <div class="col-xs-6 tip_">
+                                You could send teaser to designated company
+                            </div>
+                        </div>
+                        <div class="form-group suitor {% comment %}{% if u.is_suitor == False%}hide_{% endif %}{% endcomment %}">
+                            <label class="col-xs-2">Designated company</label>
+                            <div class="col-xs-3">
+                                <input type="text" id="target_company" class="form-control" {% if u.is_suitor == False%}disabled{% endif %} placeholder="Please Input Designated company" />
+                                <input type="hidden" id="target_company_id" />
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="button" class="btn btn-default btn-xs" onclick="addCompany2()" {% if u.is_suitor == False%}disabled{% endif %} value="Add"/>
+                            </div>
+                        </div>
+                        <div class="form-group suitor target_company_div {% if target_companies_count == 0%}hide_{% endif %}">
+                            <label class="col-xs-2">&nbsp;</label>
+                            <div class="col-xs-10" id="target_compaies">
+                            {% if readSuitorRelate %}
+                            {% for tc in u.target_companies.all %}
+                                <span id="target_industry_{{ tc.id }}" class="alert alert-info preference_selected">
+                                    <a href="###">{{ tc.name_en }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                                    <input name="target_companies" type="hidden" value="{{ tc.id }}">
+                                </span>
+                            {% endfor %}
+                            {% endif %}
+                            </div>
+                        </div>
+                        {% comment %}<div class="form-group suitor {% endcomment %}{% comment %}{% if u.is_suitor == False%}hide_{% endif %}{% endcomment %}{% comment %}">
+                            <label class="col-xs-2">指定投资人</label>
+                            <div class="col-xs-3">
+                                <input type="text" id="target_member" class="form-control" {% if u.is_suitor == False%}disabled{% endif %} placeholder="您要推送的买家" />
+                                <input type="hidden" id="target_member_id" />
+                            </div>
+                            <div class="col-xs-2">
+                                <input type="button" class="btn btn-default btn-xs" onclick="addMember2()" {% if u.is_suitor == False%}disabled{% endif %} value="添加"/>
+                            </div>
+                        </div>
+                        <div class="form-group suitor {% endcomment %}{% comment %}{% if u.is_suitor == False%}hide_{% endif %}{% endcomment %}{% comment %}">
+                            <label class="col-xs-2">&nbsp;</label>
+                            <div class="col-xs-10" id="target_members">
+                            {% if readSuitorRelate %}
+                            {% for tc in u.target_members.all %}
+                                <span id="target_member_{{ tc.id }}" class="alert alert-info preference_selected">
+                                    <a href="###">{{ tc.first_name }}{{ tc.last_name }}</a>&nbsp;
+                                    <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                                    <input name="target_members" type="hidden" value="{{ tc.id }}">
+                                </span>
+                            {% endfor %}
+                            {% endif %}
+                            </div>
+                        </div>{% endcomment %}
+                        <div class="form-group attach_area">
+                            <label class="col-xs-2">Supplement</label>
+                            <div class="col-xs-3">
+                                <select id="attachment_type" name="attachment_type" class="form-control equity_structure_select" data-placeholder="Please Select">
+                                    <option value="">Please Select</option>
+                                    <option value="intro_cn">Deal Teaser</option>
+                                    <option value="secret_cn">NDA</option>
+                                    <option value="bp_cn">Business Plan</option>
+                                    <option value="financial_cn">Financial Statements</option>
+                                    <option value="third_party_cn">第三方机构文件</option>
+                                    <option value="qualification_cn">资质类文件</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <button type="button" class="btn btn-default btn-xs" id="btn_add_attach" >Add Supplement</button>&nbsp;&nbsp;
+                                <button type="button" class="btn btn-default btn-xs" id="btn_remove_attach">Delete Supplement</button>
+                            </div>
+                        </div>
+                        {% for am in attachments %}
+                            <div class="form-group attach_sub {{ am.file_type }}" ref='{{ am.file_type_name }}'>
+                                <label class="col-xs-2"></label>
+                                <div class="col-xs-1">{{ am.file_type_name }}</div>
+                                <div class="col-xs-2">
+                                    <a href="{{ MEDIA_URL }}project/{{ am.new_name }}">{{ am.file_name }}</a>
+                                    <input type="hidden" name="exist_upload_names" value="{{ am.file_name }}"/>
+                                    <input type='hidden' name='upload_type_names' value='{{ am.file_type_name }}'>
+                                    <input type="hidden" name="exist_upload_newNames" value="{{ am.new_name }}"/>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input type="hidden" name="upload_types" value="{{ am.file_type }}">
+                                    <input type="file" name="upload_file_{{ am.file_type }}" />
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">&nbsp;</label>
+                        <div class="col-xs-10">
+                            <label class="checkbox-inline">
+                                <input type="checkbox" name="iconfirm" id="iconfirm"/><b>I confirm the above deal information is valid and legal.</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body step_class hide_">
+                    <div class="col-xs-2">&nbsp;</div>
+                    <div class="col-xs-8">
+                        <div style="margin-left:60px;width:460px;">
+                            <h3>Thanks for submitting, we have received your deal profile.</h3>
+                            <br/><br/><br/>
+                            We will audit the deal profile in case of any potential risk for all the platform users, and will confirm in 24 hours.
+                            <br/><br/>
+                            Your deal profile will be saved in your Bank Assitant box. You could manage your deal.
+
+                        </div>
+                    </div>
+                    <div class="col-xs-3">&nbsp;</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group text-center">
+            <button type="button" class="btn btn-default btn-xs hide_" name="btn_pre" id="btn_pre"> Back </button>
+            <button type="button" class="btn btn-default btn-xs" name="btn_next" id="btn_next"> Next </button>
+            <button type="button" class="btn btn-primary btn-xs hide_ btn_step_3" name="btn_save" id="btn_save">Post</button>
+            <button type="button" class="btn btn-default btn-xs hide_ btn_step_3" name="btn_draft" id="btn_draft">Save to Workbook</button>
+            <button type="button" class="btn btn-primary btn-xs hide_ btn_step_4" name="btn_go_list" id="btn_go_list"> BankIng Genius </button>
+            <button type="button" class="btn btn-default btn-xs hide_ btn_step_4" name="btn_back" id="btn_back"> Back to Edit </button>
+            <br />
+            <br />
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock %}
+{% block footer %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/imask/jquery.imask.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/datepicker/datepicker.css" />
+    <script src="{{STATIC_PREFIX}}js/datepicker/bootstrap-datepicker.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/purchase.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/common_fill_en.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery.form.js"></script>
+    <script>
+        function initSelected4Demand() {
+            company_country_id = {{ u.company_country.id }};
+            company_province_id = 0;
+            {% if company_province.id > 0 %}
+            company_province_id = {{ u.company_province.id }};
+            {% endif %}
+            LoadProvinces('province', company_country_id, company_province_id);
+
+            var industry_0 = "{{ company_industry.cv1 }}";
+            var industry_1 = "{{ company_industry.cv2 }}";
+            var industry_2 = "{{ company_industry.cv3 }}";
+
+
+            if (industry_2 != "" && industry_2 != "None") {
+                $("#industry_id").val(industry_2);
+                $("#company_industry_0").val(industry_0);
+                industrySelect("company_industry_1", industry_0, industry_1);
+                industrySelect("company_industry_2", industry_1, industry_2);
+            }
+            else if (industry_1 != "" && industry_1 != "None") {
+                $("#industry_id").val(industry_1);
+                $("#company_industry_0").val(industry_0);
+                industrySelect("company_industry_1", industry_0, industry_1);
+                industrySelect("company_industry_2", industry_1);
+            }
+            else if (industry_0 != "" && industry_0 != "None") {
+                $("#industry_id").val(industry_0);
+                $("#company_industry_0").val(industry_0);
+                industrySelect("company_industry_1", industry_0);
+            }
+        }
+
+        initSelected4Demand();
+    </script>
+{% endblock %}

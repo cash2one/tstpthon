@@ -1,0 +1,59 @@
+
+{% if message_list %}
+    {% for message in message_list %}
+        <li class="message-item">
+            <div class="pull-left col-xs-10">
+                {% ifequal message_type 'send' %}{% if message.type_relation == 1 and message.project.is_anonymous and message.project.member.id == message.receiver.id or message.type_relation == 2 and message.demand.is_anonymous and message.demand.member.id == message.receiver.id%}
+                    <span class="message-item-pic">
+                     <img src="{% url 'account.avatar' 60 60 'default.jpg' %}" alt="anonymous" style="width: 70px;" />
+                    </span>
+                    <strong>Anonymous posting</strong>({{ message.receiver.company.get_type_display }})
+                {% else %}
+                    <span class="message-item-pic">
+                    <a href="{% url 'account.profile' message.receiver.id %}">
+                        <img src="{% url 'account.avatar' 60 60 message.receiver.avatar %}" class="thumbnail">
+                    </a>
+                    </span>
+                    <a href="{% url 'account.profile' message.receiver.id %}">{{message.receiver}} {{message.receiver.company.short_name_cn}}</a>({{ message.receiver.company.get_type_display }})&nbsp;
+                {% endif %}
+            {% endifequal %}
+                {% ifnotequal message_type 'send' %}
+                {% if message.type_relation == 1 and message.project.is_anonymous and message.project.member.id != message.receiver.id or message.type_relation == 2 and message.demand.is_anonymous and message.demand.member.id != message.receiver.id %}
+                    <span class="message-item-pic">
+                     <img src="{% url 'account.avatar' 60 60 'default.jpg' %}" alt="anonymous" style="width: 70px;" />
+                    </span>
+                    <strong>Anonymous Post</strong>({{ message.sender.company.get_type_display }})
+                {% else %}
+                <span class="message-item-pic">
+                    <a href="{% url 'account.profile' message.sender.id %}">
+                        <img src="{% url 'account.avatar' 60 60 message.sender.avatar %}" class="thumbnail">
+                    </a>
+                </span>
+                <a href="{% url 'account.profile' message.sender.id %}">{{message.sender}} {{message.sender.company.short_name_cn}}</a>({{ message.sender.company.get_type_display }})&nbsp;
+                {% endif %}
+                {% endifnotequal %}
+                {% ifequal message.type_relation 1 %}
+                    <a href="{% url 'sales.detail' message.project.id %}">{{message.project.name_cn}}</a>
+                {% endifequal %}
+                {% ifequal message.type_relation 2 %}
+                    <a href="{% url 'purchase.detail' message.demand.id %}">{{message.demand.name_cn}}</a>
+                {% endifequal %}
+                <p class="message-time"><i class="glyphicon glyphicon-time"></i>&nbsp;{{message.add_time}}</p>
+                <p>{{message.content|safe}}</p>
+            </div>
+              <span class="pull-right">
+                  {% ifequal message_type "unread" %}
+                      <button class="btn-xs btn-primary see_message_btn" rel="{{message.id}}"><i class="glyphicon glyphicon-check"></i>&nbsp;Read</button>
+                  {% endifequal %}
+                  {% if message.type_relation == 1 %}
+                      <button class="btn-xs btn-primary send_message_btn" rel="{{message.id}}" data-message-id="{{ message.project_id }}" data-message-type="{{ message.type_relation }}" data-reply-id="{{ message.sender.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Reply</button>
+                  {% elif message.type_relation == 2 %}
+                      <button class="btn-xs btn-primary send_message_btn" rel="{{message.id}}" data-message-id="{{ message.demand_id }}" data-message-type="{{ message.type_relation }}" data-reply-id="{{ message.sender.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Reply</button>
+                  {% else%}
+                      <button class="btn-xs btn-primary send_message_btn" rel="{{message.id}}" data-message-id="{{ message.sender.id }}" data-message-type="{{ message.type_relation }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;Reply</button>
+                  {% endif %}
+                  <button class="btn-xs btn-primary remove_message_btn" rel="{{message.id}}"><i class="glyphicon glyphicon-trash"></i>&nbsp;Delete</button>
+              </span>
+        </li>
+    {% endfor %}
+{% endif %}

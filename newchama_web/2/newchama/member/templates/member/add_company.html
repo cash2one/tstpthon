@@ -1,0 +1,583 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Add Company{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Company<span>Add Company</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Company</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">{{u.name_cn}}</h4>
+          
+        </div>
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post" enctype="multipart/form-data">
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+
+          <div class="form-group">
+              <label class="col-sm-3 control-label">账户类型</label>
+              <div class="col-sm-6">
+                 <select class="form-control chosen-select" data-placeholder="Choose Company Status..." name="status" id="status">
+                     <option value="0">Please Select</option>
+                     {% for id,value in STATUS_TYPES %}
+                     <option value="{{ id }}" {% if u.status == id %} selected {% endif %}>{{ value }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>
+
+        {% comment %}<div class="form-group">
+              <label class="col-sm-3 control-label">公司类型</label>
+              <div class="col-sm-6">
+                 <select class="form-control chosen-select" data-placeholder="Choose Company Type..." name="type" id="type">
+                     <option value="0">Please Select</option>
+                     {% for id,value in COMPANY_TYPES %}
+                     <option value="{{ id }}" {% if u.type == id %} selected {% endif %}>{{ value }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>{% endcomment %}
+
+        <div class="form-group">
+              <label class="col-sm-3 control-label">公司类型</label>
+              <div class="col-sm-6">
+                 <select class="form-control chosen-select" data-placeholder="Choose Company Type..." name="new_type" id="new_type">
+                     <option value="0">Please Select</option>
+                     {% for id,value in NEW_TYPES %}
+                     <option value="{{ id }}" {% if u.new_type == id %} selected {% endif %}>{{ value }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+           <div class="form-group">
+              <label class="col-sm-3 control-label">资本类型</label>
+              <div class="col-sm-6">
+                 <select class="form-control chosen-select" data-placeholder="Choose Capital Type..." name="capital_type" id="capital_type">
+                     <option value="0">Please Select</option>
+                     {% for id,value in Capital_TYPES %}
+                     <option value="{{ id }}" {% if u.capital_type == id %} selected {% endif %}>{{ value }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>
+             
+            <div class="form-group">
+              <label class="col-sm-3 control-label">中文全称(*)</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Chinese Name" id="name_cn" name="name_cn" value="{{ u.name_cn }}" class="form-control" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">英文全称</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="English Name" id="name_en" name="name_en" value="{{ u.name_en}}" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">中文简称</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Chinese Short Name" id="short_name_cn" name="short_name_cn" value="{{ u.short_name_cn }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">英文简称</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="English Short Name" id="short_name_en" name="short_name_en" value="{{ u.short_name_en}}" class="form-control"  />
+              </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">国家</label>
+                {% include "common/region_select.html" %}
+            </div>
+
+            <!--
+            <div class="form-group">
+              <label class="col-sm-3 control-label">国家</label>
+              <div class="col-sm-3">
+                  <select id="country" name="country" class="form-control chosen-select" data-placeholder="Choose a Country...">
+                        <option value="0">Please Select</option>
+                      {% for country in countries %}
+                          <option value="{{ country.id }}" {% if u.country_id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                      {% endfor %}
+                  </select>
+              </div>
+               <div class="col-sm-3 hide_" id="box_province">
+                  <select id="province" name="province" class="form-control chosen-select" data-placeholder="Choose a Region...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+                <div class="col-sm-3 hide_" id="box_city">
+                  <select id="city" name="city" class="form-control chosen-select" data-placeholder="Choose a City...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+            </div>
+           -->
+            <div class="form-group">
+              <label class="col-sm-3 control-label">行业</label>
+              <div class="col-sm-3">
+                  <select id="industry_first"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+              <div class="col-sm-3 hide_">
+                   <select id="industry_second"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+              <div class="col-sm-3 hide_">
+                  <select id="industry_third"  class="form-control chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">Please Select</option>
+                  </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">中文地址</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Chinese Address" id="address_cn" name="address_cn" value="{{ u.address_cn | default:"" }}" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">英文地址</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="English Address" id="address_en" name="address_en" value="{{ u.address_en | default:"" }}" class="form-control" />
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label class="col-sm-3 control-label">网站</label>
+              <div class="col-sm-6">
+                  <input type="url" placeholder="Website" id="website" name="website" value="{{ u.website | default:"" }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">电话</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Tel" id="tel" name="tel" value="{{ u.tel | default:"" }}" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">传真</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Fax" id="fax" name="fax" value="{{ u.fax | default:"" }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">邮编</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="PostCode" id="postcode" name="postcode" value="{{ u.postcode | default:"" }}" class="form-control" />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">中文介绍</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="intro_cn" name="intro_cn">{{ u.intro_cn | default:"" }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">英文介绍</label>
+              <div class="col-sm-6">
+                   <textarea class="form-control" rows="5" id="intro_en" name="intro_en">{{ u.intro_en | default:"" }}</textarea>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">中文投资经验</label>
+              <div class="col-sm-6">
+                  <textarea class="form-control" rows="5" id="investment_experience_cn" name="investment_experience_cn">{{ u.investment_experience_cn | default:"" }}</textarea>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">英文投资经验</label>
+              <div class="col-sm-6">
+                  <textarea class="form-control" rows="5" id="investment_experience_en" name="investment_experience_en">{{ u.investment_experience_en | default:"" }}</textarea>
+              </div>
+            </div>
+
+            
+            <div class="form-group">
+              <label class="col-sm-3 control-label">成立时间</label>
+              <div class="col-sm-3">
+                  <input type="text" name="found_time" id="found_time" placeholder="yyyy-mm-dd" class="form-control" value="{{ u.found_time|date:'Y-m-d' }}">
+              </div>
+            </div>
+             <div class="form-group">
+                  <label class="col-sm-3 control-label">Logo</label>
+                  <div class="col-sm-6">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                      <div class="input-append">
+                        <div class="uneditable-input">
+                          <i class="glyphicon glyphicon-file fileupload-exists"></i>
+                          <span class="fileupload-preview"></span>
+                        </div>
+                        <span class="btn btn-default btn-file">
+                          <span class="fileupload-new">Select file</span>
+                          <span class="fileupload-exists">Change</span>
+                          <input type="file" name="logo" />
+                        </span>
+
+                        <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+                      </div>
+                    </div>
+                    
+                  </div>
+                </div>
+                 <div class="form-group">
+                  <label class="col-sm-3 control-label">介绍文件</label>
+                  <div class="col-sm-6">
+                    <div class="fileupload fileupload-new" data-provides="fileupload">
+                      <div class="input-append">
+                        <div class="uneditable-input">
+                          <i class="glyphicon glyphicon-file fileupload-exists"></i>
+                          <span class="fileupload-preview"></span>
+                        </div>
+                        <span class="btn btn-default btn-file">
+                          <span class="fileupload-new">Select file</span>
+                          <span class="fileupload-exists">Change</span>
+                          <input type="file" name="intro_file" />
+                        </span>
+                        <a href="#" class="btn btn-default fileupload-exists" data-dismiss="fileupload">Remove</a>
+                      </div>
+                    </div>
+                      
+                  </div>
+                </div>
+
+                <div class="form-group">
+              <label class="col-sm-3 control-label">备注</label>
+              <div class="col-sm-6">
+                  <textarea class="form-control" rows="5" id="memo" name="memo">{{ u.memo | default:"" }}</textarea>
+              </div>
+            </div>
+
+
+        </div><!-- panel-body -->
+        <input value="{{ u.id }}" name="id" type="hidden" />
+               {% csrf_token %}
+{#        <input type="hidden" value="{{ u.province_id|default:0 }}" id="province_id" name="province_id">#}
+        <input type="hidden" value="{{ u.stock_exchange_id|default:0 }}" id="stock_exchange_id" name="stock_exchange_id">
+{#        <input type="hidden" value="{{ u.city_id|default:0 }}" id="city_id" name="city_id">#}
+        <input type="hidden" value="{{ u.industry_id|default:0 }}" id="industry_id" name="industry_id">
+        <div class="panel-footer">
+       <div class="row">
+        <div class="col-sm-6 col-sm-offset-3">
+          <button class="btn btn-primary">Submit</button>&nbsp;
+          <button class="btn btn-default">Cancel</button>
+        </div>
+       </div>
+      </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+
+     
+
+
+
+{% endblock %}
+{% block customjs %}
+    <script>
+    String.prototype.startWith=function(str){
+      var reg=new RegExp("^"+str);
+      return reg.test(this);
+    }
+
+    String.prototype.endWith=function(str){
+      var reg=new RegExp(str+"$");
+      return reg.test(this);
+    }
+    jQuery(".chosen-select").chosen({'width':'100%','white-space':'nowrap'});
+    jQuery('#found_time').datepicker({dateFormat:'yy-mm-dd', changeYear: true, changeMonth: true});
+    /*
+    jQuery("#country").change(function(){
+        LoadProvinces("province",jQuery(this).val(),0);
+    });
+    jQuery("#province").change(function(){
+        var province_id=jQuery(this).val();
+        jQuery("#province_id").val(province_id);
+        LoadCities("city",province_id,0);
+    });
+    jQuery("#city").change(function(){
+        var city_id=jQuery(this).val();
+        jQuery("#city_id").val(city_id)
+    });
+    */
+     jQuery("#type").change(function(){
+        var type=jQuery(this).val();
+         if(type==1)
+         {
+             jQuery("#div_stock_symbol").show();
+         }else
+         {
+             jQuery("#div_stock_symbol").hide();
+         }
+    });
+    //industrySelect("industry_first",0);
+    jQuery("#industry_first").change(function(){
+        var industry_id=jQuery(this).val();
+        if(industry_id>0)
+        {
+            jQuery("#industry_id").val(industry_id);
+            industrySelect("industry_second", industry_id);
+        }else
+        {
+            jQuery("#industry_id").val(0);
+            jQuery('#industry_second').parent().hide();
+        }
+    });
+    jQuery("#industry_second").change(function(){
+        var industry_id=jQuery(this).val();
+        if(industry_id>0) {
+            jQuery("#industry_id").val(industry_id);
+            industrySelect("industry_third", industry_id);
+        }else
+        {
+            jQuery("#industry_id").val(jQuery("#industry_first").val());
+            jQuery('#industry_third').parent().hide();
+        }
+    });
+    jQuery("#industry_third").change(function(){
+        var industry_id=jQuery(this).val();
+        if(industry_id>0) {
+            jQuery("#industry_id").val(industry_id)
+        }else{
+             jQuery("#industry_id").val(jQuery("#industry_second").val());
+        }
+    });
+    var company_industry_result_value = {{ u.industry_id|default:0 }};
+    var company_industry_result_level = {{ u.industry.level|default:0 }};
+    var company_industry_result_father_id = {{ u.industry.father.id|default:0 }};
+    if (company_industry_result_level ==1)
+    {
+        industrySelect("industry_first", 0,company_industry_result_value);
+        industrySelect("industry_second", company_industry_result_value);
+    }else
+    {
+        if(company_industry_result_level==2)
+        {
+           industrySelect("industry_first", 0,company_industry_result_father_id);
+           industrySelect("industry_second", company_industry_result_father_id,company_industry_result_value);
+        }
+        else if(company_industry_result_level==3)
+        {
+           var company_industry_result_father_father_id = "{{ u.company_industry.father.father.id }}";
+           industrySelect("industry_first", 0,company_industry_result_father_father_id);
+           industrySelect("industry_second", company_industry_result_father_father_id,company_industry_result_father_id);
+           industrySelect("industry_third", company_industry_result_father_id,company_industry_result_value);
+        }else
+        {
+           industrySelect("industry_first", 0,company_industry_result_value);
+        }
+    }
+    function SetData(data)
+    {
+       var name_cn = data[0].fields.name_cn;
+       var name_en = data[0].fields.name_en;
+       var short_name_cn = data[0].fields.short_name_cn;
+       var short_name_en = data[0].fields.short_name_en;
+       var website =  data[0].fields.website;
+        if(website!="" && (!website.startWith("http")))
+        {
+            website="http://"+website;
+        }
+       var tel =  data[0].fields.tel;
+       var fax =  data[0].fields.fax;
+       var address_cn =  data[0].fields.address_cn;
+       var address_en =  data[0].fields.address_en;
+       var postcode = data[0].fields.postcode;
+       var country = data[0].fields.country;
+       //var province = data[0].fields.province;
+       //var city = data[0].fields.city;
+       var industry = data[0].fields.industry;
+       var intro_cn = data[0].fields.intro_cn;
+       var intro_en = data[0].fields.intro_en;
+       var found_time = data[0].fields.found_time;
+        jQuery("#name_cn").val(name_cn);
+        jQuery("#name_en").val(name_en);
+        jQuery("#short_name_cn").val(short_name_cn);
+        jQuery("#short_name_en").val(short_name_en);
+        jQuery("#website").val(website);
+        jQuery("#tel").val(tel);
+        jQuery("#fax").val(fax);
+        jQuery("#address_cn").val(address_cn);
+        jQuery("#address_en").val(address_en);
+        jQuery("#intro_cn").val(intro_cn);
+        jQuery("#intro_en").val(intro_en);
+        jQuery("#postcode").val(postcode);
+        jQuery("#found_time").val(found_time);
+        if(country>0) {
+            jQuery("#country").val(country);
+            jQuery("#country").trigger("chosen:updated");
+        }
+        /*
+        if(province>0)
+        {
+            LoadProvinces("province",country,province);
+            jQuery("#province_id").val(province);
+        }
+        if(city>0) {
+            LoadCities("city",province,city);
+            jQuery("#city_id").val(city);
+        }*/
+        if(industry>0)
+        {
+            var url_get_industry = "/industry/get/"+industry;
+            jQuery.getJSON(url_get_industry,function(data_industry){
+                var industry_id = data_industry.id;
+                var industry_level = data_industry.level;
+                var industry_father_id = data_industry.father_id;
+                var industry_father_father_id = data_industry.father_father_id;
+                switch(industry_level)
+                {
+                    case 1:
+                        industrySelect("industry_first",0,industry_id);
+                        break;
+                    case 2:
+                        industrySelect("industry_first",0,industry_father_id);
+                        industrySelect("industry_second",industry_father_id,industry_id);
+                        break;
+                    case 3:
+                        industrySelect("industry_first",0,industry_father_father_id);
+                        industrySelect("industry_second",industry_father_father_id,industry_father_id);
+                        industrySelect("industry_third",industry_father_id,industry_id);
+                        break;
+                }
+            });
+            jQuery("#industry_id").val(industry);
+        }
+    }
+    /*
+    $("#stock_symbol" ).autocomplete({
+          source: function( request, response ) {
+            $.ajax({
+              url: "/repository/get_listed_companies/"+request.term,
+              dataType: "json",
+              success: function( jsonResponse ) {
+                 var data = $(jsonResponse).map(function(id,item) {
+                  return {
+                    value: item.fields.stock_symbol,
+                    label: item.fields.stock_symbol + ":" +
+                       item.fields.short_name_cn,
+                    id: item.pk
+                  };
+                })
+               response(data);
+              }
+            });
+          },
+          minLength: 2,
+          select: function( event, ui ) {
+            SelectedListedCompany(ui.item.id);
+          }
+    });
+    function SelectedListedCompany(id)
+    {
+        var url = "/repository/get_listed_company/"+id;
+        jQuery.getJSON(url,function(data)
+        {
+            var count = data.length;
+            if(count>0) {
+               SetData(data);
+            }
+        });
+    }
+    */
+    $("#short_name_en").autocomplete({
+          source: function( request, response ) {
+            $.ajax({
+              url: "/repository/get_investment_companies/"+request.term,
+              dataType: "json",
+              success: function( jsonResponse ) {
+                 var data = $(jsonResponse).map(function(id,item) {
+                  return {
+                    value: item.fields.short_name_en,
+                    label: item.fields.short_name_en + ":" +
+                       item.fields.name_en,
+                    id: item.pk
+                  };
+                })
+               response(data);
+              }
+            });
+          },
+          minLength: 2,
+          select: function( event, ui ) {
+            SelectedInvestmentCompany(ui.item.id);
+          }
+    });
+    function SelectedInvestmentCompany(id)
+    {
+        var url = "/repository/get_investment_company/"+id;
+        jQuery.getJSON(url,function(data)
+        {
+            var count = data.length;
+            if(count>0) {
+               SetData(data);
+            }
+        });
+    }
+    /*
+    $(function() {
+    var projects = [
+      {
+        value: "jquery",
+        label: "jQuery",
+      },
+      {
+        value: "jquery-ui",
+        label: "jQuery UI",
+      },
+      {
+        value: "sizzlejs",
+        label: "Sizzle JS",
+      }
+    ];
+
+    $( "#stock_symbol" ).autocomplete({
+      minLength: 0,
+      source: projects,
+      focus: function( event, ui ) {
+        $( "#stock_symbol" ).val( ui.item.label );
+        return false;
+      },
+      select: function( event, ui ) {
+        //$( "#project" ).val( ui.item.label );
+        //$( "#project-id" ).val( ui.item.value );
+       // $( "#project-description" ).html( ui.item.desc );
+        //$( "#project-icon" ).attr( "src", "images/" + ui.item.icon );
+        alert(ui.item.label);
+        return false;
+      }
+    })
+    .autocomplete( "instance" )._renderItem = function( ul, item ) {
+      return $( "<li>" )
+        .append( "<a>" + item.label + "<br>" + item.desc + "</a>" )
+        .appendTo( ul );
+    };
+  });*/
+    </script>
+{% endblock %}

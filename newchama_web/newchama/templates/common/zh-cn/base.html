@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<html>
+<head>
+<meta charset="utf-8" />
+<title>NewChama 让交易更简单</title>
+<meta name="Keywords" content="新茶马,纽熙（上海）网络科技有限公司,并购平台,融资平台,股权平台,股权信息新建,交易服务,纽熙,茶马,茶马古道 " />
+<meta name="Description" content="NewChama是全球领先的股权交易与并购信息交易平台。截止今天，平台上的新建新建已达到数百个。NewChama帮助新建寻找遍及全球的投资者；同时，也为买方定位优质新建，提供投资决策的信息支持。" />
+
+<link rel="shortcut icon" href="{{STATIC_PREFIX}}img/favicon.ico">
+<link href="{{STATIC_PREFIX}}css/bootstrap.min.css" rel="stylesheet" />
+<link href="{{STATIC_PREFIX}}css/newchama.css" rel="stylesheet" />
+<link href="{{STATIC_PREFIX}}css/custom.css" rel="stylesheet" />
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+      <script src="{{STATIC_PREFIX}}js/html5shiv.min.js"></script>
+      <script src="{{STATIC_PREFIX}}js/respond.min.js"></script>
+    <![endif]-->
+<!--[if lt IE 11 ]>
+<script src="http://cdn.bootcss.com/json2/20140204/json2.js"></script>
+<![endif]-->
+{% block header %}{% endblock %}
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?690046ddb5b2d6eadafc3f2827c92b75";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+</head>
+<div class="navbar navbar-default" role="navigation">
+    <div class="navbar_warrper">
+        <div class="navbar_warrper_inner">
+    
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+        <span class="navbar-brand">{% comment %} Let’s make deal simple!{% endcomment %}</span>
+    </div>
+
+
+         <ul class="nav navbar-nav noticebar navbar-right">
+         <li style="line-height:50px; padding-right:10px; color:#B6B4B4">Hi,{{member.username}}</li>
+            <li> <a href="{% url 'account.messages' %}" style="color:#B6B4B4"> <i class="glyphicon glyphicon-envelope"></i> <span class="navbar-visible-collapsed">&nbsp;Messages&nbsp;</span>
+            
+            <span class="badge" id="new_badge_num" style="display:none;"></span>
+            
+            </a>
+                 </li>
+
+                 {% comment %}<li><a href="javascript:change_lang('en-us')"><i class="glyphicon glyphicon-globe"></i>&nbsp;EN</a></li>{% endcomment %}
+        </ul>
+        </div>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        
+       
+        
+        <div class="container-fluid" id="newchama_nav">
+            <ul id="ul_nav" class="nav navbar-nav">
+                <li><a href="{% url 'account.index' %}#">首页</a></li>
+                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown">项目<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url 'sales.add' 0 %}">新建项目</a></li>
+                        <li><a href="{% url 'sales.mylist' %}">项目管理</a></li>
+                        <li><a href="{% url 'sales.new' %}">找项目</a></li>
+                        {% comment %}<li><a href="javascript:;">项目收件箱</a></li>{% endcomment %}
+                        <li><a href="{% url 'subscribe.index' %}">我的订阅</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">需求<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url 'purchase.add' %}">新建需求</a></li>
+                        <li><a href="{% url 'purchase.mylist' %}">需求管理</a></li>
+                        <li><a href="{% url 'purchase.new' %}">找需求</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'deal.index' %}">行业数据</a></li>
+                <li><a href="{% url 'account.myfavorite' %}">我的关注</a></li>
+                <li><a href="{% url 'account.messages' %}">消息</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">个人中心<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li><a href="{% url 'account.profile' member.id %}">个人首页</a></li>
+                        <li><a href="{% url 'account.company' member.company_id %}">我的公司</a></li>
+                        {% comment %}<li><a href="{% url 'account.preference_project' %}">偏好设置</a></li>{% endcomment %}
+                        <li><a href="{% url 'account.setting' %}">资料设置</a></li>
+                        <li><a href="{% url 'account.logout' %}">退出</a></li>
+                    </ul>
+                </li>
+                <li class="pull-right">
+                  <form class="navbar-search-form navbar-right" role="search">
+                    <div class="input-group">
+                        <input type="text" id="keyword_top" class="form-control" />
+                        <span class="input-group-btn"> <button class="btn btn-default" id="btn_search_top" type="button"> <span class="glyphicon glyphicon-search"></span> </button> </span>
+                    </div>
+                    <!-- /input-group -->
+                </form>
+
+                </li>
+            </ul>
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.navbar-collapse -->
+    
+    
+    
+</div>
+{% block content %}
+
+{% endblock %}
+<div class="footer">
+    <div class="container-fluid">
+        <p><a href="{% url 'home.us' %}">关于我们</a>        ｜    <a href="{% url 'home.bd' %}">商务合作</a>    ｜    <a href="{% url 'home.contact' %}">联系方式</a>     ｜      <a href="{% url 'account.privacy' %}">隐私政策</a>     ｜      <a href="{% url 'account.user' %}">用户条款</a>
+         </p>
+        <p>版权所有 @2014  NewChama.com    沪ICP备14045386号</p>
+    </div>
+</div>
+<script src="{{STATIC_PREFIX}}js/libs/jquery-1.10.1.min.js"></script>
+<script src="{{STATIC_PREFIX}}js/common/nav.js"></script>
+<script src="{{STATIC_PREFIX}}js/libs/bootstrap.min.js"></script>
+<!--[if lt IE 9]>
+  <script src="{{STATIC_PREFIX}}js/libs/excanvas.compiled.js"></script>
+  <![endif]-->
+<!-- App JS -->
+<!-- Plugin JS -->
+<script src="{{STATIC_PREFIX}}js/target-admin.js"></script>
+<link href="{{STATIC_PREFIX}}css/parsley.css" rel="stylesheet" />
+<script src="{{STATIC_PREFIX}}js/plugins/parsley/parsley_zh.js?aa=3"></script>
+<script src="{{STATIC_PREFIX}}js/plugins/bootbox/bootbox.min.js"></script>
+<script src="{{STATIC_PREFIX}}js/common/lang.js"></script>
+<script src="{{STATIC_PREFIX}}js/common/csrf.js"></script>
+<script src="{{STATIC_PREFIX}}js/common/message.js?aa=3"></script>
+<script src="{{STATIC_PREFIX}}js/common/common.js?aa=3"></script>
+{% block footer %}
+
+{% endblock %}
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57230495-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body>
+</html>

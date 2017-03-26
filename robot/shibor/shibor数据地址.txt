@@ -1,0 +1,8 @@
+http://www.shibor.org/shibor/shiborDefDown.do?fileName=Historical_Shibor_Data_2013_10.txt
+http://www.shibor.org/shibor/shiborDefDown.do?fileName=Historical_Shibor_Data_2010.txt
+
+
+http://www.shibor.org/shibor/shiborDefDown.do?fileName=Historical_LPR_Data_2013_10.txt
+
+
+http://www.shibor.org/shibor/ShiborTendaysShow.do

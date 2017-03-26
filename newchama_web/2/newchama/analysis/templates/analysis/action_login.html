@@ -1,0 +1,62 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    {% include "analysis/analysis_nav.html" %}
+
+<h4>三天未登录用户 | <a href="{% url 'analysis.action_publish' %}">七天未发布项目用户</a> | <a href="{% url 'analysis.action_message' %}">未读消息用户</a></h4>
+<table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>姓名</th>
+            <th>邮箱</th>
+            <th>手机</th>
+            <th>公司</th>
+            <th>BD Owner</th>
+            <th>注册时间</th>
+            
+            <th>发送未登录消息时间</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          {% autopaginate result_list %}
+        {% for item in result_list %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.first_name }}{{ item.last_name }}</td>
+            <td>{{ item.email }}</td>
+            <td>{{ item.mobile }}</td>
+            <td>{{ item.company.name_cn }}</td>
+            <td>{{ item.owner.username }}</td>
+            <td>{{ item.add_time | date:'Y-m-d H:i:s'  }}</td>
+            <td>{{ item.send_time  | default:'' | date:'Y-m-d H:i:s'   }}</td>
+            <td>
+            <a href="javascript:DoSendNologinMessagemail({{ item.id }});" class="delete-row" title="发送提醒邮件"><i class="glyphicon glyphicon-send"></i></a>&nbsp;&nbsp;<a href="{% url 'member.edit' item.id %}" title="BD tracking"><i class="glyphicon glyphicon-file  "></i></a></td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

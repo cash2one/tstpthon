@@ -1,0 +1,73 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+       {% include "analysis/analysis_nav.html" %}
+     
+
+<h4>人工推荐点击</h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>时间</th>
+            <th>点击公司</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        {% for item in result_list_man %}
+          <tr>
+            <td>{{ item.time | date:'Y-m-d H:i:s' }}</td>
+            <td><a href="{% url 'company.edit' item.item_id %}">{{ item.item_name }}</a></td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   
+</div>
+
+
+<h4>机器推荐点击</h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>时间</th>
+            <th>点击公司</th>
+
+          </tr>
+        </thead>
+        <tbody>
+         
+        {% for item in result_list_machine %}
+          <tr>
+            <td>{{ item.time | date:'Y-m-d H:i:s' }}</td>
+            <td><a href="{% url 'company.edit' item.item_id %}">{{ item.item_name }}</a></td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+   
+</div>
+
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

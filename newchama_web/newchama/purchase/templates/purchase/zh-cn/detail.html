@@ -1,0 +1,11 @@
+{% extends "common/zh-cn/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% get_media_prefix as MEDIA_PREFIX %}
+{% load myTags %}
+{% block content %}
+    {% include "purchase/zh-cn/detail_content.html" %}
+{% endblock %}
+{% block footer %}
+  {% include "account/zh-cn/sendmessagemodal.html" %}
+{% endblock %}

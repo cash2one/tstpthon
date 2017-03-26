@@ -1,0 +1,64 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+       {% include "analysis/analysis_nav.html" %}
+     
+
+<h4>用户表</h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>日期</th>
+            <th>登录用户数</th>
+            <th>新增注册用户数</th>
+            <th>创建项目的用户数</th>
+            <th>创建需求的用户数</th>
+            <th>登录但未发布项目/需求的用户数</th>
+            <th>一键推送的卖方数</th>
+            <th>访问首页用户数</th>
+            <th>活跃用户数</th>
+            <th>添加到队列用户数</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% autopaginate result_list %}
+        {% for item in result_list %}
+          <tr>
+            <td>{{ item.time | date:'Y-m-d' }}</td>
+            <td><a href="{% url 'analysis.login_user' item.pk %}">{{ item.logined_user_num }}</a></td>
+            <td><a href="{% url 'analysis.add_user' item.pk %}">{{ item.add_user_num }}</a></td>
+            <td><a href="{% url 'analysis.creat_project_user' item.pk %}">{{ item.created_project_user_num }}</a></td>
+            <td><a href="{% url 'analysis.creat_demand_user' item.pk %}">{{ item.created_demand_user_num }}</a></td>
+            <td><a href="{% url 'analysis.no_creat_user' item.pk %}">{{ item.unpublish_user_num }}</a></td>
+            <td><a href="{% url 'analysis.send_mail_user' item.pk %}">{{ item.sendmail_user_num }}</a></td>
+            <td><a href="{% url 'analysis.visited_index_user' item.pk %}">{{ item.visited_index_user_num }}</a></td>
+            <td><a href="{% url 'analysis.active_user' item.pk %}">{{ item.active_user_num }}</a></td>
+            <td>{{ item.target_user_num }}</td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

@@ -1,0 +1,88 @@
+{% extends "backend/base.html" %}
+
+
+{% block headerbar %} 
+    <div class="headerbar">
+      {% include "backend/headerbar.html" %}  
+    </div><!-- headerbar -->
+{% endblock %}
+
+{% block pageheader %}
+    <div class="pageheader">      
+      <h2><i class="fa fa-home"></i> 小金库活动报名管理</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'backend.index' %}">OliveCMS</a></li>
+          <li class="active">小金库活动报名管理</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block contentpanel %} 
+ <div class="contentpanel">
+      
+     <div class="row">
+        
+        <div class="col-md-12">
+          <div class="panel panel-default">
+        <div class="panel-heading">
+          
+          <h3 class="panel-title">小金库活动报名</h3>
+          
+        </div>
+        <div class="panel-body">
+
+        {% if messages %}
+        <div class="message_block">
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            {{ message }}
+                        </div> <!-- /.alert -->
+                    {% endfor %}
+        </div>
+        {% endif %}
+       
+          <form class="form-horizontal" method="POST" data-validate="parsley">
+            
+            <div class="form-group">
+              <label class="col-sm-3 control-label">虚拟资金</label>
+              <div class="col-sm-6">
+                <input type="number" name="event_amount" id="event_amount" placeholder=""  class="form-control"  data-required="true" data-type="number" value="{{f.event_amount}}" />
+              </div>
+            </div>
+            <div class="col-sm-6 col-sm-offset-3">
+            {% csrf_token %}   
+          <button type="submit" class="btn btn-primary">Submit</button>&nbsp;
+          
+        </div>
+          </form>
+            
+          
+        </div><!-- panel-body -->
+        <div class="panel-footer">
+       <div class="row">
+        
+       </div>
+      </div><!-- panel-footer -->
+
+      </div><!-- panel -->
+        </div><!-- col-md-6 -->
+        
+       
+      </div>
+     
+      
+    </div><!-- contentpanel -->
+{% endblock %}
+
+
+
+{% block customjs %} 
+<script src="{{STATIC_URL}}backend/js/jquery.datatables.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/chosen.jquery.min.js"></script>
+
+{% endblock %}

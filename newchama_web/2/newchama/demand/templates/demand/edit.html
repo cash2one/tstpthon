@@ -1,0 +1,457 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Edit Demand{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Demand<span>Edit Demand</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'adminuser.index' %}">NewChama</a></li>
+          <li class="active">Demand</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Edit Demand</h4>
+          <p>Edit demand</p>
+        </div>
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+          <div class="form-group">
+              <label class="col-sm-3 control-label">Member(*)</label>
+              <div class="col-sm-6">
+                  <select class="form-control chosen-select" data-placeholder="Choose Member..." name="member_id" id="member_id">
+                    <option value="0">Please Select</option>
+                     {% for m in members %}
+                     <option value="{{ m.id }}" {% if u.member.id == m.id %} selected="selected" {% endif %}>{{ m.first_name }}{{ m.last_name }}:{{ m.company.short_name_en }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Basic information(*) [English]</label>
+              <div class="col-sm-6">
+                  <textarea placeholder="Basic information English " name="intro_en" class="form-control" rows="5" required>{{ u.intro_en }}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Basic information [Chinese]</label>
+              <div class="col-sm-6">
+                  <textarea placeholder="Basic information Chinese "  name="intro_cn" class="form-control" rows="5">{{ u.intro_cn }}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Desired Transaction Type</label>
+              <div class="col-sm-6">
+                 <select class="form-control chosen-select" data-placeholder="Choose Transaction Type..." name="type" id="type">
+                     {% for id,value in SERVICE_TYPES %}
+                     <option value="{{ id }}">{{ value }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Project Name(*) [English]</label>
+              <div class="col-sm-6">
+                  <input type="text" placeholder="Project Name English" name="name_en" value="{{ u.name_en }}" required class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Project Name [Chinese]</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Project Name Chinese" name="name_cn"  value="{{ u.name_cn }}" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Introduction for business [English]</label>
+              <div class="col-sm-6">
+                  <textarea placeholder="Introduction for business English" name="business_en" class="form-control" rows="5">{{ u.business_en }}</textarea>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Introduction for business [Chinese]</label>
+              <div class="col-sm-6">
+                  <textarea placeholder="Introduction for business Chinese" name="business_cn" class="form-control" rows="5">{{ u.business_cn }}</textarea>
+              </div>
+            </div>
+          <div class="form-group">
+              <label class="col-sm-3 control-label">Listed company</label>
+              <div class="col-sm-6">
+                  <div class="ckbox ckbox-success">
+                    <input type="checkbox" id="checkbox_Listed_company" />
+                    <label for="checkbox_Listed_company">Y</label>
+                  </div>
+              </div>
+            </div>
+            <div class="form-group" id="box_ticker" style="display: none;">
+              <label class="col-sm-3 control-label">Ticker</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Ticker" id="ticker" name="company_stock_symbol" value="{{ u.company_stock_symbol }}" class="form-control" />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Company location</label>
+              <div class="col-sm-6">
+                <div class="input-group col-sm-12">
+                <select id="country" class="form-control chosen-select" data-placeholder="Choose a Country...">
+                        <option value="0">All</option>
+                      {% for country in countries %}
+                          <option value="{{ country.id }}">{{ country.name_en }}</option>
+                      {% endfor %}
+                  </select>
+                    <span class="input-group-addon addon_btn" onclick="AddCountry('country')">+Add</span>
+              </div>
+              <!--<div class="input-group col-sm-12" id="box_province">
+                 <select id="province" class="form-control chosen-select" data-placeholder="Choose a Region...">
+                      <option value="0">All</option>
+                  </select>
+                    <span class="input-group-addon addon_btn" onclick="AddProvince('province')">+Add</span>
+              </div>
+              <div class="input-group col-sm-12" id="box_city">
+                 <select id="city" class="form-control chosen-select" data-placeholder="Choose a City...">
+                      <option value="0">All</option>
+                  </select>
+                    <span class="input-group-addon addon_btn" onclick="AddCity('city')">+Add</span>
+              </div>-->
+              </div>
+            </div>
+            <div class="form-group" style="border: 0px;">
+              <label class="col-sm-3 control-label"></label>
+              <div class="col-sm-6">
+                   <div id="box_location" class="customSelect">
+                       {% for c in u.company_countries.all %}
+                           <span><input type="hidden" value="{{ c.id }}" name="country" id="country_id_{{ c.id }}">{{ c.name_en }}<a class='customClose'></a></span>
+                       {% endfor %}
+                        {% for c in u.company_provinces.all %}
+                           <span><input type="hidden" value="{{ c.id }}" name="province" id="province_id_{{ c.id }}">{{ c.name_en }}<a class='customClose'></a></span>
+                       {% endfor %}
+                        {% for c in u.company_cities.all %}
+                           <span><input type="hidden" value="{{ c.id }}" name="city" id="city_id_{{ c.id }}">{{ c.name_en }}<a class='customClose'></a></span>
+                       {% endfor %}
+                   </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Industry Classification</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                  <select id="industry_first" class="form-control mb15 chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">All</option>
+                  </select>
+                  <span class="input-group-addon addon_btn" onclick="AddIndustry('industry_first')">+Add</span>
+              </div>
+              <div class="input-group col-sm-12">
+                  <select id="industry_second" class="form-control mb15 chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">All</option>
+                  </select>
+                  <span class="input-group-addon addon_btn" onclick="AddIndustry('industry_second')">+Add</span>
+              </div>
+              <div class="input-group col-sm-12">
+                  <select id="industry_third" class="form-control mb15 chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">All</option>
+                  </select>
+                  <span class="input-group-addon addon_btn" onclick="AddIndustry('industry_third')">+Add</span>
+              </div>
+              </div>
+            </div>
+            <div class="form-group" style="border: 0px;">
+              <label class="col-sm-3 control-label"></label>
+              <div class="col-sm-6">
+                   <div id="box_industry" class="customSelect">
+                       {% for c in u.company_industries.all %}
+                           <span><input type="hidden" value="{{ c.id }}" name="industry" id="industry_id_{{ c.id }}">{{ c.name_en }}<a class='customClose'></a></span>
+                       {% endfor %}
+                   </div>
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Audited financial report?</label>
+              <div class="col-sm-6">
+                  <div class="ckbox ckbox-success">
+                    <input type="checkbox" id="checkbox_Audited_financial_report" />
+                    <label for="checkbox_Audited_financial_report">Y</label>
+                  </div>
+              </div>
+            </div>
+             <div class="form-group" id="box_audit_company" style="display: none;">
+              <label class="col-sm-3 control-label">Audited by big four?</label>
+              <div class="col-sm-6">
+                  <div class="ckbox ckbox-success">
+                    <input type="checkbox" id="checkbox_Audited_by_big_four" name="financial_audit_company_is_must_default" />
+                    <label for="checkbox_Audited_by_big_four">Y</label>
+                  </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Currency for financial report</label>
+              <div class="col-sm-6">
+                 <select class="form-control mb15 chosen-select" id="currency_type" name="currency_type">
+                     <option value="0">Please Select</option>
+                      {% for id,value in CURRENCY_TYPES %}
+                          <option value="{{ id }}" {% if currency_type == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+              </div>
+            </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Revenue</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                 <select class="form-control mb15 chosen-select" name="income">
+                      {% for id,value in FINANCIAL_TYPES %}
+                          <option value="{{ id }}" {% if u.income == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+              <span class="input-group-addon">{{ u.financial_year }}</span>
+              </div>
+              </div>
+            </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Net Profit</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                 <select class="form-control mb15 chosen-select" name="profit">
+                      {% for id,value in FINANCIAL_TYPES %}
+                          <option value="{{ id }}" {% if u.profit == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+                  <span class="input-group-addon">{{ u.financial_year }}</span>
+              </div>
+                </div>
+            </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Growth rate in future 3 years</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                 <input type="text" placeholder="Growth rate in future 3 years" name="growth_three_year"  value="{{ u.growth_three_year|default:'' }}" class="form-control number" />
+                 <span class="input-group-addon">%</span>
+              </div>
+              </div>
+            </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Net asset</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                 <select class="form-control mb15 chosen-select" id="net_assets" name="net_assets">
+                      {% for id,value in FINANCIAL_TYPES %}
+                          <option value="{{ id }}" {% if u.net_assets == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+                <span class="input-group-addon">{{ u.financial_year }}</span>
+              </div>
+              </div>
+            </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Employee headcount</label>
+              <div class="col-sm-6">
+                 <select class="form-control mb15 chosen-select" name="employees_count_type">
+                      {% for id,value in EMPLOYEES_COUNT_TYPES %}
+                          <option value="{{ id }}" {% if u.employees_count_type == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+              </div>
+            </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Paid in capital</label>
+              <div class="col-sm-6">
+                 <select class="form-control mb15 chosen-select" name="registered_capital">
+                      {% for id,value in FINANCIAL_TYPES %}
+                          <option value="{{ id }}" {% if u.registered_capital == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+              </div>
+         </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Total Asset</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                 <select class="form-control mb15 chosen-select" name="total_assets_last_phase">
+                      {% for id,value in FINANCIAL_TYPES %}
+                          <option value="{{ id }}" {% if u.total_assets_last_phase == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+              <span class="input-group-addon">{{ last_financial_year }}</span>
+              </div>
+              </div>
+         </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Revenue</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                 <select class="form-control mb15 chosen-select" name="income_last_phase">
+                      {% for id,value in FINANCIAL_TYPES %}
+                          <option value="{{ id }}" {% if u.income_last_phase == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+              <span class="input-group-addon">{{ last_financial_year }}</span>
+              </div>
+              </div>
+         </div>
+         <div class="form-group">
+              <label class="col-sm-3 control-label">Net Profit</label>
+              <div class="col-sm-6">
+               <div class="input-group col-sm-12">
+                 <select class="form-control mb15 chosen-select" name="profit_last_phase">
+                      {% for id,value in FINANCIAL_TYPES %}
+                          <option value="{{ id }}" {% if u.profit_last_phase == id %} selected="selected" {% endif %}>{{ value }}</option>
+                      {% endfor %}
+                </select>
+              <span class="input-group-addon">{{ last_financial_year }}</span>
+              </div>
+              </div>
+         </div>
+         <div class="form-group">
+              <label class="col-sm-3 control-label">Equity Structure</label>
+              <div class="col-sm-6">
+                <div class="input-group mb15">
+                    <span class="input-group-addon">Management:</span>
+                     <select class="form-control mb15 chosen-select" name="stock_structure_percentage_type_management">
+                          {% for id,value in STOCK_STRUCTURE_PERCENTAGE_TYPES %}
+                              <option value="{{ id }}" {% if u.stock_structure_percentage_type_management == id %} selected="selected" {% endif %}>{{ value }}</option>
+                          {% endfor %}
+                    </select>
+                </div>
+                <div class="input-group mb15">
+                    <span class="input-group-addon">Institutional investor:</span>
+                     <select class="form-control mb15 chosen-select" name="stock_structure_percentage_type_institutional">
+                          {% for id,value in STOCK_STRUCTURE_PERCENTAGE_TYPES %}
+                              <option value="{{ id }}" {% if u.stock_structure_percentage_type_institutional == id %} selected="selected" {% endif %}>{{ value }}</option>
+                          {% endfor %}
+                    </select>
+                </div>
+              </div>
+         </div>
+         <div class="form-group">
+              <label class="col-sm-3 control-label">Notes [English]</label>
+              <div class="col-sm-6">
+                  <textarea placeholder="Notes English" name="remark_en" class="form-control" rows="5">{{ u.remark_en }}</textarea>
+              </div>
+         </div>
+          <div class="form-group">
+              <label class="col-sm-3 control-label">Notes [Chinese]</label>
+              <div class="col-sm-6">
+                  <textarea placeholder="Notes Chinese"  name="remark_cn" class="form-control" rows="5">{{ u.remark_cn }}</textarea>
+              </div>
+         </div>
+
+          <div class="form-group">
+              <label class="col-sm-3 control-label">Suitor</label>
+              <div class="col-sm-6">
+                  <input type="checkbox" id="is_suitor" name="is_suitor"/>
+                  <label for="is_suitor">Y</label>
+              </div>
+          </div>
+          <!--
+         <div class="form-group" style="border: 0px;">
+              <label class="col-sm-3 control-label"></label>
+              <div class="col-sm-6">
+                  <div id="box_member" class="customSelect"></div>
+              </div>
+          </div>
+          -->
+         <div class="form-group hide_ suitor">
+              <label class="col-sm-3 control-label">Industry for Suitor</label>
+              <div class="col-sm-6">
+              <div class="input-group mb15">
+                  <select id="industry_suitor_first" class="form-control mb15 chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">All</option>
+                  </select>
+                  <span class="input-group-addon addon_btn" onclick="AddIndustrySuitor('industry_suitor_first')">+Add</span>
+              </div>
+              <div class="input-group mb15">
+                  <select id="industry_suitor_second" class="form-control mb15 chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">All</option>
+                  </select>
+                  <span class="input-group-addon addon_btn" onclick="AddIndustrySuitor('industry_suitor_second')">+Add</span>
+              </div>
+              <div class="input-group mb15">
+                  <select id="industry_suitor_third" class="form-control mb15 chosen-select" data-placeholder="Choose a Industry...">
+                      <option value="0">All</option>
+                  </select>
+                  <span class="input-group-addon addon_btn" onclick="AddIndustrySuitor('industry_suitor_third')">+Add</span>
+              </div>
+              </div>
+          </div>
+           <div class="form-group hide_ suitor" style="border: 0px;">
+              <label class="col-sm-3 control-label"></label>
+              <div class="col-sm-6">
+                   <div id="box_industry_suitor" class="customSelect"></div>
+              </div>
+        </div>
+          <div class="form-group hide_ suitor">
+              <label class="col-sm-3 control-label">Selected Suitor</label>
+              <div class="col-sm-6">
+                  <!--<input type="text" class="form-control" placeholder="Company Name" id="company_name">-->
+                  <select class="form-control chosen-select" multiple data-placeholder="Choose Company..." name="companies" id="companies">
+                    <option value="0">Please Select</option>
+                     {% for m in companies %}
+                     <option value="{{ m.id }}">{{ m.short_name_en }}:{{ m.name_en }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+          </div>
+
+          <!--
+        <div class="form-group" style="border: 0px;">
+              <label class="col-sm-3 control-label"></label>
+              <div class="col-sm-6">
+                   <div id="box_company" class="customSelect"></div>
+              </div>
+        </div>
+        -->
+          <div class="form-group hide_ suitor">
+              <label class="col-sm-3 control-label">Selected Member</label>
+              <div class="col-sm-6">
+               <select class="form-control chosen-select" multiple data-placeholder="Choose Member..." name="members" id="members">
+                    <option value="0">Please Select</option>
+                     {% for m in members %}
+                     <option value="{{ m.id }}">{{ m.first_name }}{{ m.last_name }}:{{ m.company.short_name_en }}</option>
+                     {% endfor %}
+                </select>
+              </div>
+            </div>
+        <div class="form-group">
+              <label class="col-sm-3 control-label">Information Duration(*)</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" name="expire_date" required placeholder="yyyy-mm-dd" id="expire_date" value="{{ u.expire_date|date:'Y-m-d' }}">
+              </div>
+         </div>
+         <div class="form-group">
+              <label class="col-sm-3 control-label">Anonymous?</label>
+              <div class="col-sm-6">
+                  <div class="ckbox ckbox-success">
+                    <input type="checkbox" name="is_anonymous" id="is_anonymous" checked="checked" />
+                    <label for="is_anonymous">Y</label>
+                  </div>
+              </div>
+            </div>
+          <input type="hidden" value="{{ u.id }}" id="id" name="id">
+            {% csrf_token %}
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary">Submit</button>&nbsp;
+				  <button class="btn btn-default">Cancel</button>
+				</div>
+			 </div>
+		  </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+{% endblock %}
+{% block customjs %}
+{% load staticfiles %}
+<script src="{% static "js/demand.js" %}"></script>
+{% endblock %}

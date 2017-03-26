@@ -1,0 +1,308 @@
+{% extends "common/en-us/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">设定搜索条件</h3>
+        </div>
+        <div class="panel-body">
+            <div class="col-xs-12">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li class="active"><a href="###">卖方发布</a></li>
+                    <li><a href="{% url 'purchase.search' %}">买方发布</a></li>
+                     <li><a href="{% url 'news.search' %}">新闻</a></li>
+{#                    <li><a href="{% url 'account.search_company' %}">机构</a></li>#}
+{#                    <li><a href="{% url 'account.search_member' %}">用户</a></li>#}
+                </ul>
+                <br />
+                <form class="form-horizontal" role="form" id="form-project">
+                    <div class="form-group">
+                        <label class="col-xs-2">选择交易类型</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select id="serviceType" name="serviceType" class="form-control">
+                                    <option value="0">不限</option>
+                                    {% for id,value in SERVICE_TYPES %}
+                                     <option value="{{ id }}" {% if type == id %} selected {% endif %}>{{ value }}</option>
+                                     {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">选择行业</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                   <select id="company_industry_0" name="industry_first"  class="form-control">
+                                     <option value="0">不限</option>
+                                       {% for industry in industries %}
+                                          <option value="{{ industry.id }}" {% if industry_first == industry.id %} selected="selected" {% endif %}>{{ industry.name_cn }}</option>
+                                      {% endfor %}
+                                  </select>
+                                </div>
+                                <div class="col-xs-3 hide_">
+                                    <select id="company_industry_1" name="industry_second" class="form-control">
+                                        <option value="0">不限</option>
+                                    </select>
+                                </div>
+                                <div class="col-xs-3 hide_">
+                                     <select id="company_industry_2" name="industry_third" class="form-control">
+                                        <option value="0">不限</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">选择地域</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <select class="form-control" name="country" id="country">
+                                      <option value="0">不限</option>
+                                      {% for c in countries %}
+                                          <option value="{{ c.id }}" {% if country == c.id %} selected {% endif %}>{{ c.name_cn }}</option>
+                                      {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">选择项目规模</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                <input type="hidden" name="rangeMin" id="rangeMin"/>
+                                <input type="hidden" name="rangeMax" id="rangeMax"/>
+                                    <select  id="projectRange" name="projectRange" class="form-control">
+                                    <option value="0">不限</option>
+                                    {% for id,value in PROJECT_RANGE %}
+                                      <option value="{{ id }}" {% if projectRange == id %} selected {% endif %}>{{ value }}</option>
+                                  {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-2">搜索关键字</label>
+                        <div class="col-xs-10">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input type="text" id="keywords" name="keywords" class="form-control" placeholder="请填写关键字" value="{{ keyword }}" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-10 col-xs-offset-2">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <input type="hidden" value="1" name="is_search">
+                                    <button type="button" class="btn btn-primary btn-xs" id="search">立即搜索</button>
+{#                                    <button type="button" class="btn btn-default btn-xs" id="btn_search_in_results">在结果中搜索</button>#}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% if is_search %}
+    <div class="panel panel-default" id="panel-result">
+        <div class="panel-heading">
+            <h3 class="panel-title">搜索结果</h3>
+        </div>
+        <div class="panel-body">
+            <ul class="news-list">
+            {% for m in data %}
+                <li class="project-item2">
+                    <div class="col-xs-9">
+                        <strong class="news-list-item-title2"><a href="{% url 'sales.detail' m.id%}">{{ m.name_cn|safe }}</a></strong>
+                 <span class="news-list-item-text">
+                  <table class="table index-table-1">
+                      <tbody>
+                      <tr class="project-th">
+                          <td width="15%">行业</td>
+                          <td width="15%">地区</td>
+                          <td width="15%">交易类型</td>
+                          <td width="15%">交易规模</td>
+                          <td width="15%">关键字</td>
+                          <td width="10%">有效期</td>
+                          <td width="10%">最后更新</td>
+                      </tr>
+                      <tr>
+                          <td><i class="glyphicon glyphicon-tags"></i> <a class="tag preference_common_keyword" data-type="project" data-tag="{{ m.company_industry.name_cn }}" href="javascript:;">{{ m.company_industry.name_cn }}</a> </td>
+                          <td>{{ m.company_country.name_cn }}</td>
+                          <td>{{ m.get_service_type_display }}</td>
+                          <td>{{ m.get_currency_type_financial_display }} {{ m.deal_size|formatCurrency }}</td>
+                          <td>{{ m.keywords|default:'-' }}</td>
+                          <td>{{ m.expire_date|date:'Y-m-d' }}</td>
+                          <td>{{ m.update_time|date:'Y-m-d' }}</td>
+                      </tr>
+                      {% if not m.is_suitor%}
+                      <tr>
+                         <td colspan="6"><small>{{ m.features_cn|safe }}</small></td>
+                      </tr>
+                      {% endif %}
+                      </tbody>
+                  </table> </span>
+                            </div>
+                            <div class="col-xs-3">
+                 <span class="pull-right"> {% if not m.is_suitor%}<button class="btn-xs btn-primary send_message_btn" data-message-type="1" data-message-id="{{ m.id }}"><i class="glyphicon glyphicon-envelope"></i>&nbsp;发信</button> &nbsp;&nbsp;
+                            {% if m.id in favorites_project_ids %}
+                                 <button class="btn-xs btn-primary btn-cancelfavorite" data-id="{{ m.id }}" data-type="project"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消收藏</button> &nbsp;&nbsp;
+                             {% else %}
+                                  <button class="btn-xs btn-primary btn-addfavorite" data-id="{{ m.id }}" data-type="project"><i class="glyphicon glyphicon-heart"></i>&nbsp;收藏</button> &nbsp;&nbsp;
+                             {% endif %}
+                 {% if m.has_attach %}
+                     <button class="btn-xs btn-primary btn-attach" data-type="project" data-id="{{ m.id }}"><i class="glyphicon glyphicon-paperclip"></i>&nbsp;附件</button>
+                 {% endif %}{% endif %}
+                </span>
+                 </div> </li>
+                {% endfor %}
+                {% if has_more %}
+                <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                <li class="news-list-view-all" id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </li>
+                {% endif %}
+            {% if is_has_condition == False %}
+                <li class="news-list-view-all">请至少填写一项搜索条件</li>
+            {% else %}
+                <li class="news-list-view-all" {% if has_more %} style="display: none;" {% endif %} id="btn_add"> <a href="{% url 'purchase.add' %}">搜索结果不满意？试试提一个买方项目。&nbsp;&nbsp;<i class="glyphicon glyphicon-plus btn-xs btn-default"></i></a> </li>
+            {% endif %}
+            </ul>
+        </div>
+    </div>
+    {% endif %}
+    </div>
+    </div>
+{% endblock %}
+{% block footer %}
+  {% include "account/en-us/sendmessagemodal.html" %}
+  <script type="text/javascript">
+    //industrySelect("company_industry_0", 0);
+       var industry_first = {{ industry_first|default:0 }};
+       var industry_second = {{ industry_second|default:0 }};
+       var industry_third = {{ industry_third|default:0 }};
+
+
+    page = 1;
+
+    $("#search").click(function() {
+        var locationId = $("#country").val();
+        //var type = "country";
+        var industryId = 0;
+        if ($("#company_industry_2").val() != "" && $("#company_industry_2").val() != "0") {
+        	industryId = $("#company_industry_2").val();
+        }
+        else if ($("#company_industry_1").val() != "" && $("#company_industry_1").val() != "0") {
+        	industryId = $("#company_industry_1").val();
+        }
+        else {
+        	industryId = $("#company_industry_0").val();
+        }
+        var serviceTypeId = $("#serviceType").val();
+        var rangeMin = $("#rangeMin").val();
+        var rangeMax = $("#rangeMax").val();
+        var keywords = $("#keywords").val();
+        if ((industryId == "" || industryId == "0") && (serviceTypeId == "" || serviceTypeId == "0") && rangeMin == "" && keywords == "" && (locationId == "0" || locationId == "")) {
+            custom_alert("请至少填写一项搜索条件");
+            return;
+        }
+        $("#form-project").submit();
+    });
+
+    $("#projectRange").change(function() {
+       var val = $(this).val();
+       if (val != "0") {
+           var vals = val.split(":");
+           $("#rangeMin").val(vals[0]);
+           $("#rangeMax").val(vals[1]);
+       }
+       else {
+           $("#rangeMin").val(0);
+           $("#rangeMax").val(0);
+       }
+    });
+        jQuery('#company_industry_0').change(function() {
+            var val = jQuery(this).val();
+            if(val>0)
+            {
+                industrySelect("company_industry_1", val);
+            }else
+            {
+                jQuery('#company_industry_1').parent().hide();
+                jQuery('#company_industry_2').parent().hide();
+            }
+        });
+        jQuery('#company_industry_1').change(function() {
+            var val = jQuery(this).val();
+            if(val>0)
+            {
+                industrySelect("company_industry_2", val);
+            }else
+            {
+                jQuery('#company_industry_2').parent().hide();
+            }
+        });
+        if(industry_first>0||industry_second>0)
+        {
+           industrySelect("company_industry_1", industry_first, industry_second);
+        }
+        if(industry_third>0)
+        {
+          industrySelect("company_industry_2", industry_second, industry_third);
+        }
+
+   function LoadData() {
+        page++;
+        var pagesize = 5;
+        var locationId = $("#country").val();
+        //var type = "country";
+        var industryId = 0;
+        if ($("#company_industry_2").val() != "" && $("#company_industry_2").val() != "0") {
+        	industryId = $("#company_industry_2").val();
+        }
+        else if ($("#company_industry_1").val() != "" && $("#company_industry_1").val() != "0") {
+        	industryId = $("#company_industry_1").val();
+        }
+        else {
+        	industryId = $("#company_industry_0").val();
+        }
+        var serviceTypeId = $("#serviceType").val();
+        var rangeMin = $("#rangeMin").val();
+        var rangeMax = $("#rangeMax").val();
+        var keywords = $("#keywords").val();
+        if ((industryId == "" || industryId == "0") && (serviceTypeId == "" || serviceTypeId == "0") && rangeMin == "" && keywords == "" && (locationId == "0" || locationId == "")) {
+            custom_alert("请至少填写一项搜索条件");
+            return;
+        }
+        //$("#panel-result").show();
+        $("#loader").show();
+       var url = "/sales/ajax_more?type="+serviceTypeId+"&industry_id="+industryId+"&country_id="+locationId+"&keyword="+keywords;
+       url+="&dealsize_min="+rangeMin+"&dealsize_max="+rangeMax+"&page="+page+"&pagesize="+pagesize+"&sort=time_desc";
+       $.get(url,function(data){
+            var newData = data.replace(/\s/g,'');
+            if(newData)
+            {
+                $("#loader").before(data);
+            }else
+            {
+                $("#load_btn").remove();
+                $("#btn_add").show();
+            }
+            $("#loader").hide();
+       });
+   }
+
+</script>
+{% endblock %}

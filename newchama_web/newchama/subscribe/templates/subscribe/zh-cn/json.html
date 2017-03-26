@@ -1,0 +1,30 @@
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% load humanize %}
+{% load myTags %}
+{% if data %}
+{% for m in data %}
+<li class="project-item">
+    <div class="col-xs-10">
+        <div>
+            <span class="pull-left"><strong class="news-list-item-title2"><a href="{% url 'sales.detail' m.id%}">{{ m.name_cn|cut_str:25}}</a> </strong></span>
+            <span class="pull-right">有效期至：{{ m.expire_date|date:'Y-m-d' }}</span>
+        </div>
+    </div>
+    <div class="col-xs-2">
+<span class="pull-right">
+<select name="newStatus" class="newStatus" id="newStatus_{{ m.id }}" ref="{{ m.id }}">
+    <!--<option value="保存到项目收件箱">保存到项目收件箱</option>-->
+    <option value="">请选择</option>
+    <option value="detail">查看详情</option>
+    <option value="message">发信</option>
+    {% if m.id in favorites_project_ids %}
+        <option value="cancelFavorite">取消关注</option>
+    {% else %}
+        <option value="favorite">关注</option>
+    {% endif %}
+</select>
+</span>
+    </div> </li>
+{% endfor %}
+{% endif %}

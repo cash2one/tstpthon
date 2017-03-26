@@ -1,0 +1,6 @@
+{% for n in news %}
+    <tr>
+        <td class="col-xs-10"><a href="{% url 'news.detail' n.id %}" target="_blank">{{ n.title }}</a></td>
+        <td class="col-xs-2"><i class="glyphicon glyphicon-time"></i> {{ n.time|date:'Y-m-d' }}</td>
+    </tr>
+{% endfor %}

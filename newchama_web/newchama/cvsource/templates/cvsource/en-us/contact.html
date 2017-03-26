@@ -1,0 +1,67 @@
+{% extends "common/en-us/nologin_base.html" %}
+{% block header %}
+  <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+  <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/select2/select2.css">
+{% endblock %}
+{% block content %}
+<div class="account-wrapper" style="width:500px;">
+  <div class="account-logo">
+    <img src="{{STATIC_PREFIX}}img/logo-login.png" alt="NewChama">
+  </div>
+    <div class="account-body">
+      <h3 class="account-body-title">获取更多数据</h3>
+      <h5 class="account-body-subtitle">
+      请完整填写如下信息，我们会有专员与您联系。
+      </h5>
+     {% if messages %}
+        {% for message in messages %}
+          <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+          <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+          {{ message }}
+          </div> <!-- /.alert -->
+        {% endfor %}
+      {% endif %}
+      <form class="form account-form" data-validate="parsley" method="POST" action="">
+      {% csrf_token %}
+        <div class="form-group">
+          <label for="signup-mobile" class="placeholder-hidden">公司名称(*)</label>
+          <input type="text" class="form-control" name="company_name" id="company_name" placeholder="公司名称" tabindex="1" data-required="true" required>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <label for="signup-fullname" class="placeholder-hidden">联系人姓名(*)</label>
+            <input type="text" class="form-control" id="contact_name" name="contact_name" placeholder="联系人姓名" tabindex="2" data-required="true" required>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+            <label for="signup-fullname" class="placeholder-hidden">联系人职称(*)</label>
+            <input type="text" class="form-control" id="contact_title" name="contact_title" placeholder="联系人职称" tabindex="3" data-required="true" required>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+          <label for="signup-title" class="placeholder-hidden">联系电话(*)</label>
+          <input type="text" class="form-control" name="contact_tel" id="contact_tel" placeholder="联系电话" tabindex="4" data-required="true" required>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+          <label for="signup-telephone" class="placeholder-hidden">邮箱地址</label>
+          <input type="email" value="{{ f.email }}" class="form-control email" name="contact_email" id="contact_email" placeholder="邮箱地址" tabindex="5"  data-required="true" required>
+        </div> <!-- /.form-group -->
+        <div class="form-group">
+          <label for="signup-invitecode" class="placeholder-hidden">说明</label>
+          <textarea class="form-control" rows="5" id="contact_desc" name="contact_desc" tabindex="6" placeholder="说明" required></textarea>
+        </div> <!-- /.form-group -->
+        <div class="row" >
+            <div class="col-xs-6"><button type="submit" class="btn btn-secondary btn-block btn-lg" tabindex="7">
+          提交 &nbsp; <i class="fa fa-play-circle"></i>
+          </button></div>
+            <div class="col-xs-6"> <button type="button" class="btn btn-block btn-lg" tabindex="8" onclick="javascript:window.opener = null;window.close();">
+          关闭 &nbsp; <i class="fa fa-play-circle"></i>
+          </button></div>
+        </div> <!-- /.form-group -->
+      </form>
+    </div> <!-- /.account-body -->
+  </div> <!-- /.account-wrapper -->
+{% endblock %}
+{% block footer %}
+  <script src="{{STATIC_PREFIX}}js/demos/form-validation.js"></script>
+  <script src="{{STATIC_PREFIX}}js/common/common.js"></script>
+  <script type="text/javascript">
+  </script>
+{% endblock %}

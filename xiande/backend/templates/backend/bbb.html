@@ -1,0 +1,198 @@
+{% extends "backend/base.html" %}
+
+
+{% block headerbar %} 
+    <div class="headerbar">
+      {% include "backend/headerbar.html" %}  
+    </div><!-- headerbar -->
+{% endblock %}
+
+{% block pageheader %}
+    <div class="pageheader">      
+      <h2><i class="fa fa-home"></i> 牛熊宝活动管理</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'backend.index' %}">OliveCMS</a></li>
+          <li class="active">牛熊宝活动管理</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block contentpanel %} 
+ <div class="contentpanel">
+      
+     <div class="row">
+        
+        <div class="col-md-12">
+          <div class="panel panel-default">
+        <div class="panel-heading">
+
+          <h3 class="panel-title">牛熊宝活动设置</h3>
+          
+        </div>
+        <div class="panel-body">
+        {% if messages %}
+        <div class="message_block">
+                    {% for message in messages %}
+                        <div class="alert alert-{% if message.tags %}{{ message.tags }}{% endif %}">
+                            <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                            {{ message }}
+                        </div> <!-- /.alert -->
+                    {% endfor %}
+        </div>
+        {% endif %}
+             <form class="form-horizontal" method="POST" data-validate="parsley">
+            
+            <div class="form-group">
+              <label class="col-sm-3 control-label">活动起始时间</label>
+              <div class="col-sm-3">
+                <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="start_time"  name="start_time"    value="{{f.start_time | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="input-group">
+                <input type="text" class="form-control" data-date-format="mm/dd/yyyy" placeholder="mm/dd/yyyy" id="end_time"  name="end_time"    value="{{f.end_time | date:'m/d/Y'}}">
+                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+              </div>
+              </div>
+              <div class="col-sm-3">
+                <div class="input-group">
+                {% csrf_token %}   
+          <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+              </div>
+
+              
+            </div>
+            
+            
+          </form>
+         
+        </div><!-- panel-body -->
+      </div><!-- panel -->
+        </div><!-- col-md-6 -->
+        
+       
+      </div>
+     
+      
+    </div><!-- contentpanel -->
+
+     <div class="contentpanel">
+      
+     <div class="row">
+        
+        <div class="col-md-12">
+          <div class="panel panel-default">
+        <div class="panel-heading">
+
+          <h3 class="panel-title">牛熊宝活动用户列表</h3>
+          
+        </div>
+        <div class="panel-body">
+       
+          <div class="table-responsive">
+          <table class="table" id="table1">
+              <thead>
+                 <tr>
+                    <th>#</th>
+                    <th>姓名</th>
+                    <th>手机</th>
+                    <th>下注金额</th>
+                    <th>下注时间</th>
+                    <th>推荐人</th>
+                    <th>状态</th>
+                    
+                 </tr>
+              </thead>
+              <tbody>
+              
+              {% for item in item_list %}
+                 <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.username}}</td>
+                    <td>{{item.mobile}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.apply_time}}</td>
+                    <td>{{item.introducer_name}}</td>
+                    <td>{{item.get_apply_status_display}}</td>
+                    
+                 </tr>
+              {% endfor %}
+                
+              </tbody>
+           </table>
+          </div><!-- table-responsive -->
+          
+        </div><!-- panel-body -->
+      </div><!-- panel -->
+        </div><!-- col-md-6 -->
+        
+       
+      </div>
+     
+      
+    </div><!-- contentpanel -->
+{% endblock %}
+
+
+
+{% block customjs %} 
+<script src="{{STATIC_URL}}backend/js/jquery.datatables.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/chosen.jquery.min.js"></script>
+
+<script>
+  jQuery(document).ready(function() {
+    
+    jQuery('#start_time').datepicker();
+    jQuery('#end_time').datepicker();
+
+    $('#table1').dataTable( {
+      "sPaginationType": "full_numbers",
+      "aoColumns": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null
+      ],
+      "oLanguage": {
+      "sLengthMenu": "每页显示 _MENU_ 条记录",
+      "sZeroRecords": "抱歉， 没有找到",
+      "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+      "sInfoEmpty": "没有数据",
+      "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+      "oPaginate": {
+      "sFirst": "首页",
+      "sPrevious": "前一页",
+      "sNext": "后一页",
+      "sLast": "尾页"
+      },
+      "sZeroRecords": "没有检索到数据",
+      "sSearch": "搜索:",
+      "sProcessing": "正在加载中..."
+
+      }
+
+      } );
+
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+    
+    
+  
+  
+  });
+</script>
+{% endblock %}

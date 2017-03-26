@@ -1,0 +1,94 @@
+{% extends "adminuser/base.html" %}
+{% block title %}EntryForm Detail{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Member<span>EntryForm Detail</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Member</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">EntryForm Detail</h4>
+          <p>EntryForm Detail</p>
+        </div>
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Email</label>
+              <div class="col-sm-6">
+                <input type="email" placeholder="Email" name="email" value="{{ u.email }}" readonly class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">FullName</label>
+              <div class="col-sm-6">
+                  <input type="text" placeholder="FirstName" name="first_name" value="{{ u.fullname }}" readonly class="form-control" />
+              </div>
+            </div>
+             {% comment %}<div class="form-group">
+              <label class="col-sm-3 control-label">Gender</label>
+              <div class="col-sm-6">
+              {{ u.get_gender_display }}
+              </div>
+            </div>{% endcomment %}
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Company Region</label>
+              <div class="col-sm-6">
+                    {{ u.country }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Company Industry</label>
+              <div class="col-sm-6">
+                    {{ u.industry.father.father|default:'' }}&nbsp;&nbsp;{{ u.industry.father|default:'' }}&nbsp;&nbsp;{{ u.industry|default:'' }}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Company Name</label>
+              <div class="col-sm-6">
+                  <input type="text" placeholder="Company" value="{{ u.company }}" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Company Type</label>
+              <div class="col-sm-6">
+                    {{ u.get_company_type_display}}
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Position</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Position" value="{{ u.position }}" readonly class="form-control" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Tel</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Tel" name="tel" value="{{ u.tel }}" class="form-control" readonly />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Mobile</label>
+              <div class="col-sm-6">
+                <input type="text" placeholder="Mobile" name="mobile" value="{{ u.mobile }}" class="form-control" readonly />
+              </div>
+            </div>
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+                    <a href="javascript:history.back();" class="btn btn-primary">Back</a>
+				</div>
+			 </div>
+		  </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+{% endblock %}

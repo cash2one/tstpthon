@@ -1,0 +1,65 @@
+{% extends "adminuser/base.html" %}
+{% block title %}Create Role{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> Role<span>Create Role</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">Role</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+       <div class="panel panel-default">
+        <div class="panel-heading">
+          <h4 class="panel-title">Create Role</h4>
+          <p> Create new role.</p>
+        </div>
+        <form id="basicForm" class="form-horizontal form-bordered" action="" method="post">
+        <div class="panel-body">
+          {% if messages %}
+              {% for message in messages %}
+                  <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    {{ message }}
+                  </div>
+              {% endfor %}
+          {% endif %}
+           <div class="form-group">
+              <label class="col-sm-3 control-label">Name</label>
+              <div class="col-sm-6">
+                  <input type="text" name="name" placeholder="Role Name" value="{{ r.name }}" class="form-control" required />
+              </div>
+            </div>
+             <div class="form-group">
+              <label class="col-sm-3 control-label">Permission</label>
+              <div class="col-sm-6">
+                <div class="checkbox block"><label><input type="checkbox" name="permission" value="role"> Role</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="adminuser"> AdminUser</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="company"> Company</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="member"> Member</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="project"> Project</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="demand"> Demand</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="news"> News</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="message"> Message</label></div>
+                  <div class="checkbox block"><label><input type="checkbox" name="permission" value="analysys"> Analysis</label></div>
+                   <div class="checkbox block"><label><input type="checkbox" name="permission" value="newchamasay"> NewChama说</label></div>
+                </div>
+            </div>
+             {% csrf_token %}
+        </div><!-- panel-body -->
+
+        <div class="panel-footer">
+			 <div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+				  <button class="btn btn-primary">Submit</button>&nbsp;
+				  <button class="btn btn-default" onclick="goback()">Cancel</button>
+				</div>
+			 </div>
+		  </div><!-- panel-footer -->
+        </form>
+      </div><!-- panel -->
+{% endblock %}

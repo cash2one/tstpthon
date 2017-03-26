@@ -1,0 +1,16 @@
+.customSelect span {float:left; background: #dddddd; border: 1px solid #ddd; margin:3px 3px 3px 3px;}
+.customSelect span a {float:right; background:url('../images/chosen-sprite.png') -42px 1px no-repeat; margin-top:5px; right:3px; display:block; width:12px; height:12px; font-size:1px;}
+.customSelect span a:hover {background-position: -42px -10px;cursor: pointer;}
+
+.unit_position {margin-top: 10px}
+.addon_btn{cursor: pointer;}
+.on_same_row {float:left; margin:10px 5px 0 5px;}
+.unit_position {margin-top: 10px}
+.hide_ {display:none}
+.ui-autocomplete-loading {
+background: white url("../images/loaders/loader1.gif") right center no-repeat;}
+
+.kv_block{ padding:4px 8px; display: block; float: left; margin-right: 10px;}
+
+.preference_selected {float:left; margin-right:5px; margin-bottom: 5px;}
+.preference_selected-width {width:290px;}

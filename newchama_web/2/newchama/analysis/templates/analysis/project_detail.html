@@ -1,0 +1,71 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+    <ul class="filemanager-options">
+         {% include "analysis/analysis_nav.html" %}
+
+      </ul>
+    <div class="dataTables_filter" id="table2_filter">
+      <a class="btn btn-default" href="?download=1">Export</a>
+    </div>
+<h4>项目详情表 | <a href="{% url 'analysis.demand_detail' %}">需求详情表</a></h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>名称</th>
+            <th>发送到队列</th>
+            <th>管理面板</th>
+            <th>最近访问</th>
+            <th>被收藏</th>
+            <th>私信</th>
+            <th>人工推荐</th>
+            <th>人工推荐点击数</th>
+            <th>机器推荐</th>
+            <th>机器推荐点击数</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          {% autopaginate result_list %}
+        {% for item in result_list %}
+          <tr>
+            <td>{{ item.id }}</td>
+            <td><a href="{% url 'project.detail' item.id %}">{{ item.name_cn }}</a></td>
+           
+            <td><a href="{% url 'analysis.project_target' item.id %}">{{ item.send_num }}</a></td>
+            <td><a href="{% url 'analysis.project_target' item.id %}">{{ item.control_panel_num }}</a></td>
+            <td><a href="{% url 'analysis.project_view' item.id %}">{{ item.view_num }}</a></td>
+            <td><a href="{% url 'analysis.project_fav' item.id %}">{{ item.fav_num }}</a></td>
+            <td><a href="{% url 'analysis.project_message' item.id %}">{{ item.message_num }}</a></td>
+            <td><a href="{% url 'project.recommend' item.id %}">{{ item.man_recommond_num }}</a></td>
+            <td><a href="{% url 'analysis.project_recommond_view' item.id %}">{{ item.man_recommond_click_num }}</a></td>
+            <td><a href="{% url 'project.recommend' item.id %}">{{ item.machine_recommond_num }}</a></td>
+            <td><a href="{% url 'analysis.project_recommond_view' item.id %}">{{ item.machine_recommond_click_num }}</a></td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

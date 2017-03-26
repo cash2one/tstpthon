@@ -1,0 +1,8 @@
+*.pyc
+newchama/.idea
+.projectile
+*~
+newchama/upload/
+.DS_Store
+newchama/logs/
+*.log

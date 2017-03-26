@@ -1,0 +1,268 @@
+{% extends "common/zh-cn/nologin_base.html" %}
+{% block header%}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}css/custom.css" />
+{% endblock %}
+{% block content %}
+    <div class="container-fluid form-horizontal" id="newchama_logo_main" style="width:70%;">
+        <div class="col-xs-12">
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">偏好管理</h3>
+                </div>
+                <form class="form-horizontal account-form" method="POST" data-validate="parsley">
+                    {% csrf_token %}
+                    <input type="hidden" name="id" value="{{ p.id }}"/>
+                    <div class="panel-body ">
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert {% if message.tags %}{{ message.tags }}{% endif %}">
+                                    <a class="close" data-dismiss="alert" href="#" aria-hidden="true">&times;</a>
+                                    {{ message }}
+                                </div> <!-- /.alert -->
+                            {% endfor %}
+                        {% endif %}
+                        <ul class="nav nav-tabs" role="tablist">
+                            <li {% if type == "project" %} class="active"{% endif %}><a href="{% url 'account.preference_project_first' %}">项目偏好</a></li>
+                            <li {% if type == "demand" %} class="active"{% endif %}><a href="{% url 'account.preference_demand_first' %}">需求偏好</a></li>
+                            <li {% if type == "news" %} class="active"{% endif %}><a href="{% url 'account.preference_news_first' %}">新闻偏好</a></li>
+                        </ul>
+                        <br />
+                        {% if type != "news" %}
+                        <div class="col-xs-12">
+                            <div class="preference_title">
+                                <h5>您所感兴趣的行业</h5>
+                            </div>
+                            <div class="col-xs-12 tag_block" id="member_industry">
+                                {% for industry in indusrtis %}
+                                    <span id="member_industry_{{ industry.id }}" class="alert alert-info preference_selected">
+                              <a href="###">{{ industry.country.name_cn }} {{ industry.get_currency_type_financial_display }} {{ industry.industry.name_cn }} {{ industry.range_min }}元 - {{ industry.range_max }}元</a>&nbsp;
+                              <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                              <input name="member_industry_ids" type="hidden" value="{{ industry.id }}"><input name="member_range_mins" type="hidden" value="{{ industry.range_min }}">
+                              <input name="member_range_maxs" type="hidden" value="{{ industry.range_max }}"><input name="member_currencys" type="hidden" value="{{ industry.currency_type_financial }}">
+                              <input name="member_industry_countryIds" type="hidden" value="{{ industry.country.id }}">
+                          </span>
+                                {% endfor %}
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <select id="industryCountry" class="form-control chosen-select" data-placeholder="请选择国家">
+                                        <option value="0">请选择国家</option>
+                                        {% for country in countries %}
+                                            <option value="{{ country.id }}" {% if country_id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <select id="company_industry_0" name="company_industry_0" class="form-control chosen-select" data-placeholder="请选择"></select>
+                                </div>
+                                <div class="col-xs-4 hide_">
+                                    <select id="company_industry_1" name="company_industry_1" class="form-control chosen-select" data-placeholder="请选择"></select>
+                                </div>
+                                <div class="col-xs-4 hide_">
+                                    <select id="company_industry_2" name="company_industry_2" class="form-control chosen-select" data-placeholder="请选择"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2">
+                                    {% for st in currencyTypes %}
+                                        <label class="radio-inline"> <input type="radio" name="industryCurrency" id="{{ st.1 }}" value="{{ st.0 }}"/>{{ st.1 }}</label>
+                                    {% endfor %}
+                                    <input type="hidden" id="member_range_mins_0" value="1000">
+                                    <input type="hidden" id="member_range_maxs_0" value="3000">
+                                    <input type="hidden" id="industry_id" value="0">
+                                    <input type="hidden" id="industry_name" value="0">
+                                </div>
+                                <div class="col-xs-2">
+                                    <span><strong>项目金额:&nbsp;</strong></span>
+                                    <span id="amount0">0元 - 5000,000,000元</span>
+                                </div>
+                                <div class="col-xs-7">
+                                    <div id="rangeSlider0"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2">
+                                    <button type="button" class="btn btn-primary btn-xs" onclick="addIndustry2()">添加</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="preference_title">
+                                <h5>您所感兴趣的地域</h5>
+                            </div>
+                            <div class="col-xs-12 tag_block">
+                                <div class="form-group" id="member_location">
+                                    {% for location in locations %}
+                                        <span id="member_location_{{ location.id }}" class="alert alert-info preference_selected">
+                                    <a href="###">{{ location.title }}</a>&nbsp;<a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove"></a>
+                                    <input name="member_country_ids" type="hidden" value="{{ location.country.id }}"><input name="member_titles" type="hidden" value="{{ location.title }}">
+                                </span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <select id="country" class="form-control chosen-select" data-placeholder="请选择">
+                                        <option value="0">请选择</option>
+                                        {% for country in countries %}
+                                            <option value="{{ country.id }}" {% if country_id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2">
+                                    <button type="button" class="btn btn-primary btn-xs" onclick="addLocation()">添加</button>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="col-xs-12">
+                            <div class="preference_title">
+                                <h5>您所感兴趣的关键字</h5>
+                            </div>
+                            <div class="col-xs-12 tag_block">
+                                <div class="form-group" id="member_keyword_tag">
+                                    {% for keyword in keywords %}
+                                        <span id='member_keyword_{{ keyword.keyword }}' class='alert alert-info preference_selected'> <a href='###'>{{ keyword.keyword }}</a>&nbsp;<a href='###' data-dismiss='alert' class='glyphicon glyphicon-remove'></a>
+                                        <input name='member_keywords' type='hidden' value='{{ keyword.keyword }}'/></span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-4">
+                                    <input type="text" name="member_keyword_" id="member_keyword_" class="form-control" />
+                                    <input type="hidden" id="member_keyword" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xs-2">
+                                    <button type="button" class="btn btn-primary btn-xs" onclick="addKeyword()">添加</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <div class="form-group text-center">
+                <button type="submit" class="btn btn-primary btn-xs" >下一步</button>
+                <button type="button" class="btn btn-default btn-xs" onclick="goback()">返回</button>
+                <br><br>
+                </div>
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}css/demos/sliders.css" />
+    <link href="{{STATIC_PREFIX}}css/jquery-ui.css" rel="stylesheet" />
+    <script src="{{STATIC_PREFIX}}js/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/common.js"></script>
+    <script>
+
+        autoSlider(0, 10000, 300000);
+        industrySelect("company_industry_0", 0);
+        $("#member_keyword_" ).autocomplete({
+            source: function( request, response ) {
+                var inTags = jQuery('#member_keyword').val();
+                $.ajax({
+                    url: "/services/getKeywords?term="+request.term+"&inTags=" + inTags,
+                    dataType: "json",
+                    success: function( data ) {
+                        response(data);
+                    }
+                });
+            },
+            minLength: 2
+        });
+
+        jQuery('#company_industry_0').change(function() {
+            var val = jQuery(this).val();
+            var name = jQuery("#company_industry_0 option:selected").text();
+            jQuery("#industry_id").val(val);
+            jQuery("#industry_name").val(name);
+            $("#company_industry_1").parent().hide();
+            $("#company_industry_2").parent().hide();
+            industrySelect("company_industry_1", val);
+        });
+
+        jQuery('#company_industry_1').change(function() {
+            var val = jQuery(this).val();
+            var name = jQuery("#company_industry_1 option:selected").text();
+            jQuery("#industry_id").val(val);
+            jQuery("#industry_name").val(name);
+            $("#company_industry_2").parent().hide();
+            industrySelect("company_industry_2", val);
+        });
+
+        jQuery('#company_industry_2').change(function() {
+            var val = jQuery(this).val();
+            var name = jQuery("#company_industry_2 option:selected").text();
+            jQuery("#industry_id").val(val);
+            jQuery("#industry_name").val(name);
+        });
+
+        function addIndustry2() {
+            var industry_id = jQuery("#industry_id").val();
+            var industryName = jQuery("#industry_name").val();
+            if (industry_id == "0" || typeof(industry_id) == "undefined") {
+                return;
+            }
+            var industryCountry = jQuery("#industryCountry").val();
+            if (industryCountry == "0") {
+                return;
+            }
+            var currencyId = jQuery("input[name='industryCurrency']:checked").val();
+            var currencyName = jQuery("input[name='industryCurrency']:checked").attr("id");
+            if (typeof(currencyName) == "undefined") {
+                return;
+            }
+            var industryCountryId = jQuery("#industryCountry").val();
+            var industryCountryName = jQuery("#industryCountry option:selected").text();
+            var afterUnit = "元";
+            var rangeMin = jQuery("#member_range_mins_0").val();
+            var rangeMax = jQuery("#member_range_maxs_0").val();
+            if (!isMemberExsit("member_industry_" + industry_id + "_" + industryCountryId)) {
+                var html = "<span id='member_industry_" + industry_id + "_" + industryCountryId + "' class='alert alert-info preference_selected'> <a href='###'>" + industryCountryName + " " + currencyName +
+                        " " + industryName + " " + rangeMin + afterUnit + " - " + rangeMax + afterUnit + "</a>&nbsp;<a href='###' data-dismiss='alert' class='glyphicon glyphicon-remove'></a>" +
+                        "<input name='member_industry_ids' type='hidden' value='" + industry_id + "'/><input name='member_range_mins' type='hidden' value='" + rangeMin + "'/>" +
+                        "<input name='member_range_maxs' type='hidden' value='" + rangeMax + "'/><input name='member_currencys' type='hidden' value='" + currencyId + "'/>" +
+                        "<input name='member_industry_countryIds' type='hidden' value='" + industryCountryId + "'/></span>";
+                jQuery("#member_industry").append(html);
+            }
+        }
+
+        function isMemberExsit(id) {
+            return (jQuery("#"+id).val()!=undefined);
+        }
+
+        function addLocation() {
+            var val = jQuery("#country").val();
+            if (val == "" || val == "0") return;
+            var name = jQuery("#country option:selected").text();
+
+            if (!isMemberExsit("member_location_" + val)) {
+                var html = "<span id='member_location_" + val + "' class='alert alert-info preference_selected'> <a href='###'>" + name + "</a>&nbsp;<a href='###' data-dismiss='alert' class='glyphicon glyphicon-remove'></a>" +
+                        "<input name='member_country_ids' type='hidden' value='" + val + "'/><input name='member_titles' type='hidden' value='" + name + "'/></span>";
+                jQuery("#member_location").append(html);
+            }
+        }
+
+        function addKeyword() {
+            var val = jQuery("#member_keyword_").val();
+            if (!isMemberExsit("member_keyword_" + val)) {
+                var html = "<span id='member_keyword_" + val + "' class='alert alert-info preference_selected'> <a href='###'>" + val + "</a>&nbsp;<a href='###' data-dismiss='alert' class='glyphicon glyphicon-remove'></a>" +
+                           "<input name='member_keywords' type='hidden' value='" + val + "'/></span>";
+                jQuery("#member_keyword_tag").append(html);
+                jQuery("#member_keyword_").val("");
+            }
+        }
+
+    </script>
+{% endblock %}

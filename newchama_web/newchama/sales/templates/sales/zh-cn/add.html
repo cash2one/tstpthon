@@ -1,0 +1,731 @@
+{% extends "common/zh-cn/base.html" %}
+{% block header %}
+
+{% endblock %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12" >
+    <form id="formData" name="formData" class="form-horizontal parsley-form" method="post" enctype="multipart/form-data" action="{% url 'sales.save' %}">
+    {% csrf_token %}
+    <input type="hidden" id="status" name="status" value="{{ status }}">
+    <input type="hidden" id="is_follow" name="is_follow" value="{{ u.is_follow }}">
+    <input type="hidden" id="industry_id" name="industry_id" value="0">
+    <input type="hidden" id="industry_name" name="industry_name" value="0">
+    <input type="hidden" id="target_industry_id" value="0">
+    <input type="hidden" id="target_industry_name" value="0">
+    <input type="hidden" id="target_location_type" value="country">
+    <input type="hidden" id="target_location_id" value="0">
+    <input type="hidden" id="submitStatus" name="submitStatus" value="draft">
+    <input type="hidden" id="name_en" name="name_en" value="{{ u.name_en |default:" " }}">
+    <input type="hidden" id="edit_id" name="id" value="{{ u.id |default:"" }}"/>
+    <input type="hidden" id="curr_step" name="curr_step" value="{{ u.id |default:"" }}">
+    <input type="hidden" id="pending_page" name="pending_page" value="{% url 'sales.mylist_pending' %}">
+    <input type="hidden" id="draft_page" name="draft_page" value="{% url 'sales.mylist_draft' %}">
+    <input type="hidden" id="process" name="process" value="{{ u.process |default:"1" }}">
+    <input type="hidden" id="need_match" name="need_match" value="0">
+    <input type="hidden" id="curr_project_status" name="curr_project_status" value="{{ u.status | default:"4" }}">
+    {% comment %}   <button type="button" class="btn btn-default btn-xs hide_" name="btn_pre" id="btn_pre"> 上一步 </button>
+            <button type="button" class="btn btn-default btn-xs" name="btn_next" id="btn_next"> 下一步 </button>
+{% endcomment %}
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">{% if u.id %}编辑项目{% else %}新建项目{% endif %}</h3>
+    </div>
+    <div class="panel-body">
+        <span class="tip_span"></span>
+        <div class="col-xs-12">
+            <div class="form-group">
+                <label class="col-xs-2">&nbsp;</label>
+                <div class="col-xs-8">
+                    <div class="project_step">
+                        <a href="javascript:;" class="step_btn_publish"><span class="step_num">1</span><span class="step_name">项目信息</span></a>
+                        <a href="javascript:;" class="step_btn_publish "><span class="step_num">2</span><span class="step_name">公司信息</span></a>
+                        <a href="javascript:;" class="step_btn_publish "><span class="step_num">3</span><span class="step_name">财务信息</span></a>
+                        <a href="javascript:;" class="step_btn_publish "><span class="step_num">4</span><span class="step_name">买家匹配</span></a>
+                        <a href="javascript:;" class="step_btn_publish "><span class="step_num">5</span><span class="step_name">管理面板</span></a>
+                    </div>
+                </div>
+                <div class="col-xs-2 pull-right project_status_area hide_" style="text-align: right; padding-top:10px">
+                    <div id="projectStatus">{{ u.get_status_display }}</div>
+                    <div>
+                        <a href="javascript:;" id="pending_btn" {% if u.status != 3 %}class="hide_"{% endif%}onclick="PendingSales({{ u.id }});">发布到市场</a>
+                        <a href="javascript:;" id="offline_btn" {% if u.status != 0 %}class="hide_"{% endif%}onclick="OfflineSales({{ u.id }});">下架</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <div class="panel-body step_class hide_">
+        <div class="col-xs-12">
+            <div class="col-xs-12 ">
+                <div class="stage_title">
+                    项目概要
+                </div></div>
+        </div>
+        <div class="col-xs-6">
+            <label class="col-xs-12">项目名称*</label>
+            <div class="col-xs-12">
+                <input type="text" name="name_cn" class="form-control custom-required" data-required="true" data-error-message="请输入项目名称" value="{{ u.name_cn |default:"" }}" data-parsley-group="block1" data-maxlength="100" placeholder="例如:上市公司寻求并购电动车企业">
+            </div>
+            <label class="col-xs-12">交易类型*</label>
+            <div class="col-xs-6">
+                <select name="service_type" id="service_type" class="form-control custom-required" data-required="true" data-error-message="请选择交易类型" >
+                    <option value="">请选择交易类型</option>
+                    {% for st in u.SERVICE_TYPES %}
+                        <option value="{{ st.0 }}" {% if u.service_type == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-6 project_stage {% if u.service_type != 2 %}hide_{% endif %}">
+                <select name="project_stage" id="project_stage" class="form-control custom-required_s" data-required="true">
+                    <option value="">请选择投资阶段</option>
+                    {% for st in u.INVESTMENT_STAGE %}
+                        <option value="{{ st.0 }}" {% if u.project_stage == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <label class="col-xs-12">支付币种*</label>
+            <div class="col-xs-6">
+                <select name="pay_currency" id="pay_currency" class="form-control">
+                    {% for st in u.PAY_CURRENCY %}
+                        <option value="{{ st.0 }}" {% if u.pay_currency == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <label class="col-xs-12">与项目的关系*</label>
+            <div class="col-xs-12">
+                <div class="col-xs-12" style="padding-left:0px;">
+                    {% for st in u.RELATE_PROJECT %}
+                        <label class="radio-inline">
+                            <input type="radio" name="project_relation" class="custom-required" data-required="true" data-error-message="请选择与项目的关系" {% if u.project_relation == st.0%}checked{% endif %} value="{{ st.0 }}"/>{{ st.1 }}
+                        </label>
+                    {% endfor %}
+                </div>
+            </div>
+            <label class="col-xs-12">投资亮点</label>
+            <div class="col-xs-12">
+                <textarea class="form-control" rows="5" id="features_cn_">{{ u.features_cn |default:"" | replaceLine }}</textarea>
+                <input type="hidden" name="features_cn" id="features_cn" value="{{ u.features_cn |default:"" }}"/>
+            </div>
+            <label class="col-xs-12 ">项目有效期</label>
+            <div class="col-xs-6">
+                <select id="valid_day" name="valid_day" class="form-control" data-placeholder="请选择">
+                    {% for st in u.VALID_DAY %}
+                        <option value="{{ st.0 }}" {% if u.valid_day == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+                <input type="hidden" id="expire_date" name="expire_date" value="{{ u.expire_date|date:'Y-m-d' }}" placeholder="yyyy-mm-dd">
+            </div>
+            <label class="col-xs-12">发布方式</label>
+            <div class="col-xs-6">
+                <label class="radio-inline"> <input type="radio" name="is_anonymous" {% if u.is_anonymous%}checked{% endif %} value="1"/>匿名发布 </label>
+                <label class="radio-inline"> <input type="radio" name="is_anonymous" {% if u.is_anonymous == False%}checked{% endif %} value="0"/>实名发布 </label>
+            </div>
+            <label class="col-xs-12">补充附件</label>
+            <div class="col-xs-6">
+                <select id="attachment_type" name="attachment_type" class="form-control equity_structure_select" data-placeholder="请选择">
+                    <option value="0">请选择</option>
+                    <option value="intro_cn">简介</option>
+                    <option value="secret_cn">保密协议</option>
+                    <option value="bp_cn">商业计划书</option>
+                    <option value="financial_cn">财务相关文件</option>
+                    <option value="third_party_cn">第三方机构文件</option>
+                    <option value="qualification_cn">资质类文件</option>
+                </select>
+            </div>
+            <div class="col-xs-6  attach_area">
+                <button type="button" class="btn btn-default btn-xs" id="btn_add_attach" >添加附件</button>&nbsp;&nbsp;
+                <button type="button" class="btn btn-default btn-xs" id="btn_remove_attach">删除附件</button>
+            </div>
+            {% for am in attachments %}
+                <div class="form-group attach_sub {{ am.file_type }}" ref='{{ am.file_type_name }}'>
+                    <div class="col-xs-3">{{ am.file_type_name }}</div>
+                    <div class="col-xs-4">
+                        <a href="{{ MEDIA_URL }}project/{{ am.new_name }}">{{ am.file_name }}</a>
+                        <input type="hidden" name="exist_upload_names" value="{{ am.file_name }}"/>
+                        <input type='hidden' name='upload_type_names' value='{{ am.file_type_name }}'>
+                        <input type="hidden" name="exist_upload_newNames" value="{{ am.new_name }}"/>
+                    </div>
+                    <div class="col-xs-2">
+                        <input type="hidden" name="upload_types" value="{{ am.file_type }}">
+                        <input type="file" name="upload_file_{{ am.file_type }}" />
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col-xs-6">
+            <div class="col-xs-12">
+                <div class="col-xs-12 common_fill_right_tip">
+                    <button class="btn-xs btn-primary hide_">handle first button of btn-primary</button>
+                    <button type="button" class="btn btn-primary btn-xs oneclick_btn"><i class="glyphicon glyphicon-edit"></i>&nbsp;一键发布</button>
+                    <span class="uploadSuccess hide_">上传成功！</span><br/><br/>
+                    <b>试试 一键发布？</b><br/>
+                    您只需点击一键发布，把项目Teaser文档直接发送给我们，我们会安排客户经理协助您完成项目的发布。<br/>
+                    有任何问题，可以直接发邮件至support@newchama.com
+                </div>
+                <div class="common_fill_right_tip" style="margin-top:320px">
+                    我们会在有效期结束的前一周提醒您
+                </div>
+                <div class="common_fill_right_tip" style="margin-top:20px">
+                    匿名发布：您的项目在发布时，会隐去您的真实信息。平台上的用户仍然可以通过平台短信跟您联系。<br/>
+
+                    实名发布：项目发布时，会显示您的名字，所在公司
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body step_class hide_">
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <div class="stage_title">
+                    标的公司信息
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <label class="col-xs-12">公司名称</label>
+            <div class="col-xs-12 ">
+                <input type="text" name="company_name_cn" class="form-control" value="{{ u.company_name_cn |default:"" }}" data-maxlength="100" placeholder="公司名称仅自己可见" />
+            </div>
+            <label class="col-xs-12">所在区域</label>
+            <div class="col-xs-6">
+                <select id="country" name="company_country" class="form-control chosen-select" data-placeholder="请选择">
+                    <option value="">请选择</option>
+                    {% for country in countries %}
+                        <option value="{{ country.id }}" {% if u.company_country.id == country.id %} selected="selected" {% endif %}>{{ country.name_cn }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-6">
+                <select id="province" name="company_province" class="form-control chosen-select" data-placeholder="请选择">
+                    <option value="0">请选择</option>
+                </select>
+            </div>
+            <label class="col-xs-12">标的公司所在行业*</label>
+            <div class="col-xs-6">
+                <select id="company_industry_0" name="company_industry_0" class="form-control custom-required_" data-required="true" data-error-message="请选择标的公司所在行业" data-placeholder="请选择">
+                    <option value="">请选择</option>
+                    {% for i in industries %}
+                        <option value="{{ i.id }}" {% if u.d.id == i.id %} selected="selected" {% endif %}>{{ i.name_cn }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-6">
+                <select id="company_industry_1" name="company_industry_1" class="form-control" data-placeholder="请选择">
+                    <option value="0">请选择</option>
+                </select>
+            </div>
+            <div class="col-xs-6 hide_" style="margin-top:8px;">
+                <select id="company_industry_2" name="company_industry_2" class="form-control" data-placeholder="请选择">
+                    <option value="0">请选择</option>
+                </select>
+            </div>
+            <label class="col-xs-12">关键字*</label>
+            <div class="col-xs-12" >
+                <div class="col-xs-12" id="target_keywords">
+                    {% for tc in mks %}
+                        <span id="target_keyword_{{ tc.keyword }}" class="alert alert-info preference_selected ">
+                        <a href="###">{{ tc.keyword }}</a>&nbsp;
+                        <a href="###" data-dismiss="alert" class="glyphicon glyphicon-remove project_key_remove"></a>
+                    </span>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <input type="text" id="key_keyword" name="key_keyword" class="form-control" data-required="true" placeholder="细分行业关键字，例如人工智能">
+                <input type="hidden" id="project_keyword" name="project_keyword" value="{{ keywords }}"/>
+            </div>
+            <div class="col-xs-2">
+                <button type="button" class="btn btn-default btn-xs" onclick="addKeyword2()">添加</button>
+            </div>
+            <label class="col-xs-12">公司人员规模</label>
+            <div class="col-xs-6">
+                <select name="employees_count_type" class="form-control chosen-select" data-placeholder="请选择">
+                    <option value="0">请选择</option>
+                    {% for st in u.EMPLOYEES_COUNT_TYPES %}
+                        <option value="{{ st.0 }}" {% if u.employees_count_type == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <label class="col-xs-12">公司性质</label>
+            <div class="col-xs-6">
+                <label class="radio-inline">
+                    <input type="radio" name="is_list_company" value="1" {% if u.is_list_company%}checked{% endif %} />上市公司
+                </label>
+                <label class="radio-inline">
+                    <input type="radio" name="is_list_company" value="0" {% if u.is_list_company == False %}checked{% endif %} />非上市公司
+                </label>
+            </div>
+            <div class="col-xs-6">
+                <input type="text" id="ticker" {% if u.is_list_company == False %}disabled{% endif %} name="company_stock_symbol" value="{{ u.company_stock_symbol |default:""}}" data-maxlength="20" class="form-control" placeholder="上市公司代码">
+                <input type="hidden" id="company_stock_exchange" name="company_stock_exchange" value="">
+            </div>
+            <label class="col-xs-12">公司股权结构</label>
+            <div class="col-xs-4">
+                <div class="input-group">
+                    公司管理层<br/>
+                    <input type="text" placeholder="" name="s_rate" value="{{ stockST.0.rate | formatPercent }}" data-type="percent" class="s_rate form-control parsley-validated">
+                    <div class="input-group-addon-custom font-12" style="padding-top:16px;">%</div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group">
+                    机构投资者<br/>
+                    <input type="text" placeholder="" name="s_rate" value="{{ stockST.1.rate | formatPercent }}" data-type="percent" class="s_rate form-control parsley-validated">
+                    <div class="input-group-addon-custom font-12" style="padding-top:16px;">%</div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="input-group">
+                    其他投资者<br/>
+                    <input type="text" placeholder="" name="s_rate" value="{{ stockST.2.rate | formatPercent }}" data-type="percent"  class="s_rate form-control parsley-validated">
+                    <div class="input-group-addon-custom font-12" style="padding-top:16px;">%</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6">
+            <div class="col-xs-12 common_fill_right_tip" style="margin-top:182px">
+                关键词是对标的项目所在行业的重要描述，我们会根据您的关键词信息帮您精准匹配潜在的投资人。建议您给项目至少设定一个及以上的关键词，以便精准描述项目信息，提高匹配的效率。
+                   <br/><br/>
+                例如：人工智能，智能硬件，体育O2O等
+            </div>
+        </div>
+    </div>
+    <div class="panel-body step_class hide_">
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <div class=" stage_title">
+                    <div>财务信息</div>
+                    {% comment %}<div style="float:right; margin-right:5px;"><button type="button" class="btn btn-primary btn-xs" name="btn_review" id="btn_review">预览</button></div>{% endcomment %}
+                </div></div>
+        </div>
+        <div class="col-xs-6">
+            <label class="col-xs-12">财务数据货币单位</label>
+            <div class="col-xs-6">
+                <select id="currency_select" name="currency_type_financial" class="form-control" data-placeholder="请选择">
+                    {% for st in u.CURRENCY_TYPES %}
+                        <option value="{{ st.0 }}" {% if u.currency_type_financial == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class="form-control" style="visibility: hidden">
+                <div id="autosymbol"></div>
+            </div>
+            <label class="col-xs-6">股权交易比例</label>
+            <label class="col-xs-6">交易规模</label>
+            <div class="col-xs-5">
+                <input type="text" id="stock_percent" name="stock_percent" value="{{ u.stock_percent |formatPercent }}" data-type="percent" class="form-control" placeholder="填写百分的数字，例如30%" />
+                <div id="autosymbol"></div>
+            </div>
+            <div class="col-xs-1  font-12 " style="padding-top:6px;">%</div>
+            <div class="col-xs-6">
+                <input type="text" id="deal_size" name="deal_size" value="{{ u.deal_size |formatCurrency4Preference }}" class="form-control" data-type="number" data-maxlength="16" />
+                <div class="autosymbol"></div>
+            </div>
+            <label class="col-xs-12">公司投后估值</label>
+            <div class="col-xs-6">
+                <input type="text" id="expected_enterprice_value" name="expected_enterprice_value" value="{{ u.expected_enterprice_value |formatCurrency4Preference }}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div>
+            </div>
+            <div class="col-xs-6">
+                <input type="text" class="form-control" style="visibility: hidden">
+                <div id="autosymbol"></div>
+            </div>
+            <label class="col-xs-12">历史数据</label>
+            <div class="col-xs-3">
+                <select id="financial_year" name="financial_year" class="form-control" data-placeholder="请选择">
+                    {% for c in history_year %}
+                        <option value="{{ c }}" {% if u.financial_year == c %} selected="selected" {% endif %}>{{ c }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-1">&nbsp;</div>
+            <div class="col-xs-4 financial_year_2 year_title_height">2014</div>
+            <div class="col-xs-4 financial_year_3 year_title_height">2013</div>
+
+            <div class="col-xs-4 history_title">营业收入（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4 history_title">营业收入（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4 history_title">营业收入（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4 history_title"><input type="text" placeholder="" name="income_last_phase" value="{{ u.income_last_phase |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="income_last_phase_2" value="{{ u.income_last_phase_2 |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="income_last_phase_3" value="{{ u.income_last_phase_3 |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+
+            <div class="col-xs-4 history_title">净利润（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4 history_title">净利润（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4 history_title">净利润（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="profit_last_phase" value="{{ u.profit_last_phase |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="profit_last_phase_2" value="{{ u.profit_last_phase_2 |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="profit_last_phase_3" value="{{ u.profit_last_phase_3 |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+
+            <div class="col-xs-4 history_title">EBITDA（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4 history_title">EBITDA（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4 history_title">EBITDA（<span class="currency_unit">CNY</span>）</div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="ebitda" value="{{ u.ebitda |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="ebitda_2" value="{{ u.ebitda_2 |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+            <div class="col-xs-4"><input type="text" placeholder="" name="ebitda_3" value="{{ u.ebitda_3 |formatCurrency4Preference}}" class="form-control" data-type="number" data-maxlength="16" />
+                <div id="autosymbol"></div></div>
+
+            <div class="col-xs-4 history_title">审计情况</div>
+            <div class="col-xs-4 history_title">审计情况</div>
+            <div class="col-xs-4 history_title">审计情况</div>
+            <div class="col-xs-4">
+                <select id="audit_status" name="audit_status" class="form-control" data-placeholder="请选择">
+                    {% for st in u.AUDIT_STATUS %}
+                        <option value="{{ st.0 }}" {% if u.audit_status == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <select id="audit_status_2" name="audit_status_2" class="form-control" data-placeholder="请选择">
+                    {% for st in u.AUDIT_STATUS %}
+                        <option value="{{ st.0 }}" {% if u.audit_status_2 == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-xs-4">
+                <select id="audit_status_3" name="audit_status_3" class="form-control" data-placeholder="请选择">
+                    {% for st in u.AUDIT_STATUS %}
+                        <option value="{{ st.0 }}" {% if u.audit_status_3 == st.0 %} selected="selected" {% endif %}>{{ st.1 }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body push_area">
+        <div class="push_area_title">
+            <div class="push_area_title_left"><h5>选择项目发布方式，发布后会为您匹配潜在买家</h5></div>
+            <div class="push_area_title_right"><button type="button" class="btn btn-primary btn-xs btn_review" name="btn_review" id="btn_review">预览</button></div>
+        </div>
+        <div class="push_area_content">
+            <div><label class="radio-inline" > <input type="radio" name="is_suitor" value="0" style="margin-top:3px;" checked/>
+                <strong>发布到平台</strong><br/>
+                - 为保证平台项目质量，我们需要对发布到平台上的项目进行审核，审核会在24小时内完成<br/>
+                - Newchama的用户会看到您的项目Teaser<br/>
+                - 交易助手会把您的项目发送给有相关需求和订阅的用户<br/>
+                - 查看交易助手为您推荐的买家，定向发送项目信息
+            </label></div>
+            {% comment %}<div><label class="radio-inline"> <input type="radio" name="is_suitor" value="2" style="margin-top:3px;"/>
+            半公开发布。项目发布时，只会发布部分的项目信息，需要您的授权才能查看完整的项目信息
+        </label></div>{% endcomment %}
+            <div>
+                <label class="radio-inline"> <input type="radio" name="is_suitor" value="1" style="margin-top:3px;"/>
+                    <strong>定向发布</strong><br/>
+                    - 选择非公开发布，项目不会被发布到平台<br/>
+                    - 您可以把项目直接发送给平台用户或者平台外部的用户<br/>
+                    - 查看交易助手为您推荐的买家，定向发送项目信息
+                </label></div>
+            <!--<div><label class="radio-inline"> <input type="radio" name="is_suitor" value="3" style="margin-top:3px;"/>
+                暂不发送
+            </label></div><br/>-->
+        </div>
+        <div class="push_area_bottom">
+            <button type="button" class="btn btn-default btn-xs" name="btn_confirm" id="btn_confirm"> 确认 </button>
+            <button type="button" class="btn btn-default btn-xs" name="popColseBtn" id="popColseBtn"> 取消 </button>
+        </div>
+    </div>
+    <div class="panel-body email_area">
+        <div class="tip_" style="font-size:12px; letter-spacing:1px; line-height:25px;">输入外部用户的邮箱，以分号(;)隔开</div>
+        <div>
+            <textarea class="form-control" rows="5" id="other_email"></textarea>
+        </div>
+        <!--<button type="button" class="btn btn-default btn-xs" name="btn_confirm" id="btn_email_confirm"> 确认 </button>
+        <button type="button" class="btn btn-default btn-xs" name="popColseBtn" id="email_popColseBtn"> 取消 </button>-->
+    </div>
+    </form>
+    <div class="panel-body step_class hide_">
+        <div class="col-xs-12">
+            <div class="col-xs-3">
+                <div class="assist_border">
+                    <label class="col-xs-12">行业</label>
+                    <div class="col-xs-12" style="margin-bottom:10px;">
+                        <select id="target_company_industry_0" name="target_company_industry_0" class="form-control " data-required="true" data-error-message="请选择标的公司所在行业" data-placeholder="请选择">
+                            <option value="0">请选择</option>
+                            {% for i in industries %}
+                                <option value="{{ i.id }}" {% if u.d.id == i.id %} selected="selected" {% endif %}>{{ i.name_cn }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-12" style="margin-bottom:10px;">
+                        <select id="target_company_industry_1" name="target_company_industry_1" class="form-control" data-placeholder="请选择">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-12 hide_" >
+                        <select id="target_company_industry_2" name="target_company_industry_2" class="form-control" data-placeholder="请选择">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                    <label class="col-xs-12">地域</label>
+                    <div class="col-xs-12" style="margin-bottom:10px;">
+                        <select id="target_country" name="target_country" class="form-control chosen-select" data-placeholder="请选择">
+                            <option value="0">请选择</option>
+                            {% for country in countries %}
+                                <option value="{{ country.id }}">{{ country.name_cn }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-xs-12" style="margin-bottom:10px;">
+                        <select id="target_province" name="target_province" class="form-control chosen-select" data-placeholder="请选择">
+                            <option value="0">请选择</option>
+                        </select>
+                    </div>
+                    <label class="col-xs-12">推荐理由</label>
+                    <div class="col-xs-12" style="margin-bottom:10px;">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="recomond_reason" value="Relevant Portfolio Company">投资过相关的行业
+                        </label><br/>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="recomond_reason" value="Active Buy-Side Mandates">正在寻找相关标的
+                        </label><br/>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="recomond_reason" value="Company Investment Criteria">持续关注此投资领域
+                        </label><br/>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="recomond_reason" value="Strategic Industry Investor">行业战略投资人
+                        </label>
+                    </div>
+                    <div class="col-xs-12" style="text-align:center;">
+                        <button type="button" class="btn btn-primary btn-xs" name="btn_search" id="btn_search">筛选</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-9">
+                <div style="float:left; margin-top:5px;">
+                    <div class="project_title" style="font-size:16px;color:#59acb8 ">{{ u.name_cn }}</div>
+                    <div>为您匹配到的潜在买家数： <span class="potentialNum">0</span></div></div>
+                <div style="float:right; margin-top:10px;"><button type="button" class="btn btn-primary btn-xs btn_review" name="btn_review" id="btn_review">Teaser预览</button></div>
+                <div class="col-xs-12 assist_button_background">
+                    <button type="button" class="btn btn-default btn-xs" id="btn_add_control" >添加到队列</button>&nbsp;&nbsp;
+                    <button type="button" class="btn btn-default btn-xs" id="btn_add_send" >发送项目</button>&nbsp;&nbsp;
+                </div>
+
+                <table class="col-xs-12 table_recommend table_recommend_1">
+                    <tr>
+                        <th width="5%">&nbsp;</th>
+                        <th width="55%">推荐买家</th>
+                        <th width="20%">推荐理由</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                </table>
+                <div class="news-list-view-all view-more-recommond_1"> <a href="javascript:loadRecommedn1();">查看更多</a> </div>
+                <div class="col-xs-12 hide_ assist_loading" style="text-align: center; ">
+                    <img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'>
+                </div>
+            </div>
+        </div>
+        {% comment %}<div class="pull-right">
+            <ul class="pagination recommend_assist">
+                <li><a href="javascript:;" ref="1" >«</a></li>
+                <li class="active"><a href="javascript:;" ref="1" >1</a></li>
+                <li><a href="javascript:;" ref="2" class="paginate_button">2</a></li>
+                <li><a href="javascript:;" ref="3" class="paginate_button">3</a></li>
+                <li><a href="javascript:;" ref="4" class="paginate_button">4</a></li>
+                <li><a href="javascript:;" ref="5" class="paginate_button">5</a></li>
+                <li><a href="javascript:;" ref="6" class="paginate_button">6</a></li>
+                <li><a href="javascript:;" ref="6" >»</a></li>
+            </ul>
+        </div>{% endcomment %}
+    </div>
+    <div class="panel-body step_class hide_">
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <div style="float:right; margin-bottom:5px;"><button type="button" class="btn btn-primary btn-xs btn_review" name="btn_review" id="btn_review">Teaser预览</button></div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-9">
+                <div class="col-xs-12 assist_button_background">
+                    <div style="float:right;">
+                        <button type="button" class="btn btn-default btn-xs" id="btn_add_new" >添加新的买家</button>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-default btn-xs" id="btn_open_outlook" >发Teaser给外部用户</button>
+                    </div>
+                </div>
+                <div class="col-xs-12 newCompanyArea hide_">
+                    <div>
+                        <button type="button" class="btn btn-default btn-xs" id="target_btn_add" >添加</button>&nbsp;&nbsp;
+                        <button type="button" class="btn btn-default btn-xs" id="target_btn_cancel" >取消</button>&nbsp;&nbsp;
+                    </div>
+                    <div>
+                        <input type="text" id="target_company" class="form-control" placeholder="请选择添加的新买家" />
+                        <input type="hidden" id="target_company_id" />
+                    </div>
+                </div>
+                <table class="col-xs-12 table_recommend table_recommend_2">
+                    <tr>
+                        <th width="55%">推荐买家</th>
+                        <th width="20%">状态</th>
+                        <th width="20%">操作</th>
+                    </tr>
+                </table>
+                <div class="news-list-view-all view-more-recommond_2"> <a href="javascript:loadRecommedn2();">查看更多</a> </div>
+                <div class="col-xs-12 hide_ assist_loading_2" style="text-align: center; ">
+                    <img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'>
+                </div>
+                {% comment %}<div class="pull-right" style="margin-top: 10px">
+                    <ul class="pagination">
+                        <li><a href="?page=1">«</a></li>
+                        <li class="active"><a href="javascript:;">1</a></li>
+                        <li><a href="?page=2" class="paginate_button">2</a></li>
+                        <li><a href="?page=3" class="paginate_button">3</a></li>
+                        <li><a href="?page=4" class="paginate_button">4</a></li>
+                        <li><a href="?page=5" class="paginate_button">5</a></li>
+                        <li><a href="?page=6" class="paginate_button">6</a></li>
+                        <li><a href="?page=6">»</a></li>
+                    </ul>
+                </div>{% endcomment %}
+                <div class="col-xs-12 assist_button_background assist_height_bottom">
+                    相关交易
+                </div>
+                <table class="col-xs-12 table_recommend">
+                    {% for deal in deal_list %}
+                        <tr>
+                            <td>{{deal.title}}</td>
+                        </tr>
+                    {% empty %}
+                        <tr>
+                        <td>暂无数据</td>
+
+                    {% endfor %}
+                </table>
+            </div>
+            <div class="col-xs-3">
+                <div class="col-xs-12 assist_button_background">最近浏览</div>
+                <div class="col-xs-12 assist_border_right">
+                    {% if visitors %}
+                        {% for visitor in visitors %}
+                            <div class="panel-body">
+                                <div class="thumbnail detail-right-thumbnail">
+                                    <a target="_blank" href="{% url 'account.profile' visitor.member.id %}">
+                                        <img src="{% url 'account.avatar' 80 80 visitor.member.avatar%}" />
+                                    </a>
+                                </div>
+                                <div class="detail-right-info">
+                                    <a target="_blank" href="{% url 'account.profile' visitor.member.id %}">{{ visitor.member }}</a><br/>
+                                    <a target="_blank" href="{% url 'account.company' visitor.member.company.id %}" alt="{{ visitor.member.company.name_cn|default:""}}">{{ visitor.member.company.short_name_cn | cut_str:9}}</a><br/><br/>
+                                    {{ visitor.add_time|date:'Y-m-d' }}
+                                </div>
+                            </div>
+                        {% endfor %}
+
+                        {% comment %}{% if visitors_count > 6 %}
+                        <div class="members-list-view-all">
+                            <a href="###">展开</a>
+                        </div>
+                    {% endif %}{% endcomment %}
+                    {% else %}
+                        <div class="members-list-empty">
+                            <p class="members-list-empty-text">最近没人访问，您可以把项目推送给其他买家，提高交易曝光率</p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="col-xs-12 assist_button_background assist_height_bottom">最近关注</div>
+                <div class="col-xs-12 assist_border_right">
+                    {% if followers %}
+                        {% for visitor in followers %}
+                            <div class="panel-body">
+                                <div class="thumbnail detail-right-thumbnail">
+                                    <a target="_blank" href="{% url 'account.profile' visitor.member.id %}">
+                                        <img src="{% url 'account.avatar' 80 80 visitor.member.avatar%}" />
+                                    </a>
+                                </div>
+                                <div class="detail-right-info">
+                                    <a target="_blank" href="{% url 'account.profile' visitor.member.id %}">{{ visitor.member }}</a><br/>
+                                    <a target="_blank" href="{% url 'account.company' visitor.member.company.id %}" alt="{{ visitor.member.company.name_cn|default:""}}">{{ visitor.member.company.short_name_cn | cut_str:9}}</a><br/><br/>
+                                    {{ visitor.add_time|date:'Y-m-d' }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                        {% comment %}{% if followers_count > 6 %}
+                            <div class="members-list-view-all">
+                                <a href="###">展开</a>
+                            </div>
+                        {% endif %}{% endcomment %}
+                    {% else %}
+                        <div class="members-list-empty">
+                            <p class="members-list-empty-text">最近没人关注，您可以完善Teaser信息，更容易让交易被买家关注</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body  ">
+        <div class="col-xs-12">
+            <div class="col-xs-12">
+                <div class=" operate_area">
+                    <button type="button" class="btn btn-default btn-xs" name="btn_next" id="btn_next"> 保存/下一步 </button>
+                    <button type="button" class="btn btn-default btn-xs" name="btn_cancel" id="btn_cancel"> 取消 </button>
+                    <button type="button" class="btn btn-default btn-xs hide_" name="btn_save" id="btn_save"> 保存 </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+{% block footer %}
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.css">
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery-ui-1.11.1.custom/jquery-ui.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/imask/jquery.imask.min.js"></script>
+    <link rel="stylesheet" href="{{STATIC_PREFIX}}js/plugins/datepicker/datepicker.css" />
+    <script src="{{STATIC_PREFIX}}js/datepicker/bootstrap-datepicker.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/common_fill.js?aa=3"></script>
+    <script src="{{STATIC_PREFIX}}js/common/project.js?aa=3"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/jquery.form.js"></script>
+    <script src="{{STATIC_PREFIX}}js/plugins/layer/layer.min.js"></script>
+    <script>
+        function initSelected4Project() {
+            {% if u.company_country.id > 0%}
+                company_country_id = {{ u.company_country.id }};
+                company_province_id = 0;
+                {% if u.company_province.id > 0 %}
+                    company_province_id = {{ u.company_province.id }};
+                {% endif %}
+                LoadProvinces('province', company_country_id, company_province_id);
+            {% endif %}
+            var company_industry_result_value = "{{ u.company_industry.id }}";
+            var company_industry_result_level = "{{ u.company_industry.level }}";
+            var company_industry_result_father_id = "{{ u.company_industry.father.id }}";
+            jQuery("#industry_id").val(company_industry_result_value);
+            if (company_industry_result_level == 1) {
+                $("#company_industry_0").val(company_industry_result_value);
+                industrySelect("company_industry_1", company_industry_result_value);
+            }
+            else {
+                if(company_industry_result_level == 2) {
+                    $("#company_industry_0").val(company_industry_result_father_id);
+                    industrySelect("company_industry_1", company_industry_result_father_id,company_industry_result_value);
+                }
+                else if(company_industry_result_level == 3) {
+                    var company_industry_result_father_father_id = "{{ u.company_industry.father.father.id }}";
+                    $("#company_industry_0").val(company_industry_result_father_father_id);
+                    industrySelect("company_industry_1", company_industry_result_father_father_id, company_industry_result_father_id);
+                    industrySelect("company_industry_2", company_industry_result_father_id,company_industry_result_value);
+                }
+                else {
+                    $("#company_industry_0").val(company_industry_result_value);
+                }
+            }
+            var val = $("#financial_year").val();
+            $(".financial_year_2").html(parseInt(val) - 1);
+            $(".financial_year_3").html(parseInt(val) - 2);
+        }
+
+        initSelected4Project();
+
+        initEdit();
+//emailReview();
+    </script>
+{% endblock %}

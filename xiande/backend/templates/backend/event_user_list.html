@@ -1,0 +1,136 @@
+{% extends "backend/base.html" %}
+
+
+{% block headerbar %} 
+    <div class="headerbar">
+      {% include "backend/headerbar.html" %}  
+    </div><!-- headerbar -->
+{% endblock %}
+
+{% block pageheader %}
+    <div class="pageheader">      
+      <h2><i class="fa fa-home"></i> 活动用户管理</h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="{% url 'backend.index' %}">OliveCMS</a></li>
+          <li class="active">活动用户管理</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+
+
+{% block contentpanel %} 
+ <div class="contentpanel">
+      
+     <div class="row">
+        
+        <div class="col-md-12">
+          <div class="panel panel-default">
+        <div class="panel-heading">
+
+          <h3 class="panel-title">活动用户管理</h3>
+          
+        </div>
+        <div class="panel-body">
+       
+          <div class="table-responsive">
+          <table class="table" id="table1">
+              <thead>
+                 <tr>
+                    <th>#</th>
+                    <th>姓名</th>
+                    <th>手机</th>
+                    <th>地址</th>
+                    <th>加入时间</th>
+                    <th>来源</th>
+                    <th></th>
+                 </tr>
+              </thead>
+              <tbody>
+              
+              {% for item in item_list %}
+                 <tr>
+                    <td>{{item.id}}</td>
+                    <td>{{item.user.first_name}}</td>
+                    <td>{{item.user.get_profile.mobile}}</td>
+                    <td>{{item.user.get_profile.address}}</td>
+                    <td>{{item.user.date_joined}}</td>
+                    <td>{{item.user.get_profile.get_source_display}}</td>
+                    <td class="table-action">
+                      <a href="{% url 'backend.event_user_edit' item.id %}"><i class="fa fa-pencil"></i></a>
+                      <a href="javascript:DoDelete('{% url "backend.event_user_remove" %}',{{ item.id }});" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                    </td>
+                 </tr>
+              {% endfor %}
+                
+              </tbody>
+           </table>
+          </div><!-- table-responsive -->
+          
+        </div><!-- panel-body -->
+      </div><!-- panel -->
+        </div><!-- col-md-6 -->
+        
+       
+      </div>
+     
+      
+    </div><!-- contentpanel -->
+{% endblock %}
+
+
+
+{% block customjs %} 
+<script src="{{STATIC_URL}}backend/js/jquery.datatables.min.js"></script>
+<script src="{{STATIC_URL}}backend/js/chosen.jquery.min.js"></script>
+<script>
+  jQuery(document).ready(function() {
+    
+  
+    $('#table1').dataTable( {
+      "sPaginationType": "full_numbers",
+      "aoColumns": [
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      { "asSorting": [ ] }
+      ],
+      "oLanguage": {
+      "sLengthMenu": "每页显示 _MENU_ 条记录",
+      "sZeroRecords": "抱歉， 没有找到",
+      "sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
+      "sInfoEmpty": "没有数据",
+      "sInfoFiltered": "(从 _MAX_ 条数据中检索)",
+      "oPaginate": {
+      "sFirst": "首页",
+      "sPrevious": "前一页",
+      "sNext": "后一页",
+      "sLast": "尾页"
+      },
+      "sZeroRecords": "没有检索到数据",
+      "sSearch": "搜索:",
+      "sProcessing": "正在加载中..."
+
+      }
+
+      } );
+
+    // Chosen Select
+    jQuery("select").chosen({
+      'min-width': '100px',
+      'white-space': 'nowrap',
+      disable_search_threshold: 10
+    });
+    
+
+    
+  
+  
+  });
+</script>
+{% endblock %}

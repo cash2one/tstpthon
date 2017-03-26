@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>无标题文档</title>
+    </head>
+    <body style=' -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font-family: "Hiragino Sans GB", "Microsoft Yahei", "Helvetica Neue", Helvetica, Arial, sans-serif '>
+        <div  style="box-sizing: border-box;margin: 0 auto;padding: 0;border: 0;font-size: 14px;vertical-align: baseline;max-width: 550px;background: #fff;font-weight:300;color:#3b3b3b;">
+            <div  style="box-sizing: border-box;margin: 0;padding: 20px 0;border: 0;font-size: 14px;vertical-align: baseline;">
+                <img src="http://www.newchama.com/media/img/logo.png" alt="NewChama" style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font-size: 14px;vertical-align: baseline;max-width: 100%;display: block;width: 190px;" />
+            </div>
+            <div  style="box-sizing: border-box;margin: 0;padding: 40px 0px 0;border: 0;font-size: 14px;vertical-align: baseline;">
+                <div  style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font-size: 14px;vertical-align: baseline;line-height: 1.714;margin-bottom: 20px;">
+                    <p  style="box-sizing: border-box;margin: 0;padding: 10px;border: 0;font-size: 14px;vertical-align: baseline;margin-bottom: 0px;">{{ user_name }}，您好！</p>
+                    <p style="box-sizing: border-box;margin: 0;padding: 10px;border: 0;font-size: 14px;vertical-align: baseline;margin-bottom: 10px;">我是{{ publisher_company }} {{ publisher_name }}，向您推送一个您可能感兴趣的项目</p>
+                    <div class="footer1" style="box-sizing: border-box;margin: 0;padding: 0px 0px 0px;border: 0;font-size: 14px;vertical-align: baseline;background: #fff;color: #3B3B3B;text-align: left;">
+                        <table style="width:100%;margin:10px auto 25px;border-spacing:0px;line-height:0px" >
+                            <tbody >
+                                <tr >
+                                    <td style="border-bottom-width:3px;border-bottom-color:#40c7b7;border-bottom-style:solid" >&nbsp;</td>
+                                    <td style="border-bottom-width:3px;border-bottom-color:#40c7b7;border-bottom-style:solid" >&nbsp;</td>
+                                </tr>
+                                <tr >
+                                    <td style="border-top-width:1px;border-top-color:#ffffff;border-top-style:solid" >&nbsp;</td>
+                                    <td style="border-top-width:1px;border-top-color:#ffffff;border-top-style:solid" >&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div  style="box-sizing: border-box;margin: 0;padding: 0px 20px 0px;border: 0;line-height: 1.714;margin-bottom: 20px;">
+                        <p  style="font-weight: bold;box-sizing: border-box;margin: 0;padding: 0;border: 0;font-size: 15px;text-align:center;margin-bottom: 35px;"><a href="{{ link }}">{{ p.name_cn }}</a></p>
+                        <table style="height:10px;border-color:#40c7b7;border-left-style:solid;border-width:4px;margin-bottom: 15px;"><tr><td style="font-weight: bold; font-size: 15px;" valign="top">&nbsp;交易概要</td></tr></table>
+                        <table width="100%" border="0">
+                            <tbody>
+                                <tr>
+                                    <td class="内容" style="text-align: left;font-weight: bold;font-size: 13px;" scope="row">交易类型</td>
+                                    <td class="内容" style="text-align: left; font-weight: bold;font-size: 13px;">{{ table_head_2 }}</td>
+                                    <td class="内容" style="text-align: left; font-weight: bold;font-size: 13px;">{{ table_head_3 }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="内容" style="text-align: left; color: #666;font-size: 13px;" scope="row">{{ p.get_service_type_display | default:'未公布' }}</td>
+                                    <td class="内容" style="text-align: left; color: rgb(102,102,102);font-size: 13px;">{{ table_column_2 }}</td>
+                                    <td class="内容" style="text-align: left; color: rgb(102,102,102);font-size: 13px;">{{ table_column_3 }}</td>
+                                </tr>
+                                <tr></tr>
+                                <tr></tr>
+                                <tr>
+                                    <td class="内容" style="text-align: left; font-weight: bold;font-size: 13px;" scope="row">{{ table_head_4 }}</td>
+                                    <td class="内容" style="text-align: left; font-weight: bold;font-size: 13px;">{{ table_head_5 }}</td>
+                                    <td class="内容" style="text-align: left; font-weight: bold;font-size: 13px;"></td>
+                                </tr>
+                                <tr>
+                                    <td class="内容" style="text-align: left; color: #666;font-size: 13px;" scope="row">{{ table_column_4 }}</td>
+                                    <td class="内容" style="text-align: left; color: #666;font-size: 13px;">{{ table_column_5 }}</td>
+                                    <td class="内容" style="text-align: left; color: #666;font-size: 13px;"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {% if keywords %}
+                    <div  style="box-sizing: border-box;margin: 0;padding: 0px 
+                        20px 0px;border: 0;font-size: 100%;vertical-align: baseline;line-height: 1.714;margin-bottom: 20px;">
+                        <table style="height:10px;border-color:#40c7b7;border-left-style:solid;border-width:4px;margin-bottom: 15px;"><tr><td style="font-weight: bold; font-size: 15px;" valign="top">&nbsp;所在行业</td></tr></table>
+                        <table width="100%" border="0">
+                            <tbody>
+                                <tr>
+                                    <td class="内容" style="text-align: left; color: #666; font-size: 13px;" scope="row">{{ keywords }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    {% endif %}
+                    <div  style="box-sizing: border-box;margin: 0;padding: 0px 20px 0px;border: 0;vertical-align: baseline;line-height: 1.714;margin-bottom: 35px;">
+                        <table style="height:10px;border-color:#40c7b7;border-left-style:solid;border-width:4px"><tr><td style="font-weight: bold; font-size: 15px;" valign="top">&nbsp;投资亮点</td></tr></table>
+                        <p><span class="内容" style="color: #666;font-size: 13px;">{{ p.features_cn | default:'未公布' | safe}}</span></p>
+                    </div>
+                    <div  style="box-sizing: border-box;margin: 0;padding: 0px 20px 0px ;border: 0;font: inherit;font-size: 14px;vertical-align: baseline;line-height: 1.714;margin-bottom: 30px;">
+                        {% if attach_link %}
+                        <a href="{{ attach_link }}" style="box-sizing: border-box;margin: 30px auto 45px;padding: 10px 13px;border: 0;font: inherit;font-size: 14px;vertical-align: baseline;font-family: inherit;font-weight: inherit;line-height: 1;color: #fff!important;border-radius: 0;text-decoration: none;display: block;width: 160px;background: #40c7b7;margin-top: 25px;text-align: center;">查看商业计划书</a>
+                        {% endif %}
+                        <table style="width:100%;margin:10px auto 10px;border-spacing:0px;line-height:0px" >
+                            <tbody >
+                                <tr >
+                                    <td style="border-bottom-width:3px;border-bottom-color:#40c7b7;border-bottom-style:solid" >&nbsp;</td>
+                                    <td style="border-bottom-width:3px;border-bottom-color:#40c7b7;border-bottom-style:solid" >&nbsp;</td>
+                                </tr>
+                                <tr >
+                                    <td style="border-top-width:3px;border-top-color:#ffffff;border-top-style:solid" >&nbsp;</td>
+                                    <td style="border-top-width:3px;border-top-color:#ffffff;border-top-style:solid" >&nbsp;</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div  style="box-sizing: border-box;margin: 0;padding: 10px 0px 15px;border: 0;font: inherit;font-size: 14px;vertical-align: baseline;background: #fff;color: #3B3B3B;text-align: left;">
+                            <p style="font-size: 14px;">NewChama团队<br /><span class="联系标题">E-mail:support@newchama.com<br /><span class="联系标题"></span></span></p>
+                            <img src="http://www.newchama.com/media/img/banner.jpg" alt="" style="box-sizing: border-box;margin: 0;padding: 0;border: 0;font: inherit;font-size: 100%;vertical-align: baseline;max-width: 100%;display: block;" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="{{ log_email_tracking_url }}" width=1 height=0 />
+    </body>
+</html>

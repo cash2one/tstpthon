@@ -1,0 +1,96 @@
+{% extends "common/en-us/base.html" %}
+{% load pagination_tags %}
+{% load myTags %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+            <div class="col-xs-12">
+                <ul class="nav nav-pills top_nav_pills" role="tablist">
+                    {#            <li> <a href="{% url 'sales.mylist' %}">卖方发布({{ total_project }}) </a>#}
+                    {#                <ul class="dropdown-menu" role="menu" aria-labelledby="myTabDrop1">#}
+                    {#                    <li><a href="#dropdown5" tabindex="-1" data-toggle="tab">公开发布</a></li>#}
+                    {#                    <li><a href="#dropdown6" tabindex="-1" data-toggle="tab">定向发布</a></li>#}
+                    {#                    <li><a href="#dropdown6" tabindex="-1" data-toggle="tab">草稿箱</a></li>#}
+                    {#                </ul>#}
+                    </li>
+                    <li> <a href="{% url 'sales.mylist' %}">Sell-Side Deal {# ({{ total_project }}) #}</a>
+                    <li class="active"> <a href="{% url 'purchase.mylist' %}">Buy-Side Mandates{#({{ total_demand }})#} </a>
+                        {#            <li class="dropdown active"> <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown">买方发布({{ total_all }}) <b class="caret"></b></a>#}
+                        {#                <ul class="dropdown-menu" role="menu">#}
+                        {#                     <li class="{{ release }}"><a href="{% url 'purchase.mylist_release' %}" tabindex="-1">已审核({{ total_release }})</a></li>#}
+                        {#                    <li class="{{ offline }}"><a href="{% url 'purchase.mylist_offline' %}" tabindex="-1">已下线({{ total_offline }})</a></li>#}
+                        {#                    <li class="{{ pending }}"><a href="{% url 'purchase.mylist_pending' %}" tabindex="-1">待审核({{ total_pending }})</a></li>#}
+                        {#                    <li class="{{ draft }}"><a href="{% url 'purchase.mylist_draft' %}" tabindex="-1">草稿箱({{ total_draft }})</a></li>#}
+                        {#                </ul>#}
+                        {#            </li>#}
+                </ul>
+                <br/>
+            </div>
+            <div class="col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                    <ul class="news-list">
+                        <li class="nav-header">
+                            <ul class="nav nav-pills top_nav_pills" role="tablist">
+                            <li class="{{ release }}"><a href="{% url 'purchase.mylist_release' %}" tabindex="-1">Released to the Market({{ total_release }})</a></li>
+                            <li class="{{ offline }}"><a href="{% url 'purchase.mylist_offline' %}" tabindex="-1">Off the Market({{ total_offline }})</a></li>
+                            <li class="{{ pending }}"><a href="{% url 'purchase.mylist_pending' %}" tabindex="-1">Pending({{ total_pending }})</a></li>
+                            <li class="{{ not_approved }}"><a href="{% url 'purchase.mylist_not_approved' %}" tabindex="-1">Disapproved({{ total_not_approved }})</a></li>
+                            <li class="{{ draft }}"><a href="{% url 'purchase.mylist_draft' %}" tabindex="-1">Draft Box({{ total_draft }})</a></li>
+                        </ul>
+                        </li>
+                        {% if demands %}
+                            {% autopaginate demands 10%}
+                            {% for d in demands %}
+                            <li class="project-item2">
+                                    {% comment %}<div class="col-xs-1">
+                                    <strong><span class="label label-success">{{ d.get_status_display }}</span></strong>
+                                </div>{% endcomment %}
+                                <div class="col-xs-9">
+                                    <a href="{% url 'purchase.mydetail' d.id %}"><strong>{{ d.name_en|safe | truncatechars:75 }}</strong></a>
+                                </div>
+                                <div class="col-xs-10" style="margin-bottom: 10px;">
+                                    <table class="table index-table-1">
+                                        <tbody>
+                                        <tr class="project-th">
+                                            <td width="15%">Recommendations</td>
+                                            <td width="10%">Pushed</td>
+                                            <td width="15%">Visitor</td>
+                                            <td width="15%">WatchList</td>
+                                            <td width="15%">Message</td>
+                                            <td width="15%">Completion</td>
+                                        </tr>
+                                        <tr>
+                                            <td>{{ d.total_recommends}}</td>
+                                            <td>{{ d.total_target}}</td>
+                                            <td>{{ d.pvs}}</td>
+                                            <td>{{ d.total_favorites}}</td>
+                                            <td>{{ d.not_read_messages}}</td>
+                                            <td>{{ d.integrity | default:'60'}}%</td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    {{ d.intro_en|safe|default:''|replaceBrToEmpty | truncatechars:200}}
+                                </div>
+                                <div class="col-xs-2">
+                                    <span class="pull-right" style="width:230px; text-align:right;">
+                                        <button class="btn-xs btn-primary" onclick="javascript:location.href='{% url "purchase.mydetail" d.id %}'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;BankIng Genius</button>
+                                        <button class="btn-xs btn-primary" onclick="javascript:location.href='{% url "purchase.detail" d.id %}'"><i class="glyphicon glyphicon-eye-open"></i>&nbsp;Detail</button>
+                                        <button class="btn-xs btn-primary" onclick="javascript:location.href='{% url "purchase.edit" d.id %}'"><i class="glyphicon glyphicon-edit"></i>&nbsp;Edit</button>
+                                    </span>
+                                </div>
+                            </li>
+                            {% endfor %}
+                        {% else %}
+                            <div class="news-list-empty">
+                                <p class="news-list-empty-text">No related record</p>
+                            </div>
+                        {% endif %}
+                        <div class="pull-right">
+                            {% paginate %}
+                        </div>
+                    </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "analysis/base.html" %}
+{% load myTags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+        <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+        <div class="breadcrumb-wrapper">
+            <span class="label">You are here:</span>
+            <ol class="breadcrumb">
+                <li><a href="/">NewChama</a></li>
+                <li class="active">多维度复合统计</li>
+            </ol>
+        </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+    <div class="table-responsive">
+    <div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+        {% include "analysis/analysis_nav.html" %}
+        {% comment %}<form id="formData" class="form-horizontal form-bordered" method="get">
+            <h4>用户周活跃度</h4>查询开始时间：<input name="starttime" value="{{ starttime }}">&nbsp;&nbsp;&nbsp;&nbsp;结束时间<input name="endtime" value="{{ endtime }}">
+            <input type="submit" name="btn" value="查询">
+        </form>{% endcomment %}
+        <table class="table table-primary mb30">
+            <thead>
+            <tr>
+                    <th>类型</th>
+                    <th>项目/消息</th>
+                    <th>发送人 - 接收人</th>
+            </tr>
+            </thead
+            <tbody>
+            {% for r in result %}
+                <tr>
+                    <td>{{ r.0 | truncatechars:30 }}</td>
+                    <td width="60%">{{ r.1 }}</td>
+                    <td>
+                        {% for m in r.2 %}{{ m }}<br/>{% endfor %}
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

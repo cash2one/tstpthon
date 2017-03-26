@@ -1,0 +1,70 @@
+{% extends "analysis/base.html" %}
+{% load pagination_tags %}
+{% block title %}AdminUser{% endblock %}
+{% block pageheader %}
+    <div class="pageheader">
+      <h2><i class="fa fa-home"></i> 首页<span>统计分析</span></h2>
+      <div class="breadcrumb-wrapper">
+        <span class="label">You are here:</span>
+        <ol class="breadcrumb">
+          <li><a href="/">NewChama</a></li>
+          <li class="active">统计分析</li>
+        </ol>
+      </div>
+    </div>
+{% endblock %}
+{% block content %}
+
+<div class="table-responsive">
+<div id="table2_wrapper" class="dataTables_wrapper" role="grid">
+       {% include "analysis/analysis_nav.html" %}
+   
+<h4>项目完成度 |  <a href="{% url 'analysis.demand_finish' %}">需求完成度</a></h4>
+    <table class="table table-primary mb30">
+        <thead>
+          <tr>
+            <th rowspan="2">日期</th>
+            <th rowspan="2">项目总数</th>
+            <th colspan="4">中文</th>
+            <th colspan="4">英文</th>
+            
+          </tr>
+
+          <tr>
+            
+            <th>30%以下</th>
+            <th>30%－50%</th>
+            <th>50%－80%</th>
+            <th>80%以上</th>
+            <th>30%以下</th>
+            <th>30%－50%</th>
+            <th>50%－80%</th>
+            <th>80%以上</th>
+          </tr>
+
+        </thead>
+        <tbody>
+          {% autopaginate result_list %}
+        {% for item in result_list %}
+          <tr>
+            <td>{{ item.time | date:'Y-m-d' }}</td>
+            <td>{{ item.all_num }}</td>
+            <td>{{ item.rang_num_1_cn }}</td>
+            <td>{{ item.rang_num_2_cn }}</td>
+            <td>{{ item.rang_num_3_cn }}</td>
+            <td>{{ item.rang_num_4_cn }}</td>
+            <td>{{ item.rang_num_1_en }}</td>
+            <td>{{ item.rang_num_2_en }}</td>
+            <td>{{ item.rang_num_3_en }}</td>
+            <td>{{ item.rang_num_4_en }}</td>
+            
+          </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% paginate %}
+</div>
+{% endblock %}
+{% block customjs %}
+
+{% endblock %}

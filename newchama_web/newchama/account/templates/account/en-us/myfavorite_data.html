@@ -1,0 +1,66 @@
+{% extends "common/en-us/base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">My Collection</h3>
+    </div>
+    <div class="panel-body">
+    <ul class="news-list">
+    {% include "account/zh-cn/myFavorite_nav.html" %}
+    {% if favorites %}
+     <table class="table table-striped">
+        <tbody>
+        {% for d in favorites %}
+            <tr>
+            <td>{{ d.data.title }}</td>
+            <td><i class="glyphicon glyphicon-time"></i> {{ d.add_time|date:'Y-m-d' }}</td>
+            <td><button class="btn-xs btn-primary"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;Delete</button></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+     </table>
+        {% if total_data > 10 %}
+       <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+        <li class="news-list-view-all" id="load_btn"> <a href="javascript:LoadData();">View More</a> </li>
+        {% endif %}
+    {% else %}
+         <div class="news-list-empty">
+            <p class="news-list-empty-text">Delete</p>
+        </div>
+    {% endif %}
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+{% block footer %}
+<script>
+    page=1;
+    pagesize=10;
+    function LoadData()
+    {
+        page++;
+        LoadMoreFavorite('data',page,pagesize);
+    }
+    function LoadMoreFavorite(type,page,pagesize)
+    {
+        $("#loader").show();
+        var url = "/account/ajax_more_favorite?type="+type+"&page="+page+"&pagesize="+pagesize;
+        $.get(url,function(data){
+            var newData = data.replace(/\s/g,'');
+            if(newData)
+            {
+                $(".table-striped tbody").append(data);
+            }else
+            {
+                $("#load_btn").remove();
+            }
+            $("#loader").hide();
+        });
+    }
+    </script>
+{% endblock %}

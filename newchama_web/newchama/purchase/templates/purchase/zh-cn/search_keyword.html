@@ -1,0 +1,85 @@
+{% extends "common/zh-cn/base.html" %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">搜索结果</h3>
+      </div>
+      <div class="panel-body">
+        <ul class="news-list">
+
+        <li class="nav-header">
+        <span class="news-list-item-tags">
+              当前标签：<i class="glyphicon glyphicon-tags"></i>
+              <a class="tag" href="###"><span class="label label-secondary">{{ keyword }}&nbsp;<i class="glyphicon glyphicon-plus"></i></span></a>
+          </span>
+
+        </li>
+
+        <li class="nav-header">
+           <ul class="nav nav-pills top_nav_pills" role="tablist">
+              <li><a href="{% url 'sales.search_keyword'  %}?keyword={{ keyword }}">卖方发布({{ total_project }})</a></li>
+              <li class="active"><a href="{% url 'purchase.search_keyword'  %}?keyword={{ keyword }}">买方发布({{ total_demand }})</a></li>
+              {% comment %}<li><a href="{% url 'news.search_keyword'  %}?keyword={{ keyword }}">新闻({{ total_news }})</a></li>{% endcomment %}
+{#              <li><a href="{% url 'account.search_keyword_company'  %}?keyword={{ keyword }}">机构({{ total_company }})</a></li>#}
+{#              <li><a href="{% url 'account.search_keyword_member'  %}?keyword={{ keyword }}">用户({{ total_member }})</a></li>#}
+            </ul>
+        </li>
+                    {% include "purchase/zh-cn/ajax_list.html" %}
+            {% if total_demand > 5 %}
+                <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+                <li class="news-list-view-all" id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </li>
+            {% endif %}
+                <li class="news-list-view-all" id="btn_add" {% if total_demand > 5 %} style="display: none;" {% endif %}> <a href="{% url 'sales.add' 0 %}">搜索结果不满意？试试提一个卖方项目。&nbsp;&nbsp;<i class="glyphicon glyphicon-plus btn-xs btn-default"></i></a> </li>
+            </ul>
+        </div>
+    </div>
+    </div>
+{#    <div class="col-xs-2">#}
+{#        <div class="panel panel-default">#}
+{#            <div class="panel-heading">#}
+{#                <h3 class="panel-title">搜索记录</h3>#}
+{#            </div>#}
+{#            <div class="panel-body">#}
+{#                <ul class="news-list">#}
+{#                    <li> <span class="news-list-item-title">1、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">2、互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                    <li> <span class="news-list-item-title">3、互联网互联网 中国 800个结果 &nbsp;<a href="###" class="fav_remove_btn"><i class="glyphicon glyphicon-remove"></i>删除</a></span><br /> </li>#}
+{#                </ul>#}
+{#                <br />#}
+{#            </div>#}
+{#        </div>#}
+{#    </div>#}
+    </div>
+{% endblock %}
+{% block footer %}
+    {% include "account/zh-cn/sendmessagemodal.html" %}
+    <script>
+    page =1;
+    keyword='{{ keyword }}';
+    function LoadData()
+    {
+        $("#loader").show();
+        $("#load_btn").hide();
+          page++;
+          var pagesize=5;
+          var url = "/purchase/ajax_more?page="+page+"&pagesize="+pagesize+"&keyword="+keyword;
+          $.get(url,function(data){
+                var newData = data.replace(/\s/g,'');
+                if(newData)
+                {
+                    $("#loader").before(data);
+                    $("#load_btn").show();
+                }else
+                {
+                    $("#load_btn").remove();
+                    $("#btn_add").show();
+                }
+                $("#loader").hide();
+          });
+     }
+    </script>
+{% endblock %}

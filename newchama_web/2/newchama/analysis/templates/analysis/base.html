@@ -1,0 +1,173 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="shortcut icon" href="{% static "images/favicon.ico" %}">
+
+  <title>{% block title %} {% endblock %} -NewChama Admin</title>
+  <link href="{% static "css/style.default.css" %}" rel="stylesheet">
+  <link href="{% static "css/jquery.datatables.css" %}" rel="stylesheet">
+  <link rel="stylesheet" href="{% static "js/jquery-ui-1.11.1.custom/jquery-ui.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/bootstrap-fileupload.min.css" %}">
+  <link rel="stylesheet" href="{% static "css/custom.css" %}">
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="{% static "js/html5shiv.js" %}"></script>
+  <script src="{% static "js/respond.min.js" %}"></script>
+  <![endif]-->
+</head>
+
+<body>
+    
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status"><i class="fa fa-spinner fa-spin"></i></div>
+</div>
+
+<section>
+  
+  <div class="leftpanel">
+    
+    <div class="logopanel">
+        <h1><span>[</span> NewChama <span>]</span></h1>
+    </div><!-- logopanel -->
+        
+    <div class="leftpanelinner">    
+        
+        <!-- This is only visible to small devices -->
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">   
+            <div class="media userlogged">
+{#                <img alt="" src="{% static "images/photos/loggeduser.png" %}" class="media-object">#}
+                <div class="media-body">
+                    <h4>{{ request.session.username }}</h4>
+                    <span>"Life is so..."</span>
+                </div>
+            </div>
+          
+            <h5 class="sidebartitle actitle">Account</h5>
+            <ul class="nav nav-pills nav-stacked nav-bracket mb30">
+              <li><a href="{% url 'adminuser.profile' %}"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+              <li><a href="{% url 'adminuser.changepassword' %}"><i class="fa fa-cog"></i> <span>Change Password</span></a></li>
+              <li><a href="{% url 'adminuser.logout' %}"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+            </ul>
+        </div>
+      
+        {% include "analysis/nav.html" %}
+
+      <!-- infosummary -->
+
+    </div><!-- leftpanelinner -->
+  </div><!-- leftpanel -->
+  
+  <div class="mainpanel">
+    
+    <div class="headerbar">
+      
+      <a class="menutoggle"><i class="fa fa-bars"></i></a>
+      
+
+      <div class="header-right">
+        <ul class="headermenu">
+          <li>
+            <div class="btn-group">
+              <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+
+                {{ request.session.username }}
+                <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                <li><a href="{% url 'adminuser.profile' %}"><i class="glyphicon glyphicon-user"></i> My Profile</a></li>
+                <li><a href="{% url 'adminuser.changepassword' %}"><i class="glyphicon glyphicon-cog"></i> Change Password</a></li>
+                <li><a href="{% url 'adminuser.logout' %}"><i class="glyphicon glyphicon-log-out"></i> Log Out</a></li>
+              </ul>
+            </div>
+          </li>
+        </ul>
+      </div><!-- header-right -->
+      
+    </div><!-- headerbar -->
+    {% block pageheader %}{% endblock %}
+
+    
+    <div class="contentpanel">
+{% block content %} {% endblock %}
+      </div><!-- row -->
+
+      
+    </div><!-- contentpanel -->
+    
+  </div><!-- mainpanel -->
+  
+  <div class="rightpanel">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs nav-justified">
+        <li class="active"><a href="#rp-alluser" data-toggle="tab"><i class="fa fa-users"></i></a></li>
+        <li><a href="#rp-favorites" data-toggle="tab"><i class="fa fa-heart"></i></a></li>
+        <li><a href="#rp-history" data-toggle="tab"><i class="fa fa-clock-o"></i></a></li>
+        <li><a href="#rp-settings" data-toggle="tab"><i class="fa fa-gear"></i></a></li>
+    </ul>
+        
+    <!-- Tab panes -->
+
+  </div><!-- rightpanel -->
+  
+  
+</section>
+
+
+<script src="{% static "js/jquery-1.10.2.min.js" %}"></script>
+<script src="{% static "js/jquery-migrate-1.2.1.min.js" %}"></script>
+<script src="{% static "js/jquery-ui-1.10.3.min.js" %}"></script>
+<script src="{% static "js/bootstrap.min.js" %}"></script>
+<script src="{% static "js/modernizr.min.js" %}"></script>
+<script src="{% static "js/jquery.sparkline.min.js" %}"></script>
+<script src="{% static "js/toggles.min.js" %}"></script>
+<script src="{% static "js/retina.min.js" %}"></script>
+<script src="{% static "js/jquery.cookies.js" %}"></script>
+<script src="{% static "js/bootstrap-fileupload.min.js" %}"></script>
+{% comment %}<script src="{% static "js/flot/flot.min.js" %}"></script>
+<script src="{% static "js/flot/flot.resize.min.js" %}"></script>{% endcomment %}
+<script src="{% static "js/morris.min.js" %}"></script>
+<script src="{% static "js/raphael-2.1.0.min.js" %}"></script>
+
+<script src="{% static "js/jquery.datatables.min.js" %}"></script>
+<script src="{% static "js/chosen.jquery.min.js" %}"></script>
+
+<script src="{% static "js/custom.js" %}"></script>
+{#<script src="{% static "js/dashboard.js" %}"></script>#}
+<script src="{% static "js/jquery.validate.min.js" %}"></script>
+<script src="{% static "js/common.js" %}"></script>
+<script>
+jQuery(document).ready(function(){
+  // Basic Form
+  jQuery("#basicForm").validate({
+    highlight: function(element) {
+      jQuery(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+    },
+    success: function(element) {
+      jQuery(element).closest('.form-group').removeClass('has-error');
+    }
+  });
+
+    //nav current add class
+  var url_location = location.href;
+  jQuery("#ul_nav li a").each(function(){
+      var nav_link = jQuery(this).attr("href");
+      //console.log(nav_link);
+      if(url_location.indexOf(nav_link)>=0)
+      {
+          //console.log(jQuery(this).parent());
+          jQuery(this).parent().addClass("active");
+      }
+  });
+});
+
+</script>
+
+{% block customjs %} {% endblock %}
+</body>
+</html>

@@ -1,0 +1,95 @@
+  <div class="mainbar {% if member.role == 'seller' %}sellerbar{% endif %}">
+
+  <div class="container">
+
+    <button type="button" class="btn mainbar-toggle" data-toggle="collapse" data-target=".mainbar-collapse">
+      <i class="fa fa-bars"></i>
+    </button>
+
+    <div class="mainbar-collapse collapse">
+
+      <ul class="nav navbar-nav mainbar-nav">
+        {% if member.role == 'seller' %}
+        <li {% if title == '卖家首页' %} class="active"{% endif %}>
+          <a href="{% url 'account.seller' %}">
+            <i class="fa fa-home"></i>
+            首页
+          </a>
+        </li>
+
+        <li {% if title == '最新需求' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.new' %}" >
+            <i class="fa fa-bolt"></i>
+            最新需求
+          </a>
+        </li>
+
+        <li {% if title == '需求搜索' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.search' %}">
+          <i class="fa fa-search"></i>
+          需求搜索
+          </a>
+        </li>
+
+        <li {% if title == '发布项目' %} class="active"{% endif %}>
+          <a href="{% url 'sales.add' %}">
+            <i class="fa fa-dollar"></i>
+            发布项目
+          </a>
+        </li>
+
+        <li {% if title == '项目管理' %} class="active"{% endif %}>
+          <a href="{% url 'sales.mylist' %}">
+            <i class="fa fa-folder-open"></i>
+            项目管理
+          </a>
+        </li>
+        {% else %}
+
+        <li {% if title == '买家首页' %} class="active"{% endif %}  >
+          <a href="{% url 'account.buyer' %}">
+            <i class="fa fa-home"></i>
+            首页
+          </a>
+        </li>
+
+        <li {% if title == '最新项目' %} class="active"{% endif %}>
+          <a href="{% url 'sales.new' %}" >
+            <i class="fa fa-bolt"></i>
+            最新项目
+          </a>
+        </li>
+
+        <li {% if title == '项目搜索' %} class="active"{% endif %}>
+          <a href="{% url 'sales.search' %}">
+          <i class="fa fa-search"></i> 
+          项目搜索
+          </a>
+        </li>
+
+        <li {% if title == '发布需求' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.add' %}">
+            <i class="fa fa-dollar"></i>
+            发布需求
+          </a>
+        </li>  
+
+        <li {% if title == '需求管理' or title == '编辑需求' %} class="active"{% endif %}>
+          <a href="{% url 'purchase.mylist' %}">
+            <i class="fa fa-folder-open"></i>
+            需求管理
+          </a>
+        </li>
+
+
+        {% endif %}
+
+
+      </ul>
+
+    </div> <!-- /.navbar-collapse -->   
+
+
+  </div> <!-- /.container --> 
+
+</div> <!-- /.mainbar --> 

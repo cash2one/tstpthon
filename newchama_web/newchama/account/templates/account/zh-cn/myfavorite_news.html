@@ -1,0 +1,69 @@
+{% extends "common/zh-cn/base.html" %}
+{% block content %}
+    <div class="container-fluid" id="newchama_main">
+    <div class="col-xs-12">
+    <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">我的关注</h3>
+    </div>
+    <div class="panel-body">
+    <ul class="news-list">
+    {% include "account/zh-cn/myFavorite_nav.html" %}
+    {% if favorites %}
+     <table class="table table-striped">
+        <tbody>
+        {% for d in favorites %}
+            <tr>
+            <td><a href="{% url 'news.detail' d.news.id %}" target="_blank"> {{ d.news.title }}</a></td>
+            <td align="right">
+                <i class="glyphicon glyphicon-time"></i> {{ d.news.add_time|date:'Y-m-d' }}&nbsp;&nbsp;&nbsp;&nbsp;
+                <button class="btn-xs btn-primary btn-remove-favorite" data-id="{{ d.news.id }}" data-type="news"><i class="glyphicon glyphicon-heart-empty"></i>&nbsp;取消关注</button>
+            </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+     </table>
+        {% if total_news > 10 %}
+         <li class="news-list-view-all" style="display: none;" id="loader"><img src='{{STATIC_PREFIX}}img/loaders/ajax-loader.gif'></li>
+        <li class="news-list-view-all" id="load_btn"> <a href="javascript:LoadData();">查看更多</a> </li>
+        {% endif %}
+    {% else %}
+         <div class="news-list-empty">
+            <p class="news-list-empty-text">暂无关注</p>
+        </div>
+    {% endif %}
+    </ul>
+    </div>
+    </div>
+    </div>
+    </div>
+
+{% endblock %}
+
+{% block footer %}
+<script>
+    page=1;
+    pagesize=10;
+    function LoadData()
+    {
+        page++;
+        LoadMoreFavorite('news',page,pagesize);
+    }
+    function LoadMoreFavorite(type,page,pagesize)
+    {
+        $("#loader").show();
+        var url = "/account/ajax_more_favorite?type="+type+"&page="+page+"&pagesize="+pagesize;
+        $.get(url,function(data){
+            var newData = data.replace(/\s/g,'');
+            if(newData)
+            {
+                $(".table-striped tbody").append(data);
+            }else
+            {
+                $("#load_btn").remove();
+            }
+            $("#loader").hide();
+        });
+    }
+    </script>
+{% endblock %}

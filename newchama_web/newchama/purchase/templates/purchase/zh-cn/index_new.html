@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+{% load i18n %}
+{% load static %}
+{% get_static_prefix as STATIC_PREFIX %}
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+
+    <title>NewChama 让交易更简单</title>
+    <meta name="Keywords" content="并购平台,融资平台,股权平台,股权信息发布,交易服务,纽熙,茶马,茶马古道 " /> 
+    <meta name="Description" content="NewChama，为投资人士量身打造的专 业交易工具。集聚资深专业投行人士经验，深挖交易过程中的每一环需求，将交易过程中的匹配买家、估值定价、行业分析、交易结构设计等撮合 技术产品化，致力打造最专业的投资专业人士工作站。用专业，带来交易美感。" />
+
+    <meta name="format-detection" content="telephone=no, email=no">
+    <link href="{{STATIC_PREFIX}}home/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{STATIC_PREFIX}}home/css/base.css" type="text/css" rel="stylesheet">
+    <script src="{{STATIC_PREFIX}}home/js/html5media.min.js"></script>
+    <link rel="shortcut icon" href="{{STATIC_PREFIX}}img/favicon.ico">
+
+     <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?690046ddb5b2d6eadafc3f2827c92b75";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  </head>
+  <body>
+
+<!-- Fixed navbar -->
+<div class="my_nav" > <a class="logo" style="margin-top:22px" href="/account/gohome"><img src="http://www.newchama.com/static/home/images/logo1.png" height="30"></a>
+  <ul class="top-nav-right">
+            <li><a href="{% url 'account.signup' %}"><span  class="btn btn-primary btn-sm">用户申请</span></a></li>
+            <li style="margin-right:15px;"><a href="{% url 'account.login' %}"><span  class="btn btn-default btn-sm">登录</span></a></li>
+            <!--<li style="padding-top:5px;"><a href="javascript:change_lang('en-us')" class="change_language"><i class="glyphicon glyphicon-globe"></i>&nbsp;EN</a></li>-->
+        
+          </ul>
+</div>
+
+
+<div class="container">
+  <div class="bigtop">
+    <div class="loginbox">
+      <dl>
+        <dt>New<strong>C</strong>ha<strong>m</strong>a<br>让交易更简单</dt>
+        <dd><b>为投资人士量身打造的专业交易工具</b></dd>
+      </dl>
+      <div class="loginbtn"><a href="{% url 'account.signup' %}">申请加入</a></div>
+    </div>
+  </div>
+  <div class="data">
+    <div class="count">
+        汇聚超过<Strong>2000+</Strong>上市公司买家需求，超过<Strong>1000＋PE、VC</Strong>投资人需求，<br/>
+        <Strong>700+</Strong>券商投行投资人士用户，<Strong>50+PE／VC</Strong>投后退出管理部门已经开始使用NewChama</div>
+
+        <div style="width:680px; height:382px; margin:20px auto;">
+          <video src="{{STATIC_PREFIX}}home/images/NewChama0525.mp4" width="680" height="382" controls autobuffer></video>
+        </div>
+
+    <dl class="des">
+      <dt>为投资人士提供的专业交易助手DealGenius</dt>
+      <dd>NewChama，集聚资深专业投行人士经验，深挖交易过程中的每一环需求，将交易过程中的匹配买家、<br/>估值定价、行业分析、交易结构设计等撮合技术产品化，致力打造最专业的投资专业人士工作站。用专业，带来交易美感。</dd>
+    </dl>
+    <ul class="datalist clearfix">
+      <li>
+        <div class="icon"><img src="{{STATIC_PREFIX}}home/images/icon1.gif"></div>
+        <h3>需求洞察</h3>
+        <p>洞察买家的投资需求，<br/>为你呈送最匹配交易机会<br/></p>
+      </li>
+      <li>
+        <div class="icon"><img src="{{STATIC_PREFIX}}home/images/icon2.gif"></div>
+        <h3>实时提醒</h3>
+        <p>定制交易机会追踪，实时<br/>提醒，让你不错过任何热点<br/></p>
+      </li>
+      <li>
+        <div class="icon"><img src="{{STATIC_PREFIX}}home/images/icon3.gif"></div>
+        <h3>决策支持</h3>
+        <p>基于顶级数据库的行业<br/>数据分析，为你运筹帷幄，<br/>交易动向尽收眼底，占尽先机</p>
+      </li>
+      <li>
+        <div class="icon"><img src="{{STATIC_PREFIX}}home/images/icon4.gif"></div>
+        <h3>精准匹配</h3>
+        <p>帮您精准匹配潜在交易<br/>对象，大幅提高交易效率</p>
+      </li>
+      <li>
+        <div class="icon"><img src="{{STATIC_PREFIX}}home/images/icon5.gif"></div>
+        <h3>高活跃买家群落</h3>
+        <p>实现项目信息一键<br/>推送，线上高效反馈</p>
+      </li>
+      <li>
+        <div class="icon"><img src="{{STATIC_PREFIX}}home/images/icon6.gif"></div>
+        <h3>站内即时通信</h3>
+        <p>即时跟进感兴趣的交<br/>易，实时在线沟通交易信息</p>
+      </li>
+    </ul>
+  </div>
+  <div class="pro">
+    <h2>NewChama的专业交易优势</h2>
+    <ul class="clearfix">
+      <li>
+        <h4><b>专业</b></h4>
+        <p>10年专业投资银行交易<br/>经验沉淀“交易专家”为“<br/>交易专家”创建的投资工具</p>
+      </li>
+      <li>
+        <h4><b>信任</b></h4>
+        <p>专业团队及投资人背书<br/>承诺信息安全与信息保密</p>
+      </li>
+      <li>
+        <h4><b>丰富</b></h4>
+        <p>
+            汇聚超过2000+上市公司买家需求，超过1000＋PE、VC投资人需求，700+券商投行投资人士用户，50+PE／VC投后退出管理部门，已经开始使用NewChama
+        </p>
+      </li>
+      <li>
+        <h4><b>聚焦</b></h4>
+        <p>NewChama目前只开放<br/>邀请投资专业人士试用</p>
+      </li>
+    </ul>
+  </div>
+  <div class="partner">
+    <h2>他们正在NewChama创造不可思议的事情</h2>
+    <div class="items"><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo1.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo2.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo3.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo4.gif"></a></div>
+    <div class="items"><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo5.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo6.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo7.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo8.gif"></a></div>
+    <div class="items"><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo9.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo10.gif"></a><a href="#"><img src="{{STATIC_PREFIX}}home/images/logo11.gif"></a></div>
+  </div>
+</div>
+<!-- /container -->
+<div class="join"><span>现在加入NewChama，让交易更简单</span><a href="{% url 'account.signup' %}">申请加入</a></div>
+<div class="footer">
+  <div class="container-fluid">
+    <p><a href="{% url 'home.us' %}">关于我们</a>        ｜    <a href="{% url 'home.bd' %}">商务合作</a>    ｜    <a href="{% url 'home.contact' %}">联系方式</a>     ｜      <a href="{% url 'account.privacy' %}">隐私政策</a>     ｜      <a href="{% url 'account.user' %}">用户条款</a>       
+          <p>版权所有 @2014  NewChama.com    沪ICP备14045386号</p>
+  </div>
+</div>
+
+
+
+
+
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="{{STATIC_PREFIX}}home/js/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="{{STATIC_PREFIX}}home/js/bootstrap.min.js"></script>
+    <script src="{{STATIC_PREFIX}}js/common/lang.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-57230495-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
